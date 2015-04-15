@@ -79,43 +79,45 @@
     <div class="wy-grid-for-nav">
         {# SIDE NAV, TOGGLES ON MOBILE #}
         <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-            <div class="wy-side-nav-project">
-                <a href="{{ pathto(master_doc) }}">{{ project }}</a>
-            </div>
-            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                {% set toctree = toctree(maxdepth=3, collapse=False, includehidden=True) %}
-                {% if toctree %}
-                    {{ toctree }}
-                {% else %}
-                    <div class="local-toc">{{ toc }}</div>
-                {% endif %}
-            </div>
-            <div class="wy-side-nav-search">
-                <div class="wy-side-nav-search-title">Quick search</div>
-                {% include "searchbox.html" %}
-                <div class="wy-side-nav-search-desc">Enter search terms or a module, class or function name.</div>
-            </div>
-            <div class="wy-nav-side-switch"><div class="wy-nav-side-switch__arrow">«</div></div>
-        </nav>
-
-        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-            {# MOBILE NAV, TRIGGLES SIDE NAV ON TOGGLE #}
-            <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-                <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-                <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+            <div class="wy-grid-for-nav-inner">
+                <div class="wy-side-nav-project">
+                    <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+                </div>
+                <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                    {% set toctree = toctree(maxdepth=3, collapse=False, includehidden=True) %}
+                    {% if toctree %}
+                        {{ toctree }}
+                    {% else %}
+                        <div class="local-toc">{{ toc }}</div>
+                    {% endif %}
+                </div>
+                <div class="wy-side-nav-search">
+                    <div class="wy-side-nav-search-title">Quick search</div>
+                    {% include "searchbox.html" %}
+                    <div class="wy-side-nav-search-desc">Enter search terms or a module, class or function name.</div>
+                </div>
+                <div class="wy-nav-side-switch"><div class="wy-nav-side-switch__arrow">«</div></div>
             </nav>
 
-            {# PAGE CONTENT #}
-            <div class="wy-nav-content">
-                <div class="rst-content">
-                    {% include "breadcrumbs.html" %}
-                    <div role="main">
-                        {% block body %}{% endblock %}
+            <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+                {# MOBILE NAV, TRIGGLES SIDE NAV ON TOGGLE #}
+                <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+                    <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+                    <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+                </nav>
+
+                {# PAGE CONTENT #}
+                <div class="wy-nav-content">
+                    <div class="rst-content">
+                        {% include "breadcrumbs.html" %}
+                        <div role="main">
+                            {% block body %}{% endblock %}
+                        </div>
+                        {% include "footer.html" %}
                     </div>
-                    {% include "footer.html" %}
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
   {% include "versions.html" %}
 

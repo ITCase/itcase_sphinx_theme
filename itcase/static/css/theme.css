@@ -2208,7 +2208,8 @@ div[class^='highlight'] pre
 {
 	color: #000;
 	display: block;
-	margin-bottom: 0.809em;
+	margin-right: 1em;
+	margin-bottom: 1em;
 	padding: 0.809em;
 	z-index: 200;
 }
@@ -2305,13 +2306,17 @@ div[class^='highlight'] pre
 	position: absolute;
 	width: 100%;
 }
+.wy-grid-for-nav-inner
+{
+	width: 300px;
+}
 .wy-nav-side
 {
 	background: #eeeeee;
 	/*min-height: 100%;*/
 	overflow: hidden;
 	position: absolute;
-	padding: 0 10px 10px 0;
+	padding: 0 10px 0 0;
 	width: 300px;
 	z-index: 200;
 	top: 15px;
@@ -2482,6 +2487,10 @@ footer p
 }
 @media screen and (max-width: 768px)
 {
+	.wy-nav-side-switch
+	{
+		display: none;
+	}
 	.wy-body-for-nav
 	{
 		background: #fcfcfc;
@@ -2500,7 +2509,7 @@ footer p
 	.wy-nav-side.shift
 	{
 		left: 0;
-		width: 85%;
+		width: 300px;
 	}
 	.wy-nav-content-wrap
 	{
@@ -2513,7 +2522,7 @@ footer p
 	.wy-nav-content-wrap.shift
 	{
 		height: 100%;
-		left: 85%;
+		left: 300px;
 		min-width: 100%;
 		overflow: hidden;
 		position: fixed;

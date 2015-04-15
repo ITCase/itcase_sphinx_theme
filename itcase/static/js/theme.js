@@ -65,7 +65,7 @@ $(function() {
 
   function collapse_sidebar(navHeight) {
     content.addClass("wy-nav-content-wrap-collapse");
-    sidebar.css({ 'width': '12px' });
+    sidebar.css({ 'width': '12px', 'height': sidebar.height() });
     sidebar_arrow.text('»');
     sidebar.attr('title', _('Expand sidebar'));
     document.cookie = 'sidebar=collapsed';
@@ -73,7 +73,7 @@ $(function() {
 
   function expand_sidebar() {
     content.removeClass("wy-nav-content-wrap-collapse");
-    sidebar.css({ 'width': '300px' });
+    sidebar.css({ 'width': '300px', 'height': 'auto' });
     sidebar_arrow.text('«');
     sidebar.attr('title', _('Collapse sidebar'));
     document.cookie = 'sidebar=expanded';

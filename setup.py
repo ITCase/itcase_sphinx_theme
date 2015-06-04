@@ -2,13 +2,13 @@ import os
 
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
 
-setup(name='itcase-sphinx-themes',
+setup(name='itcase-sphinx-theme',
       version=VERSION,
       description=('ITCase Sphinx themes for documentation styling.'),
       long_description=README,

@@ -1,0 +1,2 @@
+recursive-include itcase_sphinx_theme *
+include README.rst

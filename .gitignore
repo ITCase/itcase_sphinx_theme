@@ -1,12 +1,32 @@
-*.egg
-*.egg-info
-*.pyc
-*.pt.py
-*.txt.py
+*~
+*.swo
+*.swp
+.settings
+.project
+.pydevproject
+TODO.*
+nohup.out
+.cache
+.webassets*
+
+# JavaScript
+node_modules
+
+# Python
+cover
 .coverage
-.DS_Store
-env26
-env24
-env27
-build/
-*.ropeproject
+build
+dist
+*.egg-info
+example
+htmlcov
+.ropeproject
+*.pyc
+
+# Docs
+_build
+_themes
+
+# tox
+__pycache__
+.tox

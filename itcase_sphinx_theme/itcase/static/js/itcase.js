@@ -49,6 +49,7 @@
         }
       }
     }
+
     sidebarButton.click(toggleSidebar);
     getSidebarState();
 
@@ -107,7 +108,7 @@
     });
 
     $(document).on('click', '[data-toggle="rst-current-version"]', function() {
-      $('[data-toggle="rst-versions"]').toggleClass('shift-up');
+      $('[data-toggle="rst-versions"]').show();
     });
 
   });

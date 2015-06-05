@@ -107,9 +107,8 @@
           '<div class="wy-table-responsive"></div>');
     });
 
-    $(document).on('click', '.rst-other-versions', function() {
+    $(document).on('click', '.rst-versions', function() {
       $('.rst-other-versions').show();
-      console.log('click');
     });
 
   });

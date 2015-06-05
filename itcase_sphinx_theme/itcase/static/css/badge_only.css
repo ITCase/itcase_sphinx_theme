@@ -14,44 +14,64 @@
   color: #2980b9;
   text-decoration: none;
 }
-.rst-versions .rst-badge-small
+.rst-badge-small
 {
   display: none;
 }
-.rst-versions .rst-current-version
-{
-  background-color: #272525;
-  color: #27ae60;
-  cursor: pointer;
-  display: block;
-  font-size: 90%;
-  padding: 12px 25px 12px 12px;
-  text-align: right;
-  zoom: 1;
-  white-space: nowrap;
-}
-.rst-current-version__name
-{
-  padding: 0 0 0 15px;
-}
-.rst-versions .rst-current-version:before,.rst-versions .rst-current-version:after
-{
-  content: "";
-  display: table;
-}
-.rst-versions .rst-current-version:after
-{
-  clear: both;
-}
-.rst-versions .rst-current-version .fa,.rst-versions .rst-current-version .rst-content .admonition-title,.rst-content .rst-versions .rst-current-version .admonition-title,.rst-versions .rst-current-version .rst-content h1 .headerlink,.rst-content h1 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content h2 .headerlink,.rst-content h2 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content h3 .headerlink,.rst-content h3 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content h4 .headerlink,.rst-content h4 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content h5 .headerlink,.rst-content h5 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content h6 .headerlink,.rst-content h6 .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .rst-content dl dt .headerlink,.rst-content dl dt .rst-versions .rst-current-version .headerlink,.rst-versions .rst-current-version .icon
+  .rst-current-version
+  {
+    background-color: #272525;
+    color: #27ae60;
+    cursor: pointer;
+    display: block;
+    font-size: 90%;
+    padding: 12px 25px 12px 12px;
+    text-align: right;
+    zoom: 1;
+    white-space: nowrap;
+  }
+    .rst-current-version__name
+    {
+      padding: 0 0 0 15px;
+    }
+  .rst-current-version:before
+  {
+    content: "";
+    display: table;
+  }
+  .rst-current-version:after
+  {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.rst-versions .rst-current-version .fa,
+.rst-versions .rst-current-version .rst-content .admonition-title,
+.rst-content .rst-versions .rst-current-version .admonition-title,
+.rst-versions .rst-current-version .rst-content h1 .headerlink,
+.rst-content h1 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content h2 .headerlink,
+.rst-content h2 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content h3 .headerlink,
+.rst-content h3 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content h4 .headerlink,
+.rst-content h4 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content h5 .headerlink,
+.rst-content h5 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content h6 .headerlink,
+.rst-content h6 .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .rst-content dl dt .headerlink,
+.rst-content dl dt .rst-versions .rst-current-version .headerlink,
+.rst-versions .rst-current-version .icon
 {
   color: #fcfcfc;
 }
-.rst-versions .rst-current-version .fa-book,.rst-versions .rst-current-version .icon-book
+.rst-versions .rst-current-version .fa-book,
+.rst-versions .rst-current-version .icon-book
 {
   float: left;
 }
-.rst-versions .rst-current-version .icon-book
+.rst-current-version .icon-book
 {
   float: left;
 }
@@ -109,7 +129,8 @@
 {
   float: none;
 }
-.rst-versions.rst-badge .fa-book,.rst-versions.rst-badge .icon-book
+.rst-versions.rst-badge .fa-book,
+.rst-versions.rst-badge .icon-book
 {
   float: none;
 }
@@ -117,7 +138,8 @@
 {
   text-align: right;
 }
-.rst-versions.rst-badge.shift-up .rst-current-version .fa-book,.rst-versions.rst-badge.shift-up .rst-current-version .icon-book
+.rst-versions.rst-badge.shift-up .rst-current-version .fa-book,
+.rst-versions.rst-badge.shift-up .rst-current-version .icon-book
 {
   float: left;
 }
@@ -134,6 +156,9 @@
   text-align: center;
   width: auto;
 }
+
+
+
 @media screen and (max-width: 768px)
 {
   .rst-versions

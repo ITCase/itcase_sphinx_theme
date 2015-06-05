@@ -1,5 +1,4 @@
 {% if READTHEDOCS %}
-    {# Add rst-badge after rst-versions for small badge style. #}
     <div class="rst-versions" data-toggle="rst-versions">
         <span class="rst-current-version" data-toggle="rst-current-version">
             <span class="fa fa-book">&nbsp;</span>
@@ -14,23 +13,6 @@
                         <a href="{{ url }}">{{ slug }}</a>
                     </dd>
                 {% endfor %}
-            </dl>
-            <dl>
-                <dt>Downloads</dt>
-                {% for type, url in downloads %}
-                    <dd>
-                        <a href="{{ url }}">{{ type }}</a>
-                    </dd>
-                {% endfor %}
-            </dl>
-            <dl>
-                <dt>On Read the Docs</dt>
-                <dd>
-                    <a href="//{{ PRODUCTION_DOMAIN }}/projects/{{ slug }}/?fromdocs={{ slug }}">Project Home</a>
-                </dd>
-                <dd>
-                    <a href="//{{ PRODUCTION_DOMAIN }}/builds/{{ slug }}/?fromdocs={{ slug }}">Builds</a>
-                </dd>
             </dl>
             <hr/>
             Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.

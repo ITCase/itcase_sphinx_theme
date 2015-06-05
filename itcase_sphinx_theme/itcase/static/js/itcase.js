@@ -1,99 +1,114 @@
-$(function() {
+(function($){
 
-  var content = $('.wy-nav-content-wrap');
-  var sidebar = $('.wy-nav-side');
-  var sidebar_button = $('.wy-nav-side-switch');
-  var sidebar_arrow = $('.wy-nav-side-switch__arrow');
+  'use strict';
 
+  $(window).load(function(){
 
-  function toggle_sidebar() {
-    console.log(sidebar.width());
-    if (content.hasClass("wy-nav-content-wrap-collapse"))
-      expand_sidebar();
-    else
-      collapse_sidebar();
-  }
+    var content = $('.wy-nav-content-wrap'),
+        sidebar = $('.wy-nav-side'),
+        sidebarButton = $('.wy-nav-side-switch'),
+        sidebarArrow = $('.wy-nav-side-switch__arrow');
 
-  function collapse_sidebar(navHeight) {
-    content.addClass("wy-nav-content-wrap-collapse");
-    sidebar.css({ 'width': '12px', 'height': sidebar.height() });
-    sidebar_arrow.text('»');
-    sidebar.attr('title', _('Expand sidebar'));
-    document.cookie = 'sidebar=collapsed';
-  }
-
-  function expand_sidebar() {
-    content.removeClass("wy-nav-content-wrap-collapse");
-    sidebar.css({ 'width': '300px', 'height': 'auto' });
-    sidebar_arrow.text('«');
-    sidebar.attr('title', _('Collapse sidebar'));
-    document.cookie = 'sidebar=expanded';
-  }
-
-  function set_position_from_cookie() {
-    if (!document.cookie)
-      return;
-    var items = document.cookie.split(';');
-    for(var k=0; k<items.length; k++) {
-      var key_val = items[k].split('=');
-      var key = key_val[0];
-      if (key == 'sidebar') {
-        var value = key_val[1];
-        if (value == 'collapsed')
-          collapse_sidebar();
-        else if (value == 'expanded')
-          expand_sidebar();
+    function toggleSidebar() {
+      if (content.hasClass('wy-nav-content-wrap-collapse')) {
+        expandSidebar();
+      } else {
+        collapseSidebar();
       }
     }
-  }
-  sidebar_button.click(toggle_sidebar);
-  set_position_from_cookie();
-});
 
-window.SphinxRtdTheme = (function (jquery) {
-  var stickyNav = (function () {
-      var navBar,
-          win,
-          stickyNavCssClass = 'stickynav',
-          applyStickNav = function () {
+    function collapseSidebar(navHeight) {
+      content.addClass('wy-nav-content-wrap-collapse');
+      sidebar.css({ width: '12px', height: navHeight });
+      sidebarArrow.text('»');
+      sidebar.attr('title', ('Expand sidebar'));
+      document.cookie = 'sidebar=collapsed';
+    }
+
+    function expandSidebar() {
+      content.removeClass('wy-nav-content-wrap-collapse');
+      sidebar.css({ width: '300px', height: 'auto' });
+      sidebarArrow.text('«');
+      sidebar.attr('title', ('Collapse sidebar'));
+      document.cookie = 'sidebar=expanded';
+    }
+
+    function getSidebarState() {
+      if (!document.cookie) { return; }
+      var items = document.cookie.split(';');
+      for(var k=0; k<items.length; k++) {
+        var keyVal = items[k].split('=');
+        var key = keyVal[0];
+        if (key === 'sidebar') {
+          var value = keyVal[1];
+          if (value === 'collapsed'){
+            collapseSidebar();
+          } else if (value === 'expanded') {
+            expandSidebar();
+          }
+        }
+      }
+    }
+    sidebarButton.click(toggleSidebar);
+    getSidebarState();
+
+    window.SphinxRtdTheme = (function(jquery) {
+      var stickyNav = (function() {
+        var navBar,
+            win,
+            stickyNavCssClass = 'stickynav',
+            applyStickNav = function() {
               if (navBar.height() <= win.height()) {
-                  navBar.addClass(stickyNavCssClass);
+                navBar.addClass(stickyNavCssClass);
               } else {
-                  navBar.removeClass(stickyNavCssClass);
+                navBar.removeClass(stickyNavCssClass);
               }
-          },
-          enable = function () {
+            },
+            enable = function() {
               applyStickNav();
               win.on('resize', applyStickNav);
-          },
-          init = function () {
+            },
+            init = function() {
               navBar = jquery('nav.wy-nav-side:first');
               win    = jquery(window);
-          };
-      jquery(init);
-      return {
+            };
+        jquery(init);
+        return {
           enable : enable
+        };
+      }());
+      return {
+        StickyNav : stickyNav
       };
-  }());
-  return {
-      StickyNav : stickyNav
-  };
-}($));
+    }($));
 
-$(document ).ready(function() {
-    // Shift nav in mobile when clicking the menu.
-    $(document).on('click', "[data-toggle='wy-nav-top']", function() {
-      $("[data-toggle='wy-nav-shift']").toggleClass("shift");
-      $("[data-toggle='rst-versions']").toggleClass("shift");
+    $(document ).ready(function() {
+      // Shift nav in mobile when clicking the menu.
+      $(document).on('click', '[data-toggle="wy-nav-top"]', function() {
+        $('[data-toggle="wy-nav-shift"]').toggleClass('shift');
+        $('[data-toggle="rst-versions"]').toggleClass('shift');
+      });
+
+      // Close menu when you click a link.
+      $(document).on('click',
+        '.wy-menu-vertical .current ul li a',function() {
+          $('[data-toggle="wy-nav-shift"]').removeClass('shift');
+          $('[data-toggle="rst-versions"]').toggleClass('shift');
+        });
+
+      $(document).on('click',
+        '[data-toggle="rst-current-version"]', function(){
+          $('[data-toggle="rst-versions"]').toggleClass('shift-up');
+        });
+
+      // Make tables responsive
+      $('table.docutils:not(.field-list)').wrap(
+          '<div class="wy-table-responsive"></div>');
     });
-    // Close menu when you click a link.
-    $(document).on('click', ".wy-menu-vertical .current ul li a", function() {
-      $("[data-toggle='wy-nav-shift']").removeClass("shift");
-      $("[data-toggle='rst-versions']").toggleClass("shift");
+
+    $(document).on('click', '[data-toggle="rst-current-version"]', function() {
+      $('[data-toggle="rst-versions"]').toggleClass('shift-up');
     });
-    $(document).on('click', "[data-toggle='rst-current-version']", function() {
-      $("[data-toggle='rst-versions']").toggleClass("shift-up");
-    });
-    // Make tables responsive
-    $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
-});
+
+  });
+})(jQuery);

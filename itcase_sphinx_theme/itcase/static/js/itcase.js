@@ -106,10 +106,5 @@
       $('table.docutils:not(.field-list)').wrap(
           '<div class="wy-table-responsive"></div>');
     });
-
-    $(document).on('click', '.rst-versions', function() {
-      $('.rst-other-versions').show();
-    });
-
   });
 })(jQuery);

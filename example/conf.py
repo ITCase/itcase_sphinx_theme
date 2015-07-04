@@ -272,9 +272,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'itcase_sphinx_theme_example', u'itcase_sphinx_theme_example Documentation',
-   author, 'itcase_sphinx_theme_example', 'One line description of project.',
-   'Miscellaneous'),
+  (master_doc, 'Example', u'Example Documentation',
+   author, 'Example', 'One line description of project.', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

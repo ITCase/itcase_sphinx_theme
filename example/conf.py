@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# itcase-gallery documentation build configuration file, created by
-# sphinx-quickstart on Tue Jun 23 16:03:49 2015.
+# itcase_sphinx_theme_example documentation build configuration file, created by
+# sphinx-quickstart on Sat Jul  4 17:19:04 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -33,11 +33,12 @@ import itcase_sphinx_theme
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['templates']
+templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -51,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'example'
+project = u'itcase_sphinx_theme_example'
 copyright = u'2015, ITCase'
 author = u'ITCase'
 
@@ -69,7 +70,7 @@ release = '0.0.1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'ru'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -106,7 +107,7 @@ pygments_style = 'sphinx'
 #keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -142,7 +143,7 @@ html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -205,7 +206,7 @@ html_static_path = ['static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'itcase-exampledoc'
+htmlhelp_basename = 'itcase_sphinx_theme_exampledoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -227,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'itcase-example.tex', u'itcase-gallery Documentation',
+  (master_doc, 'itcase_sphinx_theme_example.tex', u'itcase\\_sphinx\\_theme\\_example Documentation',
    u'ITCase', 'manual'),
 ]
 
@@ -257,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'itcase-gallery', u'itcase-gallery Documentation',
+    (master_doc, 'itcase_sphinx_theme_example', u'itcase_sphinx_theme_example Documentation',
      [author], 1)
 ]
 
@@ -271,8 +272,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'itcase-gallery', u'itcase-gallery Documentation',
-   author, 'itcase-gallery', 'One line description of project.',
+  (master_doc, 'itcase_sphinx_theme_example', u'itcase_sphinx_theme_example Documentation',
+   author, 'itcase_sphinx_theme_example', 'One line description of project.',
    'Miscellaneous'),
 ]
 

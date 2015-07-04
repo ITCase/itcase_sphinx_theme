@@ -503,7 +503,7 @@ Sphinx расширяет возможности создания ссылок, 
 
     Вставка изображения между слов |кубик-рубика| осуществляться с помощью функции автозамены:
 
-    .. |кубик-рубика| image:: static/favicon.ico
+    .. |кубик-рубика| image:: _static/favicon.ico
 
 
 .. |кубик-рубика| image:: static/favicon.ico
@@ -512,7 +512,7 @@ Sphinx расширяет возможности создания ссылок, 
 
 ::
 
-    .. figure:: static/favicon.png
+    .. figure:: _static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -523,7 +523,7 @@ Sphinx расширяет возможности создания ссылок, 
 
 .. _my-favicon:
 
-.. figure:: static/favicon.png
+.. figure:: _static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -765,6 +765,8 @@ Sphinx расширяет возможности отображения форм
 .. tip:: Блок **Совет**, команда: ``.. tip::``
 
 .. warning:: Блок **Предупреждение**, команда: ``.. warning::``
+
+.. todo:: Блок **План**, команда: ``.. todo::``
 
 
 Код блоков выглядит так:

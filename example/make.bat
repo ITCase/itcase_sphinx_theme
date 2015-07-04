@@ -127,9 +127,9 @@ if "%1" == "qthelp" (
 	echo.
 	echo.Build finished; now you can run "qcollectiongenerator" with the ^
 .qhcp project file in %BUILDDIR%/qthelp, like this:
-	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\itcase-gallery.qhcp
+	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\itcase_sphinx_theme_example.qhcp
 	echo.To view the help file:
-	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\itcase-gallery.ghc
+	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\itcase_sphinx_theme_example.ghc
 	goto end
 )
 
@@ -267,4 +267,5 @@ if "%1" == "livehtml" (
 	echo.Build finished.
 	goto end
 )
+
 :end

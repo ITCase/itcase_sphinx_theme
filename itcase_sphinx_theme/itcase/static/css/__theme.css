@@ -266,7 +266,8 @@ body {
   padding: 1em 0 1em 20px;
 }
 
-.menu-project__link {
+.menu-project__link,
+.menu-project__link:visited {
   color: #0072aa;
   font: 1.6em 'Open Sans', Arial, sans-serif;
 }
@@ -374,9 +375,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  overflow: auto;
-  max-height: 100%;
   background: #eeeeee;
 }
 
@@ -450,7 +448,8 @@ body {
   line-height: 1.5em;
 }
 
-.rst-content a {
+.rst-content a,
+.rst-content a:visited {
   color: #0072aa;
 }
 
@@ -548,7 +547,7 @@ body {
 
 .rst-content .docutils.citation .label,
 .rst-content .docutils.footnote .label {
-  padding: 0 1em 0 0;
+  padding: 0.7em 1em 0 0;
   vertical-align: top;
 }
 
@@ -1992,8 +1991,25 @@ div[class^='highlight'] td.code
 .wy-nav-top {
   display: none;
 }
+
+
+.toctree-wrapper ul.current {
+  padding: 0;
+  margin: 0 0 0 1em;
+  list-style: disc;
+}
+
+.toctree-wrapper .toctree-l1 ul {
+  margin: 0 0 0 1em;
+  padding: 0;
+}
+
+.toctree-wrapper li {
+  padding: 0.3em 0;
+  margin: 0 0 0 0.5em;
+}
 .tree {
-  margin: 0 20px 0 0;
+  /*margin: 0 20px 0 0;*/
 }
 
 .tree header {
@@ -2082,7 +2098,8 @@ div[class^='highlight'] td.code
   padding: 0.4045em 2.427em 0.4045em 3.427em;
 }
 
-.tree a {
+.tree a,
+.tree a:visited {
   color: #000;
   display: block;
   font: 0.85em 'Open Sans', Arial, sans-serif;

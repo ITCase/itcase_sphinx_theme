@@ -66,14 +66,17 @@
   color: #000;
   line-height: 1.5em;
 }
-.rst-content a
+.rst-content a,
+.rst-content a:visited
 {
  color: #0072aa;
 }
+
 .rst-content a:hover
 {
  color: #000;
 }
+
 .rst-content img
 {
   height: auto;
@@ -169,7 +172,7 @@
 .rst-content .docutils.citation .label,
 .rst-content .docutils.footnote .label
 {
-  padding: 0 1em 0 0;
+  padding: 0.7em 1em 0 0;
   vertical-align: top;
 }
 

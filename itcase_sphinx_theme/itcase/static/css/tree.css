@@ -1,6 +1,6 @@
 .tree
 {
-  margin: 0 20px 0 0;
+  /*margin: 0 20px 0 0;*/
 }
 .tree header
 {
@@ -89,7 +89,8 @@
 {
   padding: 0.4045em 2.427em 0.4045em 3.427em;
 }
-.tree a
+.tree a,
+.tree a:visited
 {
   color: #000;
   display: block;
@@ -103,6 +104,7 @@
   background-color: rgb(204, 204, 204);
   cursor: pointer;
 }
+
 .tree a:active
 {
   background-color: #2980b9;

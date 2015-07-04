@@ -8,7 +8,8 @@
   {
     padding: 1em 0 1em 20px;
   }
-    .menu-project__link
+    .menu-project__link,
+    .menu-project__link:visited
     {
       color: #0072aa;
       font: 1.6em 'Open Sans', Arial, sans-serif;

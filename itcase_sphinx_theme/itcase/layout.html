@@ -89,7 +89,7 @@
                     <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
                 </div>
                 <div class="tree">
-                    {% set toctree = toctree(maxdepth=3, collapse=True, includehidden=True) %}
+                    {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
                     {% if toctree %}
                         {{ toctree }}
                     {% else %}

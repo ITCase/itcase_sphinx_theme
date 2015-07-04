@@ -1,0 +1,44 @@
+{
+  "name": "itcase_sphinx_theme",
+  "version": "0.0.1",
+  "authors": [
+    "ITCase <info@itcase.pro>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "html5-boilerplate": "~5.2.0",
+    "normalize.css": "~3.0.3",
+    "enscroll": "~0.6.0"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.otf",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    },
+    "html5-boilerplate": {
+      "main": [
+        "dist/css/main.css"
+      ]
+    },
+    "enscroll": {
+      "main": [
+        "js/mylibs/enscroll.js"
+      ]
+    }
+  }
+}

@@ -1,33 +1,25 @@
-*~
+*.egg-info
+*.map
+*.pyc
+*.sqlite*
+*.sublime*
 *.swo
 *.swp
-.settings
+*~
+.cache
+.coverage
 .project
 .pydevproject
-TODO.*
-nohup.out
-.cache
-.webassets*
-*.sublime*
-
-# JavaScript
-node_modules
-
-# Python
-cover
-.coverage
-build
-dist
-*.egg-info
-example
-htmlcov
 .ropeproject
-*.pyc
-
-# Docs
+.settings
 _build
 _themes
-
-# tox
-__pycache__
-.tox
+bower_components
+build
+cover
+dist
+node_modules
+nohup.out
+phantomjsdriver.log
+TODO
+TODO.txt

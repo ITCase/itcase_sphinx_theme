@@ -35,6 +35,7 @@ var Cookies = require('./vendor/js.cookie.js');
     // });
 
     function collapseTree() {
+      menu.data('state', 'collapse');
       menu.addClass('menu__state_collapse');
       pageLeft.addClass('page__left_state_collapse');
       pageRight.addClass('page__right_state_expand');
@@ -43,6 +44,7 @@ var Cookies = require('./vendor/js.cookie.js');
     }
 
     function expandTree() {
+      menu.data('state', 'expand');
       menu.removeClass('menu__state_collapse');
       pageLeft.removeClass('page__left_state_collapse');
       pageRight.removeClass('page__right_state_expand');
@@ -58,10 +60,6 @@ var Cookies = require('./vendor/js.cookie.js');
         collapseTree();
         menu.data('state', 'collapse');
       }
-    });
-
-    $(document).on('click', '[data-toggle="rst-current-version"]', function(){
-      $('[data-toggle="rst-versions"]').toggleClass('shift-up');
     });
 
     getTreeState();

@@ -18,6 +18,7 @@
       font: 1.6em 'Open Sans', Arial, sans-serif;
       word-wrap: break-word;
       white-space: pre-wrap;
+      line-height: 1.1em;
     }
     .menu-project__link:hover
     {

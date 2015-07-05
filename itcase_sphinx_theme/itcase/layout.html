@@ -22,15 +22,6 @@
     {% endif %}
 
     {% if not embedded %}
-        <script type="text/javascript">
-            var DOCUMENTATION_OPTIONS = {
-                    URL_ROOT: '{{ url_root }}',
-                    VERSION: '{{ release|e }}',
-                    COLLAPSE_INDEX: false,
-                    FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
-                    HAS_SOURCE: {{ has_source|lower }}
-                };
-        </script>
         {% if use_opensearch %}
             <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}"/>
         {% endif %}
@@ -121,6 +112,18 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ pathto('_static/js/__theme.js', 1) }}"></script>
+
+    {% if not embedded %}
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                    URL_ROOT: '{{ url_root }}',
+                    VERSION: '{{ release|e }}',
+                    COLLAPSE_INDEX: false,
+                    FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
+                    HAS_SOURCE: {{ has_source|lower }}
+                };
+        </script>
+    {% endif %}
 
     {% include "versions.html" %}
     {% if theme_sticky_navigation %}{% endif %}

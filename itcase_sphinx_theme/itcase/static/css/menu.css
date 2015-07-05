@@ -12,9 +12,12 @@
     .menu-project__link,
     .menu-project__link:visited
     {
+      width: 100%;
+      display: inline-block;
       color: #0072aa;
       font: 1.6em 'Open Sans', Arial, sans-serif;
       word-wrap: break-word;
+      white-space: pre-wrap;
     }
     .menu-project__link:hover
     {

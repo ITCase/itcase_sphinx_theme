@@ -1,4 +1,4 @@
-{% if READTHEDOCS %}
+
     <div class="rst-versions">
         <div class="rst-current-version clearfix">
             <div class="rst-current-version__rtd">
@@ -27,80 +27,3 @@
             $('.rst-other-versions').toggle();
         });
     </script>
-{% else %}
-<div class="rst-versions">
-        <div class="rst-current-version clearfix">
-            <div class="rst-current-version__rtd">
-                <i class="rst-current-version__rtd-icon fa fa-book">&nbsp;</i>
-                <span class="rst-current-version__rtd-desc">Read the Docs</span>
-            </div>
-            <div class="rst-current-version__selector">
-                <span class="rst-current-version__name">v: latest</span>
-                <i class="fa fa-caret-down">&nbsp;</i>
-            </div>
-        </div>
-        <div class="rst-other-versions" style="display: block;"><!-- Inserted RTD Footer -->
-<div class="injected">
-
-
-      <dl class="rst-other-versions__group">
-        <dt class="rst-other-versions__group-title">Versions</dt>
-
-         <strong>
-
-        <dd class="rst-other-versions__group-item"><a class="rst-other-versions__group-item-link" href="/en/latest/">latest</a></dd>
-
-         </strong>
-
-
-
-        <dd class="rst-other-versions__group-item"><a class="rst-other-versions__group-item-link" href="/en/stable/">stable</a></dd>
-
-
-
-      </dl>
-
-
-
-      <dl class="rst-other-versions__group">
-        <dt class="rst-other-versions__group-title">Bookmark</dt>
-        <dd class="rst-other-versions__group-item">
-
-          <div class="bookmark-icon">
-            <div class="bookmark-inactive">
-              <a class="bookmark" token="xM4IYmSyZKqdP0hF0xz7AO0uEu21cwxp">
-                <img src="https://media.readthedocs.org//images/bookmark-icon-default.png">
-              </a>
-            </div>
-
-            <div class="bookmark-active">
-              <a class="bookmark" token="xM4IYmSyZKqdP0hF0xz7AO0uEu21cwxp">
-                <img src="https://media.readthedocs.org//images/bookmark-icon-active.png">
-              </a>
-            </div>
-
-            <div class="bookmark-added-msg"></div>
-          </div>
-        </dd>
-      </dl>
-
-
-      <dl>
-        <dt>Search</dt>
-        <dd>
-          <div style="padding: 6px;">
-            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/itcase-sphinx-theme/search/" method="get">
-              <input type="text" name="q" placeholder="Search docs">
-              </form>
-          </div>
-        </dd>
-      </dl>
-
-
-
-      <hr>
-      Free document hosting provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</div>
-</div>
-    </div>
-{% endif %}

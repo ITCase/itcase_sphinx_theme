@@ -704,10 +704,20 @@ Sphinx расширяет возможности создания ссылок, 
 
     .. image:: picture.jpeg
        :height: 100px
-       :width: 200 px
-       :scale: 50 %
+       :width: 200px
+       :scale: 50%
        :alt: alternate text
        :align: right
+
+
+.. figure:: static/sphinx.jpg
+    :width: 60%
+    :align: center
+    :alt: Альтернативный текст
+
+    Сфинкс
+
+    (др.-греч. Σφίγξ, Σφιγγός, сфинга, собств. «душительница») — зооморфное мифическое существо
 
 
 .. _table-label:

@@ -5,8 +5,28 @@ if (typeof Cookies === 'undefined') {
   var Cookies = require('./vendor/js.cookie.js');
 }
 
+
 (function($){
   $(window).load(function(){
+
+    require('./vendor/jquery.fancybox.js');
+
+    $('.internal.image-reference').fancybox({
+      padding : 3,
+      beforeShow : function() {
+        var alt = this.element.find('img').attr('alt');
+        this.inner.find('img').attr('alt', alt);
+        this.title = alt;
+      },
+      helpers : {
+        title : {
+          type : 'over'
+        },
+        overlay: {
+          locked: false
+        }
+      }
+    });
 
     var menu = $('.menu'),
         menuSwitch = $('.menu-switch'),
@@ -53,6 +73,11 @@ if (typeof Cookies === 'undefined') {
         collapseTree();
         menu.data('state', 'collapse');
       }
+    });
+
+    $('.internal.image-reference').on('click', function(event){
+      $(this).fancybox();
+      event.preventDefault();
     });
 
     getTreeState();

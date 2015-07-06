@@ -94,7 +94,7 @@ gulp.task('bower-img', function() {
     .pipe(plugins.rename(function(path) {
       path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1);
     }))
-    .pipe(gulp.dest(IMG_PATH))
+    .pipe(gulp.dest(IMG_PATH + 'vendor/'))
     .pipe(map(function(code, filename) {
       plugins.util.log('Bower Images ' +
       plugins.util.colors.green(filename));
@@ -142,7 +142,7 @@ gulp.task('browserify', function() {
 
 
 gulp.task('clean', function() {
-  del([JS_PATH + 'vendor/',CSS_PATH + 'vendor/',
+  del([JS_PATH + 'vendor/', CSS_PATH + 'vendor/', IMG_PATH + 'vendor/',
        TARGET_CSS_PATH, TARGET_JS_PATH], function (err, paths) {
     plugins.util.log('Deleted files/folders: ' +
     plugins.util.colors.red(paths.join('\n')));

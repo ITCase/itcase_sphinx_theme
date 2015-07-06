@@ -67,6 +67,7 @@
     .rst-other-versions__group,
     .rst-other-versions dl
     {
+      width: 100%;
       padding: 0 0 0.9em 0;
       margin: 0;
       display: table;
@@ -74,7 +75,7 @@
       .rst-other-versions__group-title,
       .rst-other-versions dt
       {
-        font: 1.25em 'Open Sans', Arial, sans-serif;
+        font: 1.2em 'Open Sans', Arial, sans-serif;
         padding: 0 0 0.2em 0;
       }
       .rst-other-versions__group-item,
@@ -96,6 +97,11 @@
         {
           color: #99CCFF
         }
+      .rst-other-versions dl:nth-child(4),
+      .rst-other-versions dl:nth-child(5)
+      {
+        display: none;
+      }
     .rst-other-versions__info
     {
       font: 0.95em 'Open Sans', Arial, sans-serif;

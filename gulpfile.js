@@ -265,7 +265,7 @@ gulp.task('bump', function(){
 
 gulp.task('commit-changes', function() {
   return gulp.src('.')
-    .pipe(plugins.git.commit('Bumped version', { args: '-a' }));
+    .pipe(plugins.git.commit('Bumped version', { args: '-a -m' }));
 });
 
 gulp.task('push-changes', function(cb) {

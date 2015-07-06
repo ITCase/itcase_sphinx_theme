@@ -22,8 +22,6 @@
 
 В руководстве подробно описан процесс генерации документации с помощью связки reStructuredText, Python Sphinx, GitHub и сервиса Read the Docs.
 
-
-
 .. toctree::
    :maxdepth: 3
 

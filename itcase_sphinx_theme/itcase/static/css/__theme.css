@@ -163,7 +163,6 @@
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
@@ -175,7 +174,6 @@
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
@@ -189,7 +187,6 @@
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
@@ -421,6 +418,14 @@ body {
 }
 
 .page__right_state_expand {
+  margin: 0 0 0 40px;
+}
+
+.page_type_main-page .page__left {
+  display: none;
+}
+
+.page_type_main-page .page__right {
   margin: 0 0 0 40px;
 }
 .rst-content .admonition-title,

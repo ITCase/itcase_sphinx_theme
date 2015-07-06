@@ -1,6 +1,8 @@
 {# TEMPLATE VAR SETTINGS #}
 {%- set url_root = pathto('', 1) %}
-{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- if url_root == '#' %}
+    {% set url_root = '' %}
+{% endif %}
 {%- if not embedded and docstitle %}
     {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
 {%- else %}
@@ -72,7 +74,10 @@
 <body>
     <div class="wrapper">
         <div class="wrapper__inner">
-            <div class="page">
+            <div class="page
+                {% if theme_index_menu == 'False' and pagename == 'index' %}
+                    page_type_main-page
+                {% endif %}">
                 <div class="page__left">
                     <nav class="menu" data-state="expand">
                         <div class="menu-project">

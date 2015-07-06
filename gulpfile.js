@@ -289,7 +289,7 @@ gulp.task('create-new-tag', function(cb) {
     if(error) {
       return cb(error);
     }
-    //plugins.git.push('origin', 'master', { args: '--tags' }, cb);
+    plugins.git.push('origin', 'master', { args: '--tags' }, cb);
   });
 
   function getPackageJsonVersion() {
@@ -297,9 +297,9 @@ gulp.task('create-new-tag', function(cb) {
   }
 });
 
-// gulp.task('pypi', plugins.shell.task([
-//   'python setup.py sdist upload'
-// ]));
+gulp.task('pypi', plugins.shell.task([
+  'python setup.py sdist upload'
+]));
 
 gulp.task('release', function (callback) {
   options.env = 'production';
@@ -310,7 +310,7 @@ gulp.task('release', function (callback) {
     'commit-changes',
     'push-changes',
     'create-new-tag',
-    //'pypi',
+    'pypi',
     function (error) {
       if (error) {
         console.log(error.message);

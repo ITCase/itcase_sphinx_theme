@@ -76,7 +76,6 @@ if (typeof Cookies === 'undefined') {
     });
 
     $('.internal.image-reference').on('click', function(event){
-      $(this).fancybox();
       event.preventDefault();
     });
 

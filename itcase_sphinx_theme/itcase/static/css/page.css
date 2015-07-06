@@ -23,3 +23,11 @@
   {
     margin: 0 0 0 40px;
   }
+.page_type_main-page .page__left
+{
+  display: none;
+}
+.page_type_main-page .page__right
+{
+  margin: 0 0 0 40px;
+}

@@ -26,6 +26,7 @@ if (typeof Cookies === 'undefined') {
     }
 
     function collapseTree() {
+      menu.css({ height: menu.height()});
       menu.data('state', 'collapse');
       menu.addClass('menu__state_collapse');
       pageLeft.addClass('page__left_state_collapse');
@@ -35,6 +36,7 @@ if (typeof Cookies === 'undefined') {
     }
 
     function expandTree() {
+      menu.css({ height: 'auto'});
       menu.data('state', 'expand');
       menu.removeClass('menu__state_collapse');
       pageLeft.removeClass('page__left_state_collapse');

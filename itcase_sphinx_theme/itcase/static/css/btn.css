@@ -44,7 +44,6 @@
   background-image: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
 }
@@ -53,7 +52,6 @@
   background-image: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
 }
@@ -64,7 +62,6 @@
   background-image: none;
   box-shadow: none;
   cursor: not-allowed;
-  filter: alpha(opacity=40);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   opacity: 0.4;
 }

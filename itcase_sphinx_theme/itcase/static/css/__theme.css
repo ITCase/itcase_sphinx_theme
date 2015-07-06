@@ -88,6 +88,25 @@
 .admonition.tip .admonition-title {
   background: #1abc9c;
 }
+
+.admonition-,
+.admonition-todo {
+  background: #fff;
+  border: 1px solid #e1e4e5;
+  padding: 1.5em 0 0 0;
+}
+
+.admonition- .admonition-title,
+.admonition-todo .admonition-title {
+  background: #6ab0de;
+  position: relative;
+  margin: -1.5em 0 0 0;
+}
+
+.admonition- p.last,
+.admonition-todo p.last {
+  padding-bottom: 0;
+}
 .btn {
   background-color: #27ae60;
   border: 1px solid rgba(0,0,0,0.1);
@@ -186,10 +205,11 @@
 .footer {
   border-top: solid 1px #ccc;
   padding: 0 0 2em 0;
+  margin: 2em 0 0 0;
 }
 
 .footer-buttons {
-  padding: 1em 0 0 0;
+  padding: 1em 0 2em 0;
 }
 
 .footer__copyright {
@@ -260,16 +280,22 @@ body {
   background: #eeeeee;
   overflow: hidden;
   z-index: 200;
+  position: relative;
 }
 
 .menu-project {
-  padding: 1em 0 1em 20px;
+  padding: 1em 20px;
 }
 
 .menu-project__link,
 .menu-project__link:visited {
+  width: 100%;
+  display: inline-block;
   color: #0072aa;
   font: 1.6em 'Open Sans', Arial, sans-serif;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.1em;
 }
 
 .menu-project__link:hover {
@@ -278,7 +304,7 @@ body {
 
 .menu-search {
   margin: 1em 0;
-  padding: 10px 40px 20px 20px;
+  padding: 10px 40px 0 20px;
 }
 
 .menu-switch {
@@ -305,6 +331,10 @@ body {
   background: #0072aa;
   color: #fff;
 }
+
+.menu_state_collapse {
+  width: 12px;
+}
 .nav {
   width: 100%;
   position: relative;
@@ -312,6 +342,10 @@ body {
   padding: 0.7em 0 1em 0;
   border-bottom: solid 1px #ccc;
   display: table;
+}
+
+.nav__inner {
+  padding: 0 5em 0 0;
 }
 
 .nav__link {
@@ -351,8 +385,9 @@ body {
 }
 
 .nav-external {
-  float: right;
-  padding: 0.2em 0 0 0;
+  position: absolute;
+  right: 0;
+  top: 0.6em;
 }
 
 .nav-external__link {
@@ -367,7 +402,6 @@ body {
 }
 .page {
   position: relative;
-  margin: 1.5em 1em 0 1em;
 }
 
 .page__left {
@@ -378,8 +412,16 @@ body {
   background: #eeeeee;
 }
 
+.page__left_state_collapse {
+  width: 12px;
+}
+
 .page__right {
   margin: 0 0 0 330px;
+}
+
+.page__right_state_expand {
+  margin: 0 0 0 40px;
 }
 .rst-content .admonition-title,
 .rst-content .headerlink,
@@ -451,6 +493,10 @@ body {
 .rst-content a,
 .rst-content a:visited {
   color: #0072aa;
+}
+
+.rst-content a:focus {
+  outline: 0;
 }
 
 .rst-content a:hover {
@@ -711,6 +757,48 @@ body {
   display: inline-block;
   margin: 0.3em 0;
 }
+.rst-pro {
+  padding: 0 0 1em 20px;
+  position: relative;
+}
+
+.rst-pro-about {
+  position: absolute;
+  left: 150px;
+  top: 0;
+}
+
+.rst-pro-about .fa-info-circle {
+  color: #777;
+}
+
+.rst-pro-about .fa-info-circle:hover {
+  color: #000;
+}
+
+.rst-pro-image-wrapper {
+  display: block;
+}
+
+.rst-pro-image {
+  width: 120px;
+  vertical-align: bottom;
+}
+
+.rst-pro > span {
+  width: 80%;
+  display: block;
+  font: 0.75em 'Open Sans', Arial, sans-serif;
+  padding: 0.7em 0 0 0;
+}
+
+.rst-pro-link {
+  color: #0072aa;
+}
+
+.rst-pro-link:hover {
+  color: #000;
+}
 .search {
   color: #000;
   display: block;
@@ -729,10 +817,10 @@ body {
 }
 
 .search input[type=text] {
-  -webkit-border-radius: solid 3px #ccc;
-  -moz-border-radius: solid 3px #ccc;
-  border-radius: solid 3px #ccc;
-  padding: 6px 12px 6px 6px;
+  border: solid 1px #ccc;
+  padding: 0.5em 1em 0.5em 0.5em;
+  font: 0.9em 'Open Sans', Arial, sans-serif;
+  color: #000;
 }
 
 .search img {
@@ -2117,6 +2205,17 @@ div[class^='highlight'] td.code
   background-color: #2980b9;
   color: #fff;
   cursor: pointer;
+}
+.wrapper {
+  min-width: 985px;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.wrapper__inner {
+  padding: 25px 0 0 0;
+  position: relative;
 }
 /*!
  *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome

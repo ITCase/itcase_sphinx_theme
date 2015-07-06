@@ -62,8 +62,6 @@
     <link href="{{ pathto('_static/css/badge_only.css', 1) }}" type="text/css" rel="stylesheet" />
     <link href="{{ pathto('_static/css/__theme.css', 2) }}" type="text/css" rel="stylesheet" />
 
-    <script type="text/javascript" src="{{ pathto('_static/js/__theme.js', 1) }}"></script>
-
     {% if not embedded %}
         {%- for scriptfile in script_files %}
             <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
@@ -72,49 +70,62 @@
 </head>
 
 <body>
-    <div class="page">
-        <div class="page__left">
-            <nav class="menu" data-toggle="wy-nav-shift">
-                <div class="menu-project">
-                    <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+    <div class="wrapper">
+        <div class="wrapper__inner">
+            <div class="page">
+                <div class="page__left">
+                    <nav class="menu" data-state="expand">
+                        <div class="menu-project">
+                            <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+                        </div>
+                        <div class="tree">
+                            {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
+                            {% if toctree %}
+                                {{ toctree }}
+                            {% else %}
+                                {{ toc }}
+                            {% endif %}
+                        </div>
+                        <div class="menu-search search">
+                            <div class="search-title">Quick search</div>
+                            <form id="search-form" class="search-form" action="{{ pathto('search') }}" method="GET">
+                                <input type="text" name="q" placeholder="Search docs" />
+                                <input type="hidden" name="check_keywords" value="yes" />
+                                <input type="hidden" name="area" value="default" />
+                            </form>
+                            <div class="search-desc">Enter search terms or a module, class or function name.</div>
+                        </div>
+                        <nav class="wy-nav-side">&nbsp;</nav>
+                        <div class="menu-switch">
+                            <div class="menu-switch__arrow">«</div>
+                        </div>
+                    </nav>
                 </div>
-                <div class="tree">
-                    {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
-                    {% if toctree %}
-                        {{ toctree }}
-                    {% else %}
-                        {{ toc }}
-                    {% endif %}
-                </div>
-                <div class="menu-search search">
-                    <div class="search-title">Quick search</div>
-                    <form id="search-form" class="search-form" action="{{ pathto('search') }}" method="GET">
-                        <input type="text" name="q" placeholder="Search docs" />
-                        <input type="hidden" name="check_keywords" value="yes" />
-                        <input type="hidden" name="area" value="default" />
-                    </form>
-                    <div class="search-desc">Enter search terms or a module, class or function name.</div>
-                </div>
-                <div class="menu-switch">
-                    <div class="menu-switch__arrow">«</div>
-                </div>
-            </nav>
-        </div>
 
-        <section data-toggle="wy-nav-shift" class="page__right">
-            <nav class="wy-nav-top">
-                <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-                <a href="{{ pathto(master_doc) }}">asdfasdfasdf{{ project }}</a>
-            </nav>
-            {% include "breadcrumbs.html" %}
-            <div class="rst-content">
-                {% block body %}{% endblock %}
+                <section class="page__right">
+                    {% include "breadcrumbs.html" %}
+                    <div class="rst-content">
+                        {% block body %}{% endblock %}
+                    </div>
+                    {% include "footer.html" %}
+                </section>
             </div>
-            {% include "footer.html" %}
-        </section>
+        </div>
     </div>
+    <script type="text/javascript" src="{{ pathto('_static/js/__theme.js', 1) }}"></script>
+
+    {% if not embedded %}
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                    URL_ROOT: '{{ url_root }}',
+                    VERSION: '{{ release|e }}',
+                    COLLAPSE_INDEX: false,
+                    FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
+                    HAS_SOURCE: {{ has_source|lower }}
+                };
+        </script>
+    {% endif %}
 
     {% include "versions.html" %}
-    {% if theme_sticky_navigation %}{% endif %}
 </body>
 </html>

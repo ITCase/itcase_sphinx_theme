@@ -1,25 +1,29 @@
 {% if READTHEDOCS %}
-    <div class="rst-versions" data-toggle="rst-versions">
-        <span class="rst-current-version" data-toggle="rst-current-version">
-            <i class="fa fa-book">&nbsp;</i>
-            <span class="rst-current-version__name">v: {{ current_version }}</span>
-            <i class="fa fa-caret-down">&nbsp;</i>
-        </span>
-        <div class="rst-other-versions" style="display: none">
-            <dl>
-                <dt>Versions</dt>
+    <div class="rst-versions">
+        <div class="rst-current-version clearfix">
+            <div class="rst-current-version__rtd">
+                <i class="rst-current-version__rtd-icon fa fa-book">&nbsp;</i>
+                <span class="rst-current-version__rtd-desc">Read the Docs</span>
+            </div>
+            <div class="rst-current-version__selector">
+                <span class="rst-current-version__name">v: {{ current_version }}</span>
+                <i class="fa fa-caret-down">&nbsp;</i>
+            </div>
+        </div>
+        <div class="rst-other-versions">
+            <dl class="rst-other-versions__group">
+                <dt class="rst-other-versions__group-title">Versions</dt>
                 {% for slug, url in versions %}
-                    <dd>
-                        <a href="{{ url }}">{{ slug }}</a>
+                    <dd class="rst-other-versions__group-item">
+                        <a href="{{ url }}" class="rst-other-versions__group-item-link">{{ slug }}</a>
                     </dd>
                 {% endfor %}
             </dl>
-            <hr/>
-            Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+            <div class="rst-other-versions__info">Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.</div>
         </div>
     </div>
     <script type="text/javascript">
-        $(document).on('click', '.rst-versions', function() {
+        $('.rst-current-version').on('click', function() {
             $('.rst-other-versions').toggle();
         });
     </script>

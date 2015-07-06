@@ -1,7 +1,6 @@
 .page
 {
   position: relative;
-  margin: 1.5em 1em 0 1em;
 }
   .page__left
   {
@@ -11,7 +10,16 @@
     left: 0;
     background: #eeeeee;
   }
+  .page__left_state_collapse
+  {
+    width: 12px;
+  }
+
   .page__right
   {
     margin: 0 0 0 330px;
+  }
+  .page__right_state_expand
+  {
+    margin: 0 0 0 40px;
   }

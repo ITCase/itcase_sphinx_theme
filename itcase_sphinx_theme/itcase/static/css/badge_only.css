@@ -2,9 +2,8 @@
 {
   background: #1f1d1d;
   color: #fcfcfc;
-  font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
   position: fixed;
-  width: auto;
+  max-width: 260px;
   z-index: 400;
   bottom: 20px;
   right: 20px;
@@ -20,159 +19,122 @@
 }
   .rst-current-version
   {
-    background-color: #272525;
-    color: #27ae60;
+    background: #272525;
     cursor: pointer;
-    display: block;
-    font-size: 90%;
-    padding: 12px 25px 12px 12px;
-    text-align: right;
-    zoom: 1;
     white-space: nowrap;
+    padding: 0.4em 1em 0.35em 1em;
+    position: relative;
   }
-    .rst-current-version__name
+    .rst-current-version__rtd
     {
-      padding: 0 0 0 15px;
+      float: left;
     }
-  .rst-current-version:before
+      .rst-current-version__rtd-icon
+      {
+        font-size: 1em;
+        position: relative;
+        top: 0.05em;
+      }
+      .rst-current-version__rtd-desc
+      {
+        font: 0.85em 'Open Sans', Arial, sans-serif;
+      }
+    .rst-current-version__selector
+    {
+      float: right;
+    }
+      .rst-current-version__name
+      {
+        padding: 0 0.2em 0 15px;
+        font: 0.85em 'Open Sans', Arial, sans-serif;
+        color: #27ae60;
+      }
+  .rst-current-version:hover
   {
-    content: "";
-    display: table;
+    background: #0072aa;
   }
-  .rst-current-version:after
+    .rst-current-version:hover .rst-current-version__name
+    {
+      color: #fff;
+    }
+
+  .rst-other-versions
   {
-    content: "";
-    display: table;
-    clear: both;
-  }
-.rst-versions .rst-current-version .fa,
-.rst-versions .rst-current-version .rst-content .admonition-title,
-.rst-content .rst-versions .rst-current-version .admonition-title,
-.rst-versions .rst-current-version .rst-content h1 .headerlink,
-.rst-content h1 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content h2 .headerlink,
-.rst-content h2 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content h3 .headerlink,
-.rst-content h3 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content h4 .headerlink,
-.rst-content h4 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content h5 .headerlink,
-.rst-content h5 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content h6 .headerlink,
-.rst-content h6 .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .rst-content dl dt .headerlink,
-.rst-content dl dt .rst-versions .rst-current-version .headerlink,
-.rst-versions .rst-current-version .icon
-{
-  color: #fcfcfc;
-}
-.rst-versions .rst-current-version .fa-book,
-.rst-versions .rst-current-version .icon-book
-{
-  float: left;
-}
-.rst-current-version .icon-book
-{
-  float: left;
-}
-.rst-versions .rst-current-version.rst-out-of-date
-{
-  background-color: #e74c3c;
-  color: #fff;
-}
-.rst-versions .rst-current-version.rst-active-old-version
-{
-  background-color: #f1c40f;
-  color: #000;
-}
-.rst-versions.shift-up .rst-other-versions
-{
-  display: block;
-}
-.rst-versions .rst-other-versions
-{
-  color: gray;
-  display: none;
-  font-size: 90%;
-  padding: 12px;
-}
-.rst-versions .rst-other-versions hr
-{
-  border: 0;
-  border-top: solid 1px #413d3d;
-  display: block;
-  height: 1px;
-  margin: 20px 0;
-  padding: 0;
-}
-.rst-versions .rst-other-versions dd
-{
-  display: inline-block;
-  margin: 0;
-}
-.rst-versions .rst-other-versions dd a
-{
-  color: #fcfcfc;
-  display: inline-block;
-  padding: 6px;
-}
-.rst-versions.rst-badge
-{
-  border: none;
-  bottom: 20px;
-  left: auto;
-  max-width: 300px;
-  right: 20px;
-  width: auto;
-}
-.rst-versions.rst-badge .icon-book
-{
-  float: none;
-}
-.rst-versions.rst-badge .fa-book,
-.rst-versions.rst-badge .icon-book
-{
-  float: none;
-}
-.rst-versions.rst-badge.shift-up .rst-current-version
-{
-  text-align: right;
-}
-.rst-versions.rst-badge.shift-up .rst-current-version .fa-book,
-.rst-versions.rst-badge.shift-up .rst-current-version .icon-book
-{
-  float: left;
-}
-.rst-versions.rst-badge.shift-up .rst-current-version .icon-book
-{
-  float: left;
-}
-.rst-versions.rst-badge .rst-current-version
-{
-  display: block;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 6px;
-  text-align: center;
-  width: auto;
-}
-
-
-
-@media screen and (max-width: 768px)
-{
-  .rst-versions
-  {
+    padding: 12px 1em;
+    font-size: 1em;
     display: none;
-    width: 85%;
   }
-  .rst-versions.shift
+    .rst-other-versions__group,
+    .rst-other-versions dl
+    {
+      width: 100%;
+      margin: 0;
+      display: table;
+      padding: 0.4em 0 0.35em 0;
+    }
+      .rst-other-versions__group-title,
+      .rst-other-versions dt
+      {
+        font: 1.1em 'Open Sans', Arial, sans-serif;
+        padding: 0 0 0.2em 0;
+      }
+      .rst-other-versions__group-item,
+      .rst-other-versions dd
+      {
+        display: inline-block;
+        margin: 0 1em 0 0;
+        padding: 0;
+        font: 0.85em 'Open Sans', Arial, sans-serif;
+      }
+        .rst-other-versions__group-item-link,
+        .rst-other-versions dd a
+        {
+          color: #fcfcfc;
+          display: inline-block;
+        }
+        .rst-other-versions__group-item-link:hover,
+        .rst-other-versions dd a:hover
+        {
+          color: #99CCFF
+        }
+      .rst-other-versions dl:nth-child(4),
+      .rst-other-versions dl:nth-child(5)
+      {
+        display: none;
+      }
+      .rst-other-versions dl:last-child()
+      {
+        padding: 0 0 0.3em 0;
+      }
+    .rst-other-versions__info
+    {
+      font: 0.95em 'Open Sans', Arial, sans-serif;
+    }
+
+/* For Bookmarks */
+.rst-versions .bookmark-inactive,
+.rst-versions .bookmark-active,
+.rst-versions .bookmark-added-msg
+{
+  display: none;
+}
+
+/* For Search in bottom */
+#flyout-search-form
+{
+  position: relative;
+  left: -6px;
+}
+  #flyout-search-form input
   {
-    display: block;
-  }
-  img
-  {
-    height: auto;
     width: 100%;
+    font: 0.9em 'Open Sans', Arial, sans-serif;
+    padding: 0.5em 1em 0.5em 0.5em;
+    color: #000;
   }
+
+.rst-versions hr
+{
+  margin: 0 0 12px 0;
+  background: #000;
 }

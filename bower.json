@@ -16,7 +16,7 @@
     "font-awesome": "~4.3.0",
     "html5-boilerplate": "~5.2.0",
     "normalize.css": "~3.0.3",
-    "enscroll": "~0.6.0"
+    "js-cookie": "~2.0.2"
   },
   "overrides": {
     "font-awesome": {
@@ -33,11 +33,6 @@
     "html5-boilerplate": {
       "main": [
         "dist/css/main.css"
-      ]
-    },
-    "enscroll": {
-      "main": [
-        "js/mylibs/enscroll.js"
       ]
     }
   }

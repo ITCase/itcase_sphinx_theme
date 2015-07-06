@@ -3,16 +3,22 @@
   background: #eeeeee;
   overflow: hidden;
   z-index: 200;
+  position: relative;
 }
   .menu-project
   {
-    padding: 1em 0 1em 20px;
+    padding: 1em 20px;
   }
     .menu-project__link,
     .menu-project__link:visited
     {
+      width: 100%;
+      display: inline-block;
       color: #0072aa;
       font: 1.6em 'Open Sans', Arial, sans-serif;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      line-height: 1.1em;
     }
     .menu-project__link:hover
     {
@@ -21,7 +27,7 @@
   .menu-search
   {
     margin: 1em 0;
-    padding: 10px 40px 20px 20px;
+    padding: 10px 40px 0 20px;
   }
   .menu-switch
   {
@@ -48,3 +54,7 @@
       background: #0072aa;
       color: #fff;
     }
+.menu_state_collapse
+{
+  width: 12px;
+}

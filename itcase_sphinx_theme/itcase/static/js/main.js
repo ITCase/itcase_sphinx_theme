@@ -1,86 +1,59 @@
 'use strict';
 
 if (typeof $ === 'undefined') { require('jquery'); }
-
-require('./vendor/enscroll');
+if (typeof Cookies === 'undefined') {
+  var Cookies = require('./vendor/js.cookie.js');
+}
 
 (function($){
   $(window).load(function(){
 
-    $('.tree').enscroll({
-      showOnHover: true,
-      verticalTrackClass: 'vertical-track',
-      verticalHandleClass: 'vertical-handle'
-    });
+    var menu = $('.menu'),
+        menuSwitch = $('.menu-switch'),
+        menuSwitchArrow = $('.menu-switch__arrow');
 
-    var content = $('.wy-nav-content-wrap'),
-        sidebar = $('.wy-nav-side'),
-        sidebarButton = $('.wy-nav-side-switch'),
-        sidebarArrow = $('.wy-nav-side-switch__arrow');
+    var pageLeft = $('.page__left'),
+        pageRight = $('.page__right');
 
-    function getSidebarState() {
-      if (!document.cookie) { return; }
-      var items = document.cookie.split(';');
-      for(var k=0; k<items.length; k++) {
-        var keyVal = items[k].split('=');
-        var key = keyVal[0];
-        if (key === 'sidebar') {
-          var value = keyVal[1];
-          if (value === 'collapsed'){
-            collapseSidebar();
-          } else if (value === 'expanded') {
-            expandSidebar();
-          }
-        }
+    function getTreeState() {
+      if(!document.cookie) { return; }
+      var menuState = Cookies.get('menu-state');
+      if (menuState === 'collapse') {
+        collapseTree();
+      } else if (menuState === 'expand') {
+        expandTree();
       }
     }
 
-    function toggleSidebar() {
-      if (content.hasClass('wy-nav-content-wrap-collapse')) {
-        expandSidebar();
-      } else {
-        collapseSidebar();
+    function collapseTree() {
+      menu.data('state', 'collapse');
+      menu.addClass('menu__state_collapse');
+      pageLeft.addClass('page__left_state_collapse');
+      pageRight.addClass('page__right_state_expand');
+      menuSwitchArrow.text('»');
+      document.cookie = 'menu-state=collapse';
+    }
+
+    function expandTree() {
+      menu.data('state', 'expand');
+      menu.removeClass('menu__state_collapse');
+      pageLeft.removeClass('page__left_state_collapse');
+      pageRight.removeClass('page__right_state_expand');
+      menuSwitchArrow.text('«');
+      document.cookie = 'menu-state=expande';
+    }
+
+    $(menuSwitch).on('click', function(){
+      if(menu.data('state') === 'collapse') {
+        expandTree();
+        menu.data('state', 'expand');
+      } else if (menu.data('state') === 'expand') {
+        collapseTree();
+        menu.data('state', 'collapse');
       }
-    }
-
-    function collapseSidebar(navHeight) {
-      content.addClass('wy-nav-content-wrap-collapse');
-      sidebar.css({ width: '12px', height: navHeight, visibility: 'visible' });
-      sidebarArrow.text('»');
-      document.cookie = 'sidebar=collapsed';
-    }
-
-    function expandSidebar() {
-      content.removeClass('wy-nav-content-wrap-collapse');
-      sidebar.css({ width: '300px', height: 'auto', visibility: 'visible' });
-      $('.wy-nav-content').css({ visibility: 'visible' });
-      sidebarArrow.text('«');
-      document.cookie = 'sidebar=expanded';
-    }
-
-    getSidebarState();
-    sidebarButton.click(toggleSidebar);
-
-    // Shift nav in mobile when clicking the menu.
-    $(document).on('click', '[data-toggle="wy-nav-top"]', function() {
-      $('[data-toggle="wy-nav-shift"]').toggleClass('shift');
-      $('[data-toggle="rst-versions"]').toggleClass('shift');
     });
 
-    // Close menu when you click a link.
-    $(document).on('click',
-      '.wy-menu-vertical .current ul li a',function() {
-        $('[data-toggle="wy-nav-shift"]').removeClass('shift');
-        $('[data-toggle="rst-versions"]').toggleClass('shift');
-      });
+    getTreeState();
 
-    $(document).on('click',
-      '[data-toggle="rst-current-version"]', function(){
-        $('[data-toggle="rst-versions"]').toggleClass('shift-up');
-      });
-
-    // Make tables responsive
-    // $('table.docutils:not(.field-list)')
-    //     .wrap('<div class="wy-table-responsive"></div>');
   });
 })(jQuery);

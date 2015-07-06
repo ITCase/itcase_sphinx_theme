@@ -72,6 +72,10 @@
  color: #0072aa;
 }
 
+.rst-content a:focus
+{
+  outline: 0;
+}
 .rst-content a:hover
 {
  color: #000;

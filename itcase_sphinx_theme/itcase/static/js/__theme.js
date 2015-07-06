@@ -5,87 +5,62 @@ if (typeof $ === 'undefined') { require('jquery'); }
 
 require('./vendor/enscroll');
 
+var Cookies = require('./vendor/js.cookie.js');
+
+
 (function($){
   $(window).load(function(){
 
-    $('.tree').enscroll({
-      showOnHover: true,
-      verticalTrackClass: 'vertical-track',
-      verticalHandleClass: 'vertical-handle'
-    });
+    var menu = $('.menu'),
+        menuSwitch = $('.menu-switch'),
+        menuSwitchArrow = $('.menu-switch__arrow');
 
-    var content = $('.wy-nav-content-wrap'),
-        sidebar = $('.wy-nav-side'),
-        sidebarButton = $('.wy-nav-side-switch'),
-        sidebarArrow = $('.wy-nav-side-switch__arrow');
+    var pageLeft = $('.page__left'),
+        pageRight = $('.page__right');
 
-    function getSidebarState() {
-      if (!document.cookie) { return; }
-      var items = document.cookie.split(';');
-      for(var k=0; k<items.length; k++) {
-        var keyVal = items[k].split('=');
-        var key = keyVal[0];
-        if (key === 'sidebar') {
-          var value = keyVal[1];
-          if (value === 'collapsed'){
-            collapseSidebar();
-          } else if (value === 'expanded') {
-            expandSidebar();
-          }
-        }
+    function getTreeState() {
+      if(!document.cookie) { return; }
+      var menuState = Cookies.get('menu-state');
+      if (menuState === 'collapse') {
+        collapseTree();
+      } else if (menuState === 'expand') {
+        expandTree();
       }
     }
 
-    function toggleSidebar() {
-      if (content.hasClass('wy-nav-content-wrap-collapse')) {
-        expandSidebar();
-      } else {
-        collapseSidebar();
+    function collapseTree() {
+      menu.data('state', 'collapse');
+      menu.addClass('menu__state_collapse');
+      pageLeft.addClass('page__left_state_collapse');
+      pageRight.addClass('page__right_state_expand');
+      menuSwitchArrow.text('»');
+      document.cookie = 'menu-state=collapse';
+    }
+
+    function expandTree() {
+      menu.data('state', 'expand');
+      menu.removeClass('menu__state_collapse');
+      pageLeft.removeClass('page__left_state_collapse');
+      pageRight.removeClass('page__right_state_expand');
+      menuSwitchArrow.text('«');
+      document.cookie = 'menu-state=expande';
+    }
+
+    $(menuSwitch).on('click', function(){
+      if(menu.data('state') === 'collapse') {
+        expandTree();
+        menu.data('state', 'expand');
+      } else if (menu.data('state') === 'expand') {
+        collapseTree();
+        menu.data('state', 'collapse');
       }
-    }
-
-    function collapseSidebar(navHeight) {
-      content.addClass('wy-nav-content-wrap-collapse');
-      sidebar.css({ width: '12px', height: navHeight, visibility: 'visible' });
-      sidebarArrow.text('»');
-      document.cookie = 'sidebar=collapsed';
-    }
-
-    function expandSidebar() {
-      content.removeClass('wy-nav-content-wrap-collapse');
-      sidebar.css({ width: '300px', height: 'auto', visibility: 'visible' });
-      $('.wy-nav-content').css({ visibility: 'visible' });
-      sidebarArrow.text('«');
-      document.cookie = 'sidebar=expanded';
-    }
-
-    getSidebarState();
-    sidebarButton.click(toggleSidebar);
-
-    // Shift nav in mobile when clicking the menu.
-    $(document).on('click', '[data-toggle="wy-nav-top"]', function() {
-      $('[data-toggle="wy-nav-shift"]').toggleClass('shift');
-      $('[data-toggle="rst-versions"]').toggleClass('shift');
     });
 
-    // Close menu when you click a link.
-    $(document).on('click',
-      '.wy-menu-vertical .current ul li a',function() {
-        $('[data-toggle="wy-nav-shift"]').removeClass('shift');
-        $('[data-toggle="rst-versions"]').toggleClass('shift');
-      });
+    getTreeState();
 
-    $(document).on('click',
-      '[data-toggle="rst-current-version"]', function(){
-        $('[data-toggle="rst-versions"]').toggleClass('shift-up');
-      });
-
-    // Make tables responsive
-    // $('table.docutils:not(.field-list)')
-    //     .wrap('<div class="wy-table-responsive"></div>');
   });
 })(jQuery);
-},{"./vendor/enscroll":2,"jquery":3}],2:[function(require,module,exports){
+},{"./vendor/enscroll":2,"./vendor/js.cookie.js":4,"jquery":3}],2:[function(require,module,exports){
 /*global jQuery:false*/
 
 /**
@@ -10678,6 +10653,145 @@ return jQuery;
 }).call(global, undefined, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],4:[function(require,module,exports){
+/*!
+ * JavaScript Cookie v2.0.2
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl
+ * Released under the MIT license
+ */
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+	} else if (typeof exports === 'object') {
+		module.exports = factory();
+	} else {
+		var _OldCookies = window.Cookies;
+		var api = window.Cookies = factory(window.jQuery);
+		api.noConflict = function () {
+			window.Cookies = _OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				value = encodeURIComponent(String(value));
+				value = value.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				return (document.cookie = [
+					key, '=', value,
+					attributes.expires && '; expires=' + attributes.expires.toUTCString(), // use expires attribute, max-age is not supported by IE
+					attributes.path    && '; path=' + attributes.path,
+					attributes.domain  && '; domain=' + attributes.domain,
+					attributes.secure ? '; secure' : ''
+				].join(''));
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var name = parts[0].replace(rdecode, decodeURIComponent);
+				var cookie = parts.slice(1).join('=');
+
+				if (cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				cookie = converter && converter(cookie, name) || cookie.replace(rdecode, decodeURIComponent);
+
+				if (this.json) {
+					try {
+						cookie = JSON.parse(cookie);
+					} catch (e) {}
+				}
+
+				if (key === name) {
+					result = cookie;
+					break;
+				}
+
+				if (!key) {
+					result[name] = cookie;
+				}
+			}
+
+			return result;
+		}
+
+		api.get = api.set = api;
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init();
+}));
+
 },{}]},{},[1]);
 
 //# sourceMappingURL=__theme.js.map

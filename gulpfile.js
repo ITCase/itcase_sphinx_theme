@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 
 var browserify = require('browserify'),
     browserSync = require('browser-sync'),
+    del = require('del'),
     mainBowerFiles = require('main-bower-files'),
     minimist = require('minimist');
 
@@ -59,6 +60,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('bower-js', function() {
+
   return gulp.src(mainBowerFiles(
     { filter: (/.*\.(js|map)$/i) }), { base: 'bower_components' })
     .pipe(plugins.rename(function(path) {
@@ -129,10 +131,22 @@ gulp.task('browserify', function() {
         plugins.util.log('Browserify ' +
         plugins.util.colors.green(filename));
       }))
+      .pipe(plugins.shell([
+        'touch ./example/index.rst'
+      ]))
       .pipe(browserSync.reload({ stream:true }));
   }
   bundle(browserify(
     { entries: JS_PATH + BROWSERIFY_FILE }), TARGET_JS_FILE);
+});
+
+
+gulp.task('clean', function() {
+  del([JS_PATH + 'vendor/',CSS_PATH + 'vendor/',
+       TARGET_CSS_PATH, TARGET_JS_PATH], function (err, paths) {
+    plugins.util.log('Deleted files/folders: ' +
+    plugins.util.colors.red(paths.join('\n')));
+  });
 });
 
 
@@ -239,4 +253,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('bower', ['bower-js', 'bower-css', 'bower-img', 'bower-font']);
-gulp.task('build', ['bower', 'css', 'js']);
+gulp.task('build', ['bower', 'css', 'browserify']);

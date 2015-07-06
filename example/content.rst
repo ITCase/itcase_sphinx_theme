@@ -529,7 +529,7 @@ Sphinx расширяет возможности создания ссылок, 
 
     Вставка изображения между слов |кубик-рубика| осуществляться с помощью функции автозамены:
 
-    .. |кубик-рубика| image:: _static/favicon.ico
+    .. |кубик-рубика| image:: static/favicon.ico
 
 
 .. |кубик-рубика| image:: static/favicon.ico
@@ -538,7 +538,7 @@ Sphinx расширяет возможности создания ссылок, 
 
 ::
 
-    .. figure:: _static/favicon.png
+    .. figure:: static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -549,7 +549,7 @@ Sphinx расширяет возможности создания ссылок, 
 
 .. _my-favicon:
 
-.. figure:: _static/favicon.png
+.. figure:: static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -794,14 +794,11 @@ Sphinx расширяет возможности отображения форм
 
 .. todo:: Блок **План**, команда: ``.. todo::``
 
-
 Код блоков выглядит так:
 ::
 
     .. tip:: Блок **Совет**, команда: ``.. tip::``
 
-
-.. _rst-cont-label:
 
 Содержание
 ==========

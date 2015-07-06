@@ -100,3 +100,15 @@
     {
       font: 0.95em 'Open Sans', Arial, sans-serif;
     }
+
+
+.rst-versions .bookmark-icon
+{
+
+}
+  .rst-versions .bookmark-inactive,
+  .rst-versions .bookmark-active,
+  .rst-versions .bookmark-added-msg
+  {
+    display: none;
+  }

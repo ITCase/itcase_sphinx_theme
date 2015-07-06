@@ -102,14 +102,20 @@
   {
     background: #1abc9c
   }
-
+.admonition.seealso
+{
+  background: #dbfaf4;
+}
+  .admonition.seealso .admonition-title
+  {
+    background: #1abc9c
+  }
 
 .admonition-,
 .admonition-todo
 {
   background: #fff;
   border: 1px solid #e1e4e5;
-  padding: 1.5em 0 0 0;
 }
   .admonition- .admonition-title,
   .admonition-todo .admonition-title

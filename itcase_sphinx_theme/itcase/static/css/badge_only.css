@@ -61,8 +61,7 @@
   .rst-other-versions
   {
     display: none;
-    font-size: 90%;
-    padding: 12px 17px;
+    padding: 12px 0;
   }
     .rst-other-versions__group,
     .rst-other-versions dl

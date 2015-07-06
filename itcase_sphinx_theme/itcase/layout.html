@@ -75,14 +75,23 @@
     <div class="wrapper">
         <div class="wrapper__inner">
             <div class="page
-                {% if theme_index_menu == 'False' and pagename == 'index' %}
+                {% if theme_index_menu|lower == 'false' and pagename == 'index' %}
                     page_type_main-page
                 {% endif %}">
                 <div class="page__left">
                     <nav class="menu" data-state="expand">
-                        <div class="menu-project">
-                            <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
-                        </div>
+                        {% if theme_logo|lower == 'true' %}
+                            <div class="menu-logo">
+                                <a href="{{ pathto(master_doc) }}" class="menu-logo__link">
+                                    <img class="menu-logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
+                                </a>
+                                <div class="menu-logo__desc">{{ theme_logo_image_desc }}</div>
+                            </div>
+                        {% else %}
+                            <div class="menu-project">
+                                <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+                            </div>
+                        {% endif %}
                         <div class="tree">
                             {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
                             {% if toctree %}
@@ -109,6 +118,27 @@
 
                 <section class="page__right">
                     {% include "breadcrumbs.html" %}
+
+                    <div class="badge clearfix">
+                        {% if theme_travis_button|lower != 'false' %}
+                            <div class="badge__item">
+                                {% if theme_travis_button|lower == 'true' %}
+                                    {% set path = theme_github_user + '/' + theme_github_repo %}
+                                {% else %}
+                                    {% set path = theme_travis_button %}
+                                {% endif %}
+                                <a href="https://travis-ci.org/{{ path }}">
+                                    <img alt="https://secure.travis-ci.org/{{ path }}svg?branch=master" src="https://secure.travis-ci.org/{{ path }}.png?branch=master" />
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if theme_github_button|lower == 'true' %}
+                            <div class="badge__item">
+                                <iframe src="https://ghbtns.com/github-btn.html?user={{ theme_github_user }}&repo={{ theme_github_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+                            </div>
+                        {% endif %}
+                    </div>
+
                     <div class="rst-content">
                         {% block body %}{% endblock %}
                     </div>

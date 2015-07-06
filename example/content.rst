@@ -666,16 +666,16 @@ Sphinx расширяет возможности создания ссылок, 
 
     Вставка изображения между слов |кубик-рубика| осуществляться с помощью функции автозамены:
 
-    .. |кубик-рубика| image:: static/favicon.ico
+    .. |кубик-рубика| image:: _static/favicon.ico
 
 
-.. |кубик-рубика| image:: static/favicon.ico
+.. |кубик-рубика| image:: _static/favicon.ico
 
 Вставка изображений между абзацами осуществляется так:
 
 ::
 
-    .. figure:: static/favicon.png
+    .. figure:: _static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -686,7 +686,7 @@ Sphinx расширяет возможности создания ссылок, 
 
 .. _my-favicon:
 
-.. figure:: static/favicon.png
+.. figure:: _static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -710,7 +710,7 @@ Sphinx расширяет возможности создания ссылок, 
        :align: right
 
 
-.. figure:: static/sphinx.jpg
+.. figure:: _static/sphinx.jpg
     :width: 60%
     :align: center
     :alt: Альтернативный текст

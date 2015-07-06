@@ -8,7 +8,7 @@ if (typeof Cookies === 'undefined') {
 
 
 (function($){
-  $(window).load(function(){
+  $(window).ready(function(){
 
     require('./vendor/jquery.fancybox.js');
 

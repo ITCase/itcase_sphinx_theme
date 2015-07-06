@@ -396,6 +396,26 @@ Python
        server = make_server('0.0.0.0', 8080, app)
        server.serve_forever()
 
+.. code:: python
+
+    from .models import DBSession, Groups
+    from sacrud.action import CRUD
+
+    data = {'name': 'Electronics',
+            'parent_id': '10',}
+    group_obj = CRUD(DBSession, Groups).create(data)
+    print(group_obj.name)
+
+::
+
+    from .models import DBSession, Groups
+    from sacrud.action import CRUD
+
+    data = {'name': 'Electronics',
+            'parent_id': '10',}
+    group_obj = CRUD(DBSession, Groups).create(data)
+    print(group_obj.name)
+
 bash
 ----
 

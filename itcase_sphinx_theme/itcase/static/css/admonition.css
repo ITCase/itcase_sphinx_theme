@@ -94,3 +94,20 @@
     background: #1abc9c
   }
 
+
+.admonition-
+{
+  background: #fff;
+  border: 1px solid #e1e4e5;
+  padding: 1.5em 0 0 0;
+}
+  .admonition- .admonition-title
+  {
+    background: #6ab0de;
+    position: relative;
+    margin: -1.5em 0 0 0;
+  }
+  .admonition- p.last
+  {
+    padding-bottom: 0;
+  }

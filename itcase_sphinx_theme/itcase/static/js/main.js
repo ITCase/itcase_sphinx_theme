@@ -1,11 +1,9 @@
 'use strict';
 
 if (typeof $ === 'undefined') { require('jquery'); }
-
-require('./vendor/enscroll');
-
-var Cookies = require('./vendor/js.cookie.js');
-
+if (typeof Cookies === 'undefined') {
+  var Cookies = require('./vendor/js.cookie.js');
+}
 
 (function($){
   $(window).load(function(){
@@ -26,12 +24,6 @@ var Cookies = require('./vendor/js.cookie.js');
         expandTree();
       }
     }
-
-    // $('.tree').enscroll({
-    //   showOnHover: true,
-    //   verticalTrackClass: 'vertical-track',
-    //   verticalHandleClass: 'vertical-handle'
-    // });
 
     function collapseTree() {
       menu.data('state', 'collapse');

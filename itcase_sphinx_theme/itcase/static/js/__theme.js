@@ -28,12 +28,6 @@ var Cookies = require('./vendor/js.cookie.js');
       }
     }
 
-    // $('.tree').enscroll({
-    //   showOnHover: true,
-    //   verticalTrackClass: 'vertical-track',
-    //   verticalHandleClass: 'vertical-handle'
-    // });
-
     function collapseTree() {
       menu.data('state', 'collapse');
       menu.addClass('menu__state_collapse');

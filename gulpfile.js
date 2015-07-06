@@ -314,4 +314,3 @@ gulp.task('release', function (callback) {
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('bower', ['bower-js', 'bower-css', 'bower-img', 'bower-font']);
 gulp.task('build', ['bower', 'css', 'browserify']);
-gulp.task('release', ['bower', 'build', 'bump']);

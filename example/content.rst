@@ -464,8 +464,9 @@ JavaScript
 Jinja2
 ------
 
-.. code-block:: jinja
+.. code-block:: htmldjango
    :linenos:
+
 
    <!DOCTYPE html>
    <html lang="en">

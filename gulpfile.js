@@ -9,6 +9,7 @@ var browserify = require('browserify'),
     fs = require('fs'),
     mainBowerFiles = require('main-bower-files'),
     minimist = require('minimist'),
+    request = require('request'),
     runSequence = require('run-sequence');
 
 var map = require('vinyl-map'),
@@ -257,8 +258,18 @@ gulp.task('watch', function() {
 });
 
 gulp.task('bump', function(){
+
+  var url = 'https://pypi.python.org/pypi/itcase-sphinx-theme/json',
+      pypiVersion;
+
+  request({ url: url, json: true }, function (error, response, data) {
+    if(!error && response.statusCode === 200){
+      pypiVersion = data.info.version;
+    }
+  });
+
   return gulp.src(['./bower.json', './package.json'])
-    .pipe(plugins.bump())
+    .pipe(plugins.bump({ version: pypiVersion }))
     .pipe(gulp.dest('./'));
 });
 
@@ -278,7 +289,7 @@ gulp.task('create-new-tag', function(cb) {
     if(error) {
       return cb(error);
     }
-    plugins.git.push('origin', 'master', { args: '--tags' }, cb);
+    //plugins.git.push('origin', 'master', { args: '--tags' }, cb);
   });
 
   function getPackageJsonVersion() {
@@ -286,9 +297,9 @@ gulp.task('create-new-tag', function(cb) {
   }
 });
 
-gulp.task('pypi', plugins.shell.task([
-  'python setup.py sdist upload'
-]));
+// gulp.task('pypi', plugins.shell.task([
+//   'python setup.py sdist upload'
+// ]));
 
 gulp.task('release', function (callback) {
   options.env = 'production';
@@ -297,7 +308,7 @@ gulp.task('release', function (callback) {
     'build',
     'bump',
     'commit-changes',
-    //'push-changes',
+    'push-changes',
     'create-new-tag',
     //'pypi',
     function (error) {

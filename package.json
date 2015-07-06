@@ -2,7 +2,7 @@
   "name": "itcase_sphinx_theme",
   "title": "ITCase Sphinx Theme",
   "description": "ITCase Sphinx themes for documentation styling.",
-  "version": "0.1.6",
+  "version": "0.1.5",
   "homepage": "https://github.com/itcase/itcase_sphinx_theme",
   "author": {
     "name": "ITCase",
@@ -52,6 +52,7 @@
     "postcss-css-variables": "^0.3.8",
     "postcss-nested": "^0.3.2",
     "postcss-opacity": "^2.0.0",
+    "request": "^2.58.0",
     "run-sequence": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-map": "^1.0.1",

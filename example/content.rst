@@ -374,6 +374,9 @@ ReST аналогичен языку разметки Markdown, но облад�
 Sphinx используются специальные команды, подробнее смотрите раздел
 :ref:`source-code-label`.
 
+Python
+------
+
 .. code-block:: python
    :linenos:
 
@@ -392,11 +395,141 @@ Sphinx используются специальные команды, подр�
        server = make_server('0.0.0.0', 8080, app)
        server.serve_forever()
 
+bash
+----
+
 .. code-block:: bash
 
    $ pyvenv myproject
    $ cd myproject
    $ bin/pip install pyramid
+
+.. code-block:: bash
+
+   # open file test.data for reading
+   exec 6<test.data
+   # read until end of file
+   while read -u 6 dta
+   do
+     echo "$dta"
+   done
+   # close file test.data
+   exec 6<&-
+
+C++
+---
+
+.. code-block:: cpp
+   :linenos:
+
+   #include <iostream>
+   using namespace std;
+
+   int main ()
+   {
+      cout << "Hello world!!!\n";
+      return 0;
+   }
+
+JavaScript
+----------
+
+.. code-block:: javascript
+   :linenos:
+   :caption: nodejs
+
+   var net = require('net');
+
+   var server = net.createServer(function (stream) {
+       stream.setEncoding('utf8');
+
+       stream.addListener('connect', function () {
+           stream.write('hello\r\n');
+       });
+
+       stream.addListener('data', function (data) {
+           stream.write(data);
+       });
+
+       stream.addListener('end', function () {
+           stream.write('goodbye\r\n');
+           stream.end();
+       });
+   });
+
+   server.listen(1337, 'localhost');
+
+Jinja2
+------
+
+.. code-block:: jinja2
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       {% block head %}
+       <link rel="stylesheet" href="style.css" />
+       <title>{% block title %}{% endblock %} - My Webpage</title>
+       {% endblock %}
+   </head>
+   <body>
+       <div id="content">{% block content %}{% endblock %}</div>
+       <div id="footer">
+           {% block footer %}
+           &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+           {% endblock %}
+       </div>
+   </body>
+   </html>
+
+.. code-block:: jinja
+
+   {% extends "base.html" %}
+   {% block title %}Index{% endblock %}
+   {% block head %}
+       {{ super() }}
+       <style type="text/css">
+           .important { color: #336699; }
+       </style>
+   {% endblock %}
+   {% block content %}
+       <h1>Index</h1>
+       <p class="important">
+         Welcome to my awesome homepage.
+       </p>
+   {% endblock %}
+
+Golang
+------
+
+.. code-block:: go
+
+   package main
+
+   import "fmt"
+
+   func main() {
+       fmt.Println("Hello, 世界")
+   }
+
+JSON
+----
+
+.. code-block:: json
+
+   {
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "address": {
+          "streetAddress": "Московское ш., 101, кв.101",
+          "city": "Ленинград",
+          "postalCode": 101101
+      },
+      "phoneNumbers": [
+          "812 123-1234",
+          "916 123-4567"
+      ]
+   }
 
 Автозамены (Подстановки)
 ========================

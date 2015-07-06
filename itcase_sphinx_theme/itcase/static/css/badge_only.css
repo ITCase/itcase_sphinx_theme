@@ -62,6 +62,7 @@
   {
     padding: 12px 1em;
     font-size: 1em;
+    display: none;
   }
     .rst-other-versions__group,
     .rst-other-versions dl

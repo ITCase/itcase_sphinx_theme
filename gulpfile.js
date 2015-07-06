@@ -285,7 +285,7 @@ gulp.task('push-changes', function(cb) {
 
 gulp.task('create-new-tag', function(cb) {
   var version = getPackageJsonVersion();
-  plugins.git.tag(version, 'Created Tag for version:' + version, function(error) {
+  plugins.git.tag(version, 'release ' + version, function(error) {
     if(error) {
       return cb(error);
     }

@@ -85,6 +85,7 @@ if (typeof Cookies === 'undefined') {
 
   });
 })(jQuery);
+
 },{"./vendor/jquery.fancybox.js":2,"./vendor/js.cookie.js":4,"jquery":3}],2:[function(require,module,exports){
 /*!
  * fancyBox - jQuery Plugin

@@ -253,7 +253,10 @@ gulp.task('watch', function() {
 gulp.task('bump', function(){
   return gulp.src(['./bower.json', './package.json'])
     .pipe(plugins.bump())
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./'))
+    .pipe(plugins.shell([
+      'python setup.py sdist upload'
+    ]));
 });
 
 gulp.task('default', ['browser-sync', 'watch']);

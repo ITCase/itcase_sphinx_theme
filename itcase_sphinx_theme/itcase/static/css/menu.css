@@ -5,6 +5,24 @@
   z-index: 200;
   position: relative;
 }
+  .menu-logo
+  {
+    padding: 1.5em 20px 1em 20px;
+  }
+    .menu-logo__link
+    {
+      display: inline-block;
+    }
+      .menu-logo__link-image
+      {
+        vertical-align: bottom;
+      }
+    .menu-logo__desc
+    {
+      font: 0.8em 'Open Sans', Arial, sans-serif;
+      color: #000;
+      padding: 0.5em 0 0 0;
+    }
   .menu-project
   {
     padding: 1em 20px;

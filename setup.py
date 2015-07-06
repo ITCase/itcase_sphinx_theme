@@ -1,8 +1,11 @@
+import json
 import os
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-VERSION = '0.1.2'
+with open('package.json') as package_info:
+    package_info = json.load(package_info)
+    VERSION = package_info['version']
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()

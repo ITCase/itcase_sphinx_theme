@@ -262,25 +262,6 @@
     padding: 0 0 0.4em 0;
   }
 
-.rst-content .highlight
-{
-  color: #404040;
-  background: #fff;
-  border: 1px solid #e1e4e5;
-  display: block;
-  font: 1em 'Incosolata', monospace;
-  line-height: 1.3em;
-  padding: 1.5em 1.5em;
-  margin: 0;
-  white-space: pre;
-}
-  .rst-content .highlight pre
-  {
-    padding: 0;
-    margin: 0;
-  }
-
-
 .rst-content .literal
 {
   background: #fff;

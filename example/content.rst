@@ -379,6 +379,7 @@ Python
 
 .. code-block:: python
    :linenos:
+   :emphasize-lines: 1-3
 
    from wsgiref.simple_server import make_server
    from pyramid.config import Configurator
@@ -437,6 +438,7 @@ JavaScript
 .. code-block:: javascript
    :linenos:
    :caption: nodejs
+   :emphasize-lines: 1
 
    var net = require('net');
 
@@ -463,6 +465,7 @@ Jinja2
 ------
 
 .. code-block:: jinja
+   :linenos:
 
    <!DOCTYPE html>
    <html lang="en">

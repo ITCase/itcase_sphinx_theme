@@ -12,6 +12,15 @@ div[class^='highlight-']
   font: 1.1em 'Open Sans', Arial, sans-serif;
   padding: 0.2em 0 0.2em 0.8em;
 }
+  .code-block-caption .docutils.literal
+  {
+    font: italic 1em 'Incosolata',monospace;
+    padding: 0.1em .4em;
+    white-space: nowrap;
+    color: #555;
+    margin: -0.1em 0.2em 0 0.2em;
+  }
+
 .highlighttable
 {
   width: 100%;

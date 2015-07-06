@@ -102,22 +102,22 @@
       {
         display: none;
       }
+      .rst-other-versions dl:last-child()
+      {
+        padding: 0 0 0.3em 0;
+      }
     .rst-other-versions__info
     {
       font: 0.95em 'Open Sans', Arial, sans-serif;
     }
 
-
-.rst-versions .bookmark-icon
+/* For Bookmarks */
+.rst-versions .bookmark-inactive,
+.rst-versions .bookmark-active,
+.rst-versions .bookmark-added-msg
 {
-
+  display: none;
 }
-  .rst-versions .bookmark-inactive,
-  .rst-versions .bookmark-active,
-  .rst-versions .bookmark-added-msg
-  {
-    display: none;
-  }
 
 /* For Search in bottom */
 #flyout-search-form
@@ -125,4 +125,10 @@
   position: relative;
   left: -6px;
   font: 0.9em 'Open Sans', Arial, sans-serif;
+  padding: 0.5em 1em 0.5em 0.5em;
+}
+.rst-versions hr
+{
+  margin: 0;
+  background: #000;
 }

@@ -798,10 +798,8 @@ body {
 }
 
 .search input[type=text] {
-  -webkit-border-radius: solid 3px #ccc;
-  -moz-border-radius: solid 3px #ccc;
-  border-radius: solid 3px #ccc;
-  padding: 6px 12px 6px 6px;
+  border: solid 1px #ccc;
+  padding: 0.5em 1em 0.5em 0.5em;
   font: 0.9em 'Open Sans', Arial, sans-serif;
   color: #000;
 }

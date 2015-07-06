@@ -309,8 +309,8 @@ gulp.task('release', function (callback) {
     'bump',
     'commit-changes',
     'push-changes',
-    'create-new-tag',
     'pypi',
+    'create-new-tag',
     function (error) {
       if (error) {
         console.log(error.message);

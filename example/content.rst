@@ -462,7 +462,7 @@ JavaScript
 Jinja2
 ------
 
-.. code-block:: jinja2
+.. code-block:: jinja
 
    <!DOCTYPE html>
    <html lang="en">

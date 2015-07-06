@@ -6,7 +6,7 @@ if (typeof Cookies === 'undefined') {
 }
 
 (function($){
-  $(window).load(function(){
+  $(window).ready(function(){
 
     var menu = $('.menu'),
         menuSwitch = $('.menu-switch'),

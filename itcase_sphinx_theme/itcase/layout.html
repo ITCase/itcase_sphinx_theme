@@ -119,16 +119,12 @@
                 <section class="page__right">
                     {% include "breadcrumbs.html" %}
 
-                    <div class="badge clearfix">
-                        {% if theme_travis_button|lower != 'false' %}
+                    <div class="badge">
+                        {% if theme_travis_button|lower == 'true' %}
+                            {% set path = theme_github_user + '/' + theme_github_repo %}
                             <div class="badge__item">
-                                {% if theme_travis_button|lower == 'true' %}
-                                    {% set path = theme_github_user + '/' + theme_github_repo %}
-                                {% else %}
-                                    {% set path = theme_travis_button %}
-                                {% endif %}
                                 <a href="https://travis-ci.org/{{ path }}">
-                                    <img alt="https://secure.travis-ci.org/{{ path }}svg?branch=master" src="https://secure.travis-ci.org/{{ path }}.png?branch=master" />
+                                    <img alt="https://secure.travis-ci.org/{{ path }}.svg?branch=master" src="https://secure.travis-ci.org/{{ path }}.png?branch=master" />
                                 </a>
                             </div>
                         {% endif %}

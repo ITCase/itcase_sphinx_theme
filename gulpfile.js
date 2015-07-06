@@ -6,8 +6,10 @@ var gulp = require('gulp'),
 var browserify = require('browserify'),
     browserSync = require('browser-sync'),
     del = require('del'),
+    fs = require('fs'),
     mainBowerFiles = require('main-bower-files'),
-    minimist = require('minimist');
+    minimist = require('minimist'),
+    runSequence = require('run-sequence');
 
 var map = require('vinyl-map'),
     buffer = require('vinyl-buffer'),
@@ -62,7 +64,8 @@ gulp.task('browser-sync', function() {
 gulp.task('bower-js', function() {
 
   return gulp.src(mainBowerFiles(
-    { filter: (/.*\.(js|map)$/i) }), { base: 'bower_components' })
+      { filter: (/.*\.(js|map)$/i) }),
+      { base: 'bower_components' })
     .pipe(plugins.rename(function(path) {
       path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1);
     }))
@@ -76,7 +79,8 @@ gulp.task('bower-js', function() {
 
 gulp.task('bower-css', function() {
   return gulp.src(mainBowerFiles(
-      { filter: (/.*\.css$/i) }), { base: 'bower_components' })
+      { filter: (/.*\.css$/i) }),
+      { base: 'bower_components' })
     .pipe(plugins.rename(function(path) {
       path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1);
     }))
@@ -90,7 +94,8 @@ gulp.task('bower-css', function() {
 
 gulp.task('bower-img', function() {
   return gulp.src(mainBowerFiles(
-    { filter: (/.*\.(png|jpg|gif)$/i) }), { base: 'bower_components' })
+      { filter: (/.*\.(png|jpg|gif)$/i) }),
+      { base: 'bower_components' })
     .pipe(plugins.rename(function(path) {
       path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1);
     }))
@@ -104,7 +109,8 @@ gulp.task('bower-img', function() {
 
 gulp.task('bower-font', function() {
   return gulp.src(mainBowerFiles(
-    { filter: (/.*\.(eot|otf|svg|ttf|woff|woff2)$/i) }), { base: 'bower_components' })
+      { filter: (/.*\.(eot|otf|svg|ttf|woff|woff2)$/i) }),
+      { base: 'bower_components' })
     .pipe(plugins.rename(function (path) {
       path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1);
     }))
@@ -253,13 +259,58 @@ gulp.task('watch', function() {
 gulp.task('bump', function(){
   return gulp.src(['./bower.json', './package.json'])
     .pipe(plugins.bump())
-    .pipe(gulp.dest('./'))
-    .pipe(plugins.shell([
-      'python setup.py sdist upload'
-    ]));
+    .pipe(gulp.dest('./'));
 });
+
+
+gulp.task('commit-changes', function() {
+  return gulp.src('.')
+    .pipe(plugins.git.commit('Bumped version', { args: '-a' }));
+});
+
+gulp.task('push-changes', function(cb) {
+  plugins.git.push('origin', 'master', cb);
+});
+
+gulp.task('create-new-tag', function(cb) {
+  var version = getPackageJsonVersion();
+  plugins.git.tag(version, 'Created Tag for version:' + version, function(error) {
+    if(error) {
+      return cb(error);
+    }
+    plugins.git.push('origin', 'master', { args: '--tags' }, cb);
+  });
+
+  function getPackageJsonVersion() {
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
+  }
+});
+
+gulp.task('pypi', plugins.shell.task([
+  'python setup.py sdist upload'
+]));
+
+gulp.task('release', function (callback) {
+  options.env = 'production';
+  runSequence(
+    'bower',
+    'build',
+    'bump',
+    'commit-changes',
+    //'push-changes',
+    'create-new-tag',
+    //'pypi',
+    function (error) {
+      if (error) {
+        console.log(error.message);
+      } else {
+        console.log('RELEASE FINISHED SUCCESSFULLY');
+      }
+      callback(error);
+    });
+});
+
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('bower', ['bower-js', 'bower-css', 'bower-img', 'bower-font']);
 gulp.task('build', ['bower', 'css', 'browserify']);
-gulp.task('release', ['bower', 'build', 'bump']);

@@ -3,7 +3,7 @@
   background: #1f1d1d;
   color: #fcfcfc;
   position: fixed;
-  width: auto;
+  max-width: 300px;
   z-index: 400;
   bottom: 20px;
   right: 20px;
@@ -62,7 +62,7 @@
   {
     display: none;
     font-size: 90%;
-    padding: 12px;
+    padding: 12px 17px;
   }
     .rst-other-versions__group,
     .rst-other-versions dl
@@ -118,3 +118,11 @@
   {
     display: none;
   }
+
+/* For Search in bottom */
+#flyout-search-form
+{
+  position: relative;
+  left: -6px;
+  font: 0.9em 'Open Sans', Arial, sans-serif;
+}

@@ -802,6 +802,8 @@ body {
   -moz-border-radius: solid 3px #ccc;
   border-radius: solid 3px #ccc;
   padding: 6px 12px 6px 6px;
+  font: 0.9em 'Open Sans', Arial, sans-serif;
+  color: #000;
 }
 
 .search img {

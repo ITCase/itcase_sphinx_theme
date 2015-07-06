@@ -1,12 +1,12 @@
 {
   "name": "itcase_sphinx_theme",
-  "title": "",
-  "description": "",
-  "version": "0.0.1",
+  "title": "ITCase Sphinx Theme",
+  "description": "ITCase Sphinx themes for documentation styling.",
+  "version": "0.1.3",
   "homepage": "https://github.com/itcase/itcase_sphinx_theme",
   "author": {
-    "name": "Arkadiy Zamaraev",
-    "email": "arkadiy@bk.ru"
+    "name": "ITCase",
+    "email": "info@itcase.pro"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-batch": "~1.0.5",
+    "gulp-bump": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-css-base64": "^1.3.2",
     "gulp-filter": "^2.0.2",

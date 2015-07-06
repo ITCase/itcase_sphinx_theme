@@ -250,7 +250,13 @@ gulp.task('watch', function() {
 
 });
 
+gulp.task('bump', function(){
+  return gulp.src(['./bower.json', './package.json'])
+    .pipe(plugins.bump())
+    .pipe(gulp.dest('./'));
+});
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('bower', ['bower-js', 'bower-css', 'bower-img', 'bower-font']);
 gulp.task('build', ['bower', 'css', 'browserify']);
+gulp.task('release', ['bower', 'build', 'bump']);

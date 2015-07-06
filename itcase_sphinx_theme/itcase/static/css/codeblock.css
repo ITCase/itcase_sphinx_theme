@@ -4,6 +4,12 @@ div[class^='highlight-']
   border: 1px solid #e1e4e5;
   margin: 0 0 1.5em 0;
 }
+.code
+{
+  background: #fff;
+  border: 1px solid #e1e4e5;
+  margin: 0 0 1.5em 0;
+}
 .code-block-caption
 {
   background: #6ab0de;
@@ -29,15 +35,20 @@ div[class^='highlight-']
   vertical-align: top;
   font: 0.85em 'Incosolata', monospace;
 }
+  .highlighttable .code
+  {
+    border: none;
+    margin: 0;
+  }
   .linenos
   {
     width: 50px;
+    line-height: 1.5em;
   }
     .linenodiv pre
     {
       border-right: solid 1px #e6e9ea;
       color: #d9d9d9;
-      line-height: 1.5em;
       margin: 0;
       padding: 12px 12px;
     }

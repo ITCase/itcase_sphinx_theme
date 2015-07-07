@@ -114,7 +114,7 @@ div.admonition ul.simple {
 
 .admonition- .admonition-title,
 .admonition-todo .admonition-title {
-  background: #6ab0de;
+  background: #E14938;
   position: relative;
   margin: -1.5em 0 0 0;
 }
@@ -245,12 +245,13 @@ div[class^='highlight-'] {
 }
 
 .code-block-caption .docutils.literal {
-  font: italic 1em 'Incosolata',monospace;
+  font: 0.8em 'Incosolata',monospace;
   padding: 0.1em .4em;
   white-space: nowrap;
   color: #555;
   margin: 0 0.2em;
   position: relative;
+  top: -0.1em;
 }
 
 .highlighttable {

@@ -4,19 +4,28 @@
   color: #404040;
 }
 
-  .admonition-title
+  p.admonition-title
   {
     color: #fff !important;
     display: block;
-    padding: 6px 12px;
+    padding: 6px 12px !important;
     font: bold 1.25em 'Open Sans', Arial, sans-serif;
+    margin: 0 !important;
+  }
+  .admonition p
+  {
+    font: 1em 'Open Sans', Arial, sans-serif;
+    margin: 1em 0 1em 0;
+    padding: 0 12px;
+    display: block;
   }
   .admonition p.last
   {
-    font: 1em 'Open Sans', Arial, sans-serif;
-    margin: 1em 0 1.5em 0;
-    padding: 0 12px 1em 12px;
-    display: block;
+    padding-bottom: 1em;
+  }
+  div.admonition ul.simple
+  {
+    padding:  0 0 1em 3em;
   }
 
 .admonition.note
@@ -93,14 +102,20 @@
   {
     background: #1abc9c
   }
-
+.admonition.seealso
+{
+  background: #dbfaf4;
+}
+  .admonition.seealso .admonition-title
+  {
+    background: #1abc9c
+  }
 
 .admonition-,
 .admonition-todo
 {
   background: #fff;
   border: 1px solid #e1e4e5;
-  padding: 1.5em 0 0 0;
 }
   .admonition- .admonition-title,
   .admonition-todo .admonition-title

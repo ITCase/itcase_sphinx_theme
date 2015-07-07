@@ -4,6 +4,12 @@ div[class^='highlight-']
   border: 1px solid #e1e4e5;
   margin: 0 0 1.5em 0;
 }
+.code
+{
+  background: #fff;
+  border: 1px solid #e1e4e5;
+  margin: 0 0 1.5em 0;
+}
 .code-block-caption
 {
   background: #6ab0de;
@@ -12,6 +18,16 @@ div[class^='highlight-']
   font: 1.1em 'Open Sans', Arial, sans-serif;
   padding: 0.2em 0 0.2em 0.8em;
 }
+  .code-block-caption .docutils.literal
+  {
+    font: italic 1em 'Incosolata',monospace;
+    padding: 0.1em .4em;
+    white-space: nowrap;
+    color: #555;
+    margin: 0 0.2em;
+    position: relative;
+  }
+
 .highlighttable
 {
   width: 100%;
@@ -20,17 +36,22 @@ div[class^='highlight-']
   vertical-align: top;
   font: 0.85em 'Incosolata', monospace;
 }
-  .linenos
+  .highlighttable .code
+  {
+    border: none;
+    margin: 0;
+  }
+  .highlighttable .linenos
   {
     width: 50px;
+    line-height: 1.5em;
   }
-    .linenodiv pre
+    .highlighttable .linenodiv pre
     {
       border-right: solid 1px #e6e9ea;
       color: #d9d9d9;
-      line-height: 1.5em;
       margin: 0;
-      padding: 12px 12px;
+      padding: 0 0 0 12px;
     }
   .highlighttable .highlight
   {

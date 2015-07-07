@@ -249,7 +249,8 @@ div[class^='highlight-'] {
   padding: 0.1em .4em;
   white-space: nowrap;
   color: #555;
-  margin: -0.1em 0.2em 0 0.2em;
+  margin: 0 0.2em;
+  position: relative;
 }
 
 .highlighttable {
@@ -265,16 +266,16 @@ div[class^='highlight-'] {
   margin: 0;
 }
 
-.linenos {
+.highlighttable .linenos {
   width: 50px;
   line-height: 1.5em;
 }
 
-.linenodiv pre {
+.highlighttable .linenodiv pre {
   border-right: solid 1px #e6e9ea;
   color: #d9d9d9;
   margin: 0;
-  padding: 12px 12px;
+  padding: 0 0 0 12px;
 }
 
 .highlighttable .highlight {

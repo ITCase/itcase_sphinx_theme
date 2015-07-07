@@ -745,6 +745,47 @@ Sphinx расширяет возможности создания ссылок, 
 
 .. _table-label:
 
+
+.. figure:: _static/sphinx.jpg
+    :align: right
+    :width: 300px
+    :height: 1000px
+    :alt: Альтернативный текст
+
+.. figure:: _static/sphinx.jpg
+    :align: left
+    :width: 100px
+    :height: 1000px
+    :alt: Альтернативный текст
+
+`ps_tree` is extension for `pyramid_sacrud
+<https://github.com/ITCase/pyramid_sacrud/>`_ which displays a list of records
+as tree. This works fine with models from `sqlalchemy_mptt
+<https://github.com/ITCase/sqlalchemy_mptt/>`_.
+
+Look how easy it is to use:
+
+.. code-block:: python
+   :caption: Create model
+
+   from pyramid_pages.models import BaseSacrudMpttPage
+
+   Base = declarative_base()
+   DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
+
+   class PageTree(Base, BaseSacrudMpttPage):
+       __tablename__ = 'pages'
+
+       id = Column(Integer, primary_key=True)
+
+.. code-block:: python
+   :caption: Settings for pyramid app
+
+   config.include('ps_tree')
+   config.registry.settings['ps_tree.models'] = (PageTree, )
+   config.include('pyramid_sacrud', route_prefix='admin')
+   config.registry.settings['pyramid_sacrud.models'] = ('', PageTree)
+
 Таблицы
 =======
 

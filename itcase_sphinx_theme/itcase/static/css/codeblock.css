@@ -1,22 +1,24 @@
 div[class^='highlight-']
 {
-  background: #fff;
+  background: #FEF9EB;
   border: 1px solid #e1e4e5;
   margin: 0 0 1.5em 0;
 }
 .code
 {
-  background: #fff;
+  background: #FEF9EB;
   border: 1px solid #e1e4e5;
   margin: 0 0 1.5em 0;
 }
 .code-block-caption
 {
-  background: #6ab0de;
+  background: #eeeeee;
   position: relative;
-  color: #fff;
+  color: #000;
   font: 1.1em 'Open Sans', Arial, sans-serif;
   padding: 0.2em 0 0.2em 0.8em;
+  border: 1px solid #e1e4e5;
+  border-bottom: 0;
 }
   .code-block-caption .docutils.literal
   {
@@ -32,7 +34,7 @@ div[class^='highlight-']
 .highlighttable
 {
   width: 100%;
-  background: #fff;
+  background: #FEF9EB;
   padding: 0;
   vertical-align: top;
   font: 0.85em 'Incosolata', monospace;
@@ -50,7 +52,7 @@ div[class^='highlight-']
     .highlighttable .linenodiv pre
     {
       border-right: solid 1px #e6e9ea;
-      color: #d9d9d9;
+      color: #AAB2AC;
       margin: 0;
       padding: 0 0 0 12px;
     }

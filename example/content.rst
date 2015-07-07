@@ -800,16 +800,18 @@ Sphinx расширяет возможности создания ссылок, 
 
 
 .. figure:: _static/sphinx.jpg
-    :align: right
-    :width: 300px
-    :height: 1000px
+    :align: left
+    :width: 400px
     :alt: Альтернативный текст
 
+    Сфинкс слева
+
 .. figure:: _static/sphinx.jpg
-    :align: left
-    :width: 100px
-    :height: 1000px
+    :align: right
+    :width: 200px
     :alt: Альтернативный текст
+
+    Сфинкс справа
 
 `ps_tree` is extension for `pyramid_sacrud
 <https://github.com/ITCase/pyramid_sacrud/>`_ which displays a list of records

@@ -70,6 +70,13 @@ div[class^='highlight-']
       margin: 0;
     }
 
+
+.literal-block-wrapper
+{
+  clear: both;
+}
+
+
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #60a0b0; font-style: italic } /* Comment */
 .highlight .err { color: #a40000; background-color: #fbe3e4 } /* Error */

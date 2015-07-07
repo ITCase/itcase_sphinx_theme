@@ -946,6 +946,7 @@ dl.method .sig-paren {
   top: 0;
   left: 0;
   background: #eeeeee;
+  visibility: hidden;
 }
 
 .page__left_state_collapse {
@@ -954,6 +955,7 @@ dl.method .sig-paren {
 
 .page__right {
   margin: 0 0 0 330px;
+  visibility: hidden;
 }
 
 .page__right_state_expand {

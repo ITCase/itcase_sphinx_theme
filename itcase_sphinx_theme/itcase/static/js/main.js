@@ -43,6 +43,8 @@ if (typeof Cookies === 'undefined') {
       } else if (menuState === 'expand') {
         expandTree();
       }
+      pageLeft.css({ visibility: 'visible' });
+      pageRight.css({ visibility: 'visible' });
     }
 
     function collapseTree() {
@@ -80,6 +82,5 @@ if (typeof Cookies === 'undefined') {
     });
 
     getTreeState();
-
   });
 })(jQuery);

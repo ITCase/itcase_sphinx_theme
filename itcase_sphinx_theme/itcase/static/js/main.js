@@ -36,7 +36,11 @@ if (typeof Cookies === 'undefined') {
         pageRight = $('.page__right');
 
     function getTreeState() {
-      if(!document.cookie) { return; }
+      if(!document.cookie) { 
+        pageLeft.css({ visibility: 'visible' });
+        pageRight.css({ visibility: 'visible' });
+        return;
+      }
       var menuState = Cookies.get('menu-state');
       if (menuState === 'collapse') {
         collapseTree();

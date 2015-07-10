@@ -558,6 +558,59 @@ JSON
       ]
    }
 
+long string
+-----------
+
+
+.. code-block:: bash
+
+   ('200 OK', [('Content-Type', 'text/plain; charset=UTF-8'), ('Content-Length', '400')], ["HTTP_HOST: 'localhost:80'\nPATH_INFO: '/test'\nQUERY_STRING: ''\nREQUEST_METHOD: 'GET'\nSCRIPT_NAME: ''\nSERVER_NAME: 'localhost'\nSERVER_PORT: '80'\nSERVER_PROTOCOL: 'HTTP/1.0'\nwsgi.errors: <open file '<stderr>', mode 'w' at 0x7fe3aaca41e0>\nwsgi.input: <_io.BytesIO object at 0x7fe3a8af42f0>\nwsgi.multiprocess: False\nwsgi.multithread: False\nwsgi.run_once: False\nwsgi.url_scheme: 'http'\nwsgi.version: (1, 0)"])
+
+   200 OK
+   Content-Type: text/plain; charset=UTF-8
+   Content-Length: 400
+
+   HTTP_HOST: 'localhost:80'
+   PATH_INFO: '/test'
+   QUERY_STRING: ''
+   REQUEST_METHOD: 'GET'
+   SCRIPT_NAME: ''
+   SERVER_NAME: 'localhost'
+   SERVER_PORT: '80'
+   SERVER_PROTOCOL: 'HTTP/1.0'
+   wsgi.errors: <open file '<stderr>', mode 'w' at 0x7fe3aaca41e0>
+   wsgi.input: <_io.BytesIO object at 0x7fe3a8af42f0>
+   wsgi.multiprocess: False
+   wsgi.multithread: False
+   wsgi.run_once: False
+   wsgi.url_scheme: 'http'
+   wsgi.version: (1, 0)
+
+.. code-block:: bash
+   :linenos:
+
+   ('200 OK', [('Content-Type', 'text/plain; charset=UTF-8'), ('Content-Length', '400')], ["HTTP_HOST: 'localhost:80'\nPATH_INFO: '/test'\nQUERY_STRING: ''\nREQUEST_METHOD: 'GET'\nSCRIPT_NAME: ''\nSERVER_NAME: 'localhost'\nSERVER_PORT: '80'\nSERVER_PROTOCOL: 'HTTP/1.0'\nwsgi.errors: <open file '<stderr>', mode 'w' at 0x7fe3aaca41e0>\nwsgi.input: <_io.BytesIO object at 0x7fe3a8af42f0>\nwsgi.multiprocess: False\nwsgi.multithread: False\nwsgi.run_once: False\nwsgi.url_scheme: 'http'\nwsgi.version: (1, 0)"])
+
+   200 OK
+   Content-Type: text/plain; charset=UTF-8
+   Content-Length: 400
+
+   HTTP_HOST: 'localhost:80'
+   PATH_INFO: '/test'
+   QUERY_STRING: ''
+   REQUEST_METHOD: 'GET'
+   SCRIPT_NAME: ''
+   SERVER_NAME: 'localhost'
+   SERVER_PORT: '80'
+   SERVER_PROTOCOL: 'HTTP/1.0'
+   wsgi.errors: <open file '<stderr>', mode 'w' at 0x7fe3aaca41e0>
+   wsgi.input: <_io.BytesIO object at 0x7fe3a8af42f0>
+   wsgi.multiprocess: False
+   wsgi.multithread: False
+   wsgi.run_once: False
+   wsgi.url_scheme: 'http'
+   wsgi.version: (1, 0)
+
 Автозамены (Подстановки)
 ========================
 
@@ -1661,170 +1714,6 @@ handlers to the events.  Example:
 
    def setup(app):
        app.connect('source-read', source_read_handler)
-
-
-.. event:: builder-inited (app)
-
-   Emitted when the builder object has been created.  It is available as
-   ``app.builder``.
-
-.. event:: env-get-outdated (app, env, added, changed, removed)
-
-   Emitted when the environment determines which source files have changed and
-   should be re-read.  *added*, *changed* and *removed* are sets of docnames
-   that the environment has determined.  You can return a list of docnames to
-   re-read in addition to these.
-
-   .. versionadded:: 1.1
-
-.. event:: env-purge-doc (app, env, docname)
-
-   Emitted when all traces of a source file should be cleaned from the
-   environment, that is, if the source file is removed or before it is freshly
-   read.  This is for extensions that keep their own caches in attributes of the
-   environment.
-
-   For example, there is a cache of all modules on the environment.  When a
-   source file has been changed, the cache's entries for the file are cleared,
-   since the module declarations could have been removed from the file.
-
-   .. versionadded:: 0.5
-
-.. event:: env-before-read-docs (app, env, docnames)
-
-   Emitted after the environment has determined the list of all added and
-   changed files and just before it reads them.  It allows extension authors to
-   reorder the list of docnames (*inplace*) before processing, or add more
-   docnames that Sphinx did not consider changed (but never add any docnames
-   that are not in ``env.found_docs``).
-
-   You can also remove document names; do this with caution since it will make
-   Sphinx treat changed files as unchanged.
-
-   .. versionadded:: 1.3
-
-.. event:: source-read (app, docname, source)
-
-   Emitted when a source file has been read.  The *source* argument is a list
-   whose single element is the contents of the source file.  You can process the
-   contents and replace this item to implement source-level transformations.
-
-   For example, if you want to use ``$`` signs to delimit inline math, like in
-   LaTeX, you can use a regular expression to replace ``$...$`` by
-   ``:math:`...```.
-
-   .. versionadded:: 0.5
-
-.. event:: doctree-read (app, doctree)
-
-   Emitted when a doctree has been parsed and read by the environment, and is
-   about to be pickled.  The *doctree* can be modified in-place.
-
-.. event:: missing-reference (app, env, node, contnode)
-
-   Emitted when a cross-reference to a Python module or object cannot be
-   resolved.  If the event handler can resolve the reference, it should return a
-   new docutils node to be inserted in the document tree in place of the node
-   *node*.  Usually this node is a :class:`reference` node containing *contnode*
-   as a child.
-
-   :param env: The build environment (``app.builder.env``).
-   :param node: The :class:`pending_xref` node to be resolved.  Its attributes
-      ``reftype``, ``reftarget``, ``modname`` and ``classname`` attributes
-      determine the type and target of the reference.
-   :param contnode: The node that carries the text and formatting inside the
-      future reference and should be a child of the returned reference node.
-
-   .. versionadded:: 0.5
-
-.. event:: doctree-resolved (app, doctree, docname)
-
-   Emitted when a doctree has been "resolved" by the environment, that is, all
-   references have been resolved and TOCs have been inserted.  The *doctree* can
-   be modified in place.
-
-   Here is the place to replace custom nodes that don't have visitor methods in
-   the writers, so that they don't cause errors when the writers encounter them.
-
-.. event:: env-merge-info (env, docnames, other)
-
-   This event is only emitted when parallel reading of documents is enabled.  It
-   is emitted once for every subprocess that has read some documents.
-
-   You must handle this event in an extension that stores data in the
-   environment in a custom location.  Otherwise the environment in the main
-   process will not be aware of the information stored in the subprocess.
-
-   *other* is the environment object from the subprocess, *env* is the
-   environment from the main process.  *docnames* is a set of document names
-   that have been read in the subprocess.
-
-   For a sample of how to deal with this event, look at the standard
-   ``sphinx.ext.todo`` extension.  The implementation is often similar to that
-   of :event:`env-purge-doc`, only that information is not removed, but added to
-   the main environment from the other environment.
-
-   .. versionadded:: 1.3
-
-.. event:: env-updated (app, env)
-
-   Emitted when the :meth:`update` method of the build environment has
-   completed, that is, the environment and all doctrees are now up-to-date.
-
-   You can return an iterable of docnames from the handler.  These documents
-   will then be considered updated, and will be (re-)written during the writing
-   phase.
-
-   .. versionadded:: 0.5
-
-   .. versionchanged:: 1.3
-      The handlers' return value is now used.
-
-.. event:: html-collect-pages (app)
-
-   Emitted when the HTML builder is starting to write non-document pages.  You
-   can add pages to write by returning an iterable from this event consisting of
-   ``(pagename, context, templatename)``.
-
-   .. versionadded:: 1.0
-
-.. event:: html-page-context (app, pagename, templatename, context, doctree)
-
-   Emitted when the HTML builder has created a context dictionary to render a
-   template with -- this can be used to add custom elements to the context.
-
-   The *pagename* argument is the canonical name of the page being rendered,
-   that is, without ``.html`` suffix and using slashes as path separators.  The
-   *templatename* is the name of the template to render, this will be
-   ``'page.html'`` for all pages from reST documents.
-
-   The *context* argument is a dictionary of values that are given to the
-   template engine to render the page and can be modified to include custom
-   values.  Keys must be strings.
-
-   The *doctree* argument will be a doctree when the page is created from a reST
-   documents; it will be ``None`` when the page is created from an HTML template
-   alone.
-
-   You can return a string from the handler, it will then replace
-   ``'page.html'`` as the HTML template for this page.
-
-   .. versionadded:: 0.4
-
-   .. versionchanged:: 1.3
-      The return value can now specify a template name.
-
-.. event:: build-finished (app, exception)
-
-   Emitted when a build has finished, before Sphinx exits, usually used for
-   cleanup.  This event is emitted even when the build process raised an
-   exception, given as the *exception* argument.  The exception is reraised in
-   the application after the event handlers have run.  If the build process
-   raised no exception, *exception* will be ``None``.  This allows to customize
-   cleanup actions depending on the exception status.
-
-   .. versionadded:: 0.5
-
 
 Checking the Sphinx version
 ---------------------------

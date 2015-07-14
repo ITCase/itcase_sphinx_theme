@@ -707,7 +707,7 @@ div[class^='highlight-'] {
 /* Literal.Number.Integer.Long */
 .footer {
   border-top: solid 1px #ccc;
-  padding: 0 0 2em 0;
+  padding: 0 0 5em 0;
   margin: 2em 0 0 0;
 }
 
@@ -807,6 +807,7 @@ dl.method .sig-paren {
   color: #777;
 }
 .menu {
+  width: 300px;
   background: #eeeeee;
   overflow: hidden;
   z-index: 200;
@@ -2473,6 +2474,30 @@ div[class^='highlight'] td.code
   background-color: #2980b9;
   color: #fff;
   cursor: pointer;
+}
+.up-button {
+  padding: 0.3em 0.7em 0.4em 0.7em;
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 2em;
+  background: #0072aa;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  font: 1em 'Open Sans', Arial, sans-serif;
+}
+
+.up-button:hover {
+  background: #eee;
+  color: #000;
+}
+
+.up-button__arrow {
+  font: 1.2em 'Open Sans', Arial, sans-serif;
+  display: block;
+  text-decoration: none;
+  color: #777;
 }
 .wrapper {
   min-width: 985px;

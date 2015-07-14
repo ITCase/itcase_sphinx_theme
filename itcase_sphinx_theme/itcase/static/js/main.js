@@ -4,9 +4,9 @@ if (typeof $ === 'undefined') { require('jquery'); }
 if (typeof Cookies === 'undefined') {
   var Cookies = require('./vendor/js.cookie.js');
 }
-if (typeof sticky === 'undefined') {
-  var sticky = require('./vendor/jquery.sticky.js');
-}
+
+var leftHeight = $('.page__left').height(),
+    rightHeight = $('.page__right').height();
 
 
 (function($){
@@ -14,15 +14,6 @@ if (typeof sticky === 'undefined') {
   $(window).ready(function(){
 
     require('./vendor/jquery.fancybox.js');
-
-    if(STICKY_MENU) {
-      $('#menu').sticky({
-        topSpacing: 25,
-        bottomSpacing: 50,
-        getWidthFrom: '.page__left',
-        className: 'menu-sticky',
-      });
-    }
 
     $('.internal.image-reference').fancybox({
       padding : 3,
@@ -99,5 +90,64 @@ if (typeof sticky === 'undefined') {
     });
 
     getTreeState();
+
+    // if(leftHeight < $(window).height()) {
+    //   $('.menu').css({
+    //     position: 'fixed',
+    //     top: '25'
+    //   });
+    // } else {
+    //   $('.menu').css({
+    //     position: 'relative',
+    //     top: 0,
+    //   });
+    // }
+
+    $('.up-button').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+      return false;
+    });
+
   });
+
+  // $(window).bind('stickyMenu', function() {
+  //   $(window).scroll(function() {
+  //     if(leftHeight < $(window).height()) {
+  //       $('.menu').css({
+  //         position: 'fixed',
+  //         top: '25'
+  //       });
+  //     } else {
+  //       $('.menu').css({
+  //         position: 'relative',
+  //         top: 0,
+  //       });
+  //     }
+  //   });
+  // }).trigger('stickyMenu');
+
+  // $(window).scroll(function () {
+  //   if($(window).scrollTop() > 300) {
+  //     $('.up-button').css({ display: 'inline-block' });
+  //   } else {
+  //     $('.up-button').css({ display: 'none' });
+  //   }
+  // });
+
+  // $(window).resize(function () {
+  //   if (($('.menu').height() > $(window).height()) ||
+  //       ($(window).scrollTop() < $('.page__left').height())) {
+  //     $('.menu').css({
+  //       position: 'relative',
+  //       top: 0
+  //     });
+  //   } else {
+  //     $('.menu').css({
+  //       position: 'fixed',
+  //       top: 25,
+  //     });
+  //   }
+  // });
+
+
 })(jQuery);

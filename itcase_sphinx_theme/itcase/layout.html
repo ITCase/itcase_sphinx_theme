@@ -57,7 +57,7 @@
         {%- endif %}
     {%- endblock %}
 
-    {%- block extrahead %}{% endblock %}
+    
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet" type="text/css" />
 
@@ -69,6 +69,7 @@
             <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
         {%- endfor %}
     {% endif %}
+    {%- block extrahead %}{% endblock %}
 </head>
 
 <body>
@@ -79,7 +80,7 @@
                     page_type_main-page
                 {% endif %}">
                 <div class="page__left">
-                    <nav class="menu" data-state="expand">
+                    <nav class="menu" id="menu" data-state="expand">
                         {% if theme_logo|lower == 'true' %}
                             <div class="menu-logo">
                                 <a href="{{ pathto(master_doc) }}" class="menu-logo__link">
@@ -154,6 +155,12 @@
                     FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
                     HAS_SOURCE: {{ has_source|lower }}
                 };
+        </script>
+    {% endif %}
+
+    {% if theme_sticky_menu|lower == 'true' %}
+        <script type="text/javascript">
+            var STICKY_MENU = true;
         </script>
     {% endif %}
 

@@ -18,7 +18,8 @@
     "html5-boilerplate": "~5.2.0",
     "js-cookie": "~2.0.2",
     "normalize.css": "~3.0.3",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "jquery-sticky": "~1.0.1"
   },
   "overrides": {
     "fancybox": {

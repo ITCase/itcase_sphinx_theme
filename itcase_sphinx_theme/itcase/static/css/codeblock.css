@@ -33,7 +33,6 @@ div[class^='highlight-']
 
 .highlighttable
 {
-  width: 100%;
   background: #FEF9EB;
   padding: 0;
   vertical-align: top;
@@ -43,19 +42,27 @@ div[class^='highlight-']
   {
     border: none;
     margin: 0;
+    position: relative;
+    overflow: auto;
+    max-width: 873px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .highlighttable .linenos
   {
-    width: 50px;
     line-height: 1.5em;
   }
-    .highlighttable .linenodiv pre
+    .highlighttable .linenodiv
     {
-      border-right: solid 1px #e6e9ea;
-      color: #AAB2AC;
-      margin: 0;
-      padding: 0 0 0 12px;
+      width: 45px;
     }
+      .highlighttable .linenodiv pre
+      {
+        border-right: solid 1px #e6e9ea;
+        color: #AAB2AC;
+        margin: 0;
+        padding: 0 0 0 12px;
+      }
   .highlighttable .highlight
   {
     color: #404040;
@@ -66,11 +73,15 @@ div[class^='highlight-']
     margin: 0;
     white-space: pre;
     line-height: 1.5em;
+    overflow: visible;
+    position: relative;
   }
     .highlight pre
     {
+      position: relative;
       padding: 0;
       margin: 0;
+      overflow: auto;
     }
 
 

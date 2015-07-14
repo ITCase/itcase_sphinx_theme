@@ -92,15 +92,10 @@ var leftHeight = $('.page__left').height(),
 
     getTreeState();
 
-    // if(leftHeight < $(window).height()) {
+    // if(leftHeight < rightHeight) {
     //   $('.menu').css({
     //     position: 'fixed',
     //     top: '25'
-    //   });
-    // } else {
-    //   $('.menu').css({
-    //     position: 'relative',
-    //     top: 0,
     //   });
     // }
 
@@ -111,21 +106,45 @@ var leftHeight = $('.page__left').height(),
 
   });
 
-  // $(window).bind('stickyMenu', function() {
-  //   $(window).scroll(function() {
-  //     if(leftHeight < $(window).height()) {
-  //       $('.menu').css({
-  //         position: 'fixed',
-  //         top: '25'
-  //       });
-  //     } else {
-  //       $('.menu').css({
-  //         position: 'relative',
-  //         top: 0,
-  //       });
-  //     }
-  //   });
-  // }).trigger('stickyMenu');
+  $(window).bind('stickyMenu', function() {
+    $(window).scroll(function() {
+      if(leftHeight < rightHeight) {
+
+        var menuPosition =  $('.menu').offset().top + $('.menu').height(),
+            screenPosition =  $(window).scrollTop() + $('.menu').height(),
+            footerPosition =  $('.footer').offset().top;
+
+        console.log(menuPosition);
+        console.log(screenPosition);
+
+        if(menuPosition >= footerPosition) {
+
+          if(screenPosition <= footerPosition){
+            $('.menu').css({
+              position: 'fixed',
+              top: '25',
+              margin: 0
+            });
+          } else {
+            $('.menu').css({
+              position: 'relative',
+              'margin-top': footerPosition - $('.menu').height() - 25
+            });
+          }
+        } else {
+          $('.menu').css({
+            position: 'fixed',
+            top: '25'
+          });
+        }
+      } else {
+        $('.menu').css({
+          position: 'position',
+          top: '0'
+        });
+      }
+    });
+  }).trigger('stickyMenu');
 
   // $(window).scroll(function () {
   //   if($(window).scrollTop() > 300) {

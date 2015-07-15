@@ -806,12 +806,55 @@ dl.method .sig-paren {
   font: bold 1.2em 'Incosolata', monospace;
   color: #777;
 }
+
+.menu-track {
+  width: 7px;
+  background: rgba(0, 0, 0, 0);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: background 250ms linear;
+  -moz-transition: background 250ms linear;
+  -o-transition: background 250ms linear;
+  transition: background 250ms linear;
+}
+
+.menu-track:hover,
+.menu-track.dragging {
+  background: #d9d9d9;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.menu-handle {
+  width: 7px;
+  right: 0;
+  background: #999;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-transition: width 250ms;
+  -moz-transition: width 250ms;
+  -o-transition: width 250ms;
+  transition: width 250ms;
+}
+
+.menu-track:hover .menu-handle,
+.menu-track.dragging .menu-handle {
+  width: 7px;
+}
 .menu {
   width: 300px;
   background: #eeeeee;
-  overflow: hidden;
   z-index: 200;
   position: relative;
+  overflow: hidden;
+}
+
+.menu-inner {
+  width: 290px;
+  height: 200px;
+  overflow: auto;
 }
 
 .menu-logo {
@@ -2366,6 +2409,7 @@ div[class^='highlight'] td.code
   margin: 0 0 0 0.5em;
 }
 .tree {
+  width: 105%;
   /*margin: 0 20px 0 0;*/
 }
 

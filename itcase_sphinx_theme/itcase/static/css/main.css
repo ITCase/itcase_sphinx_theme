@@ -69,3 +69,35 @@ dl.method
       font: bold 1.2em 'Incosolata', monospace;
       color: #777;
     }
+
+
+.menu-track
+{
+  width: 7px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  transition: background 250ms linear;
+}
+
+.menu-track:hover,
+.menu-track.dragging
+{
+  background: #d9d9d9;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.menu-handle
+{
+  width: 7px;
+  right: 0;
+  background: #999;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 7px;
+  transition: width 250ms;
+}
+
+.menu-track:hover .menu-handle,
+.menu-track.dragging .menu-handle
+{
+  width: 7px;
+}

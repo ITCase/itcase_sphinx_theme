@@ -80,36 +80,38 @@
                 {% endif %}">
                 <div class="page__left">
                     <nav class="menu" id="menu" data-state="expand">
-                        {% if theme_logo|lower == 'true' %}
-                            <div class="menu-logo">
-                                <a href="{{ pathto(master_doc) }}" class="menu-logo__link">
-                                    <img class="menu-logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
-                                </a>
-                                <div class="menu-logo__desc">{{ theme_logo_image_desc }}</div>
-                            </div>
-                        {% else %}
-                            <div class="menu-project">
-                                <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
-                            </div>
-                        {% endif %}
-                        <div class="tree">
-                            {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
-                            {% if toctree %}
-                                {{ toctree }}
+                        <div class="menu-inner">
+                            {% if theme_logo|lower == 'true' %}
+                                <div class="menu-logo">
+                                    <a href="{{ pathto(master_doc) }}" class="menu-logo__link">
+                                        <img class="menu-logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
+                                    </a>
+                                    <div class="menu-logo__desc">{{ theme_logo_image_desc }}</div>
+                                </div>
                             {% else %}
-                                {{ toc }}
+                                <div class="menu-project">
+                                    <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+                                </div>
                             {% endif %}
+                            <div class="tree">
+                                {% set toctree = toctree(maxdepth=10, collapse=True, includehidden=True) %}
+                                {% if toctree %}
+                                    {{ toctree }}
+                                {% else %}
+                                    {{ toc }}
+                                {% endif %}
+                            </div>
+                            <div class="menu-search search">
+                                <div class="search-title">Quick search</div>
+                                <form id="search-form" class="search-form" action="{{ pathto('search') }}" method="GET">
+                                    <input type="text" name="q" placeholder="Search docs" />
+                                    <input type="hidden" name="check_keywords" value="yes" />
+                                    <input type="hidden" name="area" value="default" />
+                                </form>
+                                <div class="search-desc">Enter search terms or a module, class or function name.</div>
+                            </div>
+                            <nav class="wy-nav-side">&nbsp;</nav>
                         </div>
-                        <div class="menu-search search">
-                            <div class="search-title">Quick search</div>
-                            <form id="search-form" class="search-form" action="{{ pathto('search') }}" method="GET">
-                                <input type="text" name="q" placeholder="Search docs" />
-                                <input type="hidden" name="check_keywords" value="yes" />
-                                <input type="hidden" name="area" value="default" />
-                            </form>
-                            <div class="search-desc">Enter search terms or a module, class or function name.</div>
-                        </div>
-                        <nav class="wy-nav-side">&nbsp;</nav>
                         <div class="menu-switch">
                             <div class="menu-switch__arrow">«</div>
                         </div>

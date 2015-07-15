@@ -14,6 +14,14 @@ var leftHeight = $('.page__left').height(),
   $(window).ready(function(){
 
     require('./vendor/jquery.fancybox.js');
+    require('./vendor/enscroll.js');
+
+    $('.menu-inner').enscroll({
+        showOnHover: true,
+        verticalTrackClass: 'menu-track',
+        verticalHandleClass: 'menu-handle'
+    });
+
 
     $('.internal.image-reference').fancybox({
       padding : 3,
@@ -91,12 +99,15 @@ var leftHeight = $('.page__left').height(),
 
     getTreeState();
 
-    // if(leftHeight < rightHeight) {
-    //   $('.menu').css({
-    //     position: 'fixed',
-    //     top: '25'
-    //   });
-    // }
+    if(leftHeight < rightHeight) {
+      $('.menu').css({
+        position: 'fixed',
+        top: '25'
+      });
+    }
+
+    $('.menu').css({ height: ($(window).height() - '55') });
+    $('.menu-inner').css({ height: $('.menu').height() });
 
     $('.up-button').click(function () {
       $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -107,17 +118,17 @@ var leftHeight = $('.page__left').height(),
 
   $(window).bind('stickyMenu', function() {
     $(window).scroll(function() {
+
+      $('.menu').css({ height: ($(window).height() - '55') });
+      $('.menu-inner').css({ height: $('.menu').height() });
+
       if(leftHeight < rightHeight) {
 
         var menuPosition =  $('.menu').offset().top + $('.menu').height(),
             screenPosition =  $(window).scrollTop() + $('.menu').height(),
             footerPosition =  $('.footer').offset().top;
 
-        console.log(menuPosition);
-        console.log(screenPosition);
-
         if(menuPosition >= footerPosition) {
-
           if(screenPosition <= footerPosition){
             $('.menu').css({
               position: 'fixed',
@@ -153,20 +164,22 @@ var leftHeight = $('.page__left').height(),
   //   }
   // });
 
-  // $(window).resize(function () {
-  //   if (($('.menu').height() > $(window).height()) ||
-  //       ($(window).scrollTop() < $('.page__left').height())) {
-  //     $('.menu').css({
-  //       position: 'relative',
-  //       top: 0
-  //     });
-  //   } else {
-  //     $('.menu').css({
-  //       position: 'fixed',
-  //       top: 25,
-  //     });
-  //   }
-  // });
+  $(window).resize(function () {
+    $('.menu').css({ height: ($(window).height() - '55') });
+    $('.menu-inner').css({ height: $('.menu').height() });
+    // if (($('.menu').height() > $(window).height()) ||
+    //     ($(window).scrollTop() < $('.page__left').height())) {
+    //   $('.menu').css({
+    //     position: 'relative',
+    //     top: 0
+    //   });
+    // } else {
+    //   $('.menu').css({
+    //     position: 'fixed',
+    //     top: 25,
+    //   });
+    // }
+  });
 
 
 })(jQuery);

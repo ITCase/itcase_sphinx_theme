@@ -14,14 +14,6 @@ var leftHeight = $('.page__left').height(),
   $(window).ready(function(){
 
     require('./vendor/jquery.fancybox.js');
-    require('./vendor/enscroll.js');
-
-    $('.menu-inner').enscroll({
-        showOnHover: true,
-        verticalTrackClass: 'menu-track',
-        verticalHandleClass: 'menu-handle'
-    });
-
 
     $('.internal.image-reference').fancybox({
       padding : 3,
@@ -99,87 +91,74 @@ var leftHeight = $('.page__left').height(),
 
     getTreeState();
 
-    if(leftHeight < rightHeight) {
-      $('.menu').css({
-        position: 'fixed',
-        top: '25'
+    if(STICKY_MENU === true){
+
+      require('./vendor/enscroll.js');
+
+      $('.menu-inner').enscroll({
+          showOnHover: true,
+          verticalTrackClass: 'menu-track',
+          verticalHandleClass: 'menu-handle'
       });
-    }
 
-    $('.menu').css({ height: ($(window).height() - '55') });
-    $('.menu-inner').css({ height: $('.menu').height() });
-
-    $('.up-button').click(function () {
-      $('html, body').animate({ scrollTop: 0 }, 'slow');
-      return false;
-    });
-
-  });
-
-  $(window).bind('stickyMenu', function() {
-    $(window).scroll(function() {
+      if(leftHeight < rightHeight) {
+        $('.menu').css({
+          position: 'fixed',
+          top: '25'
+        });
+      }
 
       $('.menu').css({ height: ($(window).height() - '55') });
       $('.menu-inner').css({ height: $('.menu').height() });
+    }
+  });
 
-      if(leftHeight < rightHeight) {
+  if(STICKY_MENU === true){
+    $(window).bind('stickyMenu', function() {
+      $(window).scroll(function() {
 
-        var menuPosition =  $('.menu').offset().top + $('.menu').height(),
-            screenPosition =  $(window).scrollTop() + $('.menu').height(),
-            footerPosition =  $('.footer').offset().top;
+        $('.menu').css({ height: ($(window).height() - '55') });
+        $('.menu-inner').css({ height: $('.menu').height() });
 
-        if(menuPosition >= footerPosition) {
-          if(screenPosition <= footerPosition){
-            $('.menu').css({
-              position: 'fixed',
-              top: '25',
-              margin: 0
-            });
+        if(leftHeight < rightHeight) {
+
+          var menuPosition =  $('.menu').offset().top + $('.menu').height(),
+              screenPosition =  $(window).scrollTop() + $('.menu').height(),
+              footerPosition =  $('.footer').offset().top;
+
+          if(menuPosition >= footerPosition) {
+            if(screenPosition <= footerPosition){
+              $('.menu').css({
+                position: 'fixed',
+                top: '25',
+                margin: 0
+              });
+            } else {
+              $('.menu').css({
+                position: 'relative',
+                'margin-top': footerPosition - $('.menu').height() - 25
+              });
+            }
           } else {
             $('.menu').css({
-              position: 'relative',
-              'margin-top': footerPosition - $('.menu').height() - 25
+              position: 'fixed',
+              top: '25'
             });
           }
         } else {
           $('.menu').css({
-            position: 'fixed',
-            top: '25'
+            position: 'position',
+            top: '0'
           });
         }
-      } else {
-        $('.menu').css({
-          position: 'position',
-          top: '0'
-        });
-      }
+      });
+    }).trigger('stickyMenu');
+
+
+    $(window).resize(function () {
+      $('.menu').css({ height: ($(window).height() - '55') });
+      $('.menu-inner').css({ height: $('.menu').height() });
     });
-  }).trigger('stickyMenu');
-
-  // $(window).scroll(function () {
-  //   if($(window).scrollTop() > 300) {
-  //     $('.up-button').css({ display: 'inline-block' });
-  //   } else {
-  //     $('.up-button').css({ display: 'none' });
-  //   }
-  // });
-
-  $(window).resize(function () {
-    $('.menu').css({ height: ($(window).height() - '55') });
-    $('.menu-inner').css({ height: $('.menu').height() });
-    // if (($('.menu').height() > $(window).height()) ||
-    //     ($(window).scrollTop() < $('.page__left').height())) {
-    //   $('.menu').css({
-    //     position: 'relative',
-    //     top: 0
-    //   });
-    // } else {
-    //   $('.menu').css({
-    //     position: 'fixed',
-    //     top: 25,
-    //   });
-    // }
-  });
-
+  }
 
 })(jQuery);

@@ -736,6 +736,11 @@ div[class^='highlight-'] {
 .footer__theme-link:hover {
   color: #000;
 }
+
+.footer__theme-text {
+  font: 0.85em 'Open Sans', Arial, sans-serif;
+  color: #222;
+}
 html,
 body {
   width: 100%;

@@ -301,6 +301,21 @@ gulp.task('pypi', plugins.shell.task([
   'python setup.py sdist upload'
 ]));
 
+gulp.task('latest', function(){
+  var version = getPackageJsonVersion();
+
+  return  gulp.src('.')
+    .pipe(plugins.release({
+      tag: version,
+      notes: 'new release',
+      manifest: require('./package.json')
+    }));
+
+  function getPackageJsonVersion() {
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
+  }
+});
+
 gulp.task('release', function (callback) {
   options.env = 'production';
   runSequence(
@@ -311,11 +326,12 @@ gulp.task('release', function (callback) {
     'push-changes',
     'pypi',
     'create-new-tag',
+    'latest',
     function (error) {
       if (error) {
         console.log(error.message);
       } else {
-        console.log('RELEASE FINISHED SUCCESSFULLY');
+        console.log('Release finished');
       }
       callback(error);
     });

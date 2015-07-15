@@ -12,10 +12,6 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
-import os
-import shlex
-
 import itcase_sphinx_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -32,6 +28,7 @@ import itcase_sphinx_theme
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'itcase_sphinx_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',

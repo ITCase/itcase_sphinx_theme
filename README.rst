@@ -25,6 +25,7 @@ Edit your Sphinx's ``conf.py``
 
        html_theme = 'itcase'
        html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
+       extensions = ['itcase_sphinx_theme']
 
 .. |PyPI| image:: http://img.shields.io/pypi/dm/itcase_sphinx_theme.svg
    :target: https://pypi.python.org/pypi/itcase_sphinx_theme/

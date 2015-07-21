@@ -10,7 +10,8 @@ var browserify = require('browserify'),
     mainBowerFiles = require('main-bower-files'),
     minimist = require('minimist'),
     request = require('request'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    release = require('gulp-github-release');
 
 var map = require('vinyl-map'),
     buffer = require('vinyl-buffer'),
@@ -284,17 +285,15 @@ gulp.task('push-changes', function(cb) {
 });
 
 gulp.task('create-new-tag', function(cb) {
-  var version = getPackageJsonVersion();
+  var version = (function(){
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version; })();
+
   plugins.git.tag(version, 'release ' + version, function(error) {
     if(error) {
       return cb(error);
     }
     plugins.git.push('origin', 'master', { args: '--tags' }, cb);
   });
-
-  function getPackageJsonVersion() {
-    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
-  }
 });
 
 gulp.task('pypi', plugins.shell.task([
@@ -302,18 +301,23 @@ gulp.task('pypi', plugins.shell.task([
 ]));
 
 gulp.task('latest', function(){
-  var version = getPackageJsonVersion();
 
-  return  gulp.src('.')
-    .pipe(plugins.release({
+  var version = (function(){
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version; })();
+  var repository = (function(){
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).name; })();
+
+  return gulp.src('.')
+    .pipe(release({
+      token: 'fe077d93f2f92a92166a70ec4bf7fd1900180ba9',
+      owner: 'ITCase',
+      repo: repository,
       tag: version,
       notes: 'new release',
       manifest: require('./package.json')
-    }));
+  }));
 
-  function getPackageJsonVersion() {
-    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
-  }
+
 });
 
 gulp.task('release', function (callback) {

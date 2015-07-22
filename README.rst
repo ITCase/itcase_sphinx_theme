@@ -13,13 +13,13 @@ Edit your Sphinx's ``conf.py``
 ------------------------------
 
 Near the top, add the following
-"""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   .. code-block:: python
 
      import itcase_sphinx_theme
 
 Activate the theme
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
   .. code-block:: python
 
@@ -28,7 +28,8 @@ Activate the theme
     extensions = ['itcase_sphinx_theme']
 
 Theme options
-"""""""""""""
+~~~~~~~~~~~~~
+
    You can set theme options in ``conf.py`` like.
 
   .. code-block:: python
@@ -40,7 +41,7 @@ Theme options
      }
 
 Here are list of options with default values:
-*********************************************
+"""""""""""""""""""""""""""""""""""""""""""""
 
 * **logo** — Show logo at the top of navigation menu. ``default: false``
 * **logo_image** —  Path to logo. ``default: null``

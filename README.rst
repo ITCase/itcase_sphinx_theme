@@ -30,7 +30,7 @@ Activate the theme
 Theme options
 ~~~~~~~~~~~~~
 
-   You can set theme options in ``conf.py`` like.
+  You can set theme options in ``conf.py`` like.
 
   .. code-block:: python
 

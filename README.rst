@@ -12,13 +12,14 @@ Install
 Edit your Sphinx's ``conf.py``
 ------------------------------
 
-#. Near the top, add the following.
-
+Near the top, add the following
+"""""""""""""""""""""""""""""""
   .. code-block:: python
 
      import itcase_sphinx_theme
 
-#. Activate the theme.
+Activate the theme
+""""""""""""""""""
 
   .. code-block:: python
 
@@ -26,20 +27,20 @@ Edit your Sphinx's ``conf.py``
     html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
     extensions = ['itcase_sphinx_theme']
 
-#. Theme options
-
+Theme options
+"""""""""""""
    You can set theme options in ``conf.py`` like.
 
-   .. code-block:: python
+  .. code-block:: python
 
-      html_theme_options = {
-          'github_button': True
-          'github_user': ITCase
-          'github_repo': itcase_sphinx_theme
-      }
+     html_theme_options = {
+         'github_button': True
+         'github_user': ITCase
+         'github_repo': itcase_sphinx_theme
+     }
 
 Here are list of options with default values:
-"""""""""""""""""""""""""""""""""""""""""""""
+*********************************************
 
 * **logo** — Show logo at the top of navigation menu. ``default: false``
 * **logo_image** —  Path to logo. ``default: null``

@@ -121,7 +121,7 @@
                     {% include "breadcrumbs.html" %}
                     <div class="badge">
                         {% if theme_travis_button|lower == 'true' %}
-                            {% set path = theme_github_user + '/' + theme_github_repo %}
+                            {% set path = theme_travis_user + '/' + theme_travis_repo %}
                             <div class="badge__item">
                                 <a href="https://travis-ci.org/{{ path }}">
                                     <img alt="https://secure.travis-ci.org/{{ path }}.svg?branch=master" src="https://secure.travis-ci.org/{{ path }}.png?branch=master" />
@@ -143,6 +143,15 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript">
+        {% if theme_sticky_menu|lower == 'true' %}
+            var STICKY_MENU = true;
+        {% else %}
+            var STICKY_MENU = false;
+        {% endif %}
+    </script>
+
     <script type="text/javascript" src="{{ pathto('_static/js/__theme.js', 1) }}"></script>
 
     {% if not embedded %}
@@ -154,12 +163,6 @@
                     FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
                     HAS_SOURCE: {{ has_source|lower }}
             };
-        </script>
-    {% endif %}
-
-    {% if theme_sticky_menu|lower == 'true' %}
-        <script type="text/javascript">
-            var STICKY_MENU = true;
         </script>
     {% endif %}
 

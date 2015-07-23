@@ -107,9 +107,12 @@ var leftHeight = $('.page__left').height(),
           top: '25'
         });
       }
-
-      $('.menu').css({ height: ($(window).height() - '55') });
-      $('.menu-inner').css({ height: $('.menu').height() });
+      if($('.menu').height() >= ($(window).height() - '55')){
+        $('.menu').css({ height: ($(window).height() - '55') });
+        $('.menu-inner').css({ height: $('.menu').height() });
+      }  else {
+        $('.menu').css({ height: 'auto' });
+      }
     }
   });
 
@@ -153,12 +156,15 @@ var leftHeight = $('.page__left').height(),
         }
       });
     }).trigger('stickyMenu');
+  }
 
-
-    $(window).resize(function () {
+  $(window).resize(function() {
+    if($('.menu').height() >= ($(window).height() - '55')){
       $('.menu').css({ height: ($(window).height() - '55') });
       $('.menu-inner').css({ height: $('.menu').height() });
-    });
-  }
+    }  else {
+      $('.menu').css({ height: 'auto' });
+    }
+  });
 
 })(jQuery);

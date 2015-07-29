@@ -121,7 +121,7 @@
                     {% include "breadcrumbs.html" %}
                     <div class="badge">
                         {% if theme_travis_button|lower == 'true' %}
-                            {% set path = theme_github_user + '/' + theme_github_repo %}
+                            {% set path = theme_travis_user + '/' + theme_travis_repo %}
                             <div class="badge__item">
                                 <a href="https://travis-ci.org/{{ path }}">
                                     <img alt="https://secure.travis-ci.org/{{ path }}.svg?branch=master" src="https://secure.travis-ci.org/{{ path }}.png?branch=master" />

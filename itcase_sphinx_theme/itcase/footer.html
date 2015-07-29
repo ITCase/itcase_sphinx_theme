@@ -34,9 +34,13 @@
         </div>
     {%- endif %}
     <div class="footer__theme">
-        {% trans %}
-            <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">ITCase Sphinx Theme</a>
-            <span class="footer__theme-text">| version: {{ theme_version }}</span>
-        {% endtrans %}
+        <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">
+          ITCase Sphinx Theme
+        </a>
+        <span class="footer__theme-text">
+          {%- if theme_version %}
+            | version: {{ theme_version }}
+          {%- endif %}
+        </span>
     </div>
 </footer>

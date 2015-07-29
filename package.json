@@ -13,12 +13,6 @@
     "url": "https://github.com/itcase/itcase_sphinx_theme"
   },
   "bugs": "https://github.com/itcase/itcase_sphinx_theme/issues",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -70,5 +64,6 @@
   },
   "browserify-shim": {
     "jquery": "$"
-  }
+  },
+  "license": "MIT"
 }

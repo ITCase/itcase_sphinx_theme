@@ -26,6 +26,7 @@ ReST аналогичен языку разметки Markdown, но облад�
 ======
 
 Абзацы в :abbr:`ReST (reStructuredText)` отделяются друг от друга пустой строкой:
+
 ::
 
     Первый абзац...
@@ -372,7 +373,6 @@ ReST аналогичен языку разметки Markdown, но облад�
 
 Для вставки блоков исходного кода с подсветкой синтаксиса и нумерацией строк в
 Sphinx используются специальные команды, подробнее смотрите раздел
-:ref:`source-code-label`.
 
 Python
 ------
@@ -730,8 +730,6 @@ ReST позволяет вставлять текст из других файл
     Достаточно в обратных кавычках написать название заголовка.
 
 
-Sphinx расширяет возможности создания ссылок, в том числе позволяет ссылаться на заголовки в других документах. Подробнее читайте раздел :ref:`cross-ref-label`.
-
 .. _img-label:
 
 Изображения и иллюстрации
@@ -1028,8 +1026,6 @@ Look how easy it is to use:
     \alpha_t(i) = P(O_1, O_2, … O_t, q_t = S_i \lambda)
 
 
-Sphinx расширяет возможности отображения формул, добавляя возможность ссылаться на них. Подробнее в разделе :ref:`math-insert-label`. Также смотрите раздел :ref:`math-errors2-label`.
-
 .. note:: `Таблица математических символов <https://ru.wikipedia.org/wiki/Таблица_математических_символов>`_
 
 
@@ -1066,6 +1062,29 @@ Sphinx расширяет возможности отображения форм
 .. todo:: Блок **План**, команда: ``.. todo::``
 
 .. seealso:: Блок **См.также**, команда: ``.. seealso::``
+
+.. versionadded:: 0.100.500
+
+   bla bla bla
+
+.. versionchanged:: 0.100.500
+
+   bla bla bla
+
+.. deprecated:: 0.100.500
+
+   bla bla bla
+
+.. rubric:: This directive creates a paragraph heading that is not used to create a table of contents node.
+
+.. hlist::
+   :columns: 3
+
+   * A list of
+   * short items
+   * that should be
+   * displayed
+   * horizontally
 
 Код блоков выглядит так:
 ::
@@ -1185,7 +1204,6 @@ Build environment API
 
    .. attribute:: metadata
 
-      Dictionary mapping docnames to "metadata" (see :ref:`metadata`).
 
    .. attribute:: titles
 
@@ -1383,11 +1401,6 @@ package.
    This allows extensions to use custom translator and define custom
    nodes for the translator (see :meth:`add_node`).
 
-   This is a API version of :confval:`html_translator_class` for all other
-   builders. Note that if :confval:`html_translator_class` is specified and
-   this API is called for html related builders, API overriding takes
-   precedence.
-
    .. versionadded:: 1.3
 
 .. method:: Sphinx.add_node(node, **kwds)
@@ -1485,7 +1498,6 @@ package.
 .. method:: Sphinx.add_object_type(directivename, rolename, indextemplate='', parse_node=None, \
                                    ref_nodeclass=None, objname='', doc_field_types=[])
 
-   This method is a very convenient way to add a new :term:`object` type that
    can be cross-referenced.  It will do this:
 
    * Create a new directive (called *directivename*) for documenting an object.
@@ -1530,7 +1542,6 @@ package.
    ``sphinx.addnodes.literal_strong``.
 
    For the role content, you have the same syntactical possibilities as for
-   standard Sphinx roles (see :ref:`xref-syntax`).
 
    This method is also available under the deprecated alias
    ``add_description_unit``.
@@ -1569,7 +1580,6 @@ package.
 
    Add *filename* to the list of JavaScript files that the default HTML template
    will include.  The filename must be relative to the HTML static path, see
-   :confval:`the docs for the config value <html_static_path>`.  A full URI with
    scheme, like ``http://example.org/foo.js``, is also supported.
 
    .. versionadded:: 0.5
@@ -1626,7 +1636,6 @@ package.
    Add *cls*, which must be a subclass of :class:`sphinx.search.SearchLanguage`,
    as a support language for building the HTML full-text search index.  The
    class must have a *lang* attribute that indicates the language it should be
-   used for.  See :confval:`html_search_language`.
 
    .. versionadded:: 1.1
 
@@ -1642,7 +1651,6 @@ package.
 
    Register *callback* to be called when *event* is emitted.  For details on
    available core events and the arguments of callback functions, please see
-   :ref:`events`.
 
    The method returns a "listener ID" that can be used as an argument to
    :meth:`disconnect`.
@@ -1742,7 +1750,6 @@ The Config object
    attributes.
 
    It is available as the ``config`` attribute on the application and
-   environment objects.  For example, to get the value of :confval:`language`,
    use either ``app.config.language`` or ``env.config.language``.
 
 

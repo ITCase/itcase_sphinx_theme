@@ -31,6 +31,7 @@ extensions = [
     'itcase_sphinx_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
+    'sphinx.ext.pngmath',
     'sphinx.ext.viewcode',
 ]
 

@@ -63,7 +63,7 @@ var leftHeight = $('.page__left').height(),
       pageLeft.addClass('page__left_state_collapse');
       pageRight.addClass('page__right_state_expand');
       menuSwitchArrow.text('»');
-      document.cookie = 'menu-state=collapse';
+      document.cookie = 'menu-state=collapse;path=/';
     }
 
     function expandTree() {
@@ -73,7 +73,7 @@ var leftHeight = $('.page__left').height(),
       pageLeft.removeClass('page__left_state_collapse');
       pageRight.removeClass('page__right_state_expand');
       menuSwitchArrow.text('«');
-      document.cookie = 'menu-state=expande';
+      document.cookie = 'menu-state=expande;path=/';
     }
 
     $(menuSwitch).on('click', function(){

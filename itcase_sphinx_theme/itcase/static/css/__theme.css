@@ -1155,9 +1155,29 @@ dl.method .sig-paren {
   margin: 0px 0px 24px 24px;
 }
 
+.rst-content .align-right:before,
+.rst-content .align-right:after {
+  content: " ";
+  display: table;
+}
+
+.rst-content .align-right:after {
+  clear: both;
+}
+
 .rst-content .align-left {
   float: left;
   margin: 0px 24px 24px 0px;
+}
+
+.rst-content .align-left:before,
+.rst-content .align-left:after {
+  content: " ";
+  display: table;
+}
+
+.rst-content .align-left:after {
+  clear: both;
 }
 
 .rst-content .align-center {
@@ -1343,6 +1363,10 @@ dl.method .sig-paren {
 .rst-content ul.simple .reference {
   display: inline-block;
   margin: 0.3em 0;
+}
+
+.rst-content  a.image-reference {
+  display: inline-block;
 }
 .rst-pro {
   padding: 0 0 1em 20px;

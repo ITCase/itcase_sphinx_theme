@@ -1,4 +1,4 @@
-Что такое reStructuredText?
+СфиCabЧто такое reStructuredText?
 ===========================
 
 **reStructuredText** (сокращение: **ReST**, расширение файла: **.rst**) — облегчённый язык разметки, который может быть преобразован в различные форматы — HTML, ePub, PDF и другие.
@@ -745,7 +745,7 @@ ReST позволяет вставлять текст из других файл
 
 .. |кубик-рубика| image:: _static/favicon.ico
 
-Вставка изображений между абзацами осуществляется так:
+Вставка изображений между абзацами:
 
 ::
 
@@ -810,6 +810,13 @@ ReST позволяет вставлять текст из других файл
     :alt: Альтернативный текст
 
     Сфинкс справа
+
+
+.. image:: _static/planet_express.svg
+    :align: left
+    :width: 400px
+    :alt: Альтернативный текст
+
 
 `ps_tree` is extension for `pyramid_sacrud
 <https://github.com/ITCase/pyramid_sacrud/>`_ which displays a list of records

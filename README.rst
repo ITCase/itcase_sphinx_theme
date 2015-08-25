@@ -36,8 +36,8 @@ Theme options
 
      html_theme_options = {
          'github_button': True
-         'github_user': ITCase
-         'github_repo': itcase_sphinx_theme
+         'github_user': 'ITCase',
+         'github_repo': 'pyramid_sacrud',
      }
 
 Here are list of options with default values:

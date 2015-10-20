@@ -44,30 +44,30 @@ Here are list of options with default values:
 """""""""""""""""""""""""""""""""""""""""""""
 
 * **logo** — Show logo at the top of navigation menu. ``default: false``
-* **logo_image** —  Path to logo. ``default: null``
-* **logo_width** — Width in 'px' or '%'. ``default: null``
-* **logo_height** — Height in 'px' or '%'. ``default: null``
-* **logo_image_desc** — Description after logo image. ``default: null``
+* **logo_image** —  Path to logo. ``default: ""``
+* **logo_width** — Width in 'px' or '%'. ``default: ""``
+* **logo_height** — Height in 'px' or '%'. ``default: ""``
+* **logo_image_desc** — Description after logo image. ``default: ""``
 * **index_menu** — Show navigation menu on main page. ``default: false``
 * **sticky_menu** — Make navigation element always visible on page. ``default: true``
 
 * **github_button** — Show git star badge under breadcrumbs. ``default: false``
-* **github_user** — ``default: null``
-* **github_repo** — ``default: null``
+* **github_user** — ``default: ""``
+* **github_repo** — ``default: ""``
 
 * **travis_button** — Show travis badge under breadcrumbs. ``default: false``
-* **travis_user** — ``default: null``
-* **travis_repo** — ``default: null``
+* **travis_user** — ``default: ""``
+* **travis_repo** — ``default: ""``
 
 #. Theme options
 
  You can set theme options in ``conf.py``. Here are list of options with default values:
 
 * logo ``default: False``
-* logo_image ``default: null``
-* logo_width ``default: null``
-* logo_heigh ``default: null``
-* logo_image_desc ``default: null``
+* logo_image ``default: ""``
+* logo_width ``default: ""``
+* logo_heigh ``default: ""``
+* logo_image_desc ``default: ""``
 
 
 * aindex_menu   ``default: False``
@@ -82,9 +82,9 @@ github_button — ``default: False``
 Show git star repository button under breadcrumbs.
 
 
-github_user — ``default: null``
+github_user — ``default: ""``
 
-github_repo — ``default: null``
+github_repo — ``default: ""``
 
 
 

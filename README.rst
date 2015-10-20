@@ -42,8 +42,8 @@ You can set theme options in ``conf.py`` like.
 .. code-block:: python
 
      html_theme_options = {
-         'travis_button': True
-         'github_button': True
+         'travis_button': True,
+         'github_button': True,
          'github_user': 'ITCase',
          'github_repo': 'pyramid_sacrud',
      }

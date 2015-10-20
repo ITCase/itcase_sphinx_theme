@@ -15,10 +15,10 @@
     {% set theme_github_user = github_user %}
 {% endif %}
 {% if not theme_travis_repo %}
-    {% set theme_travis_repo = github_repo %}
+    {% set theme_travis_repo = theme_github_repo %}
 {% endif %}
 {% if not theme_travis_user %}
-    {% set theme_travis_user = github_user %}
+    {% set theme_travis_user = theme_github_user %}
 {% endif %}
 
 <!DOCTYPE html>

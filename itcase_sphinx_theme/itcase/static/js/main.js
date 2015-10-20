@@ -62,7 +62,7 @@ var leftHeight = $('.page__left').height(),
       pageLeft.addClass('page__left_state_collapse');
       pageRight.addClass('page__right_state_expand');
       menuSwitchArrow.text('»');
-      document.cookie = 'menu-state=collapse;path=/';
+      document.cookie = 'menu-state=collapse;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
     }
 
     function expandTree() {
@@ -72,7 +72,7 @@ var leftHeight = $('.page__left').height(),
       pageLeft.removeClass('page__left_state_collapse');
       pageRight.removeClass('page__right_state_expand');
       menuSwitchArrow.text('«');
-      document.cookie = 'menu-state=expande;path=/';
+      document.cookie = 'menu-state=expande;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
     }
 
     $(menuSwitch).on('click', function(){

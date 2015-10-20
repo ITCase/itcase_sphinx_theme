@@ -1,8 +1,8 @@
 /*!
- * JavaScript Cookie v2.0.2
+ * JavaScript Cookie v2.0.4
  * https://github.com/js-cookie/js-cookie
  *
- * Copyright 2006, 2015 Klaus Hartl
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
  * Released under the MIT license
  */
 (function (factory) {
@@ -12,7 +12,7 @@
 		module.exports = factory();
 	} else {
 		var _OldCookies = window.Cookies;
-		var api = window.Cookies = factory(window.jQuery);
+		var api = window.Cookies = factory();
 		api.noConflict = function () {
 			window.Cookies = _OldCookies;
 			return api;
@@ -93,22 +93,24 @@
 					cookie = cookie.slice(1, -1);
 				}
 
-				cookie = converter && converter(cookie, name) || cookie.replace(rdecode, decodeURIComponent);
+				try {
+					cookie = converter && converter(cookie, name) || cookie.replace(rdecode, decodeURIComponent);
 
-				if (this.json) {
-					try {
-						cookie = JSON.parse(cookie);
-					} catch (e) {}
-				}
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
 
-				if (key === name) {
-					result = cookie;
-					break;
-				}
+					if (key === name) {
+						result = cookie;
+						break;
+					}
 
-				if (!key) {
-					result[name] = cookie;
-				}
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
 			}
 
 			return result;

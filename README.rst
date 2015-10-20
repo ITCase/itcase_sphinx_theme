@@ -96,15 +96,37 @@ github_repo — ``default: ""``
 
 * travis_button =  ``default: False``
 
+ScreenShots
+-----------
+
+`ustu/lectures.www <https://github.com/ustu/lectures.www>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen1.png
    :width: 650px
 
+`ITCase/sqlalchemy_mptt <https://github.com/ITCase/sqlalchemy_mptt>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen2.png
    :width: 650px
 
+`Ergo/ziggurat_foundations <https://github.com/ergo/ziggurat_foundations>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen3.png
    :width: 650px
+
+And other...
+~~~~~~~~~~~~
+
+* http://sacrud-deform.readthedocs.org/en/master/ 
+* http://sacrud.readthedocs.org/en/master/
+* http://pyramid-sacrud.readthedocs.org/en/master/
+* http://pyramid-pages.readthedocs.org/en/master/
+* http://ps-tree.readthedocs.org/en/latest/
+* http://uralbash.ru/
+* your project ...
 
 .. |PyPI| image:: http://img.shields.io/pypi/dm/itcase_sphinx_theme.svg
    :target: https://pypi.python.org/pypi/itcase_sphinx_theme/

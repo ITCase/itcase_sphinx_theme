@@ -5,36 +5,44 @@ ITCase Sphinx Theme
 
 Install
 -------
-  .. code-block:: bash
 
-     $ pip install itcase_sphinx_theme
+.. code-block:: bash
+
+     $ pip install itcase_sphinx_theme -U
 
 Edit your Sphinx's ``conf.py``
 ------------------------------
 
 Near the top, add the following
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  .. code-block:: python
+
+.. code-block:: python
 
      import itcase_sphinx_theme
 
 Activate the theme
 ~~~~~~~~~~~~~~~~~~
 
-  .. code-block:: python
+.. code-block:: python
 
     html_theme = 'itcase'
     html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
+
+If you want see version of theme in the bottom just add extension:
+
+.. code-block:: python
+
     extensions = ['itcase_sphinx_theme']
 
 Theme options
 ~~~~~~~~~~~~~
 
-  You can set theme options in ``conf.py`` like.
+You can set theme options in ``conf.py`` like.
 
-  .. code-block:: python
+.. code-block:: python
 
      html_theme_options = {
+         'travis_button': True
          'github_button': True
          'github_user': 'ITCase',
          'github_repo': 'pyramid_sacrud',

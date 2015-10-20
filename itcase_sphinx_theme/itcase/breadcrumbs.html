@@ -1,7 +1,9 @@
 <div class="nav">
     <div class="nav__inner">
-        <a href="{{ pathto(master_doc) }}" class="nav__link">{{ project }}</a>
-        <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
+        {%- if not internal_build and (pagename != 'index') %}
+            <a href="{{ pathto(master_doc) }}" class="nav__link">{{ project }}</a>
+            <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
+        {% endif %}
         {% for doc in parents %}
             <a href="{{ doc.link|e }}" class="nav__link">{{ doc.title }}</a>
             <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>

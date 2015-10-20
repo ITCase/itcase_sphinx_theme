@@ -8,6 +8,18 @@
 {%- else %}
     {%- set titlesuffix = "" %}
 {%- endif %}
+{% if not theme_github_repo %}
+    {% set theme_github_repo = github_repo %}
+{% endif %}
+{% if not theme_github_user %}
+    {% set theme_github_user = github_user %}
+{% endif %}
+{% if not theme_travis_repo %}
+    {% set theme_travis_repo = github_repo %}
+{% endif %}
+{% if not theme_travis_user %}
+    {% set theme_travis_user = github_user %}
+{% endif %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -86,7 +98,9 @@
                                     <a href="{{ pathto(master_doc) }}" class="menu-logo__link">
                                         <img class="menu-logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
                                     </a>
-                                    <div class="menu-logo__desc">{{ theme_logo_image_desc }}</div>
+                                    {% if theme_logo_image_desc %}
+                                        <div class="menu-logo__desc">{{ theme_logo_image_desc }}</div>
+                                    {% endif %}
                                 </div>
                             {% else %}
                                 <div class="menu-project">
@@ -124,7 +138,7 @@
                       {% include "breadcrumbs.html" %}
                     {% endblock %}
                     <div class="badge">
-                        {% if theme_travis_button|lower == 'true' %}
+                        {% if theme_travis_button|lower == 'true' and theme_travis_user and theme_travis_repo %}
                             {% set path = theme_travis_user + '/' + theme_travis_repo %}
                             <div class="badge__item">
                                 <a href="https://travis-ci.org/{{ path }}">
@@ -132,7 +146,7 @@
                                 </a>
                             </div>
                         {% endif %}
-                        {% if theme_github_button|lower == 'true' %}
+                        {% if theme_github_button|lower == 'true' and theme_github_user and theme_github_repo %}
                             <div class="badge__item">
                                 <iframe src="https://ghbtns.com/github-btn.html?user={{ theme_github_user }}&repo={{ theme_github_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
                             </div>

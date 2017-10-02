@@ -1,0 +1,84 @@
+.menu
+{
+  width: 300px;
+  background: #eeeeee;
+  z-index: 200;
+  position: relative;
+  overflow: hidden;
+}
+  .menu-inner
+  {
+    width: 290px;
+    overflow: auto;
+  }
+    .menu-logo
+    {
+      padding: 1.5em 20px 1em 20px;
+    }
+      .menu-logo__link
+      {
+        display: inline-block;
+      }
+        .menu-logo__link-image
+        {
+          vertical-align: bottom;
+        }
+      .menu-logo__desc
+      {
+        font: 0.8em 'Open Sans', Arial, sans-serif;
+        color: #000;
+        padding: 0.5em 0 0 0;
+      }
+    .menu-project
+    {
+      padding: 1em 20px;
+    }
+      .menu-project__link,
+      .menu-project__link:visited
+      {
+        width: 100%;
+        display: inline-block;
+        color: #0072aa;
+        font: 1.6em 'Open Sans', Arial, sans-serif;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        line-height: 1.1em;
+      }
+      .menu-project__link:hover
+      {
+        color: #000;
+      }
+    .menu-search
+    {
+      margin: 1em 0;
+      padding: 10px 40px 0 20px;
+    }
+    .menu-switch
+    {
+      position: absolute;
+      width: 12px;
+      height: 100%;
+      right: 0;
+      top: 0;
+      display: block;
+      background: rgb(204, 204, 204);
+      z-index: 500;
+      cursor: pointer;
+    }
+      .menu-switch__arrow
+      {
+        display: block;
+        position: absolute;
+        left: 1px;
+        top: 49%;
+        font-size: 1.3em;
+      }
+      .menu-switch:hover
+      {
+        background: #0072aa;
+        color: #fff;
+      }
+.menu_state_collapse
+{
+  width: 12px;
+}

@@ -1,9 +1,26 @@
 # editorconfig.org
 root = true
 
-[*.js, *.css]
+[*]
 indent_style = space
 indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{css,js}]
+indent_style = space
+indent_size = 2
+tab_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{html,py}]
+indent_style = space
+indent_size = 4
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
@@ -12,11 +29,6 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-
-[*.html]
-indent_style = space
+[Makefile]
+indent_style = tab
 indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true

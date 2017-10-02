@@ -1,0 +1,47 @@
+.search
+{
+  color: #000;
+  display: block;
+  z-index: 200;
+}
+  .search-title
+  {
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0 0 0.3em 0;
+  }
+  .search-desc
+  {
+    font-size: 0.8em;
+    padding: 0.7em 0 0 0;
+  }
+.search input[type=text]
+{
+  border: solid 1px #ccc;
+  padding: 0.5em 1em 0.5em 0.5em;
+  font: 0.9em 'Open Sans', Arial, sans-serif;
+  color: #000;
+}
+.search img
+{
+  background-color: #2980b9;
+  border-radius: 100%;
+  display: block;
+  height: 45px;
+  margin: auto auto 0.809em auto;
+  padding: 5px;
+  width: 45px;
+}
+.search > a
+{
+  color: #fcfcfc;
+  display: inline-block;
+  font-size: 100%;
+  font-weight: bold;
+  margin-bottom: 0.809em;
+  padding: 4px 6px;
+}
+.search > a:hover
+{
+  background: rgba(255,255,255,0.1);
+}

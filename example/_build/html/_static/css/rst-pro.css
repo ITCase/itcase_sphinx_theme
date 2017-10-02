@@ -1,0 +1,43 @@
+.rst-pro
+{
+  padding: 0 0 1em 20px;
+  position: relative;
+}
+  .rst-pro-about
+  {
+    position: absolute;
+    left: 150px;
+    top: 0;
+  }
+    .rst-pro-about .fa-info-circle
+    {
+      color: #777;
+    }
+    .rst-pro-about .fa-info-circle:hover
+    {
+      color: #000;
+    }
+  .rst-pro-image-wrapper
+  {
+    display: block;
+  }
+    .rst-pro-image
+    {
+      width: 120px;
+      vertical-align: bottom;
+    }
+    .rst-pro > span
+    {
+      width: 80%;
+      display: block;
+      font: 0.75em 'Open Sans', Arial, sans-serif;
+      padding: 0.7em 0 0 0;
+    }
+    .rst-pro-link
+    {
+      color: #0072aa;
+    }
+    .rst-pro-link:hover
+    {
+      color: #000;
+    }

@@ -1,0 +1,25 @@
+.up-button
+{
+  padding: 0.3em 0.7em 0.4em 0.7em;
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 2em;
+  background: #0072aa;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  font: 1em 'Open Sans', Arial, sans-serif;
+}
+.up-button:hover
+{
+  background: #eee;
+  color: #000;
+}
+  .up-button__arrow
+  {
+    font: 1.2em 'Open Sans', Arial, sans-serif;
+    display: block;
+    text-decoration: none;
+    color: #777;
+  }

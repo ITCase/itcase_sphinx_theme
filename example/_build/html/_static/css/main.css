@@ -1,0 +1,103 @@
+html, body
+{
+  width: 100%;
+  height: 100%;
+  background: #fcfcfc;
+}
+
+dl.class,
+dl.method
+{
+  width: 100%;
+  padding: 1em 0 0 0 !important;
+}
+  dl.class dt,
+  dl.method dt
+  {
+    position: relative;
+  }
+    dl.class dt em,
+    dl.method dt em
+    {
+      font: normal 1.2em 'Incosolata', monospace;
+    }
+    dl.class dt .property,
+    dl.method dt .property
+    {
+      font-weight: bold;
+      color: #777;
+    }
+    dl.class dt .descclassname
+    {
+      font: bold 1.2em 'Incosolata', monospace;
+      color: #0072aa;
+    }
+    dl.method dt .descclassname
+    {
+      font: bold 1.2em 'Incosolata', monospace;
+      color: #000;
+    }
+    dl.class dt .descname
+    {
+      font: 1.2em 'Incosolata', monospace;
+      color: #0072aa;
+      margin: 0 0.3em 0 0;
+    }
+    dl.class dt a.reference.internal,
+    dl.method dt a.reference.internal
+    {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font: 0.85em 'Open Sans', Arial, sans-serif;
+    }
+    dl.method code.descname,
+    dl.attribute code.descname
+    {
+      background: #fff;
+      border: 1px solid #e1e4e5;
+      padding: 0 0.35em 0.15em 0.3em;
+      white-space: nowrap;
+      position: relative;
+      line-height: 0.5em;
+      color: #0072aa;
+      margin: 0;
+    }
+    dl.class .sig-paren,
+    dl.method .sig-paren
+    {
+      font: bold 1.2em 'Incosolata', monospace;
+      color: #777;
+    }
+
+
+.menu-track
+{
+  width: 7px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  transition: background 250ms linear;
+}
+
+.menu-track:hover,
+.menu-track.dragging
+{
+  background: #d9d9d9;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.menu-handle
+{
+  width: 7px;
+  right: 0;
+  background: #999;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 7px;
+  transition: width 250ms;
+}
+
+.menu-track:hover .menu-handle,
+.menu-track.dragging .menu-handle
+{
+  width: 7px;
+}

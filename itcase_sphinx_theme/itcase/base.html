@@ -60,7 +60,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet" type="text/css" />
 
     <link href="{{ pathto('_static/css/badge_only.css', 1) }}" type="text/css" rel="stylesheet" />
-    <link href="{{ pathto('_static/css/__theme.css', 2) }}" type="text/css" rel="stylesheet" />
+    <link href="{{ pathto('_static/css/__main.css', 2) }}" type="text/css" rel="stylesheet" />
 
     {% if not embedded %}
         {%- for scriptfile in script_files %}
@@ -160,7 +160,7 @@
         {% endif %}
     </script>
 
-    <script type="text/javascript" src="{{ pathto('_static/js/__theme.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/js/__build/__main.js', 1) }}"></script>
 
     {% if not embedded %}
         <script type="text/javascript">

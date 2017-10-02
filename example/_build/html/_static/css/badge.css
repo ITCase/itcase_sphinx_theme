@@ -1,0 +1,10 @@
+.badge
+{
+  width: 100%;
+  padding: 0.7em 0 0 0;
+}
+  .badge__item
+  {
+    display: inline-block;
+    margin: 0 0.7em 0 0;
+  }

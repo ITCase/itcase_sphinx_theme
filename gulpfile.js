@@ -8,6 +8,7 @@ const argv = require('yargs')
 const browserSync = require('browser-sync')
 const fs = require('fs')
 const mainBowerFiles = require('main-bower-files')
+const merge = require('merge-stream')
 const request = require('request')
 
 const webpackStream = require('webpack-stream')
@@ -54,61 +55,90 @@ if (options.production) {
   webpackConfig = require('./webpack.config.dev.js')
 }
 
-gulp.task('browser-sync', () => {
-  browserSync({
+gulp.task('browser-sync', (cb) => {
+  browserSync.init({
     proxy: '127.0.0.1:8000',
-    reloadDelay: 3000,
+    port: 3000,
     logLevel: 'info',
     open: false
-  })
+  }, () => { cb() })
+  plugins.util.colors.yellow('Webpack server listening on http://localhost:8000/')
 })
 
-gulp.task('bower-js', () => {
-  return gulp.src(mainBowerFiles({ filter: (/.*\.(js|map)$/i) }), { base: 'bower_components' })
-    .pipe(plugins.rename((path) => {
-      path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
-    }))
-    .pipe(gulp.dest(JS_PATH + 'vendor/'))
-    .pipe(map((code, filename) => {
-      plugins.util.log('Bower JS ' +
-      plugins.util.colors.green(filename))
-    }))
-})
+gulp.task('bower', () => {
+  return () => {
+    let cssStream = gulp.src(mainBowerFiles({
+      base: 'bower_components',
+      paths: {
+        bowerDirectory: './bower_components',
+        bowerJson: './bower.json'
+      }}))
+      .pipe(plugins.filter('**/*.css'))
+      .pipe(plugins.rename((path) => {
+        path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
+      }))
+      .pipe(gulp.dest(CSS_PATH + 'vendor/'))
+      .pipe(map((code, filename) => {
+        plugins.util.log('Bower CSS ' +
+        plugins.util.colors.green(filename))
+      }))
 
-gulp.task('bower-css', () => {
-  return gulp.src(mainBowerFiles({ filter: (/.*\.css$/i) }), { base: 'bower_components' })
-    .pipe(plugins.rename((path) => {
-      path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
-    }))
-    .pipe(gulp.dest(CSS_PATH + 'vendor/'))
-    .pipe(map((code, filename) => {
-      plugins.util.log('Bower CSS ' +
-      plugins.util.colors.green(filename))
-    }))
-})
+    let jsStream = gulp.src(mainBowerFiles({
+      base: 'bower_components',
+      paths: {
+        bowerDirectory: './bower_components',
+        bowerJson: './bower.json'
+      }}))
+      .pipe(plugins.filter(['**/*.js', '**/*.map']))
+      .pipe(plugins.rename((path) => {
+        path.dirname = ''
+      }))
+      .pipe(plugins.if(/ru.js|en-gb.js$/,
+        gulp.dest(JS_PATH + 'vendor/locale/')
+          .pipe(map((code, filename) => {
+            plugins.util.log('Bower JS ' +
+            plugins.util.colors.green(filename))
+          }))))
+      .pipe(plugins.filter(['**', '!**/locale/*']))
+      .pipe(gulp.dest(JS_PATH + 'vendor/'))
+      .pipe(map((code, filename) => {
+        plugins.util.log('Bower JS ' +
+        plugins.util.colors.green(filename))
+      }))
 
-gulp.task('bower-img', () => {
-  return gulp.src(mainBowerFiles({ filter: (/.*\.(png|jpg|gif)$/i) }), { base: 'bower_components' })
-    .pipe(plugins.rename((path) => {
-      path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
-    }))
-    .pipe(gulp.dest(IMG_PATH + 'vendor/'))
-    .pipe(map((code, filename) => {
-      plugins.util.log('Bower Images ' +
-      plugins.util.colors.green(filename))
-    }))
-})
+    let imgStream = gulp.src(mainBowerFiles({
+      base: 'bower_components',
+      paths: {
+        bowerDirectory: './bower_components',
+        bowerJson: './bower.json'
+      }}))
+      .pipe(plugins.filter(['**/*.png', '**/*.jpg', '**/*.gif', '**/*.svg']))
+      .pipe(plugins.rename((path) => {
+        path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
+      }))
+      .pipe(gulp.dest(IMG_PATH + 'vendor/'))
+      .pipe(map((code, filename) => {
+        plugins.util.log('Bower Images ' +
+        plugins.util.colors.green(filename))
+      }))
 
-gulp.task('bower-font', () => {
-  return gulp.src(mainBowerFiles({ filter: (/.*\.(eot|otf|svg|ttf|woff|woff2)$/i) }), { base: 'bower_components' })
-    .pipe(plugins.rename(function (path) {
-      path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
-    }))
-    .pipe(gulp.dest(FONT_PATH))
-    .pipe(map((code, filename) => {
-      plugins.util.log('Bower Fonts ' +
-      plugins.util.colors.green(filename))
-    }))
+    let fontStream = gulp.src(mainBowerFiles({
+      base: 'bower_components',
+      paths: {
+        bowerDirectory: './bower_components',
+        bowerJson: './bower.json'
+      }}))
+      .pipe(plugins.filter(['**/*.eot', '**/*.otf', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2']))
+      .pipe(plugins.rename((path) => {
+        path.dirname = path.dirname.slice(0, path.dirname.indexOf('/') + 1)
+      }))
+      .pipe(gulp.dest(FONT_PATH))
+      .pipe(map((code, filename) => {
+        plugins.util.log('Bower Fonts ' +
+        plugins.util.colors.green(filename))
+      }))
+    return merge(cssStream, jsStream, imgStream, fontStream)
+  }
 })
 
 gulp.task('css', () => {
@@ -225,7 +255,7 @@ gulp.task('css', () => {
       plugins.util.colors.green(filename))
     }))
     .pipe(plugins.shell([
-      'touch ./example/index.rst'
+      'touch ./example/source/index.rst'
     ]))
     .pipe(browserSync.reload({ stream: true }))
 })
@@ -233,7 +263,7 @@ gulp.task('css', () => {
 gulp.task('html', () => {
   return gulp.src(TEMPLATES_FILES)
     .pipe(plugins.shell([
-      'touch ./example/index.rst'
+      'touch ./example/source/index.rst'
     ]))
     .pipe(browserSync.reload({ stream: true }))
 })
@@ -241,13 +271,13 @@ gulp.task('html', () => {
 gulp.task('watch', () => {
   plugins.watch(CSS_FILES, { verbose: true },
     plugins.batch((cb) => {
-      gulp.start('css')
+      gulp.series('css')()
       cb()
     }))
 
   plugins.watch(TEMPLATES_FILES, { verbose: true },
     plugins.batch((cb) => {
-      gulp.start('html')
+      gulp.series('html')
       cb()
     }))
 })
@@ -280,7 +310,7 @@ gulp.task('webpack', (cb) => {
       }))
       .pipe(gulp.dest(settings.output.path))
       .pipe(plugins.shell([
-        'touch ./example/index.rst'
+        'touch ./example/source/index.rst'
       ]))
       .on('data', () => {
         if (firstBuildReady) {
@@ -326,4 +356,8 @@ gulp.task('tag', (cb) => {
 
 gulp.task('default',
   gulp.series('webpack', 'browser-sync', 'watch')
+)
+
+gulp.task('bower',
+  gulp.series('bower-js', 'bower-css', 'bower-img', 'bower-font')
 )

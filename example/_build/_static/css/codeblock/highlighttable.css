@@ -1,0 +1,32 @@
+@import './../import.css';
+
+.highlighttable {
+  background: #FEF9EB;
+  padding: 0;
+  vertical-align: top;
+  font: 0.85em 'Incosolata', monospace;
+  & .code {
+    border: none;
+    margin: 0;
+    position: relative;
+    overflow: auto;
+    max-width: 873px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  & .linenos {
+    line-height: 1.5em;
+  }
+    & .linenodiv {
+      width: 45px;
+      & pre {
+        border-right: solid 1px #e6e9ea;
+        color: #AAB2AC;
+        margin: 0;
+        padding: 0 0 0 12px;
+      }
+    }
+  & .highlight {
+    color: #404040;
+  }
+}

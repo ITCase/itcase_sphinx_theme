@@ -1,0 +1,131 @@
+.admonition
+{
+  margin: 24px 0;
+  color: #404040;
+}
+
+  p.admonition-title
+  {
+    color: #fff !important;
+    display: block;
+    padding: 6px 12px !important;
+    font: bold 1.25em 'Open Sans', Arial, sans-serif;
+    margin: 0 !important;
+  }
+  .admonition p
+  {
+    font: 1em 'Open Sans', Arial, sans-serif;
+    margin: 1em 0 1em 0;
+    padding: 0 12px;
+    display: block;
+  }
+  .admonition p.last
+  {
+    padding-bottom: 1em;
+  }
+  div.admonition ul.simple
+  {
+    padding:  0 0 1em 3em;
+  }
+
+.admonition.note
+{
+  background: #e7f2fa;
+}
+  .admonition.note .admonition-title
+  {
+    background: #6ab0de;
+  }
+
+.admonition.attention
+{
+  background: #ffedcc
+}
+  .admonition.attention .admonition-title
+  {
+    background: #f0b37e;
+  }
+.admonition.caution
+{
+  background: #ffedcc
+}
+  .admonition.caution .admonition-title
+  {
+    background: #f0b37e;
+  }
+.admonition.warning
+{
+  background: #ffedcc
+}
+  .admonition.warning .admonition-title
+  {
+    background: #f0b37e;
+  }
+
+.admonition.danger
+{
+  background: #fdf3f2;
+}
+  .admonition.danger .admonition-title
+  {
+    background: #f29f97
+  }
+.admonition.error
+{
+  background: #fdf3f2;
+}
+  .admonition.error .admonition-title
+  {
+    background: #f29f97
+  }
+.admonition.hint
+{
+  background: #dbfaf4;
+}
+  .admonition.hint .admonition-title
+  {
+    background: #1abc9c
+  }
+.admonition.important
+{
+  background: #dbfaf4;
+}
+  .admonition.important .admonition-title
+  {
+    background: #1abc9c
+  }
+.admonition.tip
+{
+  background: #dbfaf4;
+}
+  .admonition.tip .admonition-title
+  {
+    background: #1abc9c
+  }
+.admonition.seealso
+{
+  background: #dbfaf4;
+}
+  .admonition.seealso .admonition-title
+  {
+    background: #1abc9c
+  }
+
+.admonition-,
+.admonition-todo
+{
+  background: #fff;
+  border: 1px solid #e1e4e5;
+}
+  .admonition- .admonition-title,
+  .admonition-todo .admonition-title
+  {
+    background: #E14938;
+    position: relative;
+    margin: -1.5em 0 0 0;
+  }
+  .admonition- p.last,
+  .admonition-todo p.last
+  {
+    padding-bottom: 0;
+  }

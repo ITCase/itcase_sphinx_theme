@@ -1,0 +1,13 @@
+mobile-small: 20em #320px
+mobile-medium: 23.435em #375px
+mobile-large: 26.56em #425px
+mobile-extra-large: 30em #480px
+mobile-super-extra-large: 40em #640px
+tablet: 48em #768px
+desktop-small: 60em #960px
+desktop-medium: 64em #1024px
+desktop-normal: 72.5em #1160px
+desktop-large: 80em #1280px
+desktop-extra-large: 90em #1441px
+desktop-super-extra-large: 120em #1920px
+desktop-huge: 160em #2560px

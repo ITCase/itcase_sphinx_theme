@@ -1,0 +1,10 @@
+@import './../import.css';
+
+.page_type_main-page {
+  & .page__left {
+    display: none;
+  }
+  & .page__right {
+    margin: 0 0 0 40px;
+  }
+}

@@ -1,0 +1,22 @@
+@import './../import.css';
+
+.page {
+  position: relative;
+  &__left {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    &_state_collapse {
+      width: 12px;
+    }
+  }
+  &__right {
+    margin: 0 0 0 330px;
+    visibility: hidden;
+    &_state_expand {
+      margin: 0 0 0 40px;
+    }
+  }
+}
+

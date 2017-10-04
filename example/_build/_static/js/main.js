@@ -1,3 +1,5 @@
+/* globals Cookies */
+
 'use strict'
 
 require('expose-loader?Cookies!./vendor/js.cookie.js')
@@ -5,25 +7,9 @@ require('expose-loader?Cookies!./vendor/js.cookie.js')
 const leftHeight = $('.page__left').height()
 const rightHeight = $('.page__right').height()
 
-require('./vendor/jquery.fancybox.js')
-require('./vendor/enscroll.js')
-
-$('.internal.image-reference').fancybox({
-  padding: 3,
-  beforeShow: function () {
-    var alt = this.element.find('img').attr('alt')
-    this.inner.find('img').attr('alt', alt)
-    this.title = alt
-  },
-  helpers: {
-    title: {
-      type: 'over'
-    },
-    overlay: {
-      locked: false
-    }
-  }
-})
+require('./vendor/jquery.fancybox')
+require('./vendor/enscroll')
+require('./openImage')
 
 const menu = $('.menu')
 const menuSwitch = $('.menu-switch')
@@ -90,8 +76,6 @@ $('.internal.image-reference').on('click', (event) => {
   event.preventDefault()
 })
 
-getTreeState()
-
 function setMenuHeight () {
   if ($('.menu').height() >= ($(window).height() - 55)) {
     $('.menu').css({ height: ($(window).height() - 55) })
@@ -102,7 +86,7 @@ function setMenuHeight () {
   }
 }
 
-function setMenuPosition() {
+function setMenuPosition () {
   if (rightHeight > leftHeight) {
     const menuHeight = $('.menu').height()
     const wrapperPosition = $('.page').offset().top
@@ -138,17 +122,13 @@ function setMenuPosition() {
   }
 }
 
-setMenuPosition()
-
 if (window.STICKY_MENU === true) {
   $('.menu-inner').enscroll({
     showOnHover: true,
     verticalTrackClass: 'menu-track',
     verticalHandleClass: 'menu-handle'
   })
-
   setMenuHeight()
-
   $(window).bind('stickyMenu', () => {
     $(window).scroll(() => {
       setMenuPosition()
@@ -159,3 +139,6 @@ if (window.STICKY_MENU === true) {
 $(window).resize(() => {
   setMenuHeight()
 })
+
+setMenuPosition()
+getTreeState()

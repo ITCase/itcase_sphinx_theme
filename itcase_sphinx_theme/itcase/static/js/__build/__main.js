@@ -69,6 +69,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* globals Cookies */
+
 
 
 __webpack_require__("./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js");
@@ -78,23 +80,7 @@ const rightHeight = $('.page__right').height();
 
 __webpack_require__("./itcase_sphinx_theme/itcase/static/js/vendor/jquery.fancybox.js");
 __webpack_require__("./itcase_sphinx_theme/itcase/static/js/vendor/enscroll.js");
-
-$('.internal.image-reference').fancybox({
-  padding: 3,
-  beforeShow: function () {
-    var alt = this.element.find('img').attr('alt');
-    this.inner.find('img').attr('alt', alt);
-    this.title = alt;
-  },
-  helpers: {
-    title: {
-      type: 'over'
-    },
-    overlay: {
-      locked: false
-    }
-  }
-});
+__webpack_require__("./itcase_sphinx_theme/itcase/static/js/openImage.js");
 
 const menu = $('.menu');
 const menuSwitch = $('.menu-switch');
@@ -161,8 +147,6 @@ $('.internal.image-reference').on('click', event => {
   event.preventDefault();
 });
 
-getTreeState();
-
 function setMenuHeight() {
   if ($('.menu').height() >= $(window).height() - 55) {
     $('.menu').css({ height: $(window).height() - 55 });
@@ -209,17 +193,13 @@ function setMenuPosition() {
   }
 }
 
-setMenuPosition();
-
 if (window.STICKY_MENU === true) {
   $('.menu-inner').enscroll({
     showOnHover: true,
     verticalTrackClass: 'menu-track',
     verticalHandleClass: 'menu-handle'
   });
-
   setMenuHeight();
-
   $(window).bind('stickyMenu', () => {
     $(window).scroll(() => {
       setMenuPosition();
@@ -230,6 +210,28 @@ if (window.STICKY_MENU === true) {
 $(window).resize(() => {
   setMenuHeight();
 });
+
+setMenuPosition();
+getTreeState();
+
+/***/ }),
+
+/***/ "./itcase_sphinx_theme/itcase/static/js/openImage.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$('.internal.image-reference').fancybox();
+
+// .fancybox({
+//   padding: 3,
+//   beforeShow: function () {
+//     var alt = this.element.find('img').attr('alt')
+//     this.inner.find('img').attr('alt', alt)
+//     this.title = alt
+//   },
+// })
 
 /***/ }),
 

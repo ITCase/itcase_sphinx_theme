@@ -11,6 +11,9 @@
     &-inner {
       width: auto;
     }
+    &_state_collapse {
+      width: 12px;
+    }
   }
   &__right {
     position: relative;

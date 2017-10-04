@@ -1840,26 +1840,28 @@ div[class^='highlight-'] {
 }
 
 .menu-project {
-  padding: 1em 20px;
+  width: 100%;
+  padding: 15px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.menu-project__link,
-.menu-project__link:visited {
+.menu-project__link {
   width: 100%;
   display: inline-block;
   color: #0072aa;
-  font: 1.6em 'Open Sans', Helvetica, sans-serif;
+  font: 1.5rem/2rem 'Open Sans', Helvetica, sans-serif;
   word-wrap: break-word;
   white-space: pre-wrap;
-  line-height: 1.1em;
 }
 
-.menu-project:hover {
+.menu-project__link:hover {
   color: #000;
 }
 
 .menu-search {
-  margin: 1em 0;
+  margin: 15px 0;
   padding: 10px 40px 0 20px;
 }
 
@@ -1973,6 +1975,10 @@ div[class^='highlight-'] {
   width: auto;
 }
 
+.page__left_state_collapse {
+  width: 12px;
+}
+
 .page__right {
   position: relative;
   z-index: 5;
@@ -1993,35 +1999,6 @@ div[class^='highlight-'] {
 
 .page_type_main-page .page__right-inner {
   padding: 0;
-}
-.search {
-  color: #000;
-  z-index: 200;
-}
-
-.search-title {
-  width: 100%;
-  font: 1.125rem/1.125rem 'Open Sans', Helvetica, sans-serif;
-  padding: 0 0 5px 0;
-}
-
-.search-form {
-  padding: 5px 0 0 0;
-}
-
-.search-form__input {
-  width: 100%;
-  border: solid 1px #ccc;
-  padding: 8px 15px 8px 8px;
-  font: 0.875rem/0.875rem 'Open Sans', Helvetica, sans-serif;
-  color: #000;
-  position: relative;
-  margin: 0 0 0 -8px;
-}
-
-.search-desc {
-  font: 0.875rem/1.125rem 'Open Sans', Helvetica, sans-serif;
-  padding: 10px 0 0 0;
 }
 .rst-content .admonition-title,
 .rst-content .headerlink,
@@ -2406,6 +2383,35 @@ div[class^='highlight-'] {
 .rst-pro-link:hover {
   color: #000;
 }
+.search {
+  color: #000;
+  z-index: 200;
+}
+
+.search-title {
+  width: 100%;
+  font: 1.125rem/1.125rem 'Open Sans', Helvetica, sans-serif;
+  padding: 0 0 5px 0;
+}
+
+.search-form {
+  padding: 5px 0 0 0;
+}
+
+.search-form__input {
+  width: 100%;
+  border: solid 1px #ccc;
+  padding: 8px 15px 8px 8px;
+  font: 0.875rem/0.875rem 'Open Sans', Helvetica, sans-serif;
+  color: #000;
+  position: relative;
+  margin: 0 0 0 -8px;
+}
+
+.search-desc {
+  font: 0.875rem/1.125rem 'Open Sans', Helvetica, sans-serif;
+  padding: 10px 0 0 0;
+}
 .toctree-wrapper ul.current {
   padding: 0;
   margin: 0 0 0 1em;
@@ -2420,6 +2426,30 @@ div[class^='highlight-'] {
 .toctree-wrapper li {
   padding: 0.3em 0;
   margin: 0 0 0 0.5em;
+}
+.up-button {
+  padding: 0.3em 0.7em 0.4em 0.7em;
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 2em;
+  background: #0072aa;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  font: 1em 'Open Sans', Helvetica, sans-serif;
+}
+
+.up-button:hover {
+  background: #eee;
+  color: #000;
+}
+
+.up-button__arrow {
+  font: 1.2em 'Open Sans', Helvetica, sans-serif;
+  display: block;
+  text-decoration: none;
+  color: #777;
 }
 .tree {
   width: 105%;
@@ -2530,30 +2560,6 @@ div[class^='highlight-'] {
 
 .tree ul li.toctree-l3 a {
   padding: 0.4045em 2.427em 0.4045em 3.427em;
-}
-.up-button {
-  padding: 0.3em 0.7em 0.4em 0.7em;
-  display: none;
-  position: fixed;
-  top: 25px;
-  right: 2em;
-  background: #0072aa;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-  font: 1em 'Open Sans', Helvetica, sans-serif;
-}
-
-.up-button:hover {
-  background: #eee;
-  color: #000;
-}
-
-.up-button__arrow {
-  font: 1.2em 'Open Sans', Helvetica, sans-serif;
-  display: block;
-  text-decoration: none;
-  color: #777;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

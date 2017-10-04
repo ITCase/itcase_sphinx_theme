@@ -1,0 +1,9 @@
+<div class="search">
+    <div class="search-title">Quick search</div>
+    <form id="search-form" class="search-form" action="{{ pathto('search') }}" method="GET">
+        <input class="search-form__input "type="text" name="q" placeholder="Search..." />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+    <div class="search-desc">Enter search terms or a module, class or function name.</div>
+</div>

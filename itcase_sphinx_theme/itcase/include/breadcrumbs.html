@@ -1,0 +1,23 @@
+<div class="nav">
+    <div class="nav__inner">
+        <a href="{{ pathto(master_doc) }}" class="nav__link">{{ project }}</a>
+        <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
+        {% for doc in parents %}
+            <a href="{{ doc.link|e }}" class="nav__link">{{ doc.title }}</a>
+            <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
+        {% endfor %}
+        <div class="nav__item">{{ title }}</div>
+    </div>
+    <div class="nav-external">
+        {% if display_github %}
+            <a href="https://github.com/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}.rst"
+               class="nav-external__link"><i class="fa fa-github">&nbsp;</i>Edit on GitHub</a>
+        {% elif display_bitbucket %}
+            <a href="https://bitbucket.org/{{ bitbucket_user }}/{{ bitbucket_repo }}/src/{{ bitbucket_version}}{{ conf_py_path }}{{ pagename }}.rst"
+               class="nav-external__link"><i class="fa fa-bitbucket">&nbsp;</i>Edit on Bitbucket</a>
+        {% elif show_source and has_source and sourcename %}
+            <a href="{{ pathto('_sources/' + sourcename, true)|e }}"
+               class="nav-external__link" rel="nofollow">View page source</a>
+        {% endif %}
+    </div>
+</div>

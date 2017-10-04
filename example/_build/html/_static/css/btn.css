@@ -15,7 +15,7 @@
   vertical-align: middle;
   white-space: nowrap;
   zoom: 1;
-  font: 1.25em 'Open Sans', Arial, sans-serif;
+  font: 1.25em var(--font)
   background-color: #f3f6f6 !important;
   color: #404040 !important;
 }

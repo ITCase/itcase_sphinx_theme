@@ -3,19 +3,27 @@
 .page {
   position: relative;
   &__left {
+    z-index: 10;
+    float: left;
     width: 300px;
-    position: absolute;
-    top: 0;
-    left: 10px;
-    &_state_collapse {
-      width: 12px;
+    margin-right: -300px;
+    position: relative;
+    &-inner {
+      width: auto;
     }
   }
   &__right {
-    margin: 0 0 0 330px;
-    visibility: hidden;
+    position: relative;
+    z-index: 5;
+    float: left;
+    width: 100%;
+    &-inner {
+      padding: 0 0 0 320px;
+    }
     &_state_expand {
-      margin: 0 0 0 40px;
+      & .page__right-inner {
+        padding: 0 0 0 40px;
+      }
     }
   }
 }

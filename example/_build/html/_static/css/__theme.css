@@ -7,12 +7,12 @@ p.admonition-title {
   color: #fff !important;
   display: block;
   padding: 6px 12px !important;
-  font: bold 1.25em 'Open Sans', Arial, sans-serif;
+  font: bold 1.25em var(--font)
   margin: 0 !important;
 }
 
 .admonition p {
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
   margin: 1em 0 1em 0;
   padding: 0 12px;
   display: block;
@@ -155,7 +155,7 @@ div.admonition ul.simple {
   vertical-align: middle;
   white-space: nowrap;
   zoom: 1;
-  font: 1.25em 'Open Sans', Arial, sans-serif;
+  font: 1.25em var(--font)
   background-color: #f3f6f6 !important;
   color: #404040 !important;
 }
@@ -240,7 +240,7 @@ div[class^='highlight-'] {
   background: #eeeeee;
   position: relative;
   color: #000;
-  font: 1.1em 'Open Sans', Arial, sans-serif;
+  font: 1.1em var(--font)
   padding: 0.2em 0 0.2em 0.8em;
   border: 1px solid #e1e4e5;
   border-bottom: 0;
@@ -717,11 +717,11 @@ div[class^='highlight-'] {
 
 .footer__copyright {
   padding: 1em 0 0 0;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
 }
 
 .footer__last_updated {
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
 }
 
 .footer__theme {
@@ -729,7 +729,7 @@ div[class^='highlight-'] {
 }
 
 .footer__theme-link {
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   color: #0072aa;
 }
 
@@ -738,7 +738,7 @@ div[class^='highlight-'] {
 }
 
 .footer__theme-text {
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   color: #222;
 }
 html,
@@ -791,7 +791,7 @@ dl.method dt a.reference.internal {
   position: absolute;
   right: 0;
   top: 0;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
 }
 
 dl.method code.descname,
@@ -874,7 +874,7 @@ dl.method .sig-paren {
 }
 
 .menu-logo__desc {
-  font: 0.8em 'Open Sans', Arial, sans-serif;
+  font: 0.8em var(--font)
   color: #000;
   padding: 0.5em 0 0 0;
 }
@@ -888,7 +888,7 @@ dl.method .sig-paren {
   width: 100%;
   display: inline-block;
   color: #0072aa;
-  font: 1.6em 'Open Sans', Arial, sans-serif;
+  font: 1.6em var(--font)
   word-wrap: break-word;
   white-space: pre-wrap;
   line-height: 1.1em;
@@ -947,7 +947,7 @@ dl.method .sig-paren {
 .nav__link {
   color: #0072aa;
   display: inline-block;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
 }
 
 .nav__link:hover {
@@ -957,7 +957,7 @@ dl.method .sig-paren {
 .nav__separator {
   position: relative;
   display: inline-block;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
   padding: 0 0.3em;
 }
 
@@ -988,7 +988,7 @@ dl.method .sig-paren {
 
 .nav-external__link {
   color: #0072aa;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   display: inline-block;
   text-decoration: none;
 }
@@ -1055,23 +1055,23 @@ dl.method .sig-paren {
 }
 
 .rst-content h1 {
-  font: normal 2em 'Open Sans', Arial, sans-serif;
+  font: normal 2em var(--font)
 }
 
 .rst-content h2 {
-  font: normal 1.75em 'Open Sans', Arial, sans-serif;
+  font: normal 1.75em var(--font)
 }
 
 .rst-content h3 {
-  font: normal 1.5em 'Open Sans', Arial, sans-serif;
+  font: normal 1.5em var(--font)
 }
 
 .rst-content h4 {
-  font: normal 1.25em 'Open Sans', Arial, sans-serif;
+  font: normal 1.25em var(--font)
 }
 
 .rst-content h5 {
-  font: normal 1em 'Open Sans', Arial, sans-serif;
+  font: normal 1em var(--font)
 }
 
 .rst-content h6 {
@@ -1089,7 +1089,7 @@ dl.method .sig-paren {
 }
 
 .rst-content p {
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
   color: #000;
   line-height: 1.5em;
 }
@@ -1212,7 +1212,7 @@ dl.method .sig-paren {
   background-color: transparent;
   border: none;
   white-space: normal;
-  font: 0.95em 'Open Sans', Arial, sans-serif;
+  font: 0.95em var(--font)
 }
 
 .rst-content .docutils.citation .label,
@@ -1235,7 +1235,7 @@ dl.method .sig-paren {
 
 .rst-content table.field-list caption {
   color: #000;
-  font: italic 0.875em 'Open Sans', Arial, sans-serif;
+  font: italic 0.875em var(--font)
   padding: 1em 0;
   text-align: center;
 }
@@ -1264,7 +1264,7 @@ dl.method .sig-paren {
   list-style: disc;
   margin: 0 0 1.5em 0;
   padding: 0 0 0 1.5em;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
 }
 
 .rst-content .section ul ul {
@@ -1319,7 +1319,7 @@ dl.method .sig-paren {
 
 .rst-content table.docutils caption {
   color: #000;
-  font: italic 0.875em 'Open Sans', Arial, sans-serif;
+  font: italic 0.875em var(--font)
   padding: 1em 0;
   text-align: center;
 }
@@ -1332,14 +1332,14 @@ dl.method .sig-paren {
 }
 
 .rst-content table.docutils th {
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
   margin: 0;
   overflow: visible;
   padding: 0.7em 1em;
 }
 
 .rst-content table.docutils td {
-  font: bold 1em 'Open Sans', Arial, sans-serif;
+  font: bold 1em var(--font)
   margin: 0;
   overflow: visible;
   padding: 0.7em 1em;
@@ -1353,7 +1353,7 @@ dl.method .sig-paren {
   list-style: disc;
   margin: 0 0 1.5em 0;
   padding: 0 0 0 1.5em;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
 }
 
 .rst-content ul.simple ul {
@@ -1399,7 +1399,7 @@ dl.method .sig-paren {
 .rst-pro > span {
   width: 80%;
   display: block;
-  font: 0.75em 'Open Sans', Arial, sans-serif;
+  font: 0.75em var(--font)
   padding: 0.7em 0 0 0;
 }
 
@@ -1430,7 +1430,7 @@ dl.method .sig-paren {
 .search input[type=text] {
   border: solid 1px #ccc;
   padding: 0.5em 1em 0.5em 0.5em;
-  font: 0.9em 'Open Sans', Arial, sans-serif;
+  font: 0.9em var(--font)
   color: #000;
 }
 
@@ -2443,7 +2443,7 @@ div[class^='highlight'] td.code
 .tree header {
   color: #2980b9;
   display: block;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   font-weight: bold;
   height: 32px;
   line-height: 32px;
@@ -2530,7 +2530,7 @@ div[class^='highlight'] td.code
 .tree a:visited {
   color: #000;
   display: block;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   padding: 0.4045em 1.618em;
   position: relative;
   text-decoration: none;
@@ -2556,7 +2556,7 @@ div[class^='highlight'] td.code
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font)
 }
 
 .up-button:hover {
@@ -2565,7 +2565,7 @@ div[class^='highlight'] td.code
 }
 
 .up-button__arrow {
-  font: 1.2em 'Open Sans', Arial, sans-serif;
+  font: 1.2em var(--font)
   display: block;
   text-decoration: none;
   color: #777;

@@ -9,12 +9,12 @@
     color: #fff !important;
     display: block;
     padding: 6px 12px !important;
-    font: bold 1.25em 'Open Sans', Arial, sans-serif;
+    font: bold 1.25em var(--font)
     margin: 0 !important;
   }
   .admonition p
   {
-    font: 1em 'Open Sans', Arial, sans-serif;
+    font: 1em var(--font)
     margin: 1em 0 1em 0;
     padding: 0 12px;
     display: block;

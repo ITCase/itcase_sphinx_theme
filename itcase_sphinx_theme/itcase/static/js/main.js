@@ -33,12 +33,7 @@ const pageLeft = $('.page__left')
 const pageRight = $('.page__right')
 
 function getTreeState () {
-  if (!document.cookie) {
-    pageLeft.css({ visibility: 'visible' })
-    pageRight.css({ visibility: 'visible' })
-    return
-  }
-  var menuState = Cookies.get('menu-state')
+  const menuState = Cookies.get('menu-state')
   if (menuState === 'collapse') {
     collapseTree()
   } else if (menuState === 'expand') {
@@ -49,8 +44,13 @@ function getTreeState () {
 }
 
 function collapseTree () {
+  menu.animate({
+    width: '12px'
+  })
+  $('.page__right-inner').animate({
+    'padding-left': '40px'
+  })
   menu.css({
-    width: '12px',
     height: menu.height()
   })
   menu.data('state', 'collapse')
@@ -62,9 +62,11 @@ function collapseTree () {
 }
 
 function expandTree () {
-  menu.css({
-    width: '300px',
-    height: 'auto'
+  menu.animate({
+    width: '300px'
+  })
+  $('.page__right-inner').animate({
+    'padding-left': '320px'
   })
   menu.data('state', 'expand')
   menu.removeClass('menu_state_collapse')
@@ -90,71 +92,70 @@ $('.internal.image-reference').on('click', (event) => {
 
 getTreeState()
 
-if (STICKY_MENU === true) {
+function setMenuHeight () {
+  if ($('.menu').height() >= ($(window).height() - 55)) {
+    $('.menu').css({ height: ($(window).height() - 55) })
+    $('.menu-inner').css({ height: $('.menu').height() })
+  } else {
+    $('.menu').css({ height: 'auto' })
+    $('.menu-inner').css({ height: 'auto' })
+  }
+}
+
+function setMenuPosition() {
+  if (rightHeight > leftHeight) {
+    const menuHeight = $('.menu').height()
+    const wrapperPosition = $('.page').offset().top
+    let menuPosition = $('.menu').offset().top + menuHeight
+    let screenPosition = $(window).scrollTop() + menuHeight
+    let footerPosition = $('.footer').offset().top
+
+    // console.log('menuHeight' + menuHeight)
+    // console.log('menuPosition' + $('.menu').offset().top)
+    // console.log('wrapperPosition' + wrapperPosition)
+
+    if (menuPosition >= footerPosition && screenPosition >= footerPosition) {
+      // Touch Footer
+      // console.log('Touch Footer')
+      $('.menu').css({
+        position: 'absolute',
+        top: footerPosition - (menuHeight + 25)
+      })
+    } else {
+      // Sticky
+      // console.log('Sticky')
+      $('.menu').css({
+        position: 'fixed',
+        top: 0
+      })
+      if ($('.menu').offset().top <= wrapperPosition) {
+        $('.menu').css({
+          position: 'relative',
+          top: 0
+        })
+      }
+    }
+  }
+}
+
+setMenuPosition()
+
+if (window.STICKY_MENU === true) {
   $('.menu-inner').enscroll({
     showOnHover: true,
     verticalTrackClass: 'menu-track',
     verticalHandleClass: 'menu-handle'
   })
 
-  if (leftHeight < rightHeight) {
-    $('.menu').css({
-      position: 'fixed',
-      top: '25'
-    })
-  }
-  if ($('.menu').height() >= ($(window).height() - '55')) {
-    $('.menu').css({ height: ($(window).height() - '55') })
-    $('.menu-inner').css({ height: $('.menu').height() })
-  } else {
-    $('.menu').css({ height: 'auto' })
-  }
-}
+  setMenuHeight()
 
-if (STICKY_MENU === true) {
   $(window).bind('stickyMenu', () => {
     $(window).scroll(() => {
-      $('.menu').css({ height: ($(window).height() - '55') })
-      $('.menu-inner').css({ height: $('.menu').height() })
-      if (leftHeight < rightHeight) {
-        const menuPosition = $('.menu').offset().top + $('.menu').height()
-        const screenPosition = $(window).scrollTop() + $('.menu').height()
-        const footerPosition = $('.footer').offset().top;
-
-        if (menuPosition >= footerPosition) {
-          if (screenPosition <= footerPosition) {
-            $('.menu').css({
-              position: 'fixed',
-              top: '25',
-              margin: 0
-            })
-          } else {
-            $('.menu').css({
-              position: 'relative',
-              'margin-top': footerPosition - $('.menu').height() - 25
-            })
-          }
-        } else {
-          $('.menu').css({
-            position: 'fixed',
-            top: '25'
-          })
-        }
-      } else {
-        $('.menu').css({
-          position: 'position',
-          top: '0'
-        })
-      }
+      setMenuPosition()
     })
   }).trigger('stickyMenu')
 }
 
 $(window).resize(() => {
-  if ($('.menu').height() >= ($(window).height() - '55')) {
-    $('.menu').css({ height: ($(window).height() - '55') })
-    $('.menu-inner').css({ height: $('.menu').height() })
-  } else {
-    $('.menu').css({ height: 'auto' })
-  }
+  setMenuHeight()
 })

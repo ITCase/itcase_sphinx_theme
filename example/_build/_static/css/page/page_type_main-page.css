@@ -5,6 +5,8 @@
     display: none;
   }
   & .page__right {
-    margin: 0 0 0 40px;
+    &-inner {
+      padding: 0;
+    }
   }
 }

@@ -37,7 +37,7 @@
       }
       .rst-current-version__rtd-desc
       {
-        font: 0.85em 'Open Sans', Arial, sans-serif;
+        font: 0.85em var(--font)
       }
     .rst-current-version__selector
     {
@@ -46,7 +46,7 @@
       .rst-current-version__name
       {
         padding: 0 0.2em 0 15px;
-        font: 0.85em 'Open Sans', Arial, sans-serif;
+        font: 0.85em var(--font)
         color: #27ae60;
       }
   .rst-current-version:hover
@@ -75,7 +75,7 @@
       .rst-other-versions__group-title,
       .rst-other-versions dt
       {
-        font: 1.1em 'Open Sans', Arial, sans-serif;
+        font: 1.1em var(--font)
         padding: 0 0 0.2em 0;
       }
       .rst-other-versions__group-item,
@@ -84,7 +84,7 @@
         display: inline-block;
         margin: 0 1em 0 0;
         padding: 0;
-        font: 0.85em 'Open Sans', Arial, sans-serif;
+        font: 0.85em var(--font)
       }
         .rst-other-versions__group-item-link,
         .rst-other-versions dd a
@@ -108,7 +108,7 @@
       }
     .rst-other-versions__info
     {
-      font: 0.95em 'Open Sans', Arial, sans-serif;
+      font: 0.95em var(--font)
     }
 
 /* For Bookmarks */
@@ -128,7 +128,7 @@
   #flyout-search-form input
   {
     width: 100%;
-    font: 0.9em 'Open Sans', Arial, sans-serif;
+    font: 0.9em var(--font)
     padding: 0.5em 1em 0.5em 0.5em;
     color: #000;
   }

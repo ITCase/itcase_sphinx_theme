@@ -30,7 +30,7 @@
     {
       width: 80%;
       display: block;
-      font: 0.75em 'Open Sans', Arial, sans-serif;
+      font: 0.75em var(--font)
       padding: 0.7em 0 0 0;
     }
     .rst-pro-link

@@ -49,7 +49,7 @@ dl.method
       position: absolute;
       right: 0;
       top: 0;
-      font: 0.85em 'Open Sans', Arial, sans-serif;
+      font: 0.85em var(--font)
     }
     dl.method code.descname,
     dl.attribute code.descname

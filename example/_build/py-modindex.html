@@ -39,20 +39,21 @@
     <div class="wrapper">
         <div class="wrapper__inner">
             <div class="page
-                ">
+                 clearfix">
                 <div class="page__left">
-                  
-                    <nav class="menu" id="menu" data-state="expand">
-                        <div class="menu-inner">
-                            
-                                <div class="menu-project">
-                                    <a href="index.html" class="menu-project__link">itcase-sphinx-theme-example</a>
-                                </div>
-                            
-                            <div class="tree">
-                                
-                                
-                                    <ul>
+                    <div class="page__left-inner">
+                        
+                            <nav class="menu" id="menu" data-state="expand">
+                                <div class="menu-inner">
+                                    
+                                        <div class="menu-project">
+                                            <a href="index.html" class="menu-project__link">itcase-sphinx-theme-example</a>
+                                        </div>
+                                    
+                                    <div class="tree">
+                                        
+                                        
+                                            <ul>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Что такое reStructuredText?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html#id1">Базовые концепции</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html#id4">Абзацы</a></li>
@@ -85,29 +86,32 @@
 <li class="toctree-l1"><a class="reference internal" href="content.html#module-sphinx.application">Application API</a></li>
 </ul>
 
-                                
-                            </div>
-                            <div class="menu-search search">
-                                <div class="search-title">Quick search</div>
-                                <form id="search-form" class="search-form" action="search.html" method="GET">
-                                    <input type="text" name="q" placeholder="Search docs" />
-                                    <input type="hidden" name="check_keywords" value="yes" />
-                                    <input type="hidden" name="area" value="default" />
-                                </form>
-                                <div class="search-desc">Enter search terms or a module, class or function name.</div>
-                            </div>
-                            <nav class="wy-nav-side">&nbsp;</nav>
-                        </div>
-                        <div class="menu-switch">
-                            <div class="menu-switch__arrow">«</div>
-                        </div>
-                    </nav>
-                  
+                                        
+                                    </div>
+                                    <div class="menu-search">
+                                        <div class="search">
+    <div class="search-title">Quick search</div>
+    <form id="search-form" class="search-form" action="search.html" method="GET">
+        <input class="search-form__input "type="text" name="q" placeholder="Search..." />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+    <div class="search-desc">Enter search terms or a module, class or function name.</div>
+</div>
+                                    </div>
+                                    <nav class="wy-nav-side">&nbsp;</nav>
+                                </div>
+                                <div class="menu-switch">
+                                    <div class="menu-switch__arrow">«</div>
+                                </div>
+                            </nav>
+                        
+                    </div>
                 </div>
 
                 <section class="page__right">
-                    
-                      <div class="nav">
+                    <div class="page__right-inner">
+                        <div class="nav">
     <div class="nav__inner">
         <a href="index.html" class="nav__link">itcase-sphinx-theme-example</a>
         <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
@@ -118,14 +122,13 @@
         
     </div>
 </div>
-                    
-                    <div class="badge">
-                        
-                        
-                    </div>
+                        <div class="badge">
+                            
+                            
+                        </div>
 
-                    <div class="rst-content">
-                        
+                        <div class="rst-content">
+                           
 
    <h1>Python Module Index</h1>
 
@@ -186,10 +189,11 @@
    </table>
 
 
+                        </div>
                     </div>
-                    <footer class="footer">
-                      
-                        
+                </section>
+                <footer class="footer">
+                    
     <div class="footer__copyright">
             
                 &copy; Copyright 2017, ITCase.
@@ -203,16 +207,14 @@
         | version: 0.1.8
     </span>
 </div>
-                      
-                    </footer>
-                </section>
+                </footer>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
         
-            var STICKY_MENU = true;
+            window.STICKY_MENU = true;
         
     </script>
 
@@ -221,11 +223,11 @@
     
         <script type="text/javascript">
             var DOCUMENTATION_OPTIONS = {
-                    URL_ROOT: './',
-                    VERSION: '',
-                    COLLAPSE_INDEX: false,
-                    FILE_SUFFIX: '.html',
-                    HAS_SOURCE: true
+                URL_ROOT: './',
+                VERSION: '',
+                COLLAPSE_INDEX: false,
+                FILE_SUFFIX: '.html',
+                HAS_SOURCE: true
             };
         </script>
     

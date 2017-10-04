@@ -29,23 +29,23 @@
 }
 .rst-content h1
 {
-  font: normal 2em 'Open Sans', Arial, sans-serif;
+  font: normal 2em var(--font);
 }
 .rst-content h2
 {
-  font: normal 1.75em 'Open Sans', Arial, sans-serif;
+  font: normal 1.75em var(--font);
 }
 .rst-content h3
 {
-  font: normal 1.5em 'Open Sans', Arial, sans-serif;
+  font: normal 1.5em var(--font);
 }
 .rst-content h4
 {
-  font: normal 1.25em 'Open Sans', Arial, sans-serif;
+  font: normal 1.25em var(--font);
 }
 .rst-content h5
 {
-  font: normal 1em 'Open Sans', Arial, sans-serif;
+  font: normal 1em var(--font);
 }
 .rst-content h6
 {
@@ -64,7 +64,7 @@
 
 .rst-content p
 {
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font);
   color: #000;
   line-height: 1.5em;
 }
@@ -190,7 +190,7 @@
   background-color: transparent;
   border: none;
   white-space: normal;
-  font: 0.95em 'Open Sans', Arial, sans-serif;
+  font: 0.95em var(--font);
 }
 .rst-content .docutils.citation .label,
 .rst-content .docutils.footnote .label
@@ -215,7 +215,7 @@
   .rst-content table.field-list caption
   {
     color: #000;
-    font: italic 0.875em 'Open Sans', Arial, sans-serif;
+    font: italic 0.875em var(--font);
     padding: 1em 0;
     text-align: center;
   }
@@ -247,7 +247,7 @@
   list-style: disc;
   margin: 0 0 1.5em 0;
   padding: 0 0 0 1.5em;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font);
 }
   .rst-content .section ul ul
   {
@@ -306,7 +306,7 @@
   .rst-content table.docutils caption
   {
     color: #000;
-    font: italic 0.875em 'Open Sans', Arial, sans-serif;
+    font: italic 0.875em var(--font);
     padding: 1em 0;
     text-align: center;
   }
@@ -319,14 +319,14 @@
   }
     .rst-content table.docutils th
     {
-      font: 1em 'Open Sans', Arial, sans-serif;
+      font: 1em var(--font);
       margin: 0;
       overflow: visible;
       padding: 0.7em 1em;
     }
     .rst-content table.docutils td
     {
-      font: bold 1em 'Open Sans', Arial, sans-serif;
+      font: bold 1em var(--font);
       margin: 0;
       overflow: visible;
       padding: 0.7em 1em;
@@ -342,7 +342,7 @@
   list-style: disc;
   margin: 0 0 1.5em 0;
   padding: 0 0 0 1.5em;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font);
 }
   .rst-content ul.simple ul
   {

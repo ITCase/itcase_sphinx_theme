@@ -19,7 +19,7 @@
 {
   border: solid 1px #ccc;
   padding: 0.5em 1em 0.5em 0.5em;
-  font: 0.9em 'Open Sans', Arial, sans-serif;
+  font: 0.9em var(--font)
   color: #000;
 }
 .search img

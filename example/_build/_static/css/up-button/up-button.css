@@ -10,13 +10,13 @@
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  font: 1em 'Open Sans', Arial, sans-serif;
+  font: 1em var(--font);
   &:hover {
     background: #eee;
     color: #000;
   }
   &__arrow {
-    font: 1.2em 'Open Sans', Arial, sans-serif;
+    font: 1.2em var(--font);
     display: block;
     text-decoration: none;
     color: #777;

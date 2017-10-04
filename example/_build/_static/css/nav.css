@@ -13,7 +13,7 @@
     &__link {
       color: #0072aa;
       display: inline-block;
-      font: 1em 'Open Sans', Arial, sans-serif;
+      font: 1em var(--font)
       &:hover {
         color: #000;
       }
@@ -21,7 +21,7 @@
     &__separator {
       position: relative;
       display: inline-block;
-      font: 1em 'Open Sans', Arial, sans-serif;
+      font: 1em var(--font)
       padding: 0 0.3em;
       & .fa-chevron-right {
         font-size: 0.5em;
@@ -46,7 +46,7 @@
     top: 0.6em;
     &__link {
       color: #0072aa;
-      font: 0.85em 'Open Sans', Arial, sans-serif;
+      font: 0.85em var(--font)
       display: inline-block;
       text-decoration: none;
       &:hover {

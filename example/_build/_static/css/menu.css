@@ -25,7 +25,7 @@
         }
       .menu-logo__desc
       {
-        font: 0.8em 'Open Sans', Arial, sans-serif;
+        font: 0.8em var(--font)
         color: #000;
         padding: 0.5em 0 0 0;
       }
@@ -39,7 +39,7 @@
         width: 100%;
         display: inline-block;
         color: #0072aa;
-        font: 1.6em 'Open Sans', Arial, sans-serif;
+        font: 1.6em var(--font)
         word-wrap: break-word;
         white-space: pre-wrap;
         line-height: 1.1em;

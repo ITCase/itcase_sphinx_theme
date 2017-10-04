@@ -7,7 +7,7 @@
 {
   color: #2980b9;
   display: block;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   font-weight: bold;
   height: 32px;
   line-height: 32px;
@@ -95,7 +95,7 @@
 {
   color: #000;
   display: block;
-  font: 0.85em 'Open Sans', Arial, sans-serif;
+  font: 0.85em var(--font)
   padding: 0.4045em 1.618em;
   position: relative;
   text-decoration: none;

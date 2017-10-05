@@ -3,9 +3,9 @@
 .page {
   position: relative;
   &__left {
+    width: 300px;
     z-index: 10;
     float: left;
-    width: 300px;
     margin-right: -300px;
     position: relative;
     &-inner {
@@ -13,6 +13,9 @@
     }
     &_state_collapse {
       width: 12px;
+      @media (--mobile) {
+        width: 30px;
+      }
     }
   }
   &__right {

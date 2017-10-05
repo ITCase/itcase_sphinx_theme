@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8" />
     {{ metatags }}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     {% block htmltitle %}
         <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
@@ -80,7 +80,7 @@
                 <div class="page__left">
                     <div class="page__left-inner">
                         {% block sidebar %}
-                            <nav class="menu" id="menu" data-state="expand">
+                           <nav class="menu" id="menu" data-state="expand">
                                 <div class="menu-inner">
                                     {% if theme_logo|lower == 'true' %}
                                         <div class="menu-logo">
@@ -108,7 +108,7 @@
                                     <nav class="wy-nav-side">&nbsp;</nav>
                                 </div>
                                 <div class="menu-switch">
-                                    <div class="menu-switch__arrow">«</div>
+                                    <div class="menu-switch__arrow">&nbsp;</div>
                                 </div>
                             </nav>
                         {% endblock %}
@@ -159,11 +159,12 @@
     {% if not embedded %}
         <script type="text/javascript">
             var DOCUMENTATION_OPTIONS = {
-                URL_ROOT: '{{ url_root }}',
-                VERSION: '{{ release|e }}',
-                COLLAPSE_INDEX: false,
-                FILE_SUFFIX: '{{ '' if no_search_suffix else file_suffix }}',
-                HAS_SOURCE: {{ has_source|lower }}
+                URL_ROOT:'{{ url_root }}',
+                VERSION:'{{ release|e }}',
+                COLLAPSE_INDEX:false,
+                FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
+                HAS_SOURCE:  {{ has_source|lower }},
+                SOURCELINK_SUFFIX: '{{ sourcelink_suffix }}'
             };
         </script>
     {% endif %}

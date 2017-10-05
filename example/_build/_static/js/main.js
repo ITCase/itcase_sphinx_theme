@@ -13,7 +13,7 @@ require('./openImage')
 
 const menu = $('.menu')
 const menuSwitch = $('.menu-switch')
-const menuSwitchArrow = $('.menu-switch__arrow')
+const menuMobileSwitch = $('.menu-mobile-nav')
 
 const pageLeft = $('.page__left')
 const pageRight = $('.page__right')
@@ -31,7 +31,7 @@ function getTreeState () {
 
 function collapseTree () {
   menu.animate({
-    width: '12px'
+    width: '30px'
   })
   $('.page__right-inner').animate({
     'padding-left': '40px'
@@ -43,7 +43,6 @@ function collapseTree () {
   menu.addClass('menu_state_collapse')
   pageLeft.addClass('page__left_state_collapse')
   pageRight.addClass('page__right_state_expand')
-  menuSwitchArrow.text('»')
   document.cookie = 'menu-state=collapse;path=/'
 }
 
@@ -58,11 +57,10 @@ function expandTree () {
   menu.removeClass('menu_state_collapse')
   pageLeft.removeClass('page__left_state_collapse')
   pageRight.removeClass('page__right_state_expand')
-  menuSwitchArrow.text('«')
   document.cookie = 'menu-state=expande;path=/'
 }
 
-$(menuSwitch).on('click', () => {
+function switchMenu () {
   if (menu.data('state') === 'collapse') {
     expandTree()
     menu.data('state', 'expand')
@@ -70,15 +68,19 @@ $(menuSwitch).on('click', () => {
     collapseTree()
     menu.data('state', 'collapse')
   }
-})
+}
 
-$('.internal.image-reference').on('click', (event) => {
-  event.preventDefault()
+$(menuSwitch).on('click', () => {
+  switchMenu()
 })
 
 function setMenuHeight () {
-  if ($('.menu').height() >= ($(window).height() - 55)) {
-    $('.menu').css({ height: ($(window).height() - 55) })
+  let padding = 55
+  if ($(window).width() < 768) {
+    padding = 0
+  }
+  if ($('.menu').height() >= ($(window).height() - padding)) {
+    $('.menu').css({ height: ($(window).height() - padding) })
     $('.menu-inner').css({ height: $('.menu').height() })
   } else {
     $('.menu').css({ height: 'auto' })

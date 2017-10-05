@@ -1,0 +1,19 @@
+@import './../import.css';
+
+.mobile-menu {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #0072aa;
+  display: none;
+  text-align: center;
+  &::before {
+    display: inline-block;
+    font: 20px FontAwesome;
+    content: '\f0c9';
+    position: relative;
+    color: #fff;
+    left: 1px;
+    top: 4px;
+  }
+}

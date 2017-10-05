@@ -2,13 +2,13 @@
 
 .menu {
   width: 300px;
-  background: #eeeeee;
   z-index: 200;
   overflow: hidden;
   position: relative;
   &-inner {
     width: 290px;
     overflow: auto;
+    background: #eeeeee;
   }
     &-logo {
       padding: 1.5em 20px 1em 20px;
@@ -46,27 +46,55 @@
     }
     &-switch {
       position: absolute;
-      width: 12px;
+      width: 30px;
       height: 100%;
       right: 0;
       top: 0;
-      display: block;
-      background: rgb(204, 204, 204);
       z-index: 500;
       cursor: pointer;
-      &:hover {
-        background: #0072aa;
-        color: #fff;
+      background: #fff;
+      @media (--mobile) {
+        width: 30px;
+        background: #fff;
       }
       &__arrow {
-        display: block;
+        width: 18px;
+        height: 100%;
+        background: rgb(204, 204, 204);
         position: absolute;
-        left: 1px;
-        top: 49%;
-        font-size: 1.3em;
+        top: 0;
+        left: 0;
+        @media (--mobile) {
+          width: 30px;
+          height: 30px;
+          background: #0072aa;
+        }
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 1px;
+          transform: translate(-50%,0);
+          font: 13px/13px FontAwesome;
+          content: '\f053';
+          position: relative;
+          @media (--mobile) {
+            content: '\f0c9';
+            font: 16px/16px FontAwesome;
+            left: 3px;
+            top: 6px;
+            color: #fff;
+          }
+        }
       }
     }
   &_state_collapse {
-    width: 12px;
+    & .menu-switch__arrow {
+      &::after {
+        content: '\f054';
+        @media (--mobile) {
+          content: '\f0c9';
+        }
+      }
+    }
   }
 }

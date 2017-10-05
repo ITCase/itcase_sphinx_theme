@@ -140,6 +140,22 @@ gulp.task('bower', () => {
   return merge(cssStream, jsStream, imgStream, fontStream)
 })
 
+gulp.task('bump', (cb) => {
+  const url = 'https://pypi.python.org/pypi/itcase-sphinx-theme/json'
+  let pypiVersion
+
+  request({ url: url, json: true }, (error, response, data) => {
+    if (!error && response.statusCode === 200) {
+      pypiVersion = data.info.version
+    }
+  })
+
+  cb()
+  return gulp.src(['./bower.json', './package.json'])
+    .pipe(plugins.bump({ version: pypiVersion }))
+    .pipe(gulp.dest('./'))
+})
+
 gulp.task('css', () => {
   const postcssOptions = {
     basePath: CSS_PATH,
@@ -315,21 +331,6 @@ gulp.task('webpack', (cb) => {
   let jsStream = getJsStream(webpackConfig.MAIN.settings, webpackConfig.MAIN.directory)
 
   return jsStream
-})
-
-gulp.task('bump', () => {
-  const url = 'https://pypi.python.org/pypi/itcase-sphinx-theme/json'
-  let pypiVersion
-
-  request({ url: url, json: true }, (error, response, data) => {
-    if (!error && response.statusCode === 200) {
-      pypiVersion = data.info.version
-    }
-  })
-
-  return gulp.src(['./bower.json', './package.json'])
-    .pipe(plugins.bump({ version: pypiVersion }))
-    .pipe(gulp.dest('./'))
 })
 
 gulp.task('tag', (cb) => {

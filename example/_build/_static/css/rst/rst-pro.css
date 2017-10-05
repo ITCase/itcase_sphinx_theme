@@ -1,0 +1,36 @@
+@import './../import.css';
+
+.rst-pro{
+  padding: 0 0 1em 20px;
+  position: relative;
+  &-about {
+    position: absolute;
+    left: 150px;
+    top: 0;
+  }
+    & .fa-info-circle {
+      color: #777;
+      &:hover {
+        color: #000;
+      }
+    }
+  &-image-wrapper {
+    display: block;
+  }
+    &-image {
+      width: 120px;
+      vertical-align: bottom;
+    }
+    & > span {
+      width: 80%;
+      display: block;
+      font: 0.75em var(--font);
+      padding: 0.7em 0 0 0;
+    }
+    &-link {
+      color: #0072aa;
+      &:hover {
+        color: #000;
+      }
+    }
+}

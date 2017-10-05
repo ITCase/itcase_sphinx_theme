@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "fetch": true,
+    "$": true,
+    "jQuery": true
+  },
+  "env": {
+    "mocha": true
+  }
+}

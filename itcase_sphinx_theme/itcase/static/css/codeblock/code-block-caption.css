@@ -1,0 +1,20 @@
+@import './../import.css';
+
+.code-block-caption {
+  background: #eeeeee;
+  position: relative;
+  color: #000;
+  font: 1.1em var(--font);
+  padding: 0.2em 0 0.2em 0.8em;
+  border: 1px solid #e1e4e5;
+  border-bottom: 0;
+  & .docutils.literal {
+    font: 0.8em 'Incosolata', monospace;
+    padding: 0.1em .4em;
+    white-space: nowrap;
+    color: #555;
+    margin: 0 0.2em;
+    position: relative;
+    top: -0.1em;
+  }
+}

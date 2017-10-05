@@ -1,0 +1,27 @@
+@import './../import.css';
+
+.search {
+  color: #000;
+  z-index: 200;
+  &-title {
+    width: 100%;
+    font: 18px/18px var(--font);
+    padding: 0 0 5px 0;
+  }
+  &-form {
+    padding: 5px 0 0 0;
+    &__input {
+      width: 100%;
+      border: solid 1px #ccc;
+      padding: 8px 15px 8px 8px;
+      font: 14px/14px var(--font);
+      color: #000;
+      position: relative;
+      margin: 0 0 0 -8px;
+    }
+  }
+  &-desc {
+    font: 14px/18px var(--font);
+    padding: 10px 0 0 0;
+  }
+}

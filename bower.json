@@ -1,6 +1,6 @@
 {
   "name": "itcase_sphinx_theme",
-  "version": "0.1.8",
+  "version": "0.3.0",
   "authors": [
     "ITCase <info@itcase.pro>"
   ],
@@ -13,24 +13,19 @@
     "tests"
   ],
   "dependencies": {
-    "fancybox": "~2.1.5",
-    "font-awesome": "~4.3.0",
-    "html5-boilerplate": "~5.2.0",
-    "js-cookie": "~2.0.2",
-    "normalize.css": "~3.0.3",
-    "jquery": "~2.1.4",
-    "enscroll": "~0.6.0"
+    "enscroll": "~0.6.0",
+    "fancybox": "~3.1.25",
+    "font-awesome": "~4.7.0",
+    "html5-boilerplate": "~6.0.1",
+    "jquery": "~3.2.1",
+    "js-cookie": "~2.1.4",
+    "normalize.css": "~7.0.0"
   },
   "overrides": {
     "fancybox": {
       "main": [
-        "source/fancybox_loading.gif",
-        "source/fancybox_loading@2x.gif",
-        "source/fancybox_overlay.png",
-        "source/fancybox_sprite.png",
-        "source/fancybox_sprite@2x.png",
-        "source/jquery.fancybox.css",
-        "source/jquery.fancybox.js"
+        "dist/jquery.fancybox.css",
+        "dist/jquery.fancybox.js"
       ]
     },
     "font-awesome": {

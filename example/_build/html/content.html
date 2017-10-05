@@ -1,0 +1,2709 @@
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Что такое reStructuredText? &mdash; itcase_sphinx_theme_example 0.0.1 documentation</title>
+    
+
+    
+
+    
+        
+    
+
+        <link rel="top" title="itcase_sphinx_theme_example 0.0.1 documentation" href="index.html"/>
+            <link rel="prev" title="Генератор документации Sphinx" href="index.html"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet" type="text/css" />
+
+    <link href="_static/css/badge_only.css" type="text/css" rel="stylesheet" />
+    <link href="_static/css/__theme.css" type="text/css" rel="stylesheet" />
+
+    
+            <script type="text/javascript" src="_static/jquery.js"></script>
+            <script type="text/javascript" src="_static/underscore.js"></script>
+            <script type="text/javascript" src="_static/doctools.js"></script>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="wrapper__inner">
+            <div class="page
+                ">
+                <div class="page__left">
+                  
+                    <nav class="menu" id="menu" data-state="expand">
+                        <div class="menu-inner">
+                            
+                                <div class="menu-project">
+                                    <a href="index.html" class="menu-project__link">itcase_sphinx_theme_example</a>
+                                </div>
+                            
+                            <div class="tree">
+                                
+                                
+                                    <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Что такое reStructuredText?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">Базовые концепции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id4">Абзацы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id5">Заголовки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id6">Заголовок 1 уровня</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Заголовок 2 уровня</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Заголовок 3 уровня</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Заголовок 4 уровня</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id10">Начертание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id11">Нумерованные списки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id12">Маркированные списки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id13">Вложенные списки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id14">Верхний и нижние индексы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id15">Определения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id16">Цитаты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id17">Эпиграф</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#rst-footnotes-label">Сноски</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id31">Комментарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#listing-rst">Листинги (исходный код)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bash">bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript">JavaScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinja2">Jinja2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#golang">Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#long-string">long string</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id33">Автозамены (Подстановки)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#unicode">Использование символов юникод (unicode)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id34">Дата и время</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id35">Вставка текста из других файлов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id36">Черта (Линия)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id37">Ссылки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#img-label">Изображения и иллюстрации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id42">Таблицы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id43">Формулы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#admonitions-label">Блоки примечаний и предупреждений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id46">Содержание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#meta">Метаданные. Тег META</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-sphinx.domains">Domain API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-sphinx.environment">Build environment API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docutils-markup-api">Docutils markup API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-sphinx.application">Application API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extension-setup">Extension setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emitting-events">Emitting events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#producing-messages-logging">Producing messages / logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-core-events">Sphinx core events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-the-sphinx-version">Checking the Sphinx version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-sphinx.config">The Config object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-template-bridge">The template bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+                                
+                            </div>
+                            <div class="menu-search search">
+                                <div class="search-title">Quick search</div>
+                                <form id="search-form" class="search-form" action="search.html" method="GET">
+                                    <input type="text" name="q" placeholder="Search docs" />
+                                    <input type="hidden" name="check_keywords" value="yes" />
+                                    <input type="hidden" name="area" value="default" />
+                                </form>
+                                <div class="search-desc">Enter search terms or a module, class or function name.</div>
+                            </div>
+                            <nav class="wy-nav-side">&nbsp;</nav>
+                        </div>
+                        <div class="menu-switch">
+                            <div class="menu-switch__arrow">«</div>
+                        </div>
+                    </nav>
+                  
+                </div>
+
+                <section class="page__right">
+                    
+                      <div class="nav">
+    <div class="nav__inner">
+        <a href="index.html" class="nav__link">itcase_sphinx_theme_example</a>
+        <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
+        
+        <div class="nav__item">Что такое reStructuredText?</div>
+    </div>
+    <div class="nav-external">
+        
+            <a href="_sources/content.txt"
+               class="nav-external__link" rel="nofollow">View page source</a>
+        
+    </div>
+</div>
+                    
+                    <div class="badge">
+                        
+                        
+                    </div>
+
+                    <div class="rst-content">
+                        
+  <div class="section" id="restructuredtext">
+<h1><a class="toc-backref" href="#id111">Что такое reStructuredText?</a><a class="headerlink" href="#restructuredtext" title="Permalink to this headline">¶</a></h1>
+<p><strong>reStructuredText</strong> (сокращение: <strong>ReST</strong>, расширение файла: <strong>.rst</strong>) — облегчённый язык разметки, который может быть преобразован в различные форматы — HTML, ePub, PDF и другие.</p>
+<p>Документы с разметкой ReST являются обычными текстовыми файлами. С такими файлами очень легко работать посредством системы управления Git, которая позволяет отслеживать все вносимые изменения, легко принимать или отклонять их.</p>
+<p>Помимо этого, документы в формате .rst можно открывать и редактировать в любом простом текстовом редакторе (например, в Блокноте). Это позволяет работать над документацией в любых условиях, на любых платформах, без необходимости использовать специализированное программное обеспечение.</p>
+<p>Самое главное, что ReST позволяет сосредоточиться исключительно на структуре документа и не отвлекаться на его оформление.</p>
+<p>ReST аналогичен языку разметки Markdown, но обладает более расширенным синтаксисом, особенно вкупе с генератором документации Sphinx.  ReST используется во многих проектах, например, на сайте GitHub. Также его используют многие генераторы статических сайтов такие, как: Hyde, Pelican и другие.</p>
+</div>
+<div class="section" id="id1">
+<h1><a class="toc-backref" href="#id112">Базовые концепции</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Синтаксис reStructuredText опирается на следующие концепции:</p>
+<ul class="simple">
+<li>Отступы и пробелы имеют значение для команд разметки <a class="footnote-reference" href="#id3" id="id2">[1]</a>, но не имеют значения внутри текста (10 пробелов будут отображены как один);</li>
+<li>В командах (директивах) используется символ обратной кавычки «`», который располагается на клавише с буквой <code class="docutils literal"><span class="pre">ё</span></code> и символом <code class="docutils literal"><span class="pre">~</span></code>. Использование обычных одинарных кавычек в командах не приведет к желаемым результатам.</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Не важно как делается отступ — пробелами или клавишей Tab, главное, чтобы они были одинакового размера.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h1><a class="toc-backref" href="#id113">Абзацы</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<p>Абзацы в <abbr title="reStructuredText">ReST</abbr> отделяются друг от друга пустой строкой:</p>
+<div class="highlight-python"><div class="highlight"><pre>Первый абзац...
+
+Строки параграфов начинаются от левой границы
+и отделяются параграфы друг от друга пустой строкой.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h1><a class="toc-backref" href="#id114">Заголовки</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<p><abbr title="reStructuredText">ReST</abbr> поддерживает несколько уровней заголовков. Заголовки первого уровня (главы) подчеркиваются символом равно <code class="docutils literal"><span class="pre">=</span></code>. Заголовки второго уровня (подглавы) подчеркиваются символом короткого тире или минуса <code class="docutils literal"><span class="pre">-</span></code>. Заголовки третьего уровня (подпункта) подчеркиваются символом тильды  <code class="docutils literal"><span class="pre">~</span></code>. Для параграфов допускается использовать подчеркивание символами двойных кавычек <code class="docutils literal"><span class="pre">&quot;</span></code></p>
+<p>Заголовки подчеркиваются (или отбиваются сверху и снизу) с помощью небуквенных
+и нецифровых 7­-битных ASCII символов. Рекомендуется использовать: «<code class="docutils literal"><span class="pre">=</span> <span class="pre">­</span> <span class="pre">`</span> <span class="pre">:</span> <span class="pre">'</span> <span class="pre">&quot;</span> <span class="pre">~</span> <span class="pre">^</span> <span class="pre">_</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">#</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span></code>». Отбивка должна быть не короче текста заголовка.</p>
+<div class="highlight-python"><div class="highlight"><pre>Заголовок 1 уровня
+==================
+
+Заголовок 2 уровня
+------------------
+
+Заголовок 3 уровня
+~~~~~~~~~~~~~~~~~~
+
+Заголовок 4 уровня
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</pre></div>
+</div>
+<p>Результат:</p>
+</div>
+<div class="section" id="id6">
+<h1><a class="toc-backref" href="#id115">Заголовок 1 уровня</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id116">Заголовок 2 уровня</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id117">Заголовок 3 уровня</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id118">Заголовок 4 уровня</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h1><a class="toc-backref" href="#id119">Начертание</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h1>
+<p>Чтобы выделить текст <strong>жирным</strong> начертанием или <em>курсивным</em> используется обособление звездочками:</p>
+<div class="highlight-python"><div class="highlight"><pre>**жирный текст**
+
+*курсив текст*
+</pre></div>
+</div>
+<p>Результат:</p>
+<p><strong>жирный текст</strong></p>
+<p><em>курсив текст</em></p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Не допускается наличие пробелов между выделяемым словом и звездочкой, например, команда <code class="docutils literal"><span class="pre">**</span> <span class="pre">жирный</span> <span class="pre">текст**</span></code> не даст нужного эффекта.</p>
+</div>
+<p>Начертание текста <code class="docutils literal"><span class="pre">«как</span> <span class="pre">есть»</span></code> достигается обособлением двумя обратными кавычками:</p>
+<div class="highlight-python"><div class="highlight"><pre>``«как есть»``
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h1><a class="toc-backref" href="#id120">Нумерованные списки</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h1>
+<p>Нумерованные списки создаются с помощью символа решетки с точкой <code class="docutils literal"><span class="pre">#.</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>#. Один
+#. Два
+#. Три
+
+Или:
+5. Пять
+6. Шесть
+#. Семь
+</pre></div>
+</div>
+<p>Результат:</p>
+<ol class="arabic simple">
+<li>Один</li>
+<li>Два</li>
+<li>Три</li>
+</ol>
+<p>Или:</p>
+<ol class="arabic simple" start="5">
+<li>Пять</li>
+<li>Шесть</li>
+<li>Семь</li>
+</ol>
+</div>
+<div class="section" id="id12">
+<h1><a class="toc-backref" href="#id121">Маркированные списки</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h1>
+<p>Маркированные списки создаются с помощью символа звездочки <code class="docutils literal"><span class="pre">*</span></code> или дефиса <code class="docutils literal"><span class="pre">-</span></code>. Пробелы после маркера обязательны:</p>
+<div class="highlight-python"><div class="highlight"><pre>* Один
+* Два
+* Три
+</pre></div>
+</div>
+<p>Результат:</p>
+<ul class="simple">
+<li>Один</li>
+<li>Два</li>
+<li>Три</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h1><a class="toc-backref" href="#id122">Вложенные списки</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre>* Первый уровень
+    * Второй уровень
+        * Третий уровень
+            * Четвертый уровень
+                * Пятый уровень
+</pre></div>
+</div>
+<p>Результат:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Первый уровень</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Второй уровень</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Третий уровень</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Четвертый уровень</dt>
+<dd><ul class="first last simple">
+<li>Пятый уровень</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>#. Один
+    * Маркер
+#. Два
+    #. Номер
+</pre></div>
+</div>
+<p>Результат:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Один</dt>
+<dd><ul class="first last simple">
+<li>Маркер</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Два</dt>
+<dd><ol class="first last arabic simple">
+<li>Номер</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="id14">
+<h1><a class="toc-backref" href="#id123">Верхний и нижние индексы</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+<p>Верхние и нижние индексы добавляются с помощью команд  <code class="docutils literal"><span class="pre">:sub:</span></code> и <code class="docutils literal"><span class="pre">:sup:</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre>H\ :sub:`2`\ O
+E = mc\ :sup:`2`
+</pre></div>
+</div>
+<p>Результат:</p>
+<ul class="simple">
+<li>H<sub>2</sub>O</li>
+<li>E = mc<sup>2</sup></li>
+</ul>
+<p>Другой способ с помощью автозамены:</p>
+<div class="highlight-python"><div class="highlight"><pre>Химическая формула воды — |H2O|.
+
+.. |H2O| replace:: H\ :sub:`2`\ O
+</pre></div>
+</div>
+<p>Химическая формула воды — H<sub>2</sub>O.</p>
+</div>
+<div class="section" id="id15">
+<h1><a class="toc-backref" href="#id124">Определения</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h1>
+<p>В <abbr title="reStructuredText">ReST</abbr> можно набрать два типа определений:</p>
+<div class="highlight-python"><div class="highlight"><pre>:Первый: В прямоугольном треугольнике квадрат длины
+         гипотенузы равен сумме квадратов длин катетов.
+
+Второй
+    В прямоугольном треугольнике квадрат длины
+    гипотенузы равен сумме квадратов длин катетов.
+</pre></div>
+</div>
+<p>Результат:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Первый:</th><td class="field-body">В прямоугольном треугольнике квадрат длины гипотенузы равен сумме квадратов длин катетов.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Второй</dt>
+<dd>В прямоугольном треугольнике квадрат длины гипотенузы равен сумме квадратов длин катетов.</dd>
+</dl>
+</div>
+<div class="section" id="id16">
+<h1><a class="toc-backref" href="#id125">Цитаты</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h1>
+<p>Для вставки цитат используется отступ, сделанный с помощью клавиши <cite>Tab</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Основной текст:
+
+    Цитата неизвестного человека
+
+    --Аноним
+</pre></div>
+</div>
+<p>Результат:</p>
+<blockquote>
+<div><p>Цитата неизвестного человека</p>
+<p class="attribution">&mdash;Аноним</p>
+</div></blockquote>
+</div>
+<div class="section" id="id17">
+<h1><a class="toc-backref" href="#id126">Эпиграф</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre>.. epigraph::
+
+   *«Если бы двери восприятия были чисты, всё
+   предстало бы человеку таким, как оно есть — бесконечным»*
+
+   -- Уильям Блэйк
+</pre></div>
+</div>
+<p>Результат:</p>
+<blockquote class="epigraph">
+<div><p><em>«Если бы двери восприятия были чисты, всё
+предстало бы человеку таким, как оно есть — бесконечным»</em></p>
+<p class="attribution">&mdash;&nbsp; Уильям Блэйк</p>
+</div></blockquote>
+<p>Оформление эпиграфа зависит от настроек HTML-темы или используемого шаблона LaTeX.</p>
+<p>В американской типографике, в отличие от европейской, не принято отбивать тире пробелами. Чтобы получить пробел между тире и автором я использовал функцию <a class="reference internal" href="#id33">Автозамены (Подстановки)</a>. В моем случае код эпиграфа выглядит так:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. epigraph::
+
+   *«Если бы двери восприятия были чисты, всё
+   предстало бы человеку таким, как оно есть — бесконечным»*
+
+   -- |nbsp| Уильям Блэйк
+
+   .. |nbsp| unicode:: U+00A0
+</pre></div>
+</div>
+</div>
+<div class="section" id="rst-footnotes-label">
+<span id="id18"></span><h1><a class="toc-backref" href="#id127">Сноски</a><a class="headerlink" href="#rst-footnotes-label" title="Permalink to this headline">¶</a></h1>
+<p>Сноски могут быть разного вида:</p>
+<div class="highlight-python"><div class="highlight"><pre>Числовая сноска [5]_.
+
+.. [5] Сюда ведет числовая сноска.
+
+Сноски с автоматической [#]_ нумерацией [#]_.
+
+.. [#] Это первая сноска.
+.. [#] Это вторая сноска.
+
+Авто­символ сносок используйте вот так [*]_ и [*]_.
+
+.. [*] Это первый символ.
+.. [*] Это второй символ.
+</pre></div>
+</div>
+<p>Результаты:</p>
+<p>Числовая сноска <a class="footnote-reference" href="#id20" id="id19">[5]</a>.</p>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[5]</a></td><td>Сюда ведет числовая сноска.</td></tr>
+</tbody>
+</table>
+<p>Сноски с автоматической <a class="footnote-reference" href="#id23" id="id21">[2]</a> нумерацией <a class="footnote-reference" href="#id24" id="id22">[3]</a>.</p>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id21">[2]</a></td><td>Это первая сноска.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id22">[3]</a></td><td>Это вторая сноска.</td></tr>
+</tbody>
+</table>
+<p>Авто­символ сносок используйте вот так <a class="footnote-reference" href="#id27" id="id25">[*]</a> и <a class="footnote-reference" href="#id28" id="id26">[†]</a>.</p>
+<table class="docutils footnote" frame="void" id="id27" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id25">[*]</a></td><td>Это первый символ.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id28" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id26">[†]</a></td><td>Это второй символ.</td></tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre>Ссылки на цитаты выглядят так [CIT2002]_.
+
+.. [CIT2002] Это цитата
+(как часто используемая в журналах).
+</pre></div>
+</div>
+<p>Ссылки на цитаты выглядят так <a class="reference internal" href="#cit2002" id="id29">[CIT2002]</a>.</p>
+<table class="docutils citation" frame="void" id="cit2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id29">[CIT2002]</a></td><td>Это цитата
+(как часто используемая в журналах).</td></tr>
+</tbody>
+</table>
+<p>При экспорте в PDF сноски автоматически располагаются в конце страницы. Чтобы цитата располагалась в конце HTML-страницы, необходимо команду сноски располагать в конце <em>.rst</em> файла <a class="reference internal" href="#cit2003" id="id30">[CIT2003]</a>.</p>
+</div>
+<div class="section" id="id31">
+<h1><a class="toc-backref" href="#id128">Комментарии</a><a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h1>
+<p>В <abbr title="reStructuredText">ReST</abbr> можно оставлять комментарии, которые отображаются только в исходном файле ReST. Комментарии создаются с помощью двух точек в начале предложения <code class="docutils literal"><span class="pre">..</span></code>. Для создания многострочных комментариев необходимо соблюдать отступ:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. Это комментарий
+   Многострочный комментарий
+</pre></div>
+</div>
+</div>
+<div class="section" id="listing-rst">
+<span id="id32"></span><h1><a class="toc-backref" href="#id129">Листинги (исходный код)</a><a class="headerlink" href="#listing-rst" title="Permalink to this headline">¶</a></h1>
+<p>Если обособление обратными кавычками используется для визуального выделения команд в абзацах, то для примеров частей исходного кода используется команда из двух двоеточий <code class="docutils literal"><span class="pre">::</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Посмотрим на исходный код:
+::
+
+    Пример исходного кода
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Пустая строка между командой <code class="docutils literal"><span class="pre">::</span></code> и примером кода, а также отступ перед ним, обязательны.</p>
+</div>
+<p>Существуют другие способы ввода команды <code class="docutils literal"><span class="pre">::</span></code>, например:</p>
+<div class="highlight-python"><div class="highlight"><pre>Посмотрим на исходный код: ::
+
+    Пример исходного кода
+</pre></div>
+</div>
+<p>Или так:</p>
+<div class="highlight-python"><div class="highlight"><pre>Посмотрим на исходный код::
+
+    Пример исходного кода
+</pre></div>
+</div>
+<p>В данном случае команда <code class="docutils literal"><span class="pre">::</span></code> будет верно истолкована, а двоеточие в тексте
+поставлено автоматически. Это более лаконичная форма записи.</p>
+<p>Для вставки блоков исходного кода с подсветкой синтаксиса и нумерацией строк в
+Sphinx используются специальные команды, подробнее смотрите раздел</p>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="#id130">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="kn">import</span> <span class="n">make_server</span>
+</span><span class="hll"><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+</span><span class="hll"><span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s">&#39;hello_world&#39;</span><span class="p">,</span> <span class="s">&#39;/&#39;</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s">&#39;hello_world&#39;</span><span class="p">)</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">Groups</span>
+<span class="kn">from</span> <span class="nn">sacrud.action</span> <span class="kn">import</span> <span class="n">CRUD</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Electronics&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parent_id&#39;</span><span class="p">:</span> <span class="s">&#39;10&#39;</span><span class="p">,}</span>
+<span class="n">group_obj</span> <span class="o">=</span> <span class="n">CRUD</span><span class="p">(</span><span class="n">DBSession</span><span class="p">,</span> <span class="n">Groups</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">group_obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">Groups</span>
+<span class="kn">from</span> <span class="nn">sacrud.action</span> <span class="kn">import</span> <span class="n">CRUD</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Electronics&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parent_id&#39;</span><span class="p">:</span> <span class="s">&#39;10&#39;</span><span class="p">,}</span>
+<span class="n">group_obj</span> <span class="o">=</span> <span class="n">CRUD</span><span class="p">(</span><span class="n">DBSession</span><span class="p">,</span> <span class="n">Groups</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">group_obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bash">
+<h2><a class="toc-backref" href="#id131">bash</a><a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyvenv myproject
+<span class="nv">$ </span><span class="nb">cd </span>myproject
+<span class="nv">$ </span>bin/pip install pyramid
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># open file test.data for reading</span>
+<span class="nb">exec </span>6&lt;test.data
+<span class="c"># read until end of file</span>
+<span class="k">while</span> <span class="nb">read</span> -u <span class="m">6</span> dta
+<span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$dta</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+<span class="c"># close file test.data</span>
+<span class="nb">exec </span>6&lt;<span class="p">&amp;</span>-
+</pre></div>
+</div>
+</div>
+<div class="section" id="c">
+<h2><a class="toc-backref" href="#id132">C++</a><a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">hello.cpp</span></code> file.</p>
+<div class="literal-block-wrapper container" id="this-is-hello-cpp-file">
+<div class="code-block-caption"><span class="caption-text">This is <code class="docutils literal"><span class="pre">hello.cpp</span></code> file</span><a class="headerlink" href="#this-is-hello-cpp-file" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">#include &lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello world!!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="javascript">
+<h2><a class="toc-backref" href="#id133">JavaScript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block-wrapper container" id="nodejs">
+<div class="code-block-caption"><span class="caption-text">nodejs</span><a class="headerlink" href="#nodejs" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="kd">var</span> <span class="nx">net</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">);</span>
+</span>
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">stream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;hello\r\n&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">stream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">stream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;goodbye\r\n&#39;</span><span class="p">);</span>
+        <span class="nx">stream</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="jinja2">
+<h2><a class="toc-backref" href="#id134">Jinja2</a><a class="headerlink" href="#jinja2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-htmldjango"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span> - My Webpage<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;footer&quot;</span><span class="nt">&gt;</span>
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">footer</span> <span class="cp">%}</span>
+        <span class="ni">&amp;copy;</span> Copyright 2008 by <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://domain.invalid/&quot;</span><span class="nt">&gt;</span>you<span class="nt">&lt;/a&gt;</span>.
+        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Index</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nb">super</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="x">        .important { color: #336699; }</span>
+<span class="x">    &lt;/style&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h1&gt;Index&lt;/h1&gt;</span>
+<span class="x">    &lt;p class=&quot;important&quot;&gt;</span>
+<span class="x">      Welcome to my awesome homepage.</span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="golang">
+<h2><a class="toc-backref" href="#id135">Golang</a><a class="headerlink" href="#golang" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-go"><div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, 世界&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json">
+<h2><a class="toc-backref" href="#id136">JSON</a><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+   <span class="nt">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;streetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Московское ш., 101, кв.101&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Ленинград&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;postalCode&quot;</span><span class="p">:</span> <span class="mi">101101</span>
+   <span class="p">},</span>
+   <span class="nt">&quot;phoneNumbers&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="s2">&quot;812 123-1234&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;916 123-4567&quot;</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="long-string">
+<h2><a class="toc-backref" href="#id137">long string</a><a class="headerlink" href="#long-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span><span class="s1">&#39;200 OK&#39;</span>, <span class="o">[(</span><span class="s1">&#39;Content-Type&#39;</span>, <span class="s1">&#39;text/plain; charset=UTF-8&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;Content-Length&#39;</span>, <span class="s1">&#39;400&#39;</span><span class="o">)]</span>, <span class="o">[</span><span class="s2">&quot;HTTP_HOST: &#39;localhost:80&#39;\nPATH_INFO: &#39;/test&#39;\nQUERY_STRING: &#39;&#39;\nREQUEST_METHOD: &#39;GET&#39;\nSCRIPT_NAME: &#39;&#39;\nSERVER_NAME: &#39;localhost&#39;\nSERVER_PORT: &#39;80&#39;\nSERVER_PROTOCOL: &#39;HTTP/1.0&#39;\nwsgi.errors: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7fe3aaca41e0&gt;\nwsgi.input: &lt;_io.BytesIO object at 0x7fe3a8af42f0&gt;\nwsgi.multiprocess: False\nwsgi.multithread: False\nwsgi.run_once: False\nwsgi.url_scheme: &#39;http&#39;\nwsgi.version: (1, 0)&quot;</span><span class="o">])</span>
+
+<span class="m">200</span> OK
+Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+Content-Length: 400
+
+HTTP_HOST: <span class="s1">&#39;localhost:80&#39;</span>
+PATH_INFO: <span class="s1">&#39;/test&#39;</span>
+QUERY_STRING: <span class="s1">&#39;&#39;</span>
+REQUEST_METHOD: <span class="s1">&#39;GET&#39;</span>
+SCRIPT_NAME: <span class="s1">&#39;&#39;</span>
+SERVER_NAME: <span class="s1">&#39;localhost&#39;</span>
+SERVER_PORT: <span class="s1">&#39;80&#39;</span>
+SERVER_PROTOCOL: <span class="s1">&#39;HTTP/1.0&#39;</span>
+wsgi.errors: &lt;open file <span class="s1">&#39;&lt;stderr&gt;&#39;</span>, mode <span class="s1">&#39;w&#39;</span> at 0x7fe3aaca41e0&gt;
+wsgi.input: &lt;_io.BytesIO object at 0x7fe3a8af42f0&gt;
+wsgi.multiprocess: False
+wsgi.multithread: False
+wsgi.run_once: False
+wsgi.url_scheme: <span class="s1">&#39;http&#39;</span>
+wsgi.version: <span class="o">(</span>1, 0<span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">(</span><span class="s1">&#39;200 OK&#39;</span>, <span class="o">[(</span><span class="s1">&#39;Content-Type&#39;</span>, <span class="s1">&#39;text/plain; charset=UTF-8&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;Content-Length&#39;</span>, <span class="s1">&#39;400&#39;</span><span class="o">)]</span>, <span class="o">[</span><span class="s2">&quot;HTTP_HOST: &#39;localhost:80&#39;\nPATH_INFO: &#39;/test&#39;\nQUERY_STRING: &#39;&#39;\nREQUEST_METHOD: &#39;GET&#39;\nSCRIPT_NAME: &#39;&#39;\nSERVER_NAME: &#39;localhost&#39;\nSERVER_PORT: &#39;80&#39;\nSERVER_PROTOCOL: &#39;HTTP/1.0&#39;\nwsgi.errors: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7fe3aaca41e0&gt;\nwsgi.input: &lt;_io.BytesIO object at 0x7fe3a8af42f0&gt;\nwsgi.multiprocess: False\nwsgi.multithread: False\nwsgi.run_once: False\nwsgi.url_scheme: &#39;http&#39;\nwsgi.version: (1, 0)&quot;</span><span class="o">])</span>
+
+<span class="m">200</span> OK
+Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+Content-Length: 400
+
+HTTP_HOST: <span class="s1">&#39;localhost:80&#39;</span>
+PATH_INFO: <span class="s1">&#39;/test&#39;</span>
+QUERY_STRING: <span class="s1">&#39;&#39;</span>
+REQUEST_METHOD: <span class="s1">&#39;GET&#39;</span>
+SCRIPT_NAME: <span class="s1">&#39;&#39;</span>
+SERVER_NAME: <span class="s1">&#39;localhost&#39;</span>
+SERVER_PORT: <span class="s1">&#39;80&#39;</span>
+SERVER_PROTOCOL: <span class="s1">&#39;HTTP/1.0&#39;</span>
+wsgi.errors: &lt;open file <span class="s1">&#39;&lt;stderr&gt;&#39;</span>, mode <span class="s1">&#39;w&#39;</span> at 0x7fe3aaca41e0&gt;
+wsgi.input: &lt;_io.BytesIO object at 0x7fe3a8af42f0&gt;
+wsgi.multiprocess: False
+wsgi.multithread: False
+wsgi.run_once: False
+wsgi.url_scheme: <span class="s1">&#39;http&#39;</span>
+wsgi.version: <span class="o">(</span>1, 0<span class="o">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id33">
+<h1><a class="toc-backref" href="#id138">Автозамены (Подстановки)</a><a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h1>
+<p>Язык <em>reStructuredText</em> — очень гибкий язык разметки, который поддерживает функцию автозамены (подстановки).</p>
+<div class="highlight-python"><div class="highlight"><pre>Язык |ReST| — очень гибкий язык разметки (подстановки).
+
+.. |ReST| replace:: *reStructuredText*
+</pre></div>
+</div>
+<p>Для удобства я в начале каждого файла делаю список автозамен.</p>
+</div>
+<div class="section" id="unicode">
+<h1><a class="toc-backref" href="#id139">Использование символов юникод (unicode)</a><a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
+<p>С функцией автозамены связана функция вставки символов unicode:</p>
+<div class="highlight-python"><div class="highlight"><pre>Copyright |copy| 2015, |LibreRussia (TM)| |---| все права защищены.
+
+.. |copy| unicode:: 0xA9 .. знак копирайта
+.. |LibreRussia (TM)| unicode:: LibreRussia U+2122 .. символ торговой марки
+.. |---| unicode:: U+02014 .. длинное тире
+</pre></div>
+</div>
+<p>Получится такой результат:</p>
+<p>Copyright © 2015, LibreRussia™ — все права защищены.</p>
+</div>
+<div class="section" id="id34">
+<h1><a class="toc-backref" href="#id140">Дата и время</a><a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre>.. |date| date:: %d.%m.%Y
+.. |time| date:: %H:%M
+
+Текущая дата |date| и время |time|
+</pre></div>
+</div>
+<p>Результат: Текущая дата 12.08.2015 и время 11:05 (на момент генерации документа).</p>
+<p>Sphinx добавляет дополнительные команды автозамены, которые не требуют объявления. Подробнее о них написано в следующей главе.</p>
+</div>
+<div class="section" id="id35">
+<h1><a class="toc-backref" href="#id141">Вставка текста из других файлов</a><a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h1>
+<p>ReST позволяет вставлять текст из других файлов:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. include:: имя_файла
+</pre></div>
+</div>
+</div>
+<div class="section" id="id36">
+<h1><a class="toc-backref" href="#id142">Черта (Линия)</a><a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h1>
+<p>Иногда возникает необходимость  визуально отделить абзац, для этого можно воспользоваться чертой, достаточно поставить подряд несколько дефисов (не меньше 4-х), также можно воспользоваться нижним подчеркиванием:</p>
+<div class="highlight-python"><div class="highlight"><pre>--------
+
+________
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Символы черты должны быть отбиты пустыми строками до и после.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Черта не должна завершать документ. Черта, расположенная в самом конце документа может вызывать ошибки при сборке.</p>
+</div>
+</div>
+<div class="section" id="id37">
+<h1><a class="toc-backref" href="#id143">Ссылки</a><a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h1>
+<p>Внешние ссылки создаются так:</p>
+<div class="highlight-python"><div class="highlight"><pre>1. Внешние ссылки выглядят так: ссылка_.
+
+.. _ссылка: http://librerussia.blogspot.ru/
+
+2. Если несколько слов, тогда так: `ссылка в несколько слов`_.
+
+.. _`ссылка в несколько слов`: http://librerussia.blogspot.ru/
+
+3. `Более компактная запись ссылок &lt;http://librerussia.blogspot.ru/&gt;`_
+</pre></div>
+</div>
+<p>Результат:</p>
+<ol class="arabic simple">
+<li>Внешние ссылки выглядят так: <a class="reference external" href="http://librerussia.blogspot.ru/">ссылка</a>.</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li>Если несколько слов, тогда так: <a class="reference external" href="http://librerussia.blogspot.ru/">ссылка в несколько слов</a>.</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><a class="reference external" href="http://librerussia.blogspot.ru/">Более компактная запись ссылок</a></li>
+</ol>
+<p>Внутренние ссылки делаются так:</p>
+<div class="highlight-python"><div class="highlight"><pre>Внутренние ссылки делаются так_
+
+.. _так:
+</pre></div>
+</div>
+<p>Ссылками также являются и заголовки разделов, например, <a class="reference internal" href="#id42">Таблицы</a> :</p>
+<div class="highlight-python"><div class="highlight"><pre>Ссылка на раздел создается так `Таблицы`_ .
+Достаточно в обратных кавычках написать название заголовка.
+</pre></div>
+</div>
+</div>
+<div class="section" id="img-label">
+<span id="id41"></span><h1><a class="toc-backref" href="#id144">Изображения и иллюстрации</a><a class="headerlink" href="#img-label" title="Permalink to this headline">¶</a></h1>
+<p>Вставка изображения между слов <img alt="кубик-рубика" src="_images/favicon.ico" /> осуществляться с помощью функции автозамены:</p>
+<div class="highlight-python"><div class="highlight"><pre>Вставка изображения между слов |кубик-рубика| осуществляться с помощью функции автозамены:
+
+.. |кубик-рубика| image:: _static/favicon.ico
+</pre></div>
+</div>
+<p>Вставка изображений между абзацами:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. figure:: _static/favicon.png
+       :scale: 300 %
+       :align: center
+       :alt: Альтернативный текст
+
+       Подпись изображения
+
+       Легенда изображения.
+</pre></div>
+</div>
+<div class="figure align-center" id="id50">
+<span id="my-favicon"></span><a class="reference internal image-reference" href="_images/favicon.png"><img alt="Альтернативный текст" src="_images/favicon.png" /></a>
+<p class="caption"><span class="caption-text">Подпись изображения</span></p>
+<div class="legend">
+Легенда изображения.</div>
+</div>
+<p>Параметр <code class="docutils literal"><span class="pre">:scale:</span></code> устанавливает масштаб изображений.</p>
+<p>Параметр <code class="docutils literal"><span class="pre">:align:</span></code> устанавливает обтекание текстом, может принимать опции <code class="docutils literal"><span class="pre">left</span></code>, <code class="docutils literal"><span class="pre">center</span></code> или <code class="docutils literal"><span class="pre">right</span></code>.</p>
+<p>Ещё один способ:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. image:: picture.jpeg
+   :height: 100px
+   :width: 200px
+   :scale: 50%
+   :alt: alternate text
+   :align: right
+</pre></div>
+</div>
+<div class="figure align-center" id="id51">
+<a class="reference internal image-reference" href="_images/sphinx.jpg"><img alt="Альтернативный текст" src="_images/sphinx.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-text">Сфинкс</span></p>
+<div class="legend">
+(др.-греч. Σφίγξ, Σφιγγός, сфинга, собств. «душительница») — зооморфное мифическое существо</div>
+</div>
+<div class="figure align-left" id="id52">
+<span id="table-label"></span><a class="reference internal image-reference" href="_images/sphinx.jpg"><img alt="Альтернативный текст" src="_images/sphinx.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Сфинкс слева</span></p>
+</div>
+<div class="figure align-right" id="id53">
+<a class="reference internal image-reference" href="_images/sphinx.jpg"><img alt="Альтернативный текст" src="_images/sphinx.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Сфинкс справа</span></p>
+</div>
+<a class="reference internal image-reference" href="_images/planet_express.svg"><div align="left" class="align-left"><img alt="Альтернативный текст" src="_images/planet_express.svg" width="400px" /></div>
+</a>
+<p><cite>ps_tree</cite> is extension for <a class="reference external" href="https://github.com/ITCase/pyramid_sacrud/">pyramid_sacrud</a> which displays a list of records
+as tree. This works fine with models from <a class="reference external" href="https://github.com/ITCase/sqlalchemy_mptt/">sqlalchemy_mptt</a>.</p>
+<p>Look how easy it is to use:</p>
+<div class="literal-block-wrapper container" id="create-model">
+<div class="code-block-caption"><span class="caption-text">Create model</span><a class="headerlink" href="#create-model" title="Permalink to this code">¶</a></div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyramid_pages.models</span> <span class="kn">import</span> <span class="n">BaseSacrudMpttPage</span>
+
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+<span class="n">DBSession</span> <span class="o">=</span> <span class="n">scoped_session</span><span class="p">(</span><span class="n">sessionmaker</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="n">ZopeTransactionExtension</span><span class="p">()))</span>
+
+<span class="k">class</span> <span class="nc">PageTree</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">BaseSacrudMpttPage</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;pages&#39;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="settings-for-pyramid-app">
+<div class="code-block-caption"><span class="caption-text">Settings for pyramid app</span><a class="headerlink" href="#settings-for-pyramid-app" title="Permalink to this code">¶</a></div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s">&#39;ps_tree&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s">&#39;ps_tree.models&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">PageTree</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s">&#39;pyramid_sacrud&#39;</span><span class="p">,</span> <span class="n">route_prefix</span><span class="o">=</span><span class="s">&#39;admin&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s">&#39;pyramid_sacrud.models&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">PageTree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id42">
+<h1><a class="toc-backref" href="#id145">Таблицы</a><a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h1>
+<p>Создавать таблицы можно несколькими способами:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. table:: Заголовок таблицы (Внимание! Отступ таблицы относительно
+           команды ..``table::`` обязателен)
+
+    +------------------------+------------+----------+----------+
+    | Header row, column 1   | Header 2   | Header 3 | Header 4 |
+    | (header rows optional) |            |          |          |
+    +========================+============+==========+==========+
+    | body row 1, column 1   | column 2   | column 3 | column 4 |
+    +------------------------+------------+----------+----------+
+    | body row 2             | Cells may span columns.          |
+    +------------------------+------------+---------------------+
+    | body row 3             | Cells may  | - Table cells       |
+    +------------------------+ span rows. | - contain           |
+    | body row 4             |            | - body elements.    |
+    +------------------------+------------+---------------------+
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Отступ таблицы относительно команды <code class="docutils literal"><span class="pre">..</span> <span class="pre">table::</span></code> обязателен</p>
+</div>
+<p>Результат:</p>
+<table border="1" class="docutils" id="id54">
+<caption><span class="caption-text">Заголовок таблицы (Внимание! Отступ таблицы относительно команды  <code class="docutils literal"><span class="pre">..</span> <span class="pre">table::</span></code> обязателен)</span><a class="headerlink" href="#id54" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="43%" />
+<col width="21%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Header row, column 1
+(header rows optional)</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>body row 1, column 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>column 4</td>
+</tr>
+<tr class="row-odd"><td>body row 2</td>
+<td colspan="3">Cells may span columns.</td>
+</tr>
+<tr class="row-even"><td>body row 3</td>
+<td rowspan="2">Cells may
+span rows.</td>
+<td colspan="2" rowspan="2"><ul class="first last simple">
+<li>Table cells</li>
+<li>contain</li>
+<li>body elements.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>body row 4</td>
+</tr>
+</tbody>
+</table>
+<p>Простая таблица:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. table:: Простая таблица
+    =====  =====  =======
+      A      B    A and B
+    =====  =====  =======
+    False  False  False
+    True   False  False
+    False  True   False
+    True   True   True
+    =====  =====  =======
+</pre></div>
+</div>
+<p>Результат:</p>
+<table border="1" class="docutils" id="id55">
+<caption><span class="caption-text">Простая таблица</span><a class="headerlink" href="#id55" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A and B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё один пример:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. table:: Простая таблица со сложной шапкой
+
+    =====  =====  ======
+       Inputs     Output
+    ------------  ------
+      A      B    A or B
+    =====  =====  ======
+    False  False  False
+    True   False  True
+    False  True   True
+    True   True   True
+    =====  =====  ======
+</pre></div>
+</div>
+<p>Результат:</p>
+<table border="1" class="docutils" id="id56">
+<caption><span class="caption-text">Простая таблица со сложной шапкой</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Inputs</th>
+<th class="head">Output</th>
+</tr>
+<tr class="row-even"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A or B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="row-odd"><td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="row-even"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё один тип таблицы — CSV-таблица:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. csv-table:: CSV-таблица
+   :header: &quot;Treat&quot;, &quot;Quantity&quot;, &quot;Description&quot;
+   :widths: 15, 10, 30
+
+   &quot;Albatross&quot;, 2.99, &quot;On a stick!&quot;
+   &quot;Crunchy Frog&quot;, 1.49, &quot;If we took the bones out, it wouldn&#39;t be
+   crunchy, now would it?&quot;
+   &quot;Gannet Ripple&quot;, 1.99, &quot;On a stick!&quot;
+</pre></div>
+</div>
+<p>Результат:</p>
+<table border="1" class="docutils" id="id57">
+<span id="cvs-table"></span><caption><span class="caption-text">CSV-таблица</span><a class="headerlink" href="#id57" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Treat</th>
+<th class="head">Quantity</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Albatross</td>
+<td>2.99</td>
+<td>On a stick!</td>
+</tr>
+<tr class="row-odd"><td>Crunchy Frog</td>
+<td>1.49</td>
+<td>If we took the bones out, it wouldn&#8217;t be
+crunchy, now would it?</td>
+</tr>
+<tr class="row-even"><td>Gannet Ripple</td>
+<td>1.99</td>
+<td>On a stick!</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Смотрите также статью <a class="reference external" href="http://librerussia.blogspot.ru/2015/02/restructuredtext-csv-table.html">reStructuredText (ReST): Быстрый способ ввода таблиц</a></p>
+</div>
+<p>Ещё один тип таблицы — таблица в виде списка:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. list-table:: Таблица в виде списка
+   :widths: 15 10 30
+   :header-rows: 1
+
+   * - Treat
+     - Quantity
+     - Description
+   * - Albatross
+     - 2.99
+     - On a stick!
+   * - Crunchy Frog
+     - 1.49
+     - If we took the bones out, it wouldn&#39;t be
+       crunchy, now would it?
+   * - Gannet Ripple
+     - 1.99
+     - On a stick!
+</pre></div>
+</div>
+<table border="1" class="docutils" id="id58">
+<caption><span class="caption-text">Таблица в виде списка</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Treat</th>
+<th class="head">Quantity</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Albatross</td>
+<td>2.99</td>
+<td>On a stick!</td>
+</tr>
+<tr class="row-odd"><td>Crunchy Frog</td>
+<td>1.49</td>
+<td>If we took the bones out, it wouldn&#8217;t be
+crunchy, now would it?</td>
+</tr>
+<tr class="row-even"><td>Gannet Ripple</td>
+<td>1.99</td>
+<td>On a stick!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id43">
+<h1><a class="toc-backref" href="#id146">Формулы</a><a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h1>
+<p>Вставка формул осуществляется командой <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code>. Для ввода формул используется синтаксис LaTeX:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. math::
+
+   \alpha_t(i) = P(O_1, O_2, … O_t, q_t = S_i \lambda)
+</pre></div>
+</div>
+<p>Результат:</p>
+<div class="math">
+<p><span class="math">\alpha_t(i) = P(O_1, O_2, … O_t, q_t = S_i \lambda)</span></p>
+</div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="https://ru.wikipedia.org/wiki/Таблица_математических_символов">Таблица математических символов</a></p>
+</div>
+</div>
+<div class="section" id="admonitions-label">
+<span id="id45"></span><h1><a class="toc-backref" href="#id147">Блоки примечаний и предупреждений</a><a class="headerlink" href="#admonitions-label" title="Permalink to this headline">¶</a></h1>
+<p>Блоки примечаний и предупреждений используются для сообщения дополнительной информации. Локализация заголовков и оформление блоков зависит от используемого шаблона. В стандартном шаблоне, используемом на сайте ReadTheDocs.org все блоки имеют собственное оформление, а локализация заголовков зависит от выбранного языка. Также язык настраивается в файле конфигурации Sphinx <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Блок <strong>Внимание</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">attention::</span></code></p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Блок <strong>Осторожно</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">caution::</span></code></p>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Блок <strong>Опасно</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">danger::</span></code></p>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<p class="last">Блок <strong>Ошибка</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">error::</span></code></p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Блок <strong>Подсказка</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">hint::</span></code></p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Блок <strong>Важно</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">important::</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Блок <strong>Примечание</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">note::</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Исходный код доступен по адресу:</p>
+<ul class="last simple">
+<li>foo</li>
+<li>bar</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Блок <strong>Совет</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">tip::</span></code></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Блок <strong>Предупреждение</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">warning::</span></code></p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Блок <strong>План</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">todo::</span></code></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Блок <strong>См.также</strong>, команда: <code class="docutils literal"><span class="pre">..</span> <span class="pre">seealso::</span></code></p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.100.500: </span>bla bla bla</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.100.500: </span>bla bla bla</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 0.100.500: </span>bla bla bla</p>
+</div>
+<p class="rubric">This directive creates a paragraph heading that is not used to create a table of contents node.</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>A list of</li>
+<li>short items</li>
+</ul>
+</td><td><ul class="simple">
+<li>that should be</li>
+<li>displayed</li>
+</ul>
+</td><td><ul class="simple">
+<li>horizontally</li>
+</ul>
+</td></tr></table>
+<p>Код блоков выглядит так:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. tip:: Блок **Совет**, команда: ``.. tip::``
+</pre></div>
+</div>
+</div>
+<div class="section" id="id46">
+<h1><a class="toc-backref" href="#id148">Содержание</a><a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h1>
+<p>На основе заголовков ReST автоматически создает оглавление, которое вставляется командой <code class="docutils literal"><span class="pre">..</span> <span class="pre">contents::</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. contents:: Оглавление
+   :depth: 5
+
+или
+
+.. contents:: Содержание
+   :depth: 5
+</pre></div>
+</div>
+<p>Параметр <code class="docutils literal"><span class="pre">:depth:</span></code> задает уровни заголовков, которые будут включены в оглавление.</p>
+<p>Результат:</p>
+<div class="contents topic" id="id47">
+<p class="topic-title first">Оглавление</p>
+<ul class="simple">
+<li><a class="reference internal" href="#restructuredtext" id="id59">Что такое reStructuredText?</a></li>
+<li><a class="reference internal" href="#id1" id="id60">Базовые концепции</a></li>
+<li><a class="reference internal" href="#id4" id="id61">Абзацы</a></li>
+<li><a class="reference internal" href="#id5" id="id62">Заголовки</a></li>
+<li><a class="reference internal" href="#id6" id="id63">Заголовок 1 уровня</a><ul>
+<li><a class="reference internal" href="#id7" id="id64">Заголовок 2 уровня</a><ul>
+<li><a class="reference internal" href="#id8" id="id65">Заголовок 3 уровня</a><ul>
+<li><a class="reference internal" href="#id9" id="id66">Заголовок 4 уровня</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10" id="id67">Начертание</a></li>
+<li><a class="reference internal" href="#id11" id="id68">Нумерованные списки</a></li>
+<li><a class="reference internal" href="#id12" id="id69">Маркированные списки</a></li>
+<li><a class="reference internal" href="#id13" id="id70">Вложенные списки</a></li>
+<li><a class="reference internal" href="#id14" id="id71">Верхний и нижние индексы</a></li>
+<li><a class="reference internal" href="#id15" id="id72">Определения</a></li>
+<li><a class="reference internal" href="#id16" id="id73">Цитаты</a></li>
+<li><a class="reference internal" href="#id17" id="id74">Эпиграф</a></li>
+<li><a class="reference internal" href="#rst-footnotes-label" id="id75">Сноски</a></li>
+<li><a class="reference internal" href="#id31" id="id76">Комментарии</a></li>
+<li><a class="reference internal" href="#listing-rst" id="id77">Листинги (исходный код)</a><ul>
+<li><a class="reference internal" href="#python" id="id78">Python</a></li>
+<li><a class="reference internal" href="#bash" id="id79">bash</a></li>
+<li><a class="reference internal" href="#c" id="id80">C++</a></li>
+<li><a class="reference internal" href="#javascript" id="id81">JavaScript</a></li>
+<li><a class="reference internal" href="#jinja2" id="id82">Jinja2</a></li>
+<li><a class="reference internal" href="#golang" id="id83">Golang</a></li>
+<li><a class="reference internal" href="#json" id="id84">JSON</a></li>
+<li><a class="reference internal" href="#long-string" id="id85">long string</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id33" id="id86">Автозамены (Подстановки)</a></li>
+<li><a class="reference internal" href="#unicode" id="id87">Использование символов юникод (unicode)</a></li>
+<li><a class="reference internal" href="#id34" id="id88">Дата и время</a></li>
+<li><a class="reference internal" href="#id35" id="id89">Вставка текста из других файлов</a></li>
+<li><a class="reference internal" href="#id36" id="id90">Черта (Линия)</a></li>
+<li><a class="reference internal" href="#id37" id="id91">Ссылки</a></li>
+<li><a class="reference internal" href="#img-label" id="id92">Изображения и иллюстрации</a></li>
+<li><a class="reference internal" href="#id42" id="id93">Таблицы</a></li>
+<li><a class="reference internal" href="#id43" id="id94">Формулы</a></li>
+<li><a class="reference internal" href="#admonitions-label" id="id95">Блоки примечаний и предупреждений</a></li>
+<li><a class="reference internal" href="#id46" id="id96">Содержание</a></li>
+<li><a class="reference internal" href="#meta" id="id97">Метаданные. Тег META</a></li>
+<li><a class="reference internal" href="#api" id="id98">API</a><ul>
+<li><a class="reference internal" href="#module-sphinx.domains" id="id99">Domain API</a></li>
+<li><a class="reference internal" href="#module-sphinx.environment" id="id100">Build environment API</a></li>
+<li><a class="reference internal" href="#docutils-markup-api" id="id101">Docutils markup API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-sphinx.application" id="id102">Application API</a><ul>
+<li><a class="reference internal" href="#extension-setup" id="id103">Extension setup</a></li>
+<li><a class="reference internal" href="#emitting-events" id="id104">Emitting events</a></li>
+<li><a class="reference internal" href="#producing-messages-logging" id="id105">Producing messages / logging</a></li>
+<li><a class="reference internal" href="#sphinx-core-events" id="id106">Sphinx core events</a></li>
+<li><a class="reference internal" href="#checking-the-sphinx-version" id="id107">Checking the Sphinx version</a></li>
+<li><a class="reference internal" href="#module-sphinx.config" id="id108">The Config object</a></li>
+<li><a class="reference internal" href="#the-template-bridge" id="id109">The template bridge</a></li>
+<li><a class="reference internal" href="#exceptions" id="id110">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>или</p>
+<div class="contents topic" id="id48">
+<p class="topic-title first">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="#restructuredtext" id="id111">Что такое reStructuredText?</a></li>
+<li><a class="reference internal" href="#id1" id="id112">Базовые концепции</a></li>
+<li><a class="reference internal" href="#id4" id="id113">Абзацы</a></li>
+<li><a class="reference internal" href="#id5" id="id114">Заголовки</a></li>
+<li><a class="reference internal" href="#id6" id="id115">Заголовок 1 уровня</a><ul>
+<li><a class="reference internal" href="#id7" id="id116">Заголовок 2 уровня</a><ul>
+<li><a class="reference internal" href="#id8" id="id117">Заголовок 3 уровня</a><ul>
+<li><a class="reference internal" href="#id9" id="id118">Заголовок 4 уровня</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10" id="id119">Начертание</a></li>
+<li><a class="reference internal" href="#id11" id="id120">Нумерованные списки</a></li>
+<li><a class="reference internal" href="#id12" id="id121">Маркированные списки</a></li>
+<li><a class="reference internal" href="#id13" id="id122">Вложенные списки</a></li>
+<li><a class="reference internal" href="#id14" id="id123">Верхний и нижние индексы</a></li>
+<li><a class="reference internal" href="#id15" id="id124">Определения</a></li>
+<li><a class="reference internal" href="#id16" id="id125">Цитаты</a></li>
+<li><a class="reference internal" href="#id17" id="id126">Эпиграф</a></li>
+<li><a class="reference internal" href="#rst-footnotes-label" id="id127">Сноски</a></li>
+<li><a class="reference internal" href="#id31" id="id128">Комментарии</a></li>
+<li><a class="reference internal" href="#listing-rst" id="id129">Листинги (исходный код)</a><ul>
+<li><a class="reference internal" href="#python" id="id130">Python</a></li>
+<li><a class="reference internal" href="#bash" id="id131">bash</a></li>
+<li><a class="reference internal" href="#c" id="id132">C++</a></li>
+<li><a class="reference internal" href="#javascript" id="id133">JavaScript</a></li>
+<li><a class="reference internal" href="#jinja2" id="id134">Jinja2</a></li>
+<li><a class="reference internal" href="#golang" id="id135">Golang</a></li>
+<li><a class="reference internal" href="#json" id="id136">JSON</a></li>
+<li><a class="reference internal" href="#long-string" id="id137">long string</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id33" id="id138">Автозамены (Подстановки)</a></li>
+<li><a class="reference internal" href="#unicode" id="id139">Использование символов юникод (unicode)</a></li>
+<li><a class="reference internal" href="#id34" id="id140">Дата и время</a></li>
+<li><a class="reference internal" href="#id35" id="id141">Вставка текста из других файлов</a></li>
+<li><a class="reference internal" href="#id36" id="id142">Черта (Линия)</a></li>
+<li><a class="reference internal" href="#id37" id="id143">Ссылки</a></li>
+<li><a class="reference internal" href="#img-label" id="id144">Изображения и иллюстрации</a></li>
+<li><a class="reference internal" href="#id42" id="id145">Таблицы</a></li>
+<li><a class="reference internal" href="#id43" id="id146">Формулы</a></li>
+<li><a class="reference internal" href="#admonitions-label" id="id147">Блоки примечаний и предупреждений</a></li>
+<li><a class="reference internal" href="#id46" id="id148">Содержание</a></li>
+<li><a class="reference internal" href="#meta" id="id149">Метаданные. Тег META</a></li>
+<li><a class="reference internal" href="#api" id="id150">API</a><ul>
+<li><a class="reference internal" href="#module-sphinx.domains" id="id151">Domain API</a></li>
+<li><a class="reference internal" href="#module-sphinx.environment" id="id152">Build environment API</a></li>
+<li><a class="reference internal" href="#docutils-markup-api" id="id153">Docutils markup API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-sphinx.application" id="id154">Application API</a><ul>
+<li><a class="reference internal" href="#extension-setup" id="id155">Extension setup</a></li>
+<li><a class="reference internal" href="#emitting-events" id="id156">Emitting events</a></li>
+<li><a class="reference internal" href="#producing-messages-logging" id="id157">Producing messages / logging</a></li>
+<li><a class="reference internal" href="#sphinx-core-events" id="id158">Sphinx core events</a></li>
+<li><a class="reference internal" href="#checking-the-sphinx-version" id="id159">Checking the Sphinx version</a></li>
+<li><a class="reference internal" href="#module-sphinx.config" id="id160">The Config object</a></li>
+<li><a class="reference internal" href="#the-template-bridge" id="id161">The template bridge</a></li>
+<li><a class="reference internal" href="#exceptions" id="id162">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="meta">
+<span id="meta-label"></span><h1><a class="toc-backref" href="#id149">Метаданные. Тег META</a><a class="headerlink" href="#meta" title="Permalink to this headline">¶</a></h1>
+<p>Имеется возможность добавлять метаданные каждой из страниц непосредственно в rst файлы  с помощью директивы <code class="docutils literal"><span class="pre">..</span> <span class="pre">meta::</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. meta::
+   :description: The reStructuredText plaintext markup language
+   :keywords: plaintext, markup language
+</pre></div>
+</div>
+<p>Будет преобразовано в:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;meta name=&quot;description&quot;
+content=&quot;The reStructuredText plaintext markup language&quot;&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;plaintext, markup language&quot;&gt;
+</pre></div>
+</div>
+<p>Другие атрибуты:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. meta::
+   :description lang=en: An amusing story
+   :description lang=fr: Une histoire amusante
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>.. meta::
+   :http-equiv=Content-Type: text/html; charset=ISO-8859-1
+</pre></div>
+</div>
+<p>Подробнее смотрите раздел <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#meta">HTML-Specific</a> официальной документации reStructuredText.</p>
+<hr class="docutils" />
+<table class="docutils citation" frame="void" id="cit2003" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id30">[CIT2003]</a></td><td>Код вставки этой цитаты <code class="docutils literal"><span class="pre">..</span> <span class="pre">[CIT2003]</span></code> размещен в самом конце <em>.rst</em> файла.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api">
+<h1><a class="toc-backref" href="#id150">API</a><a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-sphinx.domains">
+<span id="domain-api"></span><h2><a class="toc-backref" href="#id151">Domain API</a><a class="headerlink" href="#module-sphinx.domains" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sphinx.domains.Domain">
+<em class="property">class </em><code class="descclassname">sphinx.domains.</code><code class="descname">Domain</code><span class="sig-paren">(</span><em>env</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Domain is meant to be a group of &#8220;object&#8221; description directives for
+objects of a similar nature, and corresponding roles to create references to
+them.  Examples would be Python modules, classes, functions etc., elements
+of a templating language, Sphinx roles and directives, etc.</p>
+<p>Each domain has a separate storage for information about existing objects
+and how to reference them in <cite>self.data</cite>, which must be a dictionary.  It
+also must implement several functions that expose the object information in
+a uniform way to parts of Sphinx that allow the user to reference or search
+for objects in a domain-agnostic way.</p>
+<p>About <cite>self.data</cite>: since all object and cross-referencing information is
+stored on a BuildEnvironment instance, the <cite>domain.data</cite> object is also
+stored in the <cite>env.domaindata</cite> dict under the key <cite>domain.name</cite>.  Before the
+build process starts, every active domain is instantiated and given the
+environment object; the <cite>domaindata</cite> dict must then either be nonexistent or
+a dictionary whose &#8216;version&#8217; key is equal to the domain class&#8217;
+<a class="reference internal" href="#sphinx.domains.Domain.data_version" title="sphinx.domains.Domain.data_version"><code class="xref py py-attr docutils literal"><span class="pre">data_version</span></code></a> attribute.  Otherwise, <cite>IOError</cite> is raised and the
+pickled environment is discarded.</p>
+<dl class="method">
+<dt id="sphinx.domains.Domain.clear_doc">
+<code class="descname">clear_doc</code><span class="sig-paren">(</span><em>docname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.clear_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.clear_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove traces of a document in the domain-specific inventories.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.dangling_warnings">
+<code class="descname">dangling_warnings</code><em class="property"> = {}</em><a class="headerlink" href="#sphinx.domains.Domain.dangling_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>role name -&gt; a warning message if reference is missing</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.data_version">
+<code class="descname">data_version</code><em class="property"> = 0</em><a class="headerlink" href="#sphinx.domains.Domain.data_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>data version, bump this when the format of <cite>self.data</cite> changes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.directive">
+<code class="descname">directive</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.directive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.directive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a directive adapter class that always gives the registered
+directive its full name (&#8216;domain:name&#8217;) as <code class="docutils literal"><span class="pre">self.name</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.directives">
+<code class="descname">directives</code><em class="property"> = {}</em><a class="headerlink" href="#sphinx.domains.Domain.directives" title="Permalink to this definition">¶</a></dt>
+<dd><p>directive name -&gt; directive class</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.get_objects">
+<code class="descname">get_objects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.get_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.get_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterable of &#8220;object descriptions&#8221;, which are tuples with
+five items:</p>
+<ul class="simple">
+<li><cite>name</cite>     &#8211; fully qualified name</li>
+<li><cite>dispname</cite> &#8211; name to display when searching/linking</li>
+<li><cite>type</cite>     &#8211; object type, a key in <code class="docutils literal"><span class="pre">self.object_types</span></code></li>
+<li><cite>docname</cite>  &#8211; the document where it is to be found</li>
+<li><cite>anchor</cite>   &#8211; the anchor name for the object</li>
+<li><cite>priority</cite> &#8211; how &#8220;important&#8221; the object is (determines placement
+in search results)<ul>
+<li>1: default priority (placed before full-text matches)</li>
+<li>0: object is important (placed before default-priority objects)</li>
+<li>2: object is unimportant (placed after full-text matches)</li>
+<li>-1: object should not show up in search at all</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.get_type_name">
+<code class="descname">get_type_name</code><span class="sig-paren">(</span><em>type</em>, <em>primary=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.get_type_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.get_type_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return full name for given ObjType.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.indices">
+<code class="descname">indices</code><em class="property"> = []</em><a class="headerlink" href="#sphinx.domains.Domain.indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list of Index subclasses</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.initial_data">
+<code class="descname">initial_data</code><em class="property"> = {}</em><a class="headerlink" href="#sphinx.domains.Domain.initial_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>data value for a fresh environment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.label">
+<code class="descname">label</code><em class="property"> = ''</em><a class="headerlink" href="#sphinx.domains.Domain.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>domain label: longer, more descriptive (used in messages)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.merge_domaindata">
+<code class="descname">merge_domaindata</code><span class="sig-paren">(</span><em>docnames</em>, <em>otherdata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.merge_domaindata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.merge_domaindata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge in data regarding <em>docnames</em> from a different domaindata
+inventory (coming from a subprocess in parallel builds).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.name">
+<code class="descname">name</code><em class="property"> = ''</em><a class="headerlink" href="#sphinx.domains.Domain.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>domain name: should be short, but unique</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.object_types">
+<code class="descname">object_types</code><em class="property"> = {}</em><a class="headerlink" href="#sphinx.domains.Domain.object_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>type (usually directive) name -&gt; ObjType instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.process_doc">
+<code class="descname">process_doc</code><span class="sig-paren">(</span><em>env</em>, <em>docname</em>, <em>document</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.process_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.process_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a document after it is read by the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.resolve_any_xref">
+<code class="descname">resolve_any_xref</code><span class="sig-paren">(</span><em>env</em>, <em>fromdocname</em>, <em>builder</em>, <em>target</em>, <em>node</em>, <em>contnode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.resolve_any_xref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.resolve_any_xref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the pending_xref <em>node</em> with the given <em>target</em>.</p>
+<p>The reference comes from an &#8220;any&#8221; or similar role, which means that we
+don&#8217;t know the type.  Otherwise, the arguments are the same as for
+<a class="reference internal" href="#sphinx.domains.Domain.resolve_xref" title="sphinx.domains.Domain.resolve_xref"><code class="xref py py-meth docutils literal"><span class="pre">resolve_xref()</span></code></a>.</p>
+<p>The method must return a list (potentially empty) of tuples
+<code class="docutils literal"><span class="pre">('domain:role',</span> <span class="pre">newnode)</span></code>, where <code class="docutils literal"><span class="pre">'domain:role'</span></code> is the name of a
+role that could have created the same reference, e.g. <code class="docutils literal"><span class="pre">'py:func'</span></code>.
+<code class="docutils literal"><span class="pre">newnode</span></code> is what <a class="reference internal" href="#sphinx.domains.Domain.resolve_xref" title="sphinx.domains.Domain.resolve_xref"><code class="xref py py-meth docutils literal"><span class="pre">resolve_xref()</span></code></a> would return.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.resolve_xref">
+<code class="descname">resolve_xref</code><span class="sig-paren">(</span><em>env</em>, <em>fromdocname</em>, <em>builder</em>, <em>typ</em>, <em>target</em>, <em>node</em>, <em>contnode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.resolve_xref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.resolve_xref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the pending_xref <em>node</em> with the given <em>typ</em> and <em>target</em>.</p>
+<p>This method should return a new node, to replace the xref node,
+containing the <em>contnode</em> which is the markup content of the
+cross-reference.</p>
+<p>If no resolution can be found, None can be returned; the xref node will
+then given to the &#8216;missing-reference&#8217; event, and if that yields no
+resolution, replaced by <em>contnode</em>.</p>
+<p>The method can also raise <code class="xref py py-exc docutils literal"><span class="pre">sphinx.environment.NoUri</span></code> to suppress
+the &#8216;missing-reference&#8217; event being emitted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.domains.Domain.role">
+<code class="descname">role</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Domain.role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Domain.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a role adapter function that always gives the registered
+role its full name (&#8216;domain:name&#8217;) as the first argument.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.domains.Domain.roles">
+<code class="descname">roles</code><em class="property"> = {}</em><a class="headerlink" href="#sphinx.domains.Domain.roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>role name -&gt; role callable</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sphinx.domains.ObjType">
+<em class="property">class </em><code class="descclassname">sphinx.domains.</code><code class="descname">ObjType</code><span class="sig-paren">(</span><em>lname</em>, <em>*roles</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#ObjType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.ObjType" title="Permalink to this definition">¶</a></dt>
+<dd><p>An ObjType is the description for a type of object that a domain can
+document.  In the object_types attribute of Domain subclasses, object type
+names are mapped to instances of this class.</p>
+<p>Constructor arguments:</p>
+<ul class="simple">
+<li><em>lname</em>: localized name of the type (do not include domain name)</li>
+<li><em>roles</em>: all the roles that can refer to an object of this type</li>
+<li><em>attrs</em>: object attributes &#8211; currently only &#8220;searchprio&#8221; is known,
+which defines the object&#8217;s priority in the full-text search index,
+see <a class="reference internal" href="#sphinx.domains.Domain.get_objects" title="sphinx.domains.Domain.get_objects"><code class="xref py py-meth docutils literal"><span class="pre">Domain.get_objects()</span></code></a>.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="sphinx.domains.Index">
+<em class="property">class </em><code class="descclassname">sphinx.domains.</code><code class="descname">Index</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Index" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Index is the description for a domain-specific index.  To add an index to
+a domain, subclass Index, overriding the three name attributes:</p>
+<ul class="simple">
+<li><cite>name</cite> is an identifier used for generating file names.</li>
+<li><cite>localname</cite> is the section title for the index.</li>
+<li><cite>shortname</cite> is a short name for the index, for use in the relation bar in
+HTML output.  Can be empty to disable entries in the relation bar.</li>
+</ul>
+<p>and providing a <a class="reference internal" href="#sphinx.domains.Index.generate" title="sphinx.domains.Index.generate"><code class="xref py py-meth docutils literal"><span class="pre">generate()</span></code></a> method.  Then, add the index class to
+your domain&#8217;s <cite>indices</cite> list.  Extensions can add indices to existing
+domains using <a class="reference internal" href="#sphinx.application.Sphinx.add_index_to_domain" title="sphinx.application.Sphinx.add_index_to_domain"><code class="xref py py-meth docutils literal"><span class="pre">add_index_to_domain()</span></code></a>.</p>
+<dl class="method">
+<dt id="sphinx.domains.Index.generate">
+<code class="descname">generate</code><span class="sig-paren">(</span><em>docnames=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/domains.html#Index.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.domains.Index.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return entries for the index given by <em>name</em>.  If <em>docnames</em> is
+given, restrict to entries referring to these docnames.</p>
+<p>The return value is a tuple of <code class="docutils literal"><span class="pre">(content,</span> <span class="pre">collapse)</span></code>, where <em>collapse</em>
+is a boolean that determines if sub-entries should start collapsed (for
+output formats that support collapsing sub-entries).</p>
+<p><em>content</em> is a sequence of <code class="docutils literal"><span class="pre">(letter,</span> <span class="pre">entries)</span></code> tuples, where <em>letter</em>
+is the &#8220;heading&#8221; for the given <em>entries</em>, usually the starting letter.</p>
+<p><em>entries</em> is a sequence of single entries, where a single entry is a
+sequence <code class="docutils literal"><span class="pre">[name,</span> <span class="pre">subtype,</span> <span class="pre">docname,</span> <span class="pre">anchor,</span> <span class="pre">extra,</span> <span class="pre">qualifier,</span> <span class="pre">descr]</span></code>.
+The items in this sequence have the following meaning:</p>
+<ul class="simple">
+<li><cite>name</cite> &#8211; the name of the index entry to be displayed</li>
+<li><cite>subtype</cite> &#8211; sub-entry related type:
+0 &#8211; normal entry
+1 &#8211; entry with sub-entries
+2 &#8211; sub-entry</li>
+<li><cite>docname</cite> &#8211; docname where the entry is located</li>
+<li><cite>anchor</cite> &#8211; anchor for the entry within <cite>docname</cite></li>
+<li><cite>extra</cite> &#8211; extra info for the entry</li>
+<li><cite>qualifier</cite> &#8211; qualifier for the description</li>
+<li><cite>descr</cite> &#8211; description for the entry</li>
+</ul>
+<p>Qualifier and description are not rendered e.g. in LaTeX output.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinx.environment">
+<span id="build-environment-api"></span><h2><a class="toc-backref" href="#id152">Build environment API</a><a class="headerlink" href="#module-sphinx.environment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sphinx.environment.BuildEnvironment">
+<em class="property">class </em><code class="descclassname">sphinx.environment.</code><code class="descname">BuildEnvironment</code><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Attributes</strong></p>
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.app">
+<code class="descname">app</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the <a class="reference internal" href="#sphinx.application.Sphinx" title="sphinx.application.Sphinx"><code class="xref py py-class docutils literal"><span class="pre">Sphinx</span></code></a> (application) object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.config">
+<code class="descname">config</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the <a class="reference internal" href="#sphinx.config.Config" title="sphinx.config.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.srcdir">
+<code class="descname">srcdir</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.srcdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source directory (the directory containing <code class="docutils literal"><span class="pre">conf.py</span></code>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.doctreedir">
+<code class="descname">doctreedir</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.doctreedir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory for storing pickled doctrees.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.found_docs">
+<code class="descname">found_docs</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.found_docs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of all existing docnames.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.metadata">
+<code class="descname">metadata</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.titles">
+<code class="descname">titles</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.titles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary mapping docnames to the docutils node for their main title.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sphinx.environment.BuildEnvironment.docname">
+<code class="descname">docname</code><a class="headerlink" href="#sphinx.environment.BuildEnvironment.docname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the docname of the document currently being parsed.</p>
+</dd></dl>
+
+<p><strong>Utility methods</strong></p>
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.warn">
+<code class="descname">warn</code><span class="sig-paren">(</span><em>docname</em>, <em>msg</em>, <em>lineno=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.warn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.warn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a warning.</p>
+<p>This differs from using <code class="docutils literal"><span class="pre">app.warn()</span></code> in that the warning may not
+be emitted instantly, but collected for emitting all warnings after
+the update of the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.warn_node">
+<code class="descname">warn_node</code><span class="sig-paren">(</span><em>msg</em>, <em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.warn_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.warn_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like <a class="reference internal" href="#sphinx.environment.BuildEnvironment.warn" title="sphinx.environment.BuildEnvironment.warn"><code class="xref py py-meth docutils literal"><span class="pre">warn()</span></code></a>, but with source information taken from <em>node</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.doc2path">
+<code class="descname">doc2path</code><span class="sig-paren">(</span><em>docname</em>, <em>base=True</em>, <em>suffix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.doc2path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.doc2path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the filename for the document name.</p>
+<p>If <em>base</em> is True, return absolute path under self.srcdir.
+If <em>base</em> is None, return relative path to self.srcdir.
+If <em>base</em> is a path string, return absolute path under that.
+If <em>suffix</em> is not None, add it instead of config.source_suffix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.relfn2path">
+<code class="descname">relfn2path</code><span class="sig-paren">(</span><em>filename</em>, <em>docname=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.relfn2path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.relfn2path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return paths to a file referenced from a document, relative to
+documentation root and absolute.</p>
+<p>In the input &#8220;filename&#8221;, absolute filenames are taken as relative to the
+source dir, while relative filenames are relative to the dir of the
+containing document.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.note_dependency">
+<code class="descname">note_dependency</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.note_dependency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.note_dependency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>filename</em> as a dependency of the current document.</p>
+<p>This means that the document will be rebuilt if this file changes.</p>
+<p><em>filename</em> should be absolute or relative to the source directory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.new_serialno">
+<code class="descname">new_serialno</code><span class="sig-paren">(</span><em>category=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.new_serialno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.new_serialno" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a serial number, e.g. for index entry targets.</p>
+<p>The number is guaranteed to be unique in the current document.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.environment.BuildEnvironment.note_reread">
+<code class="descname">note_reread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/environment.html#BuildEnvironment.note_reread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.environment.BuildEnvironment.note_reread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the current document to the list of documents that will
+automatically be re-read at the next build.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="docutils-markup-api">
+<h2><a class="toc-backref" href="#id153">Docutils markup API</a><a class="headerlink" href="#docutils-markup-api" title="Permalink to this headline">¶</a></h2>
+<p>Directives are handled by classes derived from
+<code class="docutils literal"><span class="pre">docutils.parsers.rst.Directive</span></code>.  They have to be registered by an extension
+using <a class="reference internal" href="#sphinx.application.Sphinx.add_directive" title="sphinx.application.Sphinx.add_directive"><code class="xref py py-meth docutils literal"><span class="pre">Sphinx.add_directive()</span></code></a> or <a class="reference internal" href="#sphinx.application.Sphinx.add_directive_to_domain" title="sphinx.application.Sphinx.add_directive_to_domain"><code class="xref py py-meth docutils literal"><span class="pre">Sphinx.add_directive_to_domain()</span></code></a>.</p>
+<span class="target" id="module-docutils.parsers.rst"></span><dl class="class">
+<dt id="docutils.parsers.rst.Directive">
+<em class="property">class </em><code class="descclassname">docutils.parsers.rst.</code><code class="descname">Directive</code><a class="reference internal" href="_modules/docutils/parsers/rst.html#Directive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#docutils.parsers.rst.Directive" title="Permalink to this definition">¶</a></dt>
+<dd><p>The markup syntax of the new directive is determined by the follow five class
+attributes:</p>
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.required_arguments">
+<code class="descname">required_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#docutils.parsers.rst.Directive.required_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of required directive arguments.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.optional_arguments">
+<code class="descname">optional_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#docutils.parsers.rst.Directive.optional_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of optional arguments after the required arguments.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.final_argument_whitespace">
+<code class="descname">final_argument_whitespace</code><em class="property"> = False</em><a class="headerlink" href="#docutils.parsers.rst.Directive.final_argument_whitespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>May the final argument contain whitespace?</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.option_spec">
+<code class="descname">option_spec</code><em class="property"> = None</em><a class="headerlink" href="#docutils.parsers.rst.Directive.option_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping of option names to validator functions.</p>
+<p>Option validator functions take a single parameter, the option argument
+(or <code class="docutils literal"><span class="pre">None</span></code> if not given), and should validate it or convert it to the
+proper form.  They raise <code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> or <code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> to indicate
+failure.</p>
+<p>There are several predefined and possibly useful validators in the
+<code class="xref py py-mod docutils literal"><span class="pre">docutils.parsers.rst.directives</span></code> module.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.has_content">
+<code class="descname">has_content</code><em class="property"> = False</em><a class="headerlink" href="#docutils.parsers.rst.Directive.has_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>May the directive have content?</p>
+</dd></dl>
+
+<p>New directives must implement the <a class="reference internal" href="#docutils.parsers.rst.Directive.run" title="docutils.parsers.rst.Directive.run"><code class="xref py py-meth docutils literal"><span class="pre">run()</span></code></a> method:</p>
+<dl class="method">
+<dt id="docutils.parsers.rst.Directive.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/docutils/parsers/rst.html#Directive.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#docutils.parsers.rst.Directive.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method must process the directive arguments, options and content, and
+return a list of Docutils/Sphinx nodes that will be inserted into the
+document tree at the point where the directive was encountered.</p>
+</dd></dl>
+
+<p>Instance attributes that are always set on the directive are:</p>
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.name">
+<code class="descname">name</code><a class="headerlink" href="#docutils.parsers.rst.Directive.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directive name (useful when registering the same directive class under
+multiple names).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.arguments">
+<code class="descname">arguments</code><a class="headerlink" href="#docutils.parsers.rst.Directive.arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>The arguments given to the directive, as a list.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.options">
+<code class="descname">options</code><a class="headerlink" href="#docutils.parsers.rst.Directive.options" title="Permalink to this definition">¶</a></dt>
+<dd><p>The options given to the directive, as a dictionary mapping option names
+to validated/converted values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.content">
+<code class="descname">content</code><a class="headerlink" href="#docutils.parsers.rst.Directive.content" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directive content, if given, as a <code class="xref py py-class docutils literal"><span class="pre">ViewList</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.lineno">
+<code class="descname">lineno</code><a class="headerlink" href="#docutils.parsers.rst.Directive.lineno" title="Permalink to this definition">¶</a></dt>
+<dd><p>The absolute line number on which the directive appeared.  This is not
+always a useful value; use <a class="reference internal" href="#docutils.parsers.rst.Directive.srcline" title="docutils.parsers.rst.Directive.srcline"><code class="xref py py-attr docutils literal"><span class="pre">srcline</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.src">
+<code class="descname">src</code><a class="headerlink" href="#docutils.parsers.rst.Directive.src" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source file of the directive.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.srcline">
+<code class="descname">srcline</code><a class="headerlink" href="#docutils.parsers.rst.Directive.srcline" title="Permalink to this definition">¶</a></dt>
+<dd><p>The line number in the source file on which the directive appeared.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.content_offset">
+<code class="descname">content_offset</code><a class="headerlink" href="#docutils.parsers.rst.Directive.content_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal offset of the directive content.  Used when calling
+<code class="docutils literal"><span class="pre">nested_parse</span></code> (see below).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.block_text">
+<code class="descname">block_text</code><a class="headerlink" href="#docutils.parsers.rst.Directive.block_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The string containing the entire directive.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="docutils.parsers.rst.Directive.state">
+<code class="descname">state</code><a class="headerlink" href="#docutils.parsers.rst.Directive.state" title="Permalink to this definition">¶</a></dt>
+<dt id="docutils.parsers.rst.Directive.state_machine">
+<code class="descname">state_machine</code><a class="headerlink" href="#docutils.parsers.rst.Directive.state_machine" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state and state machine which controls the parsing.  Used for
+<code class="docutils literal"><span class="pre">nested_parse</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-sphinx.application">
+<span id="application-api"></span><h1><a class="toc-backref" href="#id154">Application API</a><a class="headerlink" href="#module-sphinx.application" title="Permalink to this headline">¶</a></h1>
+<p>Each Sphinx extension is a Python module with at least a <code class="xref py py-func docutils literal"><span class="pre">setup()</span></code> function.
+This function is called at initialization time with one argument, the
+application object representing the Sphinx process.</p>
+<dl class="class">
+<dt id="sphinx.application.Sphinx">
+<em class="property">class </em><code class="descclassname">sphinx.application.</code><code class="descname">Sphinx</code><a class="reference internal" href="_modules/sphinx/application.html#Sphinx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx" title="Permalink to this definition">¶</a></dt>
+<dd><p>This application object has the public API described in the following.</p>
+</dd></dl>
+
+<div class="section" id="extension-setup">
+<h2><a class="toc-backref" href="#id155">Extension setup</a><a class="headerlink" href="#extension-setup" title="Permalink to this headline">¶</a></h2>
+<p>These methods are usually called in an extension&#8217;s <code class="docutils literal"><span class="pre">setup()</span></code> function.</p>
+<p>Examples of using the Sphinx extension API can be seen in the <code class="xref py py-mod docutils literal"><span class="pre">sphinx.ext</span></code>
+package.</p>
+<dl class="method">
+<dt id="sphinx.application.Sphinx.setup_extension">
+<code class="descclassname">Sphinx.</code><code class="descname">setup_extension</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.setup_extension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.setup_extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the extension given by the module <em>name</em>.  Use this if your extension
+needs the features provided by another extension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_builder">
+<code class="descclassname">Sphinx.</code><code class="descname">add_builder</code><span class="sig-paren">(</span><em>builder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_builder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new builder.  <em>builder</em> must be a class that inherits from
+<code class="xref py py-class docutils literal"><span class="pre">Builder</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_config_value">
+<code class="descclassname">Sphinx.</code><code class="descname">add_config_value</code><span class="sig-paren">(</span><em>name</em>, <em>default</em>, <em>rebuild</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_config_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_config_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a configuration value.  This is necessary for Sphinx to recognize
+new values and set default values accordingly.  The <em>name</em> should be prefixed
+with the extension name, to avoid clashes.  The <em>default</em> value can be any
+Python object.  The string value <em>rebuild</em> must be one of those values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'env'</span></code> if a change in the setting only takes effect when a document is
+parsed &#8211; this means that the whole environment must be rebuilt.</li>
+<li><code class="docutils literal"><span class="pre">'html'</span></code> if a change in the setting needs a full rebuild of HTML
+documents.</li>
+<li><code class="docutils literal"><span class="pre">''</span></code> if a change in the setting will not need any special rebuild.</li>
+</ul>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.4: </span>If the <em>default</em> value is a callable, it will be called with the config
+object as its argument in order to get the default value.  This can be
+used to implement config values whose default depends on other values.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.6: </span>Changed <em>rebuild</em> from a simple boolean (equivalent to <code class="docutils literal"><span class="pre">''</span></code> or
+<code class="docutils literal"><span class="pre">'env'</span></code>) to a string.  However, booleans are still accepted and
+converted internally.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_domain">
+<code class="descclassname">Sphinx.</code><code class="descname">add_domain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the given <em>domain</em> (which must be a class; more precisely, a subclass of
+<a class="reference internal" href="#sphinx.domains.Domain" title="sphinx.domains.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a>) known to Sphinx.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.override_domain">
+<code class="descclassname">Sphinx.</code><code class="descname">override_domain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.override_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.override_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the given <em>domain</em> class known to Sphinx, assuming that there is already
+a domain with its <code class="docutils literal"><span class="pre">.name</span></code>.  The new domain must be a subclass of the
+existing one.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_index_to_domain">
+<code class="descclassname">Sphinx.</code><code class="descname">add_index_to_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_index_to_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_index_to_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a custom <em>index</em> class to the domain named <em>domain</em>.  <em>index</em> must be a
+subclass of <a class="reference internal" href="#sphinx.domains.Index" title="sphinx.domains.Index"><code class="xref py py-class docutils literal"><span class="pre">Index</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_event">
+<code class="descclassname">Sphinx.</code><code class="descname">add_event</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an event called <em>name</em>.  This is needed to be able to emit it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.set_translator">
+<code class="descclassname">Sphinx.</code><code class="descname">set_translator</code><span class="sig-paren">(</span><em>name</em>, <em>translator_class</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.set_translator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.set_translator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register or override a Docutils translator class. This is used to register
+a custom output translator or to replace a builtin translator.
+This allows extensions to use custom translator and define custom
+nodes for the translator (see <a class="reference internal" href="#sphinx.application.Sphinx.add_node" title="sphinx.application.Sphinx.add_node"><code class="xref py py-meth docutils literal"><span class="pre">add_node()</span></code></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_node">
+<code class="descclassname">Sphinx.</code><code class="descname">add_node</code><span class="sig-paren">(</span><em>node</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a Docutils node class.  This is necessary for Docutils internals.
+It may also be used in the future to validate nodes in the parsed documents.</p>
+<p>Node visitor functions for the Sphinx HTML, LaTeX, text and manpage writers
+can be given as keyword arguments: the keyword should be one or more of
+<code class="docutils literal"><span class="pre">'html'</span></code>, <code class="docutils literal"><span class="pre">'latex'</span></code>, <code class="docutils literal"><span class="pre">'text'</span></code>, <code class="docutils literal"><span class="pre">'man'</span></code>, <code class="docutils literal"><span class="pre">'texinfo'</span></code> or any other
+supported translators, the value a 2-tuple of <code class="docutils literal"><span class="pre">(visit,</span> <span class="pre">depart)</span></code> methods.
+<code class="docutils literal"><span class="pre">depart</span></code> can be <code class="docutils literal"><span class="pre">None</span></code> if the <code class="docutils literal"><span class="pre">visit</span></code> function raises
+<code class="xref py py-exc docutils literal"><span class="pre">docutils.nodes.SkipNode</span></code>.  Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">math</span><span class="p">(</span><span class="n">docutils</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">Element</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">visit_math_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">starttag</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s">&#39;math&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">depart_math_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;&lt;/math&gt;&#39;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">math</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="p">(</span><span class="n">visit_math_html</span><span class="p">,</span> <span class="n">depart_math_html</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Obviously, translators for which you don&#8217;t specify visitor methods will choke
+on the node when encountered in a document to translate.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.5: </span>Added the support for keyword arguments giving visit functions.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_directive">
+<code class="descclassname">Sphinx.</code><code class="descname">add_directive</code><span class="sig-paren">(</span><em>name</em>, <em>func</em>, <em>content</em>, <em>arguments</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_directive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_directive" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">Sphinx.</code><code class="descname">add_directive</code><span class="sig-paren">(</span><em>name</em>, <em>directiveclass</em><span class="sig-paren">)</span></dt>
+<dd><p>Register a Docutils directive.  <em>name</em> must be the prospective directive
+name.  There are two possible ways to write a directive:</p>
+<ul>
+<li><p class="first">In the docutils 0.4 style, <em>obj</em> is the directive function.  <em>content</em>,
+<em>arguments</em> and <em>options</em> are set as attributes on the function and
+determine whether the directive has content, arguments and options,
+respectively.  <strong>This style is deprecated.</strong></p>
+</li>
+<li><p class="first">In the docutils 0.5 style, <em>directiveclass</em> is the directive class.  It
+must already have attributes named <em>has_content</em>, <em>required_arguments</em>,
+<em>optional_arguments</em>, <em>final_argument_whitespace</em> and <em>option_spec</em> that
+correspond to the options for the function way.  See <a class="reference external" href="http://docutils.sourceforge.net/docs/howto/rst-directives.html">the Docutils docs</a> for
+details.</p>
+<p>The directive class must inherit from the class
+<code class="docutils literal"><span class="pre">docutils.parsers.rst.Directive</span></code>.</p>
+</li>
+</ul>
+<p>For example, the (already existing) <code class="xref rst rst-dir docutils literal"><span class="pre">literalinclude</span></code> directive would
+be added like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="kn">import</span> <span class="n">directives</span>
+<span class="n">add_directive</span><span class="p">(</span><span class="s">&#39;literalinclude&#39;</span><span class="p">,</span> <span class="n">literalinclude_directive</span><span class="p">,</span>
+              <span class="n">content</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arguments</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+              <span class="n">linenos</span> <span class="o">=</span> <span class="n">directives</span><span class="o">.</span><span class="n">flag</span><span class="p">,</span>
+              <span class="n">language</span> <span class="o">=</span> <span class="n">direcitves</span><span class="o">.</span><span class="n">unchanged</span><span class="p">,</span>
+              <span class="n">encoding</span> <span class="o">=</span> <span class="n">directives</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.6: </span>Docutils 0.5-style directive classes are now supported.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_directive_to_domain">
+<code class="descclassname">Sphinx.</code><code class="descname">add_directive_to_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>name</em>, <em>func</em>, <em>content</em>, <em>arguments</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_directive_to_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_directive_to_domain" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">Sphinx.</code><code class="descname">add_directive_to_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>name</em>, <em>directiveclass</em><span class="sig-paren">)</span></dt>
+<dd><p>Like <a class="reference internal" href="#sphinx.application.Sphinx.add_directive" title="sphinx.application.Sphinx.add_directive"><code class="xref py py-meth docutils literal"><span class="pre">add_directive()</span></code></a>, but the directive is added to the domain named
+<em>domain</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_role">
+<code class="descclassname">Sphinx.</code><code class="descname">add_role</code><span class="sig-paren">(</span><em>name</em>, <em>role</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a Docutils role.  <em>name</em> must be the role name that occurs in the
+source, <em>role</em> the role function (see the <a class="reference external" href="http://docutils.sourceforge.net/docs/howto/rst-roles.html">Docutils documentation</a> on details).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_role_to_domain">
+<code class="descclassname">Sphinx.</code><code class="descname">add_role_to_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>name</em>, <em>role</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_role_to_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_role_to_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like <a class="reference internal" href="#sphinx.application.Sphinx.add_role" title="sphinx.application.Sphinx.add_role"><code class="xref py py-meth docutils literal"><span class="pre">add_role()</span></code></a>, but the role is added to the domain named <em>domain</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_generic_role">
+<code class="descclassname">Sphinx.</code><code class="descname">add_generic_role</code><span class="sig-paren">(</span><em>name</em>, <em>nodeclass</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_generic_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_generic_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a Docutils role that does nothing but wrap its contents in the
+node given by <em>nodeclass</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_object_type">
+<code class="descclassname">Sphinx.</code><code class="descname">add_object_type</code><span class="sig-paren">(</span><em>directivename</em>, <em>rolename</em>, <em>indextemplate=''</em>, <em>parse_node=None</em>, <em>ref_nodeclass=None</em>, <em>objname=''</em>, <em>doc_field_types=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_object_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_object_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>can be cross-referenced.  It will do this:</p>
+<ul class="simple">
+<li>Create a new directive (called <em>directivename</em>) for documenting an object.
+It will automatically add index entries if <em>indextemplate</em> is nonempty; if
+given, it must contain exactly one instance of <code class="docutils literal"><span class="pre">%s</span></code>.  See the example
+below for how the template will be interpreted.</li>
+<li>Create a new role (called <em>rolename</em>) to cross-reference to these
+object descriptions.</li>
+<li>If you provide <em>parse_node</em>, it must be a function that takes a string and
+a docutils node, and it must populate the node with children parsed from
+the string.  It must then return the name of the item to be used in
+cross-referencing and index entries.  See the <code class="file docutils literal"><span class="pre">conf.py</span></code> file in the
+source for this documentation for an example.</li>
+<li>The <em>objname</em> (if not given, will default to <em>directivename</em>) names the
+type of object.  It is used when listing objects, e.g. in search results.</li>
+</ul>
+<p>For example, if you have this call in a custom Sphinx extension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">add_object_type</span><span class="p">(</span><span class="s">&#39;directive&#39;</span><span class="p">,</span> <span class="s">&#39;dir&#39;</span><span class="p">,</span> <span class="s">&#39;pair: </span><span class="si">%s</span><span class="s">; directive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you can use this markup in your documents:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. rst:directive:: function
+
+   Document a function.
+
+&lt;...&gt;
+
+See also the :rst:dir:`function` directive.
+</pre></div>
+</div>
+<p>For the directive, an index entry will be generated as if you had prepended</p>
+<div class="highlight-python"><div class="highlight"><pre>.. index:: pair: function; directive
+</pre></div>
+</div>
+<p>The reference node will be of class <code class="docutils literal"><span class="pre">literal</span></code> (so it will be rendered in a
+proportional font, as appropriate for code) unless you give the
+<em>ref_nodeclass</em> argument, which must be a docutils node class.  Most useful
+are <code class="docutils literal"><span class="pre">docutils.nodes.emphasis</span></code> or <code class="docutils literal"><span class="pre">docutils.nodes.strong</span></code> &#8211; you can also
+use <code class="docutils literal"><span class="pre">docutils.nodes.generated</span></code> if you want no further text decoration.  If
+the text should be treated as literal (e.g. no smart quote replacement), but
+not have typewriter styling, use <code class="docutils literal"><span class="pre">sphinx.addnodes.literal_emphasis</span></code> or
+<code class="docutils literal"><span class="pre">sphinx.addnodes.literal_strong</span></code>.</p>
+<p>For the role content, you have the same syntactical possibilities as for</p>
+<p>This method is also available under the deprecated alias
+<code class="docutils literal"><span class="pre">add_description_unit</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_crossref_type">
+<code class="descclassname">Sphinx.</code><code class="descname">add_crossref_type</code><span class="sig-paren">(</span><em>directivename</em>, <em>rolename</em>, <em>indextemplate=''</em>, <em>ref_nodeclass=None</em>, <em>objname=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_crossref_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_crossref_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is very similar to <a class="reference internal" href="#sphinx.application.Sphinx.add_object_type" title="sphinx.application.Sphinx.add_object_type"><code class="xref py py-meth docutils literal"><span class="pre">add_object_type()</span></code></a> except that the
+directive it generates must be empty, and will produce no output.</p>
+<p>That means that you can add semantic targets to your sources, and refer to
+them using custom roles instead of generic ones (like <code class="xref rst rst-role docutils literal"><span class="pre">ref</span></code>).
+Example call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">add_crossref_type</span><span class="p">(</span><span class="s">&#39;topic&#39;</span><span class="p">,</span> <span class="s">&#39;topic&#39;</span><span class="p">,</span> <span class="s">&#39;single: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">docutils</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">emphasis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. topic:: application API
+
+The application API
+-------------------
+
+&lt;...&gt;
+
+See also :topic:`this section &lt;application API&gt;`.
+</pre></div>
+</div>
+<p>(Of course, the element following the <code class="docutils literal"><span class="pre">topic</span></code> directive needn&#8217;t be a
+section.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_transform">
+<code class="descclassname">Sphinx.</code><code class="descname">add_transform</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the standard docutils <code class="xref py py-class docutils literal"><span class="pre">Transform</span></code> subclass <em>transform</em> to the list
+of transforms that are applied after Sphinx parses a reST document.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_javascript">
+<code class="descclassname">Sphinx.</code><code class="descname">add_javascript</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_javascript"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_javascript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>filename</em> to the list of JavaScript files that the default HTML template
+will include.  The filename must be relative to the HTML static path, see
+scheme, like <code class="docutils literal"><span class="pre">http://example.org/foo.js</span></code>, is also supported.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.5.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_stylesheet">
+<code class="descclassname">Sphinx.</code><code class="descname">add_stylesheet</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_stylesheet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_stylesheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>filename</em> to the list of CSS files that the default HTML template will
+include.  Like for <a class="reference internal" href="#sphinx.application.Sphinx.add_javascript" title="sphinx.application.Sphinx.add_javascript"><code class="xref py py-meth docutils literal"><span class="pre">add_javascript()</span></code></a>, the filename must be relative to
+the HTML static path, or a full URI with scheme.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_latex_package">
+<code class="descclassname">Sphinx.</code><code class="descname">add_latex_package</code><span class="sig-paren">(</span><em>packagename</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_latex_package"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_latex_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>packagename</em> to the list of packages that LaTeX source code will include.
+If you provide <em>options</em>, it will be taken to <cite>usepackage</cite> declaration.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">add_latex_package</span><span class="p">(</span><span class="s">&#39;mypackage&#39;</span><span class="p">)</span>             <span class="c"># =&gt; \usepackage{mypackage}</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_latex_package</span><span class="p">(</span><span class="s">&#39;mypackage&#39;</span><span class="p">,</span> <span class="s">&#39;foo,bar&#39;</span><span class="p">)</span>  <span class="c"># =&gt; \usepackage[foo,bar]{mypackage}</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_lexer">
+<code class="descclassname">Sphinx.</code><code class="descname">add_lexer</code><span class="sig-paren">(</span><em>alias</em>, <em>lexer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_lexer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_lexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use <em>lexer</em>, which must be an instance of a Pygments lexer class, to
+highlight code blocks with the given language <em>alias</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_autodocumenter">
+<code class="descclassname">Sphinx.</code><code class="descname">add_autodocumenter</code><span class="sig-paren">(</span><em>cls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_autodocumenter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_autodocumenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>cls</em> as a new documenter class for the <code class="xref py py-mod docutils literal"><span class="pre">sphinx.ext.autodoc</span></code>
+extension.  It must be a subclass of <code class="xref py py-class docutils literal"><span class="pre">sphinx.ext.autodoc.Documenter</span></code>.
+This allows to auto-document new types of objects.  See the source of the
+autodoc module for examples on how to subclass <code class="xref py py-class docutils literal"><span class="pre">Documenter</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_autodoc_attrgetter">
+<code class="descclassname">Sphinx.</code><code class="descname">add_autodoc_attrgetter</code><span class="sig-paren">(</span><em>type</em>, <em>getter</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_autodoc_attrgetter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_autodoc_attrgetter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>getter</em>, which must be a function with an interface compatible to the
+<code class="xref py py-func docutils literal"><span class="pre">getattr()</span></code> builtin, as the autodoc attribute getter for objects that are
+instances of <em>type</em>.  All cases where autodoc needs to get an attribute of a
+type are then handled by this function instead of <code class="xref py py-func docutils literal"><span class="pre">getattr()</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.add_search_language">
+<code class="descclassname">Sphinx.</code><code class="descname">add_search_language</code><span class="sig-paren">(</span><em>cls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.add_search_language"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.add_search_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <em>cls</em>, which must be a subclass of <code class="xref py py-class docutils literal"><span class="pre">sphinx.search.SearchLanguage</span></code>,
+as a support language for building the HTML full-text search index.  The
+class must have a <em>lang</em> attribute that indicates the language it should be</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.require_sphinx">
+<code class="descclassname">Sphinx.</code><code class="descname">require_sphinx</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.require_sphinx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.require_sphinx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare <em>version</em> (which must be a <code class="docutils literal"><span class="pre">major.minor</span></code> version string,
+e.g. <code class="docutils literal"><span class="pre">'1.1'</span></code>) with the version of the running Sphinx, and abort the build
+when it is too old.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.connect">
+<code class="descclassname">Sphinx.</code><code class="descname">connect</code><span class="sig-paren">(</span><em>event</em>, <em>callback</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register <em>callback</em> to be called when <em>event</em> is emitted.  For details on
+available core events and the arguments of callback functions, please see</p>
+<p>The method returns a &#8220;listener ID&#8221; that can be used as an argument to
+<a class="reference internal" href="#sphinx.application.Sphinx.disconnect" title="sphinx.application.Sphinx.disconnect"><code class="xref py py-meth docutils literal"><span class="pre">disconnect()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.disconnect">
+<code class="descclassname">Sphinx.</code><code class="descname">disconnect</code><span class="sig-paren">(</span><em>listener_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unregister callback <em>listener_id</em>.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="sphinx.application.ExtensionError">
+<em class="property">exception </em><code class="descclassname">sphinx.application.</code><code class="descname">ExtensionError</code><a class="reference internal" href="_modules/sphinx/errors.html#ExtensionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.ExtensionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>All these methods raise this exception if something went wrong with the
+extension API.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="emitting-events">
+<h2><a class="toc-backref" href="#id156">Emitting events</a><a class="headerlink" href="#emitting-events" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="sphinx.application.Sphinx.emit">
+<code class="descclassname">Sphinx.</code><code class="descname">emit</code><span class="sig-paren">(</span><em>event</em>, <em>*arguments</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit <em>event</em> and pass <em>arguments</em> to the callback functions.  Return the
+return values of all callbacks as a list.  Do not emit core Sphinx events
+in extensions!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.emit_firstresult">
+<code class="descclassname">Sphinx.</code><code class="descname">emit_firstresult</code><span class="sig-paren">(</span><em>event</em>, <em>*arguments</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.emit_firstresult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.emit_firstresult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit <em>event</em> and pass <em>arguments</em> to the callback functions.  Return the
+result of the first callback that doesn&#8217;t return <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.5.</span></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="producing-messages-logging">
+<h2><a class="toc-backref" href="#id157">Producing messages / logging</a><a class="headerlink" href="#producing-messages-logging" title="Permalink to this headline">¶</a></h2>
+<p>The application object also provides support for emitting leveled messages.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no &#8220;error&#8221; call: in Sphinx, errors are defined as things that stop
+the build; just raise an exception (<a class="reference internal" href="#sphinx.errors.SphinxError" title="sphinx.errors.SphinxError"><code class="xref py py-exc docutils literal"><span class="pre">sphinx.errors.SphinxError</span></code></a> or a
+custom subclass) to do that.</p>
+</div>
+<dl class="method">
+<dt id="sphinx.application.Sphinx.warn">
+<code class="descclassname">Sphinx.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>message</em>, <em>location=None</em>, <em>prefix='WARNING: '</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.warn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.warn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a warning.</p>
+<p>If <em>location</em> is given, it should either be a tuple of (docname, lineno)
+or a string describing the location of the warning as well as possible.</p>
+<p><em>prefix</em> usually should not be changed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For warnings emitted during parsing, you should use
+<a class="reference internal" href="#sphinx.environment.BuildEnvironment.warn" title="sphinx.environment.BuildEnvironment.warn"><code class="xref py py-meth docutils literal"><span class="pre">BuildEnvironment.warn()</span></code></a> since that will collect all
+warnings during parsing for later output.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.info">
+<code class="descclassname">Sphinx.</code><code class="descname">info</code><span class="sig-paren">(</span><em>message=''</em>, <em>nonl=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit an informational message.</p>
+<p>If <em>nonl</em> is true, don&#8217;t emit a newline at the end (which implies that
+more info output will follow soon.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.verbose">
+<code class="descclassname">Sphinx.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>message</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.verbose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a verbose informational message.</p>
+<p>The message will only be emitted for verbosity levels &gt;= 1 (i.e. at
+least one <code class="docutils literal"><span class="pre">-v</span></code> option was given).</p>
+<p>The message can contain %-style interpolation placeholders, which is
+formatted with either the <code class="docutils literal"><span class="pre">*args</span></code> or <code class="docutils literal"><span class="pre">**kwargs</span></code> when output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.debug">
+<code class="descclassname">Sphinx.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>message</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a debug-level informational message.</p>
+<p>The message will only be emitted for verbosity levels &gt;= 2 (i.e. at
+least two <code class="docutils literal"><span class="pre">-v</span></code> options were given).</p>
+<p>The message can contain %-style interpolation placeholders, which is
+formatted with either the <code class="docutils literal"><span class="pre">*args</span></code> or <code class="docutils literal"><span class="pre">**kwargs</span></code> when output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.Sphinx.debug2">
+<code class="descclassname">Sphinx.</code><code class="descname">debug2</code><span class="sig-paren">(</span><em>message</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#Sphinx.debug2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.Sphinx.debug2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a lowlevel debug-level informational message.</p>
+<p>The message will only be emitted for verbosity level 3 (i.e. three
+<code class="docutils literal"><span class="pre">-v</span></code> options were given).</p>
+<p>The message can contain %-style interpolation placeholders, which is
+formatted with either the <code class="docutils literal"><span class="pre">*args</span></code> or <code class="docutils literal"><span class="pre">**kwargs</span></code> when output.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="sphinx-core-events">
+<span id="events"></span><h2><a class="toc-backref" href="#id158">Sphinx core events</a><a class="headerlink" href="#sphinx-core-events" title="Permalink to this headline">¶</a></h2>
+<p>These events are known to the core.  The arguments shown are given to the
+registered event handlers.  Use <a class="reference internal" href="#sphinx.application.Sphinx.connect" title="sphinx.application.Sphinx.connect"><code class="xref py py-meth docutils literal"><span class="pre">connect()</span></code></a> in an extension&#8217;s <code class="docutils literal"><span class="pre">setup</span></code>
+function (note that <code class="docutils literal"><span class="pre">conf.py</span></code> can also have a <code class="docutils literal"><span class="pre">setup</span></code> function) to connect
+handlers to the events.  Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">source_read_handler</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">docname</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;do something here...&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;source-read&#39;</span><span class="p">,</span> <span class="n">source_read_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-the-sphinx-version">
+<h2><a class="toc-backref" href="#id159">Checking the Sphinx version</a><a class="headerlink" href="#checking-the-sphinx-version" title="Permalink to this headline">¶</a></h2>
+<p>Use this to adapt your extension to API changes in Sphinx.</p>
+<dl class="data">
+<dt id="sphinx.version_info">
+<code class="descclassname">sphinx.</code><code class="descname">version_info</code><a class="headerlink" href="#sphinx.version_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple of five elements; for Sphinx version 1.2.1 beta 3 this would be
+<code class="docutils literal"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">'beta',</span> <span class="pre">3)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.2: </span>Before version 1.2, check the string <code class="docutils literal"><span class="pre">sphinx.__version__</span></code>.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinx.config">
+<span id="the-config-object"></span><h2><a class="toc-backref" href="#id160">The Config object</a><a class="headerlink" href="#module-sphinx.config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sphinx.config.Config">
+<em class="property">class </em><code class="descclassname">sphinx.config.</code><code class="descname">Config</code><a class="reference internal" href="_modules/sphinx/config.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>The config object makes the values of all config values available as
+attributes.</p>
+<p>It is available as the <code class="docutils literal"><span class="pre">config</span></code> attribute on the application and
+use either <code class="docutils literal"><span class="pre">app.config.language</span></code> or <code class="docutils literal"><span class="pre">env.config.language</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="the-template-bridge">
+<span id="template-bridge"></span><h2><a class="toc-backref" href="#id161">The template bridge</a><a class="headerlink" href="#the-template-bridge" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sphinx.application.TemplateBridge">
+<em class="property">class </em><code class="descclassname">sphinx.application.</code><code class="descname">TemplateBridge</code><a class="reference internal" href="_modules/sphinx/application.html#TemplateBridge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.TemplateBridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class defines the interface for a &#8220;template bridge&#8221;, that is, a class
+that renders templates given a template name and a context.</p>
+<dl class="method">
+<dt id="sphinx.application.TemplateBridge.init">
+<code class="descname">init</code><span class="sig-paren">(</span><em>builder</em>, <em>theme=None</em>, <em>dirs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#TemplateBridge.init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.TemplateBridge.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the builder to initialize the template system.</p>
+<p><em>builder</em> is the builder object; you&#8217;ll probably want to look at the
+value of <code class="docutils literal"><span class="pre">builder.config.templates_path</span></code>.</p>
+<p><em>theme</em> is a <code class="xref py py-class docutils literal"><span class="pre">sphinx.theming.Theme</span></code> object or None; in the latter
+case, <em>dirs</em> can be list of fixed directories to look for templates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.TemplateBridge.newest_template_mtime">
+<code class="descname">newest_template_mtime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#TemplateBridge.newest_template_mtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.TemplateBridge.newest_template_mtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the builder to determine if output files are outdated
+because of template changes.  Return the mtime of the newest template
+file that was changed.  The default implementation returns <code class="docutils literal"><span class="pre">0</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.TemplateBridge.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>template</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#TemplateBridge.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.TemplateBridge.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the builder to render a template given as a filename with
+a specified context (a Python dictionary).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx.application.TemplateBridge.render_string">
+<code class="descname">render_string</code><span class="sig-paren">(</span><em>template</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sphinx/application.html#TemplateBridge.render_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.application.TemplateBridge.render_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the builder to render a template given as a string with a
+specified context (a Python dictionary).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="exceptions">
+<span id="id49"></span><h2><a class="toc-backref" href="#id162">Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-sphinx.errors"></span><dl class="exception">
+<dt id="sphinx.errors.SphinxError">
+<em class="property">exception </em><code class="descclassname">sphinx.errors.</code><code class="descname">SphinxError</code><a class="reference internal" href="_modules/sphinx/errors.html#SphinxError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.errors.SphinxError" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the base class for &#8220;nice&#8221; exceptions.  When such an exception is
+raised, Sphinx will abort the build and present the exception category and
+message to the user.</p>
+<p>Extensions are encouraged to derive from this exception for their custom
+errors.</p>
+<p>Exceptions <em>not</em> derived from <a class="reference internal" href="#sphinx.errors.SphinxError" title="sphinx.errors.SphinxError"><code class="xref py py-exc docutils literal"><span class="pre">SphinxError</span></code></a> are treated as unexpected
+and shown to the user with a part of the traceback (and the full traceback
+saved in a temporary file).</p>
+<dl class="attribute">
+<dt id="sphinx.errors.SphinxError.category">
+<code class="descname">category</code><a class="headerlink" href="#sphinx.errors.SphinxError.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the exception &#8220;category&#8221;, used in converting the exception
+to a string (&#8220;category: message&#8221;).  Should be set accordingly in
+subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="sphinx.errors.ConfigError">
+<em class="property">exception </em><code class="descclassname">sphinx.errors.</code><code class="descname">ConfigError</code><a class="reference internal" href="_modules/sphinx/errors.html#ConfigError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.errors.ConfigError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for erroneous values or nonsensical combinations of configuration
+values.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="sphinx.errors.ExtensionError">
+<em class="property">exception </em><code class="descclassname">sphinx.errors.</code><code class="descname">ExtensionError</code><a class="reference internal" href="_modules/sphinx/errors.html#ExtensionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.errors.ExtensionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for errors in setting up extensions.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="sphinx.errors.ThemeError">
+<em class="property">exception </em><code class="descclassname">sphinx.errors.</code><code class="descname">ThemeError</code><a class="reference internal" href="_modules/sphinx/errors.html#ThemeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.errors.ThemeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for errors to do with themes.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="sphinx.errors.VersionRequirementError">
+<em class="property">exception </em><code class="descclassname">sphinx.errors.</code><code class="descname">VersionRequirementError</code><a class="reference internal" href="_modules/sphinx/errors.html#VersionRequirementError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinx.errors.VersionRequirementError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when the docs require a higher Sphinx version than the current one.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+                    </div>
+                    <footer class="footer">
+                      
+                        
+    <div class="footer-buttons clearfix">
+        
+        
+            <a href="index.html" class="btn btn_type_back" title="Генератор документации Sphinx">
+                <span class="fa fa-arrow-circle-left">&nbsp;</span>
+                Previous
+            </a>
+        
+    </div>
+
+    <div class="footer__copyright">
+            
+                &copy; Copyright 2015, ITCase.
+            
+    </div>
+<div class="footer__theme">
+    <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">
+      ITCase Sphinx Theme
+    </a>
+    <span class="footer__theme-text">
+        | version: 0.1.8
+    </span>
+</div>
+                      
+                    </footer>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        
+            var STICKY_MENU = true;
+        
+    </script>
+
+    <script type="text/javascript" src="_static/js/__theme.js"></script>
+
+    
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                    URL_ROOT: './',
+                    VERSION: '0.0.1',
+                    COLLAPSE_INDEX: false,
+                    FILE_SUFFIX: '.html',
+                    HAS_SOURCE: true
+            };
+        </script>
+    
+
+    
+</body>
+</html>

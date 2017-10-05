@@ -1,0 +1,66 @@
+@import './../import.css';
+
+.nav {
+  width: 100%;
+  position: relative;
+  vertical-align: top;
+  padding: 10px 0 15px 0;
+  border-bottom: solid 1px #ccc;
+  display: table;
+  @media (--mobile) {
+    padding: 25px 0 15px 0;
+  }
+  &__inner {
+    padding: 0 50px 0 0;
+  }
+    &__link {
+      color: #0072aa;
+      display: inline-block;
+      font: 1em var(--font);
+      &:hover {
+        color: #000;
+      }
+    }
+    &__separator {
+      position: relative;
+      display: inline-block;
+      font: 10px/10px var(--font);
+      padding: 0 2px 0 4px;
+      & .fa-chevron-right {
+        font-size: 10px/10px;
+        padding: 0 0 0 5px;
+        position: relative;
+        display: inline-block;
+        color: #555555;
+      }
+    }
+    &__item {
+      color: #005197;
+      display: inline-block;
+      font: 16px var(--font);
+      &-state-current {
+        position: relative;
+        display: inline-block;
+      }
+    }
+  &-external {
+    position: absolute;
+    right: 0;
+    top: 0;
+    @media (--mobile) {
+      left: 0;
+    }
+    &__link {
+      color: #0072aa;
+      font: 14px/14px var(--font);
+      display: inline-block;
+      text-decoration: none;
+      &:hover {
+        color: #000;
+      }
+      @media (--mobile) {
+        font: 12px/12px var(--font);
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import './../import.css';
+
+.page_type_main-page {
+  & .page__left {
+    display: none;
+  }
+  & .page__right {
+    &-inner {
+      padding: 0;
+    }
+  }
+}

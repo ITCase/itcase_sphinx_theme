@@ -1,0 +1,33 @@
+@import './../import.css';
+
+.footer {
+  width: 100%;
+  border-top: solid 1px #ccc;
+  padding: 0 0 100px 0;
+  margin: 30px 0 0 0;
+  clear: both;
+  &-buttons {
+    padding: 1em 0 2em 0;
+  }
+  &__copyright {
+    padding: 1em 0 0 0;
+    font: 0.85em var(--font);
+  }
+  &__last_updated {
+    font: 0.85em var(--font);
+  }
+  &__theme {
+    padding: 0.2em 0 0 0;
+    &-link {
+      font: 0.85em var(--font);
+      color: #0072aa;
+      &:hover {
+        color: #000;
+      }
+    }
+    &-text {
+      font: 0.85em var(--font);
+      color: #222;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@custom-media --mobile (width >= map(breakpoints, mobile-small))
+  and (width < map(breakpoints, tablet));
+
+@custom-media --mobile-tiny (width < map(breakpoints, mobile-small));
+
+@custom-media --mobile-small (width >= map(breakpoints, mobile-small))
+  and (width < map(breakpoints, mobile-medium));
+
+@custom-media --mobile-medium (width >= map(breakpoints, mobile-medium))
+  and (width < map(breakpoints, mobile-large));
+
+@custom-media --mobile-standart (width >= map(breakpoints, mobile-large))
+  and (width < map(breakpoints, mobile-extra-large));
+
+@custom-media --mobile-large (width >= map(breakpoints, mobile-extra-large))
+  and (width < map(breakpoints, mobile-super-extra-large));
+
+@custom-media --mobile-huge (width >= map(breakpoints, mobile-super-extra-large))
+  and (width < map(breakpoints, tablet));
+
+@custom-media --tablet (width >= map(breakpoints, tablet))
+  and (width < map(breakpoints, desktop-small));
+
+@custom-media --tablet-small (width >= map(breakpoints, mobile-super-extra-large))
+  and (width < map(breakpoints, tablet));
+
+@custom-media --tablet-large (width >= map(breakpoints, tablet))
+  and (width < map(breakpoints, desktop-small));
+
+@custom-media --desktop (width >= map(breakpoints, desktop-small))
+  and (width < map(breakpoints, desktop-super-extra-large));
+
+@custom-media --desktop-small (width >= map(breakpoints, desktop-small))
+  and (width < map(breakpoints, desktop-medium));
+
+@custom-media --desktop-medium (width >= map(breakpoints, desktop-medium))
+  and (width < map(breakpoints, desktop-large));
+
+@custom-media --desktop-standart (width >= map(breakpoints, desktop-large))
+  and (width < map(breakpoints, desktop-extra-large));
+
+@custom-media --desktop-large (width >= map(breakpoints, desktop-extra-large))
+  and (width < map(breakpoints, desktop-super-extra-large));
+
+@custom-media --desktop-huge (width > map(breakpoints, desktop-super-extra-large));
+

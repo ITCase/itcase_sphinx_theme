@@ -1,0 +1,100 @@
+@import './../import.css';
+
+.menu {
+  width: 300px;
+  z-index: 200;
+  overflow: hidden;
+  position: relative;
+  &-inner {
+    width: 290px;
+    overflow: auto;
+    background: #eeeeee;
+  }
+    &-logo {
+      padding: 1.5em 20px 1em 20px;
+      &__link {
+        display: inline-block;
+        &-image {
+          vertical-align: bottom;
+        }
+      }
+      &__desc {
+        font: 0.8em var(--font);
+        color: #000;
+        padding: 0.5em 0 0 0;
+      }
+    }
+    &-project {
+      width: 100%;
+      padding: 15px 20px;
+      box-sizing: border-box;
+      &__link {
+        width: 100%;
+        display: inline-block;
+        color: #0072aa;
+        font: 24px/32px var(--font);
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+    &-search {
+      margin: 15px 0;
+      padding: 10px 40px 0 20px;
+    }
+    &-switch {
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      right: 0;
+      top: 0;
+      z-index: 500;
+      cursor: pointer;
+      background: #fff;
+      @media (--mobile) {
+        width: 30px;
+        background: #fff;
+      }
+      &__arrow {
+        width: 18px;
+        height: 100%;
+        background: rgb(204, 204, 204);
+        position: absolute;
+        top: 0;
+        left: 0;
+        @media (--mobile) {
+          width: 30px;
+          height: 30px;
+          background: #0072aa;
+        }
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 1px;
+          transform: translate(-50%,0);
+          font: 13px/13px FontAwesome;
+          content: '\f053';
+          position: relative;
+          @media (--mobile) {
+            content: '\f0c9';
+            font: 16px/16px FontAwesome;
+            left: 3px;
+            top: 6px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  &_state_collapse {
+    & .menu-switch__arrow {
+      &::after {
+        content: '\f054';
+        @media (--mobile) {
+          content: '\f0c9';
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import './../import.css';
+
+.page {
+  position: relative;
+  &__left {
+    width: 300px;
+    z-index: 10;
+    float: left;
+    margin-right: -300px;
+    position: relative;
+    &-inner {
+      width: auto;
+    }
+    &_state_collapse {
+      width: 12px;
+      @media (--mobile) {
+        width: 30px;
+      }
+    }
+  }
+  &__right {
+    position: relative;
+    z-index: 5;
+    float: left;
+    width: 100%;
+    &-inner {
+      padding: 0 0 0 320px;
+    }
+    &_state_expand {
+      & .page__right-inner {
+        padding: 0 0 0 40px;
+      }
+    }
+  }
+}
+

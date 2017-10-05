@@ -1,0 +1,12 @@
+@import './../import.css';
+
+div[class^='highlight-'] {
+  background: #FEF9EB;
+  border: 1px solid #e1e4e5;
+  margin: 0 0 1.5em 0;
+}
+.code {
+  background: #FEF9EB;
+  border: 1px solid #e1e4e5;
+  margin: 0 0 1.5em 0;
+}

@@ -3,7 +3,7 @@
 const gulp = require('gulp')
 const plugins = require('gulp-load-plugins')({ pattern: ['gulp-*', 'gulp.*'] })
 
-const argv = require('yargs')
+const argv = require('yargs').argv
 
 const browserSync = require('browser-sync')
 const fs = require('fs')

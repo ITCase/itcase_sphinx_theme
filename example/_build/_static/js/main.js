@@ -7,13 +7,12 @@ require('expose-loader?Cookies!./vendor/js.cookie.js')
 const leftHeight = $('.page__left').height()
 const rightHeight = $('.page__right').height()
 
-require('./vendor/jquery.fancybox')
-require('./vendor/enscroll')
-require('./openImage')
+// require('./vendor/jquery.fancybox')
+// require('./vendor/enscroll')
+// require('./openImage')
 
 const menu = $('.menu')
 const menuSwitch = $('.menu-switch')
-const menuMobileSwitch = $('.menu-mobile-nav')
 
 const pageLeft = $('.page__left')
 const pageRight = $('.page__right')
@@ -70,10 +69,6 @@ function switchMenu () {
   }
 }
 
-$(menuSwitch).on('click', () => {
-  switchMenu()
-})
-
 function setMenuHeight () {
   let padding = 55
   if ($(window).width() < 768) {
@@ -88,59 +83,29 @@ function setMenuHeight () {
   }
 }
 
-function setMenuPosition () {
-  if (rightHeight > leftHeight) {
-    const menuHeight = $('.menu').height()
-    const wrapperPosition = $('.page').offset().top
-    let menuPosition = $('.menu').offset().top + menuHeight
-    let screenPosition = $(window).scrollTop() + menuHeight
-    let footerPosition = $('.footer').offset().top
 
-    // console.log('menuHeight' + menuHeight)
-    // console.log('menuPosition' + $('.menu').offset().top)
-    // console.log('wrapperPosition' + wrapperPosition)
 
-    if (menuPosition >= footerPosition && screenPosition >= footerPosition) {
-      // Touch Footer
-      // console.log('Touch Footer')
-      $('.menu').css({
-        position: 'absolute',
-        top: footerPosition - (menuHeight + 25)
-      })
-    } else {
-      // Sticky
-      // console.log('Sticky')
-      $('.menu').css({
-        position: 'fixed',
-        top: 0
-      })
-      if ($('.menu').offset().top <= wrapperPosition) {
-        $('.menu').css({
-          position: 'relative',
-          top: 0
-        })
-      }
-    }
-  }
-}
+// $(menuSwitch).on('click', () => {
+//   switchMenu()
+// })
 
-if (window.STICKY_MENU === true) {
-  $('.menu-inner').enscroll({
-    showOnHover: true,
-    verticalTrackClass: 'menu-track',
-    verticalHandleClass: 'menu-handle'
-  })
-  setMenuHeight()
-  $(window).bind('stickyMenu', () => {
-    $(window).scroll(() => {
-      setMenuPosition()
-    })
-  }).trigger('stickyMenu')
-}
+// if (window.STICKY_MENU === true) {
+//   $('.menu-inner').enscroll({
+//     showOnHover: true,
+//     verticalTrackClass: 'menu-track',
+//     verticalHandleClass: 'menu-handle'
+//   })
+//   setMenuHeight()
+//   $(window).bind('stickyMenu', () => {
+//     $(window).scroll(() => {
+//       setMenuPosition()
+//     })
+//   }).trigger('stickyMenu')
+// }
 
-$(window).resize(() => {
-  setMenuHeight()
-})
+// $(window).resize(() => {
+//   setMenuHeight()
+// })
 
-setMenuPosition()
-getTreeState()
+// setMenuPosition()
+// getTreeState()

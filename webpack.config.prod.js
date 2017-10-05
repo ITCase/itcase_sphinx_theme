@@ -8,10 +8,7 @@ const JS_PATH = './itcase_sphinx_theme/itcase/static/js/'
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const staticURL = JS_PATH.substring(1) + '__build/'
 
-module.exports = {
-  devtool: 'cheap-module-source-map',
-  watch: true,
-
+const settings = {
   output: {
     publicPath: staticURL,
     path: path.join(__dirname, staticURL),
@@ -28,7 +25,7 @@ module.exports = {
 
   resolveLoader: {
     modules: [path.join(__dirname, 'node_modules')],
-    extensions: ['.js', '.jsx']
+    extensions: ['.js']
   },
 
   plugins: [
@@ -50,7 +47,13 @@ module.exports = {
   ],
 
   name: 'js',
-  entry: JS_PATH + 'main.js',
+
+  entry: {
+    main: [
+      JS_PATH + 'main.js'
+    ]
+  },
+
   externals: { jquery: '$' },
 
   module: {

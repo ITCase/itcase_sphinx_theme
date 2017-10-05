@@ -36,9 +36,9 @@
     <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">
       ITCase Sphinx Theme
     </a>
-    <span class="footer__theme-text">
-      {%- if theme_version %}
-        | version: {{ theme_version }}
-      {%- endif %}
-    </span>
+    {%- if theme_version %}
+      <span class="footer__theme-text">
+          | version: {{ theme_version }}
+      </span>
+    {%- endif %}
 </div>

@@ -67,63 +67,11 @@ Here are list of options with default values:
 * **travis_user** — ``default: ""``
 * **travis_repo** — ``default: ""``
 
-#. Theme options
+How use theme
+~~~~~~~~~~~~~
 
- You can set theme options in ``conf.py``. Here are list of options with default values:
-
-* logo ``default: False``
-* logo_image ``default: ""``
-* logo_width ``default: ""``
-* logo_heigh ``default: ""``
-* logo_image_desc ``default: ""``
-
-
-* aindex_menu   ``default: False``
-
-sticky_menu — ``default: True``
-
-Make navigation element always visible on page.
-
-
-github_button — ``default: False``
-
-Show git star repository button under breadcrumbs.
-
-
-github_user — ``default: ""``
-
-github_repo — ``default: ""``
-
-* travis_button =  ``default: False``
-
-ScreenShots
------------
-
-`ustu/lectures.www <https://github.com/ustu/lectures.www>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen1.png
-   :width: 650px
-
-`ITCase/sqlalchemy_mptt <https://github.com/ITCase/sqlalchemy_mptt>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen2.png
-   :width: 650px
-
-`Ergo/ziggurat_foundations <https://github.com/ergo/ziggurat_foundations>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.rawgit.com/ITCase/itcase_sphinx_theme/master/example/_static/screen3.png
-   :width: 650px
-
-And other...
-~~~~~~~~~~~~
-
-* http://sacrud-deform.readthedocs.org/en/master/ 
+* http://sacrud-deform.readthedocs.org/en/master/
 * http://sacrud.readthedocs.org/en/master/
-* http://pyramid-sacrud.readthedocs.org/en/master/
-* http://pyramid-pages.readthedocs.org/en/master/
 * http://ps-tree.readthedocs.org/en/latest/
 * http://uralbash.ru/
 * your project ...

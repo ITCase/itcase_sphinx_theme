@@ -1,66 +1,62 @@
-/* globals Cookies */
-
 'use strict'
 
-const menu = $('.menu')
-const menuSwitch = $('.menu-switch')
+const animationEvents = 'webkitAnimationEnd oanimationend msAnimationEnd animationend'
 
-const pageLeft = $('.page__left')
-const pageRight = $('.page__right')
+const $menu = $('.menu')
+const $menuSwitch = $('.menu-switch')
 
-function getTreeState () {
+const menuCollapseClass = 'menu_state_collapse'
+const menuExpandClass = 'menu_state_expand'
+
+const menuCloseClass = 'menu_state_close'
+const menuOpenClass = 'menu_state_open'
+
+function getTreeState() {
   const menuState = Cookies.get('menu-state')
   if (menuState === 'collapse') {
-    collapseTree()
+    $menu.addClass(menuCloseClass)
   } else if (menuState === 'expand') {
-    expandTree()
+    $menu.addClass(menuOpenClass)
   }
-  pageLeft.css({ visibility: 'visible' })
-  pageRight.css({ visibility: 'visible' })
 }
 
-function collapseTree () {
-  menu.animate({
-    width: '30px'
-  })
-  $('.page__right-inner').animate({
-    'padding-left': '40px'
-  })
-  menu.css({
-    height: menu.height()
-  })
-  menu.data('state', 'collapse')
-  menu.addClass('menu_state_collapse')
-  pageLeft.addClass('page__left_state_collapse')
-  pageRight.addClass('page__right_state_expand')
+function collapseTree() {
+  $menu
+    .removeClass(menuExpandClass)
+    .addClass(menuCollapseClass)
+    .on(animationEvents, () => {
+      $menu
+        .removeClass([menuExpandClass, menuCloseClass, menuOpenClass].join(' '))
+        .off(animationEvents)
+    })
+    .css({
+      height: $menu.height()
+    })
   document.cookie = 'menu-state=collapse;path=/'
 }
 
-function expandTree () {
-  menu.animate({
-    width: '300px'
-  })
-  $('.page__right-inner').animate({
-    'padding-left': '320px'
-  })
-  menu.data('state', 'expand')
-  menu.removeClass('menu_state_collapse')
-  pageLeft.removeClass('page__left_state_collapse')
-  pageRight.removeClass('page__right_state_expand')
-  document.cookie = 'menu-state=expande;path=/'
+function expandTree() {
+  $menu
+    .removeClass(menuCollapseClass)
+    .addClass(menuExpandClass)
+    .on(animationEvents, () => {
+      $menu
+        .removeClass([menuCollapseClass, menuCloseClass, menuOpenClass].join(' '))
+        .off(animationEvents)
+    })
+  document.cookie = 'menu-state=expand;path=/'
 }
 
-function switchMenu () {
-  if (menu.data('state') === 'collapse') {
+function switchMenu() {
+  if ($menu.hasClass(menuCollapseClass) || $menu.hasClass(menuCloseClass)) {
     expandTree()
-    menu.data('state', 'expand')
-  } else if (menu.data('state') === 'expand') {
+  } else {
     collapseTree()
-    menu.data('state', 'collapse')
   }
+  return false
 }
 
-$(menuSwitch).on('click', () => {
+$menuSwitch.on('click', () => {
   switchMenu()
 })
 

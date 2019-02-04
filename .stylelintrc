@@ -1,0 +1,125 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": "./static/css/import.css",
+  "plugins": [
+    "stylelint-order"
+    ],
+  "rules": {
+    "at-rule-empty-line-before": [
+      "always", {
+      "except": "inside-block",
+      "ignore": [
+        "after-comment",
+        "first-nested",
+        "blockless-after-same-name-blockless",
+        "blockless-after-blockless"
+      ]
+      }
+    ],
+    "block-no-empty": null,
+    "comment-empty-line-before": "never",
+    "function-url-quotes": "always",
+    "indentation": 2,
+    "max-nesting-depth": 10,
+    "no-descending-specificity": null,
+    "order/properties-order": [
+      "width",
+      "height",
+      "min-width",
+      "min-height",
+      "max-width",
+      "max-height",
+      "font",
+      "font-size",
+      "font-weight",
+      "color",
+      "text-shadow",
+      "text-decoration",
+      "text-transform",
+      "text-align",
+      "text-rendering",
+      "white-space",
+      "line-height",
+      "letter-spacing",
+      "background",
+      "background-position",
+      "background-repeat",
+      "background-size",
+      "padding",
+      "margin",
+      "border",
+      "border-width",
+      "border-color",
+      "border-style",
+      "border-radius",
+      "border-left",
+      "border-top",
+      "border-right",
+      "border-bottom",
+      "float",
+      "clear",
+      "position",
+      "overflow",
+      "content",
+      "display",
+      "flex",
+      "flex-direction",
+      "flex-wrap",
+      "flex-flow",
+      "order",
+      "justify-content",
+      "align-items",
+      "align-self",
+      "align-content",
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis",
+      "visibility",
+      "box-sizing",
+      "box-shadow",
+      "left",
+      "top",
+      "right",
+      "bottom",
+      "vertical-align",
+      "z-index",
+      "transform",
+      "transition",
+      "animation",
+      "animation-delay",
+      "animation-direction",
+      "animation-duration",
+      "animation-fill-mode",
+      "animation-iteration-count",
+      "animation-name",
+      "animation-play-state",
+      "animation-timing-function",
+      "opacity",
+      "cursor"
+    ],
+    "rule-empty-line-before": [
+      "always", {
+        "except": [
+          "first-nested",
+          "inside-block-and-after-rule"
+        ],
+        "ignore": [
+          "inside-block"
+        ]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true, {
+        "ignoreTypes": ["/^/"]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true, {
+        "ignoreAtRules": ["for", "each"]
+      }
+    ],
+    "shorthand-property-no-redundant-values": null,
+    "string-quotes": "single",
+    "property-blacklist": [ "/^margin-/", "/^padding-/" ]
+  }
+}

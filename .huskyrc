@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "if grep --include=*.{js,jsx,json,css,html,py} --exclude-dir={node_modules,bower_components,.git,_build} -nri --color -B 1 -A 1 '<\\{7\\} HEAD\\|^\\=\\{7\\}\\|>\\{7\\}' .;then echo 'Fix conflicts'; exit 1; else ./node_modules/lint-staged/index.js; fi;",
+    "pre-push": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && make min && git commit -am 'min' || exit 0"
+  }
+}

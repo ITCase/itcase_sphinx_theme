@@ -1,0 +1,5 @@
+@import './../import.css';
+
+.btn_type_back.btn {
+  float: left;
+}

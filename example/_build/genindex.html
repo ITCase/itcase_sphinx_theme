@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     
@@ -30,6 +30,7 @@
             <script type="text/javascript" src="_static/jquery.js"></script>
             <script type="text/javascript" src="_static/underscore.js"></script>
             <script type="text/javascript" src="_static/doctools.js"></script>
+            <script type="text/javascript" src="_static/language_data.js"></script>
     
 </head>
 
@@ -37,11 +38,11 @@
     <div class="wrapper">
         <div class="wrapper__inner">
             <div class="page
-                 clearfix">
+                ">
                 <div class="page__left">
                     <div class="page__left-inner">
                         
-                           <nav class="menu" id="menu" data-state="expand">
+                           <nav class="menu">
                                 <div class="menu-inner">
                                     
                                         <div class="menu-project">
@@ -176,10 +177,10 @@
 </li>
       <li><a href="content.html#sphinx.application.Sphinx.add_index_to_domain">add_index_to_domain() (sphinx.application.Sphinx method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content.html#sphinx.application.Sphinx.add_javascript">add_javascript() (sphinx.application.Sphinx method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content.html#sphinx.application.Sphinx.add_latex_package">add_latex_package() (sphinx.application.Sphinx method)</a>
 </li>
       <li><a href="content.html#sphinx.application.Sphinx.add_lexer">add_lexer() (sphinx.application.Sphinx method)</a>
@@ -187,7 +188,11 @@
       <li><a href="content.html#sphinx.application.Sphinx.add_node">add_node() (sphinx.application.Sphinx method)</a>
 </li>
       <li><a href="content.html#sphinx.application.Sphinx.add_object_type">add_object_type() (sphinx.application.Sphinx method)</a>
+
+      <ul>
+        <li><a href="content.html#sphinx.domains.Domain.add_object_type">(sphinx.domains.Domain method)</a>
 </li>
+      </ul></li>
       <li><a href="content.html#sphinx.application.Sphinx.add_role">add_role() (sphinx.application.Sphinx method)</a>
 </li>
       <li><a href="content.html#sphinx.application.Sphinx.add_role_to_domain">add_role_to_domain() (sphinx.application.Sphinx method)</a>
@@ -284,9 +289,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content.html#sphinx.application.Sphinx.emit">emit() (sphinx.application.Sphinx method)</a>
 </li>
+      <li><a href="content.html#sphinx.application.Sphinx.emit_firstresult">emit_firstresult() (sphinx.application.Sphinx method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="content.html#sphinx.application.Sphinx.emit_firstresult">emit_firstresult() (sphinx.application.Sphinx method)</a>
+      <li><a href="content.html#sphinx.domains.Domain.enumerable_nodes">enumerable_nodes (sphinx.domains.Domain attribute)</a>
 </li>
       <li><a href="content.html#sphinx.application.ExtensionError">ExtensionError</a>, <a href="content.html#sphinx.errors.ExtensionError">[1]</a>
 </li>
@@ -310,10 +317,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content.html#sphinx.domains.Index.generate">generate() (sphinx.domains.Index method)</a>
 </li>
-      <li><a href="content.html#sphinx.domains.Domain.get_full_qualified_name">get_full_qualified_name() (sphinx.domains.Domain method)</a>
+      <li><a href="content.html#sphinx.domains.Domain.get_enumerable_node_type">get_enumerable_node_type() (sphinx.domains.Domain method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content.html#sphinx.domains.Domain.get_full_qualified_name">get_full_qualified_name() (sphinx.domains.Domain method)</a>
+</li>
       <li><a href="content.html#sphinx.domains.Domain.get_objects">get_objects() (sphinx.domains.Domain method)</a>
 </li>
       <li><a href="content.html#sphinx.domains.Domain.get_type_name">get_type_name() (sphinx.domains.Domain method)</a>
@@ -538,6 +547,7 @@
                         </div>
                     </div>
                 </section>
+
                 <footer class="footer">
                     
     <div class="footer__copyright">
@@ -550,7 +560,7 @@
       ITCase Sphinx Theme
     </a>
       <span class="footer__theme-text">
-          | version: 0.3.0
+          | version: 0.3.1
       </span>
 </div>
                 </footer>
@@ -561,6 +571,8 @@
     <script type="text/javascript">
         
             window.STICKY_MENU = true;
+        
+
         
     </script>
 

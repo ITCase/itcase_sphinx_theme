@@ -11,6 +11,7 @@ const staticURL = JS_PATH.substring(1) + '__build/'
 const settings = {
   devtool: 'cheap-module-source-map',
   watch: true,
+  mode: 'development',
 
   output: {
     publicPath: staticURL,
@@ -31,6 +32,25 @@ const settings = {
     extensions: ['.js']
   },
 
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      name: true,
+      cacheGroups: {
+        default: {
+          name: 'mainChunks',
+          minChunks: 5,
+          priority: 20
+        },
+        vendors: {
+          name: 'libsChunks',
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10
+        }
+      }
+    }
+  },
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -40,9 +60,7 @@ const settings = {
     new webpack.ProvidePlugin({
       Promise: 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    })
   ],
 
   name: 'js',
@@ -56,16 +74,18 @@ const settings = {
   externals: { jquery: '$' },
 
   module: {
-    rules: [{
-      test: /\.js?$/,
-      loader: 'babel-loader',
-      include: [
-        path.join(__dirname, JS_PATH.substring(2)),
-        path.join(__dirname, './modules/'),
-        path.join(__dirname, './static/')
-      ],
-      exclude: /\/(node_modules|bower_components)/
-    }]
+    rules: [
+      {
+        test: /\.js?$/,
+        use: [{ loader: 'babel-loader' }],
+        include: [
+          path.join(__dirname, staticURL.substring(2)),
+          path.join(__dirname, './modules/'),
+          path.join(__dirname, './static/')
+        ],
+        exclude: /\/(node_modules|bower_components)/
+      }
+    ]
   }
 }
 

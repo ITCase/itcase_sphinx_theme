@@ -1,7 +1,10 @@
-@custom-media --mobile (width >= map(breakpoints, mobile-small))
+@custom-media --warning (width <= map(breakpoints, mobile-tiny));
+
+@custom-media --mobile (width >= map(breakpoints, mobile-tiny))
   and (width < map(breakpoints, tablet));
 
-@custom-media --mobile-tiny (width < map(breakpoints, mobile-small));
+@custom-media --mobile-tiny (width >= map(breakpoints, mobile-tiny))
+  and (width < map(breakpoints, mobile-small));
 
 @custom-media --mobile-small (width >= map(breakpoints, mobile-small))
   and (width < map(breakpoints, mobile-medium));
@@ -34,6 +37,9 @@
   and (width < map(breakpoints, desktop-medium));
 
 @custom-media --desktop-medium (width >= map(breakpoints, desktop-medium))
+  and (width < map(breakpoints, desktop-normal));
+
+@custom-media --desktop-normal (width >= map(breakpoints, desktop-normal))
   and (width < map(breakpoints, desktop-large));
 
 @custom-media --desktop-standart (width >= map(breakpoints, desktop-large))
@@ -43,4 +49,3 @@
   and (width < map(breakpoints, desktop-super-extra-large));
 
 @custom-media --desktop-huge (width > map(breakpoints, desktop-super-extra-large));
-

@@ -1,0 +1,21 @@
+{
+  "linters": {
+    "*.css": [
+      "./node_modules/stylelint/bin/stylelint.js --fix", "git add"
+    ],
+    "*.{js,jsx}": [
+      "./node_modules/eslint/bin/eslint.js --fix", "git add"
+    ],
+    "*.{htm,html}": [
+      "./node_modules/htmlhint/bin/htmlhint --config ./.htmlhintrc", "git add"
+    ],
+    ".*{rc,json}": [
+      "./node_modules/jsonlint/lib/cli.js --compact"
+    ]
+  },
+  "ignore": [
+    "**/__*.css", "__*.css", "**/vendor/*.css", "**/vendor/**/*.css",
+    "**/__*.js", "__*.js", "**/vendor/*.js", "**/vendor/**/*.js", "**/plugins/*.js", "**/plugins/**/*.js",
+    "node_modules", "**/node_modules", "**/example/**", "webpack.config*"
+  ]
+}

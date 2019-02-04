@@ -1,17 +1,44 @@
 {
-  "plugins": [
-    "react"
-  ],
   "extends": [
     "standard",
-    "plugin:react/recommended"
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
   ],
-  "globals": {
-    "fetch": true,
-    "$": true,
-    "jQuery": true
+  "plugins": [
+    "import",
+    "react",
+    "prettier",
+    "standard"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
-    "mocha": true
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "latest"
+    }
+  },
+  "globals": {
+    "$": true,
+    "Cookies": true,
+    "fetch": true,
+    "jQuery": true
+  },
+  "rules": {
+    "import/no-webpack-loader-syntax": "off",
+    "multiline-ternary": "off",
+    "prettier/prettier": "error"
   }
 }

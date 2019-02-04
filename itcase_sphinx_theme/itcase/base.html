@@ -10,7 +10,7 @@
 {%- endif %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     {{ metatags }}
@@ -76,11 +76,11 @@
             <div class="page
                 {% if theme_index_menu|lower == 'false' and pagename == 'index' %}
                     page_type_main-page
-                {% endif %} clearfix">
+                {% endif %}">
                 <div class="page__left">
                     <div class="page__left-inner">
                         {% block sidebar %}
-                           <nav class="menu" id="menu" data-state="expand">
+                           <nav class="menu">
                                 <div class="menu-inner">
                                     {% if theme_logo|lower == 'true' %}
                                         <div class="menu-logo">
@@ -139,6 +139,7 @@
                         </div>
                     </div>
                 </section>
+
                 <footer class="footer">
                     {% include "include/footer.html" %}
                 </footer>
@@ -151,6 +152,14 @@
             window.STICKY_MENU = true;
         {% else %}
             window.STICKY_MENU = false;
+        {% endif %}
+
+        {% if site_version == 'mobile' %}
+            Cookies.set('site-version', 'mobile')
+        {% elif site_version == 'tablet' %}
+            Cookies.set('site-version', 'tablet')
+        {% elif site_version == 'desktop' %}
+            Cookies.set('site-version', 'desktop')
         {% endif %}
     </script>
 

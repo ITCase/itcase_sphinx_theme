@@ -1,0 +1,4 @@
+**/__build/
+/.git
+bower_components/
+node_modules/

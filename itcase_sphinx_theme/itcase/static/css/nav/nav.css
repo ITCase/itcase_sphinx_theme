@@ -2,59 +2,59 @@
 
 .nav {
   width: 100%;
-  position: relative;
-  vertical-align: top;
   padding: 10px 0 15px 0;
   border-bottom: solid 1px #ccc;
+  position: relative;
   display: table;
+  vertical-align: top;
   @media (--mobile) {
     padding: 25px 0 15px 0;
   }
   &__inner {
     padding: 0 50px 0 0;
   }
-    &__link {
-      color: #0072aa;
-      display: inline-block;
-      font: 1em var(--font);
-      &:hover {
-        color: #000;
-      }
+  &__link {
+    font: 16px var(--font);
+    color: var(--color-blue);
+    display: inline-block;
+    &:hover {
+      color: #000;
     }
-    &__separator {
+  }
+  &__separator {
+    font: 10px/10px var(--font);
+    padding: 0 2px 0 4px;
+    position: relative;
+    display: inline-block;
+    & .fa-chevron-right {
+      font-size: 10px/10px;
+      color: #555;
+      padding: 0 0 0 5px;
       position: relative;
       display: inline-block;
-      font: 10px/10px var(--font);
-      padding: 0 2px 0 4px;
-      & .fa-chevron-right {
-        font-size: 10px/10px;
-        padding: 0 0 0 5px;
-        position: relative;
-        display: inline-block;
-        color: #555555;
-      }
     }
-    &__item {
-      color: #005197;
+  }
+  &__item {
+    font: 16px var(--font);
+    color: #005197;
+    display: inline-block;
+    &-state-current {
+      position: relative;
       display: inline-block;
-      font: 16px var(--font);
-      &-state-current {
-        position: relative;
-        display: inline-block;
-      }
     }
+  }
   &-external {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     @media (--mobile) {
       left: 0;
     }
     &__link {
-      color: #0072aa;
       font: 14px/14px var(--font);
-      display: inline-block;
+      color: var(--color-blue);
       text-decoration: none;
+      display: inline-block;
       &:hover {
         color: #000;
       }

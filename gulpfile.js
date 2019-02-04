@@ -6,7 +6,9 @@ const plugins = require('gulp-load-plugins')({ pattern: ['gulp-*', 'gulp.*'] })
 const argv = require('yargs').argv
 
 const browserSync = require('browser-sync')
+const chalk = require('chalk')
 const fs = require('fs')
+const log = require('fancy-log')
 const mainBowerFiles = require('main-bower-files')
 const merge = require('merge-stream')
 const request = require('request')
@@ -62,7 +64,7 @@ gulp.task('browser-sync', (cb) => {
     logLevel: 'info',
     open: false
   }, () => { cb() })
-  plugins.util.colors.yellow('Webpack server listening on http://localhost:8000/')
+  chalk.yellow('Webpack server listening on http://localhost:8000/')
 })
 
 gulp.task('bower', () => {
@@ -78,8 +80,8 @@ gulp.task('bower', () => {
     }))
     .pipe(gulp.dest(CSS_PATH + 'vendor/'))
     .pipe(map((code, filename) => {
-      plugins.util.log('Bower CSS ' +
-      plugins.util.colors.green(filename))
+      log('Bower CSS: ' +
+      chalk.green(filename))
     }))
 
   let jsStream = gulp.src(mainBowerFiles({
@@ -101,8 +103,8 @@ gulp.task('bower', () => {
     .pipe(plugins.filter(['**', '!**/locale/*']))
     .pipe(gulp.dest(JS_PATH + 'vendor/'))
     .pipe(map((code, filename) => {
-      plugins.util.log('Bower JS ' +
-      plugins.util.colors.green(filename))
+      log('Bower JS: ' +
+      chalk.green(filename))
     }))
 
   let imgStream = gulp.src(mainBowerFiles({
@@ -117,8 +119,8 @@ gulp.task('bower', () => {
     }))
     .pipe(gulp.dest(IMG_PATH + 'vendor/'))
     .pipe(map((code, filename) => {
-      plugins.util.log('Bower Images ' +
-      plugins.util.colors.green(filename))
+      log('Bower Images: ' +
+      chalk.green(filename))
     }))
 
   let fontStream = gulp.src(mainBowerFiles({
@@ -133,8 +135,8 @@ gulp.task('bower', () => {
     }))
     .pipe(gulp.dest(FONT_PATH))
     .pipe(map((code, filename) => {
-      plugins.util.log('Bower Fonts ' +
-      plugins.util.colors.green(filename))
+      log('Bower Fonts: ' +
+      chalk.green(filename))
     }))
 
   return merge(cssStream, jsStream, imgStream, fontStream)
@@ -162,11 +164,38 @@ gulp.task('css', () => {
     maps: ['breakpoints.yml']
   }
 
+  const fixUrl = [
+    require('postcss-url')([
+      {
+        filter: /.*\/(fonts|webfonts)\//,
+        url: (asset) => {
+          const url = asset.url.substring(asset.url.indexOf('font'))
+          return `./../${url}`
+        }
+      }, {
+        filter: /.*\.(png|jpg|gif|svg)$/i,
+        url: (asset) => {
+          let url
+          if (asset.url.indexOf('../img') + 1) {
+            url = asset.url.substring(asset.url.indexOf('sprite'))
+          } else if (asset.url.indexOf('./img') + 1) {
+            url = asset.url.substring(asset.url.indexOf('img'))
+          } else {
+            url = asset.url.substring(asset.url.indexOf('/'))
+          }
+          return `./../img/vendor/${url}`
+        }
+      }
+    ])
+  ]
+
   const processors = [
     require('postcss-import'),
     require('postcss-map')(postcssOptions),
     require('postcss-custom-media'),
     require('postcss-media-minmax'),
+    require('postcss-each'),
+    require('postcss-nested-ancestors'),
     require('postcss-nested'),
     require('postcss-color-function'),
     require('postcss-pxtorem')({
@@ -189,7 +218,9 @@ gulp.task('css', () => {
       ],
       cascade: false
     }),
-    require('postcss-custom-properties'),
+    require('postcss-custom-properties')({
+      preserve: false
+    }),
     require('postcss-opacity'),
     require('postcss-reporter')({
       clearMessages: true
@@ -202,37 +233,25 @@ gulp.task('css', () => {
     })
   ]
 
+  const vendorFilter = plugins.filter(['**/vendor/*.css', '**/vendor/**/*.css'], { restore: true })
+
   return gulp.src(CSS_FILES)
     .pipe(plugins.plumber({
       errorHandler: (err) => {
-        plugins.util.log(
-          plugins.util.colors.red('gulp-css:'),
-          plugins.util.colors.yellow(err.message),
-          plugins.util.colors.yellow(err))
+        log(
+          chalk.red('gulp-css:'),
+          chalk.yellow(err.message),
+          chalk.yellow(err))
       }
     }))
     .pipe(plugins.if(options.development,
       plugins.newer(TARGET_CSS_PATH)
     ))
     .pipe(plugins.sourcemaps.init())
+    .pipe(vendorFilter)
+    .pipe(plugins.postcss(fixUrl))
+    .pipe(vendorFilter.restore)
     .pipe(plugins.postcss(processors))
-    .pipe(plugins.modifyCssUrls({
-      modify: function (url, filePath) {
-        if (filePath.indexOf('vendor') > -1) {
-          if (url.indexOf('./font') > -1) {
-            url = './../' + url.substring(url.indexOf('font'))
-          } else if (url.indexOf('./img') > -1) {
-            url = './../img/vendor/' + url.substring(url.indexOf('img'))
-          }
-          if (url.match(/.*\.(png|jpg|gif)$/i)) {
-            url = './../img/vendor/' + url.substring(url.indexOf('/'))
-          }
-          return url
-        } else {
-          return url
-        }
-      }
-    }))
     .pipe(plugins.concat(TARGET_CSS_FILE))
     .pipe(plugins.base64({
       baseDir: IMG_PATH,
@@ -261,13 +280,13 @@ gulp.task('css', () => {
         normalizeCharset: true,
         normalizeUrl: true,
         reduceTransforms: true,
+        reduceIdents: false,
         zindex: false
       })))
     .pipe(gulp.dest(CSS_PATH))
     .pipe(plugins.filter('**/*.css'))
     .pipe(map((code, filename) => {
-      plugins.util.log('CSS: ' +
-      plugins.util.colors.green(filename))
+      log('CSS: ' + chalk.green(filename))
     }))
     .pipe(plugins.shell('touch ./example/source/index.rst'))
     .pipe(browserSync.reload({ stream: true }))
@@ -301,7 +320,7 @@ gulp.task('webpack', (cb) => {
     if (err) {
       return
     }
-    plugins.util.log(stats.toString({
+    log(stats.toString({
       colors: true,
       chunkModules: false
     }))
@@ -310,14 +329,13 @@ gulp.task('webpack', (cb) => {
   function getJsStream (settings, directory) {
     return gulp.src(directory)
       .pipe(plugins.plumber((error) => {
-        plugins.util.log(error)
+        log(error)
       }))
       .pipe(named())
       .pipe(webpackStream(settings, webpack, done))
       .pipe(plugins.filter(['**', '!**/*.hot-update*']))
       .pipe(map((code, filename) => {
-        plugins.util.log('Webpack JS ' +
-        plugins.util.colors.green(filename))
+        log('Webpack JS ' + chalk.green(filename))
       }))
       .pipe(gulp.dest(settings.output.path))
       .pipe(plugins.shell('touch ./example/source/index.rst'))

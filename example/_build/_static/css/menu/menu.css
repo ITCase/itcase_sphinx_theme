@@ -1,14 +1,21 @@
 @import './../import.css';
 
 .menu {
-  width: 30px;
+  width: 300px;
+  background: #eee;
   position: relative;
   overflow: hidden;
-  z-index: 200;
   animation-duration: 0.5s;
   animation-fill-mode: both;
+  @media (--mobile) {
+    width: 100%;
+    overflow: auto;
+  }
   &_state_collapse {
     animation-name: menuCollapse;
+    @media (--mobile) {
+      animation-name: menuCollapseMobile;
+    }
     & .menu-switch__arrow {
       &::after {
         content: '\f054';
@@ -17,31 +24,16 @@
         }
       }
     }
-  }
-  &_state_close {
-    width: 30px;
-    & .menu-switch__arrow {
-      &::after {
-        content: '\f054';
-        @media (--mobile) {
-          content: '\f0c9';
-        }
-      }
-    }
-  }
-  &_state_open {
-    width: 300px;
   }
   &_state_expand {
     display: block;
     animation-name: menuExpand;
-  }
-  &-inner {
-    width: 290px;
-    background: #eee;
-    overflow: auto;
+    @media (--mobile) {
+      animation-name: menuExpandMobile;
+    }
   }
   &-logo {
+    width: 300px;
     padding: 24px 20px 15px 20px;
     &__link {
       display: inline-block;
@@ -56,7 +48,7 @@
     }
   }
   &-project {
-    width: 100%;
+    width: 300px;
     padding: 15px 20px;
     box-sizing: border-box;
     &__link {
@@ -72,11 +64,20 @@
     }
   }
   &-search {
-    padding: 10px 40px 0 20px;
-    margin: 15px 0;
+    width: 300px;
+    padding: 0 50px 20px 20px;
+    box-sizing: border-box;
+  }
+  &-inner {
+    width: 300px;
+    padding: 0 0 100px 0;
+    overflow: auto;
+    @media (--mobile) {
+      width: auto;
+    }
   }
   &-switch {
-    width: 30px;
+    width: 20px;
     height: 100%;
     background: #fff;
     position: absolute;
@@ -86,10 +87,10 @@
     cursor: pointer;
     @media (--mobile) {
       width: 30px;
-      background: #fff;
+      background: none;
     }
     &__arrow {
-      width: 18px;
+      width: 20px;
       height: 100%;
       background: rgb(204, 204, 204);
       position: absolute;
@@ -122,7 +123,7 @@
 
 @keyframes menuExpand {
   from {
-    width: 30px;
+    width: 20px;
   }
   to {
     width: 300px;
@@ -134,6 +135,24 @@
     width: 300px;
   }
   to {
-    width: 30px;
+    width: 20px;
+  }
+}
+
+@keyframes menuExpandMobile {
+  from {
+    height: 100px;
+  }
+  to {
+    height: auto;
+  }
+}
+
+@keyframes menuCollapseMobile {
+  from {
+    height: auto;
+  }
+  to {
+    height: 100px;
   }
 }

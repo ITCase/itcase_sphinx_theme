@@ -16,6 +16,7 @@
   "ignore": [
     "**/__*.css", "__*.css", "**/vendor/*.css", "**/vendor/**/*.css",
     "**/__*.js", "__*.js", "**/vendor/*.js", "**/vendor/**/*.js", "**/plugins/*.js", "**/plugins/**/*.js",
-    "node_modules", "**/node_modules", "**/example/**", "webpack.config*"
+    "node_modules", "**/node_modules",
+    "example", "**/_build/**"
   ]
 }

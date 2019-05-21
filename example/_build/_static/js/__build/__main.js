@@ -97,81 +97,119 @@
 
 
 __webpack_require__(/*! expose-loader?Cookies!./vendor/js.cookie.js */ "./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js")
-
-const leftHeight = $('.page__left').height()
-const rightHeight = $('.page__right').height()
-
 __webpack_require__(/*! ./vendor/jquery.fancybox */ "./itcase_sphinx_theme/itcase/static/js/vendor/jquery.fancybox.js")
+
+__webpack_require__(/*! ./menu */ "./itcase_sphinx_theme/itcase/static/js/menu.js")
 __webpack_require__(/*! ./openImage */ "./itcase_sphinx_theme/itcase/static/js/openImage.js")
-__webpack_require__(/*! ./switchMenu */ "./itcase_sphinx_theme/itcase/static/js/switchMenu.js")
+__webpack_require__(/*! ./stickyNav */ "./itcase_sphinx_theme/itcase/static/js/stickyNav.js")
 
-const menu = $('.menu')
 
-function setMenuHeight () {
-  let spacer = 55
-  if ($(window).width() < 768) {
-    spacer = 0
-  }
-  if (menu.height() >= $(window).height() - spacer) {
-    menu.css({ height: $(window).height() - spacer })
-    $('.menu-inner').css({ height: menu.height() })
-  } else {
-    menu.css({ height: 'auto' })
-    $('.menu-inner').css({ height: 'auto' })
-  }
+/***/ }),
+
+/***/ "./itcase_sphinx_theme/itcase/static/js/menu.js":
+/*!******************************************************!*\
+  !*** ./itcase_sphinx_theme/itcase/static/js/menu.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const animation = 'webkitAnimationEnd oanimationend msAnimationEnd animationend'
+
+const $hamburgerButton = $('.main-menu-hamburger')
+const hamburgerButtonActiveClass = 'main-menu-hamburger_state_active'
+
+let $mobileMenu = $('.main-menu')
+let mobileMenuVisibleClass = 'main-menu_state_visible'
+let mobileMenuHiddenClass = 'main-menu_state_hidden'
+
+if ($('.main-menu_type_mobile').length) {
+  $mobileMenu = $('.main-menu_type_mobile')
+  mobileMenuVisibleClass = 'main-menu_type_mobile_state_visible'
+  mobileMenuHiddenClass = 'main-menu_type_mobile_state_hidden'
 }
 
-function setMenuPosition() {
-  if (rightHeight > leftHeight) {
-    const menuHeight = menu.height()
-    const wrapperPosition = $('.page').offset().top
-    let menuPosition = menu.offset().top + menuHeight
-    let screenPosition = $(window).scrollTop() + menuHeight
-    let footerPosition = $('.footer').offset().top
-
-    if (menuPosition >= footerPosition && screenPosition >= footerPosition) {
-      // Touch Footer
-      menu.css({
-        position: 'absolute',
-        top: footerPosition - (menuHeight + 25)
-      })
-    } else {
-      // Sticky
-      menu.css({
-        position: 'fixed',
-        top: 0
-      })
-      if (menu.offset().top <= wrapperPosition) {
-        menu.css({
-          position: 'relative',
-          top: 0
-        })
-      }
-    }
-  }
-}
-
-if (window.STICKY_MENU === true) {
-  $('.menu-inner').enscroll({
-    showOnHover: true,
-    verticalTrackClass: 'menu-track',
-    verticalHandleClass: 'menu-handle'
-  })
-  setMenuHeight()
-  $(window)
-    .bind('stickyMenu', () => {
-      $(window).scroll(() => {
-        setMenuPosition()
-      })
+function closeMobileMenu () {
+  $hamburgerButton.removeClass(hamburgerButtonActiveClass)
+  $mobileMenu
+    .addClass(mobileMenuHiddenClass)
+    .on(animation, () => {
+      $mobileMenu.removeClass([mobileMenuVisibleClass, mobileMenuHiddenClass].join(' ')).off(animation)
     })
-    .trigger('stickyMenu')
 }
 
-$(window).resize(() => {
-  setMenuHeight()
+function openMobileMenu () {
+  $hamburgerButton.addClass(hamburgerButtonActiveClass)
+  $mobileMenu.addClass(mobileMenuVisibleClass)
+}
+
+$hamburgerButton.on('click', function () {
+  if ($(this).hasClass(hamburgerButtonActiveClass)) {
+    closeMobileMenu()
+  } else {
+    openMobileMenu()
+  }
+  return false
 })
 
-setMenuPosition()
+$(document).on('click', (event) => {
+  const $menu = $(event.target).closest('.main-menu_type_mobile')
+  if (!$menu.length && $mobileMenu.is(':visible')) {
+    closeMobileMenu()
+  }
+})
+
+
+const $siteMenuLink = $('.site-menu__link')
+const menuLinkActive = 'site-menu__link_state_active'
+
+const $siteMenuPopupLink = $('.site-menu-popup__close')
+
+const $siteMenu = $('.site-menu-popup')
+const siteMenuVisible = 'site-menu-popup_state_visible'
+const siteMenuHidden = 'site-menu-popup_state_hidden'
+
+const $siteMenuFader = $('.site-menu__fader')
+const siteMenuFaderVisible = 'site-menu__fader_state_visible'
+const siteMenuFaderHidden = 'site-menu__fader_state_hidden'
+
+function closeSiteMenu () {
+  $siteMenuLink.removeClass(menuLinkActive)
+  $siteMenuFader.addClass(siteMenuFaderHidden)
+  $siteMenu.addClass(siteMenuHidden).on(animation, () => {
+    $siteMenuFader.removeClass([siteMenuFaderVisible, siteMenuFaderHidden].join(' '))
+    $siteMenu.removeClass([siteMenuVisible, siteMenuHidden].join(' ')).off(animation)
+  })
+}
+
+function openSiteMenu () {
+  $siteMenuLink.addClass(menuLinkActive)
+  $siteMenuFader.addClass(siteMenuFaderVisible)
+  $siteMenu.addClass(siteMenuVisible)
+}
+
+$siteMenuLink.on('click', function () {
+  if ($(this).hasClass(menuLinkActive)) {
+    closeSiteMenu()
+  } else {
+    openSiteMenu()
+  }
+  return false
+})
+
+$siteMenuPopupLink.on('click', () => {
+  closeSiteMenu()
+})
+
+$(document).on('click', (event) => {
+  const $siteMenuPopup = $(event.target).closest($siteMenu)
+
+  const siteMenuIsVisible = $siteMenu.is(':visible') &&
+                            $siteMenu.css('visibility') !== 'hidden'
+
+  if (!$siteMenuPopup.length && siteMenuIsVisible) {
+    closeSiteMenu()
+  }
+})
 
 
 /***/ }),
@@ -195,73 +233,63 @@ $('.internal.image-reference')
 
 /***/ }),
 
-/***/ "./itcase_sphinx_theme/itcase/static/js/switchMenu.js":
-/*!************************************************************!*\
-  !*** ./itcase_sphinx_theme/itcase/static/js/switchMenu.js ***!
-  \************************************************************/
+/***/ "./itcase_sphinx_theme/itcase/static/js/stickyNav.js":
+/*!***********************************************************!*\
+  !*** ./itcase_sphinx_theme/itcase/static/js/stickyNav.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-const animationEvents = 'webkitAnimationEnd oanimationend msAnimationEnd animationend'
+const header = $('.header')
 
-const $menu = $('.menu')
-const $menuSwitch = $('.menu-switch')
+const nav = $('.header__wrapper')
+const navStateShow = 'header__wrapper_state_show'
+const navStateHide = 'header__wrapper_state_hide'
 
-const menuCollapseClass = 'menu_state_collapse'
-const menuExpandClass = 'menu_state_expand'
+const navMenu = $('.main-menu_type_mobile')
 
-const menuCloseClass = 'menu_state_close'
-const menuOpenClass = 'menu_state_open'
+if (nav.length && header.data('sticky')) {
+  let lastScrollTop = 0
 
-function getTreeState() {
-  const menuState = Cookies.get('menu-state')
-  if (menuState === 'collapse') {
-    $menu.addClass(menuCloseClass)
-  } else if (menuState === 'expand') {
-    $menu.addClass(menuOpenClass)
-  }
+  $(window).scroll(function () {
+    let scrollTop = $(this).scrollTop()
+
+    if (scrollTop !== 0) {
+      let navHeight = nav.outerHeight()
+      let offsetNav = $(window).height() / 2
+      let mobileMenuHeight = $(window).outerHeight() - nav.outerHeight()
+      if ($('.main-menu').hasClass('main-menu_type_mobile_state_visible')) {
+        if ($('.main-menu-list').outerHeight() > mobileMenuHeight) {
+          navMenu.css({ 'height': mobileMenuHeight })
+        }
+        navHeight = 0
+        offsetNav = 0
+      }
+      if (Math.abs(lastScrollTop - scrollTop) <= 200) {
+        return
+      } else {
+        if (scrollTop > lastScrollTop && scrollTop > navHeight) {
+          nav.removeClass(navStateShow).addClass(navStateHide).css({ 'top': -navHeight })
+          header.css({ 'padding-bottom': navHeight })
+        } else {
+          if (scrollTop > navHeight + offsetNav) {
+            if ((scrollTop + $(window).height()) < $(document).height()) {
+              nav.removeClass(navStateHide).addClass(navStateShow).css({ 'top': 0 })
+            }
+          }
+        }
+      }
+    } else {
+      nav.removeAttr('style').removeClass(navStateShow).removeClass(navStateHide)
+      header.removeAttr('style')
+    }
+
+    lastScrollTop = scrollTop
+  })
 }
-
-function collapseTree() {
-  $menu
-    .removeClass(menuExpandClass)
-    .addClass(menuCollapseClass)
-    .on(animationEvents, () => {
-      $menu.removeClass([menuExpandClass, menuCloseClass, menuOpenClass].join(' ')).off(animationEvents)
-    })
-    .css({
-      height: $menu.height()
-    })
-  document.cookie = 'menu-state=collapse;path=/'
-}
-
-function expandTree() {
-  $menu
-    .removeClass(menuCollapseClass)
-    .addClass(menuExpandClass)
-    .on(animationEvents, () => {
-      $menu.removeClass([menuCollapseClass, menuCloseClass, menuOpenClass].join(' ')).off(animationEvents)
-    })
-  document.cookie = 'menu-state=expand;path=/'
-}
-
-function switchMenu() {
-  if ($menu.hasClass(menuCollapseClass) || $menu.hasClass(menuCloseClass)) {
-    expandTree()
-  } else {
-    collapseTree()
-  }
-  return false
-}
-
-$menuSwitch.on('click', () => {
-  switchMenu()
-})
-
-getTreeState()
 
 
 /***/ }),

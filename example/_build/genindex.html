@@ -35,24 +35,56 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="wrapper__inner">
-            <div class="page
-                ">
-                <div class="page__left">
-                    <div class="page__left-inner">
+    <header class="header" data-sticky="True">
+        <div class="header__wrapper">
+            <div class="header__wrapper-inner">
+
+                <div class="nav">
+    <div class="nav__inner">
+
+        <div class="logo">
+            
+                <a href="index.html" class="menu-project__link">itcase-sphinx-theme-example</a>
+            
+        </div>
+
+        <a href="index.html" class="nav__link">itcase-sphinx-theme-example</a>
+        <span href="#" class="nav__separator">
+            <i class="fa fa-chevron-right">&nbsp;</i>
+        </span>
+        
+        <div class="nav__item">Index</div>
+    </div>
+    <div class="nav__external">
+        
+        <div class="main-menu-hamburger">
+            <div class="main-menu-hamburger__icon">
+                <div class="main-menu-hamburger__icon-line">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+            </div>
+        </div>
+    </header>
+
+    
+        <nav class="main-menu">
+            <div class="main-menu__wrapper">
+                <div class="main-menu-inner">
+
+                    <div class="logo">
                         
-                           <nav class="menu">
-                                <div class="menu-inner">
-                                    
-                                        <div class="menu-project">
-                                            <a href="index.html" class="menu-project__link">itcase-sphinx-theme-example</a>
-                                        </div>
-                                    
-                                    <div class="tree">
-                                        
-                                        
-                                            <ul>
+                            <a href="index.html" class="menu-project__link">itcase-sphinx-theme-example</a>
+                        
+                    </div>
+
+                    <div class="tree">
+                        
+                        
+                            <ul>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Что такое reStructuredText?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html#id1">Базовые концепции</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html#id4">Абзацы</a></li>
@@ -84,49 +116,26 @@
 <li class="toctree-l1"><a class="reference internal" href="content.html#module-sphinx.application">Application API</a></li>
 </ul>
 
-                                        
-                                    </div>
-                                    <div class="menu-search">
-                                        <div class="search">
-    <div class="search-title">Quick search</div>
-    <form id="search-form" class="search-form" action="search.html" method="GET">
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+
+    <div class="wrapper">
+        <div class="wrapper__inner">
+            <div class="page">
+                <section class="page__inner">
+                    <div class="search">
+    <form id="search-form" class="search-form" action="search.html" method="get">
         <input class="search-form__input "type="text" name="q" placeholder="Search..." />
         <input type="hidden" name="check_keywords" value="yes" />
         <input type="hidden" name="area" value="default" />
     </form>
-    <div class="search-desc">Enter search terms or a module, class or function name.</div>
 </div>
-                                    </div>
-                                    <nav class="wy-nav-side">&nbsp;</nav>
-                                </div>
-                                <div class="menu-switch">
-                                    <div class="menu-switch__arrow">&nbsp;</div>
-                                </div>
-                            </nav>
-                        
-                    </div>
-                </div>
-
-                <section class="page__right">
-                    <div class="page__right-inner">
-                        <div class="nav">
-    <div class="nav__inner">
-        <a href="index.html" class="nav__link">itcase-sphinx-theme-example</a>
-        <span href="#" class="nav__separator"><i class="fa fa-chevron-right">&nbsp;</i></span>
-        
-        <div class="nav__item">Index</div>
-    </div>
-    <div class="nav-external">
-        
-    </div>
-</div>
-                        <div class="badge">
-                            
-                            
-                        </div>
-
-                        <div class="rst-content">
-                           
+                    <div class="rst-content">
+                       
 
 <h1 id="index">Index</h1>
 
@@ -544,15 +553,15 @@
 
 
 
-                        </div>
                     </div>
                 </section>
+            </div>
 
-                <footer class="footer">
-                    
+            <footer class="footer">
+                
     <div class="footer__copyright">
             
-                &copy; Copyright 2017, ITCase.
+                &copy; Copyright 2019, ITCase.
             
     </div>
 <div class="footer__theme">
@@ -563,18 +572,9 @@
           | version: 0.3.1
       </span>
 </div>
-                </footer>
-            </div>
+            </footer>
         </div>
     </div>
-
-    <script type="text/javascript">
-        
-            window.STICKY_MENU = true;
-        
-
-        
-    </script>
 
     <script type="text/javascript" src="_static/js/__build/__main.js"></script>
 

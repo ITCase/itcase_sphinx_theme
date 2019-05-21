@@ -2,16 +2,16 @@
 
 .nav {
   width: 100%;
-  padding: 10px 0 15px 0;
-  border-bottom: solid 1px #ccc;
   position: relative;
-  display: table;
-  vertical-align: top;
+  display: flex;
+  justify-content: space-between;
   @media (--mobile) {
     padding: 25px 0 15px 0;
   }
   &__inner {
     padding: 0 50px 0 0;
+    display: flex;
+    align-items: center;
   }
   &__link {
     font: 16px var(--font);
@@ -43,18 +43,17 @@
       display: inline-block;
     }
   }
-  &-external {
-    position: absolute;
-    top: 0;
-    right: 0;
+  &__external {
+    display: flex;
+    align-items: center;
     @media (--mobile) {
       left: 0;
     }
-    &__link {
+    &-link {
       font: 14px/14px var(--font);
       color: var(--color-blue);
       text-decoration: none;
-      display: inline-block;
+      display: block;
       &:hover {
         color: #000;
       }

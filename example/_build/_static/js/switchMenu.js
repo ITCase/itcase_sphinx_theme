@@ -8,29 +8,12 @@ const $menuSwitch = $('.menu-switch')
 const menuCollapseClass = 'menu_state_collapse'
 const menuExpandClass = 'menu_state_expand'
 
-const menuCloseClass = 'menu_state_close'
-const menuOpenClass = 'menu_state_open'
-
-function getTreeState() {
-  const menuState = Cookies.get('menu-state')
-  if (menuState === 'collapse') {
-    $menu.addClass(menuCloseClass)
-  } else if (menuState === 'expand') {
-    $menu.addClass(menuOpenClass)
-  }
-}
-
 function collapseTree() {
   $menu
     .removeClass(menuExpandClass)
     .addClass(menuCollapseClass)
     .on(animationEvents, () => {
-      $menu
-        .removeClass([menuExpandClass, menuCloseClass, menuOpenClass].join(' '))
-        .off(animationEvents)
-    })
-    .css({
-      height: $menu.height()
+      $menu.removeClass([menuExpandClass].join(' ')).off(animationEvents)
     })
   document.cookie = 'menu-state=collapse;path=/'
 }
@@ -40,15 +23,13 @@ function expandTree() {
     .removeClass(menuCollapseClass)
     .addClass(menuExpandClass)
     .on(animationEvents, () => {
-      $menu
-        .removeClass([menuCollapseClass, menuCloseClass, menuOpenClass].join(' '))
-        .off(animationEvents)
+      $menu.removeClass([menuCollapseClass].join(' ')).off(animationEvents)
     })
   document.cookie = 'menu-state=expand;path=/'
 }
 
 function switchMenu() {
-  if ($menu.hasClass(menuCollapseClass) || $menu.hasClass(menuCloseClass)) {
+  if ($menu.hasClass(menuCollapseClass)) {
     expandTree()
   } else {
     collapseTree()
@@ -59,5 +40,3 @@ function switchMenu() {
 $menuSwitch.on('click', () => {
   switchMenu()
 })
-
-getTreeState()

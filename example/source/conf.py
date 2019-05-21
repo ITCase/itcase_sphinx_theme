@@ -28,7 +28,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'itcase-sphinx-theme-example'
-copyright = '2017, ITCase'
+copyright = '2019, ITCase'
 author = 'ITCase'
 
 # The short X.Y version.
@@ -77,8 +77,7 @@ html_sidebars = {
         'about.html',
         'navigation.html',
         'relations.html',  # needs 'show_related': True theme option to display
-        'searchbox.html',
-        'donate.html',
+        'searchbox.html'
     ]
 }
 
@@ -86,7 +85,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'itcase-pagesdoc'
+htmlhelp_basename = 'itcase-pages-doc'
 
 
 # -- Options for manual page output ---------------------------------------

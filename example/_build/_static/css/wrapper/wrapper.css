@@ -5,6 +5,7 @@
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
+  z-index: 1;
   @media (--mobile) {
     min-width: 240px;
   }
@@ -12,10 +13,10 @@
     min-width: auto;
   }
   &__inner {
-    padding: 25px 30px 0 0;
+    padding: 0 37px;
     position: relative;
     @media (--mobile) {
-      padding: 0 20px 0 0;
+      padding: 0;
     }
   }
 }

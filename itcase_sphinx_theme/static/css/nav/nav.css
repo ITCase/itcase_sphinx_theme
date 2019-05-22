@@ -11,8 +11,11 @@
   &__inner {
     padding: 0 50px 0 0;
     display: flex;
-    align-items: center;
     flex-flow: row wrap;
+    align-items: center;
+  }
+  &__logo {
+    margin: 0 0 20px 0;
   }
   &__link {
     font: 16px var(--font);

@@ -1,8 +1,8 @@
 {
   "name": "itcase_sphinx_theme",
   "title": "ITCase Sphinx Theme",
-  "description": "ITCase Sphinx themes for documentation styling.",
-  "version": "0.3.1",
+  "description": "ITCase Sphinx themes for documentation styling",
+  "version": "0.4.0",
   "homepage": "https://github.com/itcase/itcase_sphinx_theme",
   "author": {
     "name": "ITCase",

@@ -1,5 +1,5 @@
 {% if next or prev %}
-    <div class="footer-buttons clearfix">
+    <div class="footer-buttons">
         {% if next %}
             <a href="{{ next.link|e }}" class="btn btn_type_next" title="{{ next.title|striptags|e }}">
                 Next
@@ -14,34 +14,39 @@
         {% endif %}
     </div>
 {% endif %}
-{%- if show_copyright %}
+
+{% if show_copyright %}
     <div class="footer__copyright">
-        {%- if hasdoc('copyright') %}
+        {% if hasdoc('copyright') %}
             {% trans path=pathto('copyright'), copyright=copyright|e %}
                 &copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.
             {% endtrans %}
-        {%- else %}
+        {% else %}
             {% trans copyright=copyright|e %}
                 &copy; Copyright {{ copyright }}.
             {% endtrans %}
-        {%- endif %}
+        {% endif %}
     </div>
-{%- endif %}
-{%- if last_updated %}
+{% endif %}
+
+{% if last_updated %}
     <div class="footer__last_updated">
         {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
     </div>
-{%- endif %}
+{% endif %}
+
 <div class="footer__theme">
-    <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">
-      ITCase Sphinx Theme
-    </a>
-    {%- if theme_version %}
+    <a href="https://github.com/ITCase/itcase_sphinx_theme" class="footer__theme-link">ITCase Sphinx Theme</a>
+    <span class="footer__theme-text"> | </span>
+    <a href="http://sphinx-doc.org/" class="footer__theme-link">Built with Sphinx</a>
+
+    {% if theme_version %}
       <span class="footer__theme-text">
           | version: {{ theme_version }}
       </span>
-    {%- endif %}
+    {% endif %}
 </div>
+
 <div class="footer__links">
     {% if display_github %}
         <a href="https://github.com/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}.rst"

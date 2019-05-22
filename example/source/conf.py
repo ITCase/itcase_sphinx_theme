@@ -1,113 +1,88 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+import sys
+import os
+import re
 
 import itcase_sphinx_theme
 
-# -- General configuration ------------------------------------------------
+sys.path.insert(0, os.path.abspath('..'))
+sys.path.append(os.path.abspath('./source/'))
 
+from sphinx.locale import _
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
+project = 'ITCase Sphinx Doc'
+slug = re.sub(r'\W+', '-', project.lower())
+author = 'ITCase'
+copyright = author
+
 extensions = [
+    'sphinx.ext.intersphinx',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
-    'sphinx.ext.todo',
     'sphinx.ext.imgmath',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
+    'sphinx.ext.viewcode',
+    'sphinxcontrib.httpdomain',
     'itcase_sphinx_theme'
 ]
 
-# Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
-
-# The suffix(es) of source filenames.
 source_suffix = '.rst'
+exclude_patterns = []
 
-# The master toctree document.
 master_doc = 'index'
+suppress_warnings = ['image.nonlocal_uri']
+pygments_style = 'default'
 
-# General information about the project.
-project = 'itcase-sphinx-theme-example'
-copyright = '2019, ITCase'
-author = 'ITCase'
-
-# The short X.Y version.
-version = ''
-# The full version, including alpha/beta/rc tags.
-release = ''
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build']
-
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
-
-
-# -- Options for HTML output ----------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'itcase'
-html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-
-# Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
-#
-# This is required for the alabaster theme
-# refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',  # needs 'show_related': True theme option to display
-        'searchbox.html'
-    ]
+intersphinx_mapping = {
+    'rtd': ('https://docs.readthedocs.io/en/latest/', None),
+    'sphinx': ('http://www.sphinx-doc.org/en/stable/', None),
 }
 
+html_theme = 'itcase_sphinx_theme'
+html_theme_path = [itcase_sphinx_theme.get_html_themes_path()]
+html_show_sourcelink = True
 
-# -- Options for HTMLHelp output ------------------------------------------
+htmlhelp_basename = slug
 
-# Output file base name for HTML help builder.
-htmlhelp_basename = 'itcase-pages-doc'
+latex_documents = [
+    ('index', '{0}.tex'.format(slug), project, author, 'manual'),
+]
 
-
-# -- Options for manual page output ---------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'itcase-pages', 'itcase-pages Documentation',
-     [author], 1)
+    ('index', slug, project, [author], 1)
 ]
 
-
-# -- Options for Texinfo output -------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'itcase-pages', 'itcase-pages Documentation',
-     author, 'itcase-pages', 'One line description of project.',
-     'Miscellaneous'),
+    ('index', slug, project, author, slug, project, 'Miscellaneous'),
 ]
 
 
+# Extensions to theme docs
+def setup(app):
+    from sphinx.domains.python import PyField
+    from sphinx.util.docfields import Field
 
+    app.add_object_type(
+        'confval',
+        'confval',
+        objname='configuration value',
+        indextemplate='pair: %s; configuration value',
+        doc_field_types=[
+            PyField(
+                'type',
+                label=_('Type'),
+                has_arg=False,
+                names=('type',),
+                bodyrolename='class'
+            ),
+            Field(
+                'default',
+                label=_('Default'),
+                has_arg=False,
+                names=('default',),
+            ),
+        ]
+    )

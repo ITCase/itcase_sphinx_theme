@@ -729,16 +729,16 @@ ReST позволяет вставлять текст из других файл
 
     Вставка изображения между слов |кубик-рубика| осуществляться с помощью функции автозамены:
 
-    .. |кубик-рубика| image:: _static/favicon.ico
+    .. |кубик-рубика| image:: static/favicon.ico
 
 
-.. |кубик-рубика| image:: _static/favicon.ico
+.. |кубик-рубика| image:: static/favicon.ico
 
 Вставка изображений между абзацами:
 
 ::
 
-    .. figure:: _static/favicon.png
+    .. figure:: static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -749,7 +749,7 @@ ReST позволяет вставлять текст из других файл
 
 .. _my-favicon:
 
-.. figure:: _static/favicon.png
+.. figure:: static/favicon.png
            :scale: 300 %
            :align: center
            :alt: Альтернативный текст
@@ -773,7 +773,7 @@ ReST позволяет вставлять текст из других файл
        :align: right
 
 
-.. figure:: _static/sphinx.jpg
+.. figure:: static/sphinx.jpg
     :width: 60%
     :align: center
     :alt: Альтернативный текст
@@ -786,14 +786,14 @@ ReST позволяет вставлять текст из других файл
 .. _table-label:
 
 
-.. figure:: _static/sphinx.jpg
+.. figure:: static/sphinx.jpg
     :align: left
     :width: 400px
     :alt: Альтернативный текст
 
     Сфинкс слева
 
-.. figure:: _static/sphinx.jpg
+.. figure:: static/sphinx.jpg
     :align: right
     :width: 200px
     :alt: Альтернативный текст
@@ -801,7 +801,7 @@ ReST позволяет вставлять текст из других файл
     Сфинкс справа
 
 
-.. image:: _static/planet_express.svg
+.. image:: static/planet_express.svg
     :align: left
     :width: 400px
     :alt: Альтернативный текст

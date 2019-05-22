@@ -1,61 +1,64 @@
 {# TEMPLATE VAR SETTINGS #}
-{%- set url_root = pathto('', 1) %}
-{%- if url_root == '#' %}
+{% set url_root = pathto('', 1) %}
+
+{% if url_root == '#' %}
     {% set url_root = '' %}
 {% endif %}
-{%- if not embedded and docstitle %}
-    {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
-{%- else %}
-    {%- set titlesuffix = "" %}
-{%- endif %}
+
+{% if not embedded and docstitle %}
+    {% set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{% else %}
+    {% set titlesuffix = "" %}
+{% endif %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    {{ metatags }}
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     {% block htmltitle %}
         <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
 
+    {{ metatags }}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
     {% if favicon %}
-        <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+        <link rel="shortcut icon" href="{{ pathto('static/' + favicon, 1) }}"/>
     {% endif %}
 
     {% if not embedded %}
         {% if use_opensearch %}
-            <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+            <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('static/opensearch.xml', 1) }}"/>
         {% endif %}
     {% endif %}
 
-    {%- block linktags %}
-        {%- if hasdoc('about') %}
+    {% block linktags %}
+        {% if hasdoc('about') %}
             <link rel="author" title="{{ _('About these documents') }}"
                   href="{{ pathto('about') }}"/>
-        {%- endif %}
-        {%- if hasdoc('genindex') %}
+        {% endif %}
+        {% if hasdoc('genindex') %}
             <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}"/>
-        {%- endif %}
-        {%- if hasdoc('search') %}
+        {% endif %}
+        {% if hasdoc('search') %}
             <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}"/>
-        {%- endif %}
-        {%- if hasdoc('copyright') %}
+        {% endif %}
+        {% if hasdoc('copyright') %}
             <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}"/>
-        {%- endif %}
+        {% endif %}
 
         <link rel="top" title="{{ docstitle|e }}" href="{{ pathto('index') }}"/>
 
-        {%- if parents %}
+        {% if parents %}
             <link rel="up" title="{{ parents[-1].title|striptags|e }}" href="{{ parents[-1].link|e }}"/>
-        {%- endif %}
-        {%- if next %}
+        {% endif %}
+        {% if next %}
             <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}"/>
-        {%- endif %}
-        {%- if prev %}
+        {% endif %}
+        {% if prev %}
             <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}"/>
-        {%- endif %}
-    {%- endblock %}
+        {% endif %}
+    {% endblock %}
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet" type="text/css" />
 
@@ -63,11 +66,11 @@
     <link href="{{ pathto('_static/css/__main.css', 2) }}" type="text/css" rel="stylesheet" />
 
     {% if not embedded %}
-        {%- for scriptfile in script_files %}
+        {% for scriptfile in script_files %}
             <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
-        {%- endfor %}
+        {% endfor %}
     {% endif %}
-    {%- block extrahead %}{% endblock %}
+    {% block extrahead %}{% endblock %}
 </head>
 
 <body>
@@ -103,12 +106,13 @@
             <div class="main-menu__wrapper">
                 <div class="logo">
                     {% if theme_logo|lower == 'true' %}
-                        <a href="{{ pathto(master_doc) }}" class="logo__link">
-                            <img class="logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
+                        <a href="{{ pathto(master_doc) }}" class="logo-link">
+                            <img class="logo-link__image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}"
+                                 width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
                         </a>
                         <div class="logo__desc">{{ theme_logo_image_desc }}</div>
                     {% else %}
-                        <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+                        <a href="{{ pathto(master_doc) }}" class="logo-link">{{ project }}</a>
                     {% endif %}
                 </div>
 
@@ -142,19 +146,6 @@
     </div>
 
     <script type="text/javascript" src="{{ pathto('_static/js/__build/__main.js', 1) }}"></script>
-
-    {% if not embedded %}
-        <script type="text/javascript">
-            var DOCUMENTATION_OPTIONS = {
-                URL_ROOT:'{{ url_root }}',
-                VERSION:'{{ release|e }}',
-                COLLAPSE_INDEX:false,
-                FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
-                HAS_SOURCE:  {{ has_source|lower }},
-                SOURCELINK_SUFFIX: '{{ sourcelink_suffix }}'
-            };
-        </script>
-    {% endif %}
 
     {% include "versions.html" %}
 </body>

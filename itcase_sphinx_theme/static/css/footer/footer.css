@@ -13,24 +13,34 @@
     padding: 15px 0 0 0;
   }
   &__copyright {
-    font: 13px var(--font);
+    font: 14px var(--font);
     padding: 15px 0 0 0;
   }
   &__last_updated {
-    font: 13px var(--font);
+    font: 14px var(--font);
   }
   &__theme {
     padding: 5px 0 0 0;
     &-link {
-      font: 13px var(--font);
-      color: #0072aa;
+      font: 14px var(--font);
+      color: var(--color-blue);
       &:hover {
         color: #000;
       }
     }
     &-text {
-      font: 13px var(--font);
-      color: #222;
+      font: 14px var(--font);
+      color: #000;
+    }
+  }
+  &__links {
+    padding: 15px 0 0 0;
+    &-item {
+      font: 14px var(--font);
+      color: #000;
+      &:hover {
+        color: var(--color-blue);
+      }
     }
   }
 }

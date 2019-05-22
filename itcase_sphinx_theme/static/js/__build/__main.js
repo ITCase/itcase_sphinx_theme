@@ -111,7 +111,10 @@ __webpack_require__(/*! ./stickyNav */ "./itcase_sphinx_theme/itcase/static/js/s
   !*** ./itcase_sphinx_theme/itcase/static/js/menu.js ***!
   \******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 const animation = 'webkitAnimationEnd oanimationend msAnimationEnd animationend'
 
@@ -128,21 +131,20 @@ if ($('.main-menu_type_mobile').length) {
   mobileMenuHiddenClass = 'main-menu_type_mobile_state_hidden'
 }
 
-function closeMobileMenu () {
+function closeMobileMenu() {
   $hamburgerButton.removeClass(hamburgerButtonActiveClass)
-  $mobileMenu
-    .addClass(mobileMenuHiddenClass)
-    .on(animation, () => {
-      $mobileMenu.removeClass([mobileMenuVisibleClass, mobileMenuHiddenClass].join(' ')).off(animation)
-    })
+  $mobileMenu.addClass(mobileMenuHiddenClass).on(animation, () => {
+    $mobileMenu
+      .removeClass([mobileMenuVisibleClass, mobileMenuHiddenClass].join(' ')).off(animation)
+  })
 }
 
-function openMobileMenu () {
+function openMobileMenu() {
   $hamburgerButton.addClass(hamburgerButtonActiveClass)
   $mobileMenu.addClass(mobileMenuVisibleClass)
 }
 
-$hamburgerButton.on('click', function () {
+$hamburgerButton.on('click', function() {
   if ($(this).hasClass(hamburgerButtonActiveClass)) {
     closeMobileMenu()
   } else {
@@ -158,7 +160,6 @@ $(document).on('click', (event) => {
   }
 })
 
-
 const $siteMenuLink = $('.site-menu__link')
 const menuLinkActive = 'site-menu__link_state_active'
 
@@ -172,7 +173,7 @@ const $siteMenuFader = $('.site-menu__fader')
 const siteMenuFaderVisible = 'site-menu__fader_state_visible'
 const siteMenuFaderHidden = 'site-menu__fader_state_hidden'
 
-function closeSiteMenu () {
+function closeSiteMenu() {
   $siteMenuLink.removeClass(menuLinkActive)
   $siteMenuFader.addClass(siteMenuFaderHidden)
   $siteMenu.addClass(siteMenuHidden).on(animation, () => {
@@ -181,13 +182,13 @@ function closeSiteMenu () {
   })
 }
 
-function openSiteMenu () {
+function openSiteMenu() {
   $siteMenuLink.addClass(menuLinkActive)
   $siteMenuFader.addClass(siteMenuFaderVisible)
   $siteMenu.addClass(siteMenuVisible)
 }
 
-$siteMenuLink.on('click', function () {
+$siteMenuLink.on('click', function() {
   if ($(this).hasClass(menuLinkActive)) {
     closeSiteMenu()
   } else {
@@ -202,9 +203,7 @@ $siteMenuPopupLink.on('click', () => {
 
 $(document).on('click', (event) => {
   const $siteMenuPopup = $(event.target).closest($siteMenu)
-
-  const siteMenuIsVisible = $siteMenu.is(':visible') &&
-                            $siteMenu.css('visibility') !== 'hidden'
+  const siteMenuIsVisible = $siteMenu.is(':visible') && $siteMenu.css('visibility') !== 'hidden'
 
   if (!$siteMenuPopup.length && siteMenuIsVisible) {
     closeSiteMenu()
@@ -254,7 +253,7 @@ const navMenu = $('.main-menu_type_mobile')
 if (nav.length && header.data('sticky')) {
   let lastScrollTop = 0
 
-  $(window).scroll(function () {
+  $(window).scroll(function() {
     let scrollTop = $(this).scrollTop()
 
     if (scrollTop !== 0) {
@@ -263,7 +262,7 @@ if (nav.length && header.data('sticky')) {
       let mobileMenuHeight = $(window).outerHeight() - nav.outerHeight()
       if ($('.main-menu').hasClass('main-menu_type_mobile_state_visible')) {
         if ($('.main-menu-list').outerHeight() > mobileMenuHeight) {
-          navMenu.css({ 'height': mobileMenuHeight })
+          navMenu.css({ height: mobileMenuHeight })
         }
         navHeight = 0
         offsetNav = 0
@@ -272,18 +271,27 @@ if (nav.length && header.data('sticky')) {
         return
       } else {
         if (scrollTop > lastScrollTop && scrollTop > navHeight) {
-          nav.removeClass(navStateShow).addClass(navStateHide).css({ 'top': -navHeight })
+          nav
+            .removeClass(navStateShow)
+            .addClass(navStateHide)
+            .css({ top: -navHeight })
           header.css({ 'padding-bottom': navHeight })
         } else {
           if (scrollTop > navHeight + offsetNav) {
-            if ((scrollTop + $(window).height()) < $(document).height()) {
-              nav.removeClass(navStateHide).addClass(navStateShow).css({ 'top': 0 })
+            if (scrollTop + $(window).height() < $(document).height()) {
+              nav
+                .removeClass(navStateHide)
+                .addClass(navStateShow)
+                .css({ top: 0 })
             }
           }
         }
       }
     } else {
-      nav.removeAttr('style').removeClass(navStateShow).removeClass(navStateHide)
+      nav
+        .removeAttr('style')
+        .removeClass(navStateShow)
+        .removeClass(navStateHide)
       header.removeAttr('style')
     }
 

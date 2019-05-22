@@ -3,8 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = itcase-pages
+SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
@@ -20,4 +19,4 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 livehtml:
-	sphinx-autobuild ./source/ ./_build/
+	sphinx-autobuild ./source/ ./build/

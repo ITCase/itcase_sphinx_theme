@@ -18,7 +18,6 @@ copyright = author
 
 extensions = [
     'sphinx.ext.intersphinx',
-    'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.imgmath',
     'sphinx.ext.mathjax',

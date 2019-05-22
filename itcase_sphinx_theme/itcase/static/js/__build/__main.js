@@ -96,7 +96,7 @@
 "use strict";
 
 
-__webpack_require__(/*! expose-loader?Cookies!./vendor/js.cookie.js */ "./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js")
+__webpack_require__(/*! expose-loader?Cookies!./vendor/js.cookie.js */ "./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js-exposed")
 __webpack_require__(/*! ./vendor/jquery.fancybox */ "./itcase_sphinx_theme/itcase/static/js/vendor/jquery.fancybox.js")
 
 __webpack_require__(/*! ./menu */ "./itcase_sphinx_theme/itcase/static/js/menu.js")
@@ -5425,10 +5425,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ "./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/expose-loader?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js ***!
-  \*******************************************************************************************************/
+/***/ "./node_modules/expose-loader/index.js?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js-exposed":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/expose-loader?Cookies!./itcase_sphinx_theme/itcase/static/js/vendor/js.cookie.js-exposed ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

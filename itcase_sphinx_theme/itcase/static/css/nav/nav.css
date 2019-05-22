@@ -6,17 +6,22 @@
   display: flex;
   justify-content: space-between;
   @media (--mobile) {
-    padding: 25px 0 15px 0;
+    padding: 15px 0 10px 0;
   }
   &__inner {
     padding: 0 50px 0 0;
     display: flex;
     align-items: center;
+    flex-flow: row wrap;
   }
   &__link {
     font: 16px var(--font);
     color: var(--color-blue);
     display: inline-block;
+    @media (--mobile) {
+      font: 14px var(--font);
+      display: block;
+    }
     &:hover {
       color: #000;
     }
@@ -36,8 +41,12 @@
   }
   &__item {
     font: 16px var(--font);
-    color: #005197;
+    color: var(--color-blue);
     display: inline-block;
+    @media (--mobile) {
+      font: 14px var(--font);
+      display: block;
+    }
     &-state-current {
       position: relative;
       display: inline-block;

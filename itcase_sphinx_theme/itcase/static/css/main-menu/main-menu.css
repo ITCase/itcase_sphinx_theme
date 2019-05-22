@@ -13,13 +13,15 @@
   transform: translateY(-100%);
   animation: 1s both;
   animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  overflow-y: scroll;
   z-index: 2;
+  @media (--mobile) {
+    padding: 100px 0 0 0;
+  }
   &::before {
     width: 100%;
     height: 100%;
     background: #fff;
-    position: absolute;
+    position: fixed;
     content: '';
     display: block;
     right: 0;
@@ -35,13 +37,6 @@
   &_state_hidden {
     animation-name: menuFaderOut;
   }
-  @media (--mobile) {
-    white-space: normal;
-    display: none;
-  }
-  @media (--tablet) {
-    padding: 0 0 0 25px;
-  }
   &__wrapper {
     width: 100%;
     min-width: 985px;
@@ -50,9 +45,17 @@
     position: relative;
     padding: 0 37px;
     box-sizing: border-box;
+    overflow-y: scroll;
+    @media (--mobile) {
+      min-width: 0;
+      padding: 0 0 100px 0;
+    }
     & .tree {
       & ul {
         columns: 250px 3;
+        @media (--mobile) {
+          columns: auto;
+        }
         & .toctree-l1 {
           margin: 10px 0;
         }

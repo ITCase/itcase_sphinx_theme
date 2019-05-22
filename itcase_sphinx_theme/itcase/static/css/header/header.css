@@ -33,6 +33,7 @@
       box-sizing: border-box;
       @media (--mobile) {
         justify-content: space-between;
+        padding: 0 10px;
       }
     }
   }

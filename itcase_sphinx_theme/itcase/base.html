@@ -101,27 +101,24 @@
     {% block sidebar %}
         <nav class="main-menu">
             <div class="main-menu__wrapper">
-                <div class="main-menu-inner">
+                <div class="logo">
+                    {% if theme_logo|lower == 'true' %}
+                        <a href="{{ pathto(master_doc) }}" class="logo__link">
+                            <img class="logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
+                        </a>
+                        <div class="logo__desc">{{ theme_logo_image_desc }}</div>
+                    {% else %}
+                        <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
+                    {% endif %}
+                </div>
 
-                    <div class="logo">
-                        {% if theme_logo|lower == 'true' %}
-                            <a href="{{ pathto(master_doc) }}" class="logo__link">
-                                <img class="logo__link-image" src="{{ pathto('_static/' ~ theme_logo_image, 1) }}" width="{{ theme_logo_width }}" height="{{ theme_logo_height }}" alt="{{ project }}" />
-                            </a>
-                            <div class="logo__desc">{{ theme_logo_image_desc }}</div>
-                        {% else %}
-                            <a href="{{ pathto(master_doc) }}" class="menu-project__link">{{ project }}</a>
-                        {% endif %}
-                    </div>
-
-                    <div class="tree">
-                        {% set toctree = toctree(includehidden=True) %}
-                        {% if toctree %}
-                            {{ toctree }}
-                        {% else %}
-                            {{ toc }}
-                        {% endif %}
-                    </div>
+                <div class="tree">
+                    {% set toctree = toctree(includehidden=True) %}
+                    {% if toctree %}
+                        {{ toctree }}
+                    {% else %}
+                        {{ toc }}
+                    {% endif %}
                 </div>
             </div>
         </nav>
